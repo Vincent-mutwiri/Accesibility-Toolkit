@@ -15,12 +15,39 @@
   --color-border-dark: #374151;
   --font-display: 'Epilogue', sans-serif;
   --font-body: 'Proxima Nova', sans-serif;
+
+  /* Brand Colors from Palette */
+  --color-brand-blue: #2E6EAF;
+  /* Picton Blue */
+  --color-brand-green: #197342;
+  /* Celery Green */
+  --color-brand-yellow: #F5C518;
+  /* Corn Yellow */
+  --color-brand-orange: #E18905;
+  /* Sunset Orange */
+  --color-brand-red: #D12310;
+  /* Meteor Red */
+  --color-brand-purple: #6D28D9;
+  /* Placeholder for Purple */
+  --color-brand-cyan: #06B6D4;
+  /* Placeholder for Cyan */
+  --color-brand-mint: #82C842;
+  /* Mint Green */
+  --color-brand-gold: #FFB80C;
+  /* Tahiti Gold */
+  --color-brand-black: #101110;
+  /* Asphalt Black */
 }
 
 body {
   font-family: var(--font-body);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
 }
