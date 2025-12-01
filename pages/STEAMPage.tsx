@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Checklist from '../components/Checklist';
+import { BiasSpottingActivity } from '../components/Activities';
 
 const STEAMPage: React.FC = () => {
   return (
@@ -38,6 +39,11 @@ const STEAMPage: React.FC = () => {
               <p className="text-sm">Use familiar cultural contexts in challenges. Highlight innovators from diverse backgrounds. Encourage projects addressing local issues.</p>
             </div>
           </div>
+          
+          <div className="not-prose mt-8 mb-8">
+            <BiasSpottingActivity />
+          </div>
+
         </div>
 
         <Checklist 

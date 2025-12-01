@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Checklist from '../components/Checklist';
+import { ColorContrastActivity } from '../components/Activities';
 
 const ManagementSystemsPage: React.FC = () => {
   return (
@@ -29,6 +30,10 @@ const ManagementSystemsPage: React.FC = () => {
                 <li><strong>Accessibility-First:</strong> WCAG 2.1 AA compliance, multiple input methods, and assistive technology compatibility.</li>
                 <li><strong>Culturally Responsive:</strong> Design iconography and themes that are universally understood and culturally respectful.</li>
               </ul>
+              
+              <div className="not-prose mt-6">
+                <ColorContrastActivity />
+              </div>
             </div>
 
             <div className="border-l-4 border-primary pl-6">

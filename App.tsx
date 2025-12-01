@@ -7,6 +7,8 @@ import DigitalLearningPage from './pages/DigitalLearningPage';
 import TutoringPage from './pages/TutoringPage';
 import STEAMPage from './pages/STEAMPage';
 import WorkforcePage from './pages/WorkforcePage';
+import AboutPage from './pages/AboutPage';
+import ResourcesPage from './pages/ResourcesPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -28,6 +30,8 @@ const App: React.FC = () => {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/management-systems" element={<ManagementSystemsPage />} />
             <Route path="/online-learning" element={<OnlineLearningPage />} />
             <Route path="/digital-learning" element={<DigitalLearningPage />} />
