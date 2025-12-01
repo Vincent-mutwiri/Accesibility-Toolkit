@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Checklist from '../components/Checklist';
+import { AuthChoiceActivity } from '../components/Activities';
 
 const WorkforcePage: React.FC = () => {
   return (
@@ -22,11 +23,14 @@ const WorkforcePage: React.FC = () => {
           <div className="space-y-8">
             <section>
               <h2 className="text-2xl font-bold text-text-light dark:text-text-dark mb-4">1. Inclusive Access & Onboarding</h2>
-              <ul className="list-disc pl-5 space-y-2">
+              <ul className="list-disc pl-5 space-y-2 mb-6">
                 <li><strong>Multiple paths:</strong> Phone-first (SMS), social logins, email.</li>
                 <li><strong>Offline onboarding:</strong> Printable guides or facilitator-led sessions.</li>
                 <li><strong>Inclusive profiles:</strong> Allow capturing of informal skills (e.g., caregiving, farming).</li>
               </ul>
+              <div className="not-prose">
+                <AuthChoiceActivity />
+              </div>
             </section>
 
             <section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Checklist from '../components/Checklist';
+import { MultilingualToggleActivity } from '../components/Activities';
 
 const OnlineLearningPage: React.FC = () => {
   return (
@@ -34,6 +35,10 @@ const OnlineLearningPage: React.FC = () => {
             <div className="p-6 bg-background-light dark:bg-background-dark rounded-xl">
               <h3 className="text-xl font-bold text-primary mb-3">Culturally Responsive Content</h3>
               <p>Use diverse examples and avoid stereotypes. Embed cultural responsiveness to create a sense of belonging, which is critical for sustained participation.</p>
+              
+              <div className="not-prose mt-4">
+                 <MultilingualToggleActivity />
+              </div>
             </div>
 
             <div className="p-6 bg-background-light dark:bg-background-dark rounded-xl">

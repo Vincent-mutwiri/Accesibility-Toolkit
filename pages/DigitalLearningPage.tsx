@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Checklist from '../components/Checklist';
+import { UDLPreviewActivity } from '../components/Activities';
 
 const DigitalLearningPage: React.FC = () => {
   return (
@@ -61,6 +62,9 @@ const DigitalLearningPage: React.FC = () => {
                 <li>Provide offline/downloadable options.</li>
                 <li>Allow self-pacing (pause, replay, skip).</li>
               </ul>
+              <div className="not-prose mt-4">
+                <UDLPreviewActivity />
+              </div>
             </div>
           </div>
         </div>
