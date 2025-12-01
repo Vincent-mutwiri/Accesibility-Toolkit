@@ -1,3 +1,4 @@
+
 # Equity and Inclusion Toolkit
 
 A comprehensive, interactive toolkit designed to help EdTech professionals create more accessible and inclusive digital learning experiences. This practical resource connects accessibility and inclusion principles directly to product design, development, and evaluation.
