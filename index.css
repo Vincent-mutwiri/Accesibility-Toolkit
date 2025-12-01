@@ -13,9 +13,14 @@
   --color-subtle-dark: #9CA3AF;
   --color-border-light: #E5E7EB;
   --color-border-dark: #374151;
-  --font-display: 'Roboto', sans-serif;
+  --font-display: 'Epilogue', sans-serif;
+  --font-body: 'Proxima Nova', sans-serif;
 }
 
 body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }

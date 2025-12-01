@@ -2,20 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Logo = () => (
-  <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
-    {/* Center */}
-    <circle cx="50" cy="50" r="15" stroke="#EC4899" strokeWidth="8" fill="none" />
-    
-    {/* Petals - Clockwise from Top */}
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#F59E0B" strokeWidth="6" fill="none" transform="rotate(0 50 50)" />
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#FACC15" strokeWidth="6" fill="none" transform="rotate(45 50 50)" />
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#EF4444" strokeWidth="6" fill="none" transform="rotate(90 50 50)" />
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#8B5CF6" strokeWidth="6" fill="none" transform="rotate(135 50 50)" />
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#3B82F6" strokeWidth="6" fill="none" transform="rotate(180 50 50)" />
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#06B6D4" strokeWidth="6" fill="none" transform="rotate(225 50 50)" />
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#10B981" strokeWidth="6" fill="none" transform="rotate(270 50 50)" />
-    <path d="M50 25 C50 5 65 5 65 25 C65 35 50 35 50 35" stroke="#84CC16" strokeWidth="6" fill="none" transform="rotate(315 50 50)" />
-  </svg>
+  <img 
+    src="/CcHUB logo.png" 
+    alt="CcHUB Logo" 
+    className="h-10 w-auto mr-3"
+  />
 );
 
 const Navbar: React.FC = () => {
