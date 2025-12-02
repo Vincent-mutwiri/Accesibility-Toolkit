@@ -1,6 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { ColorContrastActivity } from '../components/Activities';
+import { ColorContrastActivity, PrivacyConfigurator } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import ManagementMobileNav from '../components/ManagementMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -48,7 +48,7 @@ const ManagementSystemsPage: React.FC = () => {
               <div className="grid gap-6 not-prose">
                 <div id="ui-experience" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">1. Inclusive User Interface and Experience Design</h3>
-                  
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Multi-language Support Implementation</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
@@ -87,7 +87,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div id="access-authentication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-green mb-3">2. Equitable Access and Authentication</h3>
-                  
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Flexible Authentication Systems</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
@@ -121,7 +121,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div id="content-management" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">3. Inclusive Content Management and Delivery</h3>
-                  
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Universal Design for Learning (UDL) Implementation</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
@@ -155,7 +155,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div id="assessment" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">4. Equitable Assessment and Evaluation</h3>
-                  
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Multiple Assessment Formats</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
@@ -189,7 +189,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div id="communication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-purple mb-3">5. Inclusive Communication and Collaboration Tools</h3>
-                  
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Cross-Cultural Communication Support</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
@@ -213,7 +213,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div id="data-privacy" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-red mb-3">6. Data Privacy and Algorithmic Fairness</h3>
-                  
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Ethical Data Collection and Usage</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
@@ -232,6 +232,9 @@ const ManagementSystemsPage: React.FC = () => {
                       <li className="flex items-start"><span className="material-icons text-brand-red text-sm mr-2 mt-1">check</span>Provide clear explanations of data usage in multiple languages and cultural contexts</li>
                       <li className="flex items-start"><span className="material-icons text-brand-red text-sm mr-2 mt-1">check</span>Ensure compliance with international privacy regulations (GDPR, COPPA, etc.)</li>
                     </ul>
+                  </div>
+                  <div className="mt-4">
+                    <PrivacyConfigurator />
                   </div>
                 </div>
               </div>
@@ -343,75 +346,75 @@ const ManagementSystemsPage: React.FC = () => {
 
             <div id="checklist">
               <Checklist
-              title="Comprehensive Checklist for Equitable Management Systems"
-              items={[
-                "Conduct comprehensive stakeholder analysis including historically marginalized communities",
-                "Establish diverse advisory board with community representatives",
-                "Complete accessibility requirements analysis and compliance planning",
-                "Develop multilingual and multicultural content strategy",
-                "Create bias mitigation protocols for all system algorithms",
-                "Establish partnerships with community organizations and advocacy groups",
-                "Define equity metrics and success indicators for all system features",
-                "Conduct competitive analysis focused on equity and inclusion features",
-                "Implement Universal Design for Learning principles in all interface elements",
-                "Ensure WCAG 2.1 AA compliance (minimum) across all features",
-                "Provide comprehensive multilingual support including right-to-left languages",
-                "Design flexible authentication systems accommodating various access levels",
-                "Implement culturally responsive visual design and iconography",
-                "Create multiple content formats (visual, auditory, kinesthetic options)",
-                "Develop bias-free content curation and recommendation algorithms",
-                "Implement privacy controls that accommodate diverse cultural preferences",
-                "Design collaborative tools that promote cross-cultural understanding",
-                "Create flexible assessment formats accommodating diverse learning styles",
-                "Ensure diverse representation in all visual and textual content",
-                "Implement multiple cultural perspectives in case studies and examples",
-                "Provide content in multiple languages with cultural appropriateness review",
-                "Create culturally responsive learning pathways and recommendations",
-                "Develop inclusive assessment rubrics and feedback mechanisms",
-                "Implement trigger warnings and content context where appropriate",
-                "Ensure historical accuracy and balanced perspectives in educational content",
-                "Create community-generated content opportunities and showcases",
-                "Optimize for low-bandwidth and mobile-first environments",
-                "Implement progressive web app (PWA) functionality for broad device compatibility",
-                "Provide offline synchronization and downloadable content options",
-                "Create multiple input methods (keyboard, voice, touch, assistive technology)",
-                "Implement real-time translation and cultural communication support",
-                "Design scalable infrastructure that maintains performance across all user groups",
-                "Establish robust data security and privacy protection measures",
-                "Create comprehensive API documentation for third-party accessibility tools",
-                "Develop multilingual customer support with cultural competency training",
-                "Create peer mentorship and community connection features",
-                "Implement multiple communication channels accommodating different preferences",
-                "Establish clear reporting mechanisms for bias, harassment, and accessibility issues",
-                "Provide comprehensive onboarding that accommodates various technology skill levels",
-                "Create family and community engagement portals",
-                "Develop culturally appropriate celebration and recognition systems",
-                "Implement conflict resolution processes that respect cultural differences",
-                "Conduct usability testing with diverse user groups across all demographic categories",
-                "Perform comprehensive accessibility testing with actual assistive technology users",
-                "Test multilingual functionality with native speakers and cultural reviewers",
-                "Conduct bias audits of all algorithmic systems and recommendation engines",
-                "Perform load testing across various device and connectivity scenarios",
-                "Test integration with common assistive technologies and accessibility tools",
-                "Conduct security testing with focus on protecting vulnerable user data",
-                "Perform cultural appropriateness review with community representatives",
-                "Establish baseline metrics for equity and inclusion across all user groups",
-                "Implement continuous monitoring dashboards for bias detection and mitigation",
-                "Create feedback loops with community advisory boards and user groups",
-                "Establish regular equity audits and algorithmic fairness assessments",
-                "Monitor completion rates and success metrics across demographic groups",
-                "Track accessibility feature usage and user satisfaction with accommodations",
-                "Implement A/B testing protocols that include equity impact assessment",
-                "Create transparent reporting mechanisms for equity and inclusion progress",
-                "Schedule regular accessibility compliance audits and updates",
-                "Establish continuous cultural competency training for all team members",
-                "Create user feedback integration processes for underrepresented communities",
-                "Implement regular bias testing and algorithm updates",
-                "Maintain partnerships with disability advocacy and cultural organizations",
-                "Conduct annual equity impact assessments and public reporting",
-                "Update content and features based on emerging equity and inclusion research",
-                "Establish succession planning that maintains equity and inclusion commitments"
-              ]}
+                title="Comprehensive Checklist for Equitable Management Systems"
+                items={[
+                  "Conduct comprehensive stakeholder analysis including historically marginalized communities",
+                  "Establish diverse advisory board with community representatives",
+                  "Complete accessibility requirements analysis and compliance planning",
+                  "Develop multilingual and multicultural content strategy",
+                  "Create bias mitigation protocols for all system algorithms",
+                  "Establish partnerships with community organizations and advocacy groups",
+                  "Define equity metrics and success indicators for all system features",
+                  "Conduct competitive analysis focused on equity and inclusion features",
+                  "Implement Universal Design for Learning principles in all interface elements",
+                  "Ensure WCAG 2.1 AA compliance (minimum) across all features",
+                  "Provide comprehensive multilingual support including right-to-left languages",
+                  "Design flexible authentication systems accommodating various access levels",
+                  "Implement culturally responsive visual design and iconography",
+                  "Create multiple content formats (visual, auditory, kinesthetic options)",
+                  "Develop bias-free content curation and recommendation algorithms",
+                  "Implement privacy controls that accommodate diverse cultural preferences",
+                  "Design collaborative tools that promote cross-cultural understanding",
+                  "Create flexible assessment formats accommodating diverse learning styles",
+                  "Ensure diverse representation in all visual and textual content",
+                  "Implement multiple cultural perspectives in case studies and examples",
+                  "Provide content in multiple languages with cultural appropriateness review",
+                  "Create culturally responsive learning pathways and recommendations",
+                  "Develop inclusive assessment rubrics and feedback mechanisms",
+                  "Implement trigger warnings and content context where appropriate",
+                  "Ensure historical accuracy and balanced perspectives in educational content",
+                  "Create community-generated content opportunities and showcases",
+                  "Optimize for low-bandwidth and mobile-first environments",
+                  "Implement progressive web app (PWA) functionality for broad device compatibility",
+                  "Provide offline synchronization and downloadable content options",
+                  "Create multiple input methods (keyboard, voice, touch, assistive technology)",
+                  "Implement real-time translation and cultural communication support",
+                  "Design scalable infrastructure that maintains performance across all user groups",
+                  "Establish robust data security and privacy protection measures",
+                  "Create comprehensive API documentation for third-party accessibility tools",
+                  "Develop multilingual customer support with cultural competency training",
+                  "Create peer mentorship and community connection features",
+                  "Implement multiple communication channels accommodating different preferences",
+                  "Establish clear reporting mechanisms for bias, harassment, and accessibility issues",
+                  "Provide comprehensive onboarding that accommodates various technology skill levels",
+                  "Create family and community engagement portals",
+                  "Develop culturally appropriate celebration and recognition systems",
+                  "Implement conflict resolution processes that respect cultural differences",
+                  "Conduct usability testing with diverse user groups across all demographic categories",
+                  "Perform comprehensive accessibility testing with actual assistive technology users",
+                  "Test multilingual functionality with native speakers and cultural reviewers",
+                  "Conduct bias audits of all algorithmic systems and recommendation engines",
+                  "Perform load testing across various device and connectivity scenarios",
+                  "Test integration with common assistive technologies and accessibility tools",
+                  "Conduct security testing with focus on protecting vulnerable user data",
+                  "Perform cultural appropriateness review with community representatives",
+                  "Establish baseline metrics for equity and inclusion across all user groups",
+                  "Implement continuous monitoring dashboards for bias detection and mitigation",
+                  "Create feedback loops with community advisory boards and user groups",
+                  "Establish regular equity audits and algorithmic fairness assessments",
+                  "Monitor completion rates and success metrics across demographic groups",
+                  "Track accessibility feature usage and user satisfaction with accommodations",
+                  "Implement A/B testing protocols that include equity impact assessment",
+                  "Create transparent reporting mechanisms for equity and inclusion progress",
+                  "Schedule regular accessibility compliance audits and updates",
+                  "Establish continuous cultural competency training for all team members",
+                  "Create user feedback integration processes for underrepresented communities",
+                  "Implement regular bias testing and algorithm updates",
+                  "Maintain partnerships with disability advocacy and cultural organizations",
+                  "Conduct annual equity impact assessments and public reporting",
+                  "Update content and features based on emerging equity and inclusion research",
+                  "Establish succession planning that maintains equity and inclusion commitments"
+                ]}
               />
             </div>
           </div>
