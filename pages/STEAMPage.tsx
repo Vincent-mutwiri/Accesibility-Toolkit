@@ -1,6 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { BiasSpottingActivity } from '../components/Activities';
+import { BiasSpottingActivity, ProjectAdaptationChallenge } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import STEAMMobileNav from '../components/STEAMMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -103,6 +103,9 @@ const STEAMPage: React.FC = () => {
                   </ul>
                   <div className="bg-slate-50 dark:bg-slate-700 p-3 rounded-lg text-sm">
                     <strong>Evidence-in-Practice:</strong> Kolibri and LabXchange offer offline access and syncing capabilities.
+                  </div>
+                  <div className="mt-4">
+                    <ProjectAdaptationChallenge />
                   </div>
                 </div>
 
@@ -216,39 +219,39 @@ const STEAMPage: React.FC = () => {
 
             <div id="checklist">
               <Checklist
-              title="STEAM Platform Equity & Inclusion Checklist"
-              items={[
-                "Are creative tools screen-reader and keyboard compatible?",
-                "Are visuals accessible for color-blind users?",
-                "Are captions/transcripts available for videos?",
-                "Can learners download or sync STEAM projects offline?",
-                "Are simplified simulations available?",
-                "Does the platform run on mobile and low-cost devices?",
-                "Are project themes locally meaningful?",
-                "Does content represent diverse STEAM innovators?",
-                "Are multilingual/localized options available?",
-                "Do lab simulations support both visual and code-based modes?",
-                "Is haptic or tactile feedback incorporated where possible?",
-                "Are digital labs and maker challenges available?",
-                "Do platforms scaffold creativity from guided to open-ended tasks?",
-                "Are reflection tools (journals, prompts) provided?",
-                "Do interfaces maintain clean design with clear tooltips?",
-                "Are creative checkpoints available for pausing and iteration?",
-                "Can project templates be downloaded for offline use?",
-                "Are lightweight versions of simulations available?",
-                "Do challenges use familiar cultural contexts?",
-                "Are local issues (energy, water, waste) addressed in projects?",
-                "Is data consumption minimized through optimization?",
-                "Are open-source or free tools integrated?",
-                "Do learning paths adapt to learner interests and strengths?",
-                "Are multiple assessment formats supported (portfolios, prototypes, presentations)?",
-                "Do narratives celebrate contributions from underrepresented groups?",
-                "Are gender stereotypes avoided in avatars and storylines?",
-                "Are peer studios or collaborative workspaces facilitated?",
-                "Are mentorship opportunities with industry practitioners provided?",
-                "Is learner data use clearly explained and transparent?",
-                "Are AI algorithms audited for fairness in recommendations?"
-              ]}
+                title="STEAM Platform Equity & Inclusion Checklist"
+                items={[
+                  "Are creative tools screen-reader and keyboard compatible?",
+                  "Are visuals accessible for color-blind users?",
+                  "Are captions/transcripts available for videos?",
+                  "Can learners download or sync STEAM projects offline?",
+                  "Are simplified simulations available?",
+                  "Does the platform run on mobile and low-cost devices?",
+                  "Are project themes locally meaningful?",
+                  "Does content represent diverse STEAM innovators?",
+                  "Are multilingual/localized options available?",
+                  "Do lab simulations support both visual and code-based modes?",
+                  "Is haptic or tactile feedback incorporated where possible?",
+                  "Are digital labs and maker challenges available?",
+                  "Do platforms scaffold creativity from guided to open-ended tasks?",
+                  "Are reflection tools (journals, prompts) provided?",
+                  "Do interfaces maintain clean design with clear tooltips?",
+                  "Are creative checkpoints available for pausing and iteration?",
+                  "Can project templates be downloaded for offline use?",
+                  "Are lightweight versions of simulations available?",
+                  "Do challenges use familiar cultural contexts?",
+                  "Are local issues (energy, water, waste) addressed in projects?",
+                  "Is data consumption minimized through optimization?",
+                  "Are open-source or free tools integrated?",
+                  "Do learning paths adapt to learner interests and strengths?",
+                  "Are multiple assessment formats supported (portfolios, prototypes, presentations)?",
+                  "Do narratives celebrate contributions from underrepresented groups?",
+                  "Are gender stereotypes avoided in avatars and storylines?",
+                  "Are peer studios or collaborative workspaces facilitated?",
+                  "Are mentorship opportunities with industry practitioners provided?",
+                  "Is learner data use clearly explained and transparent?",
+                  "Are AI algorithms audited for fairness in recommendations?"
+                ]}
               />
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { UDLPreviewActivity } from '../components/Activities';
+import { UDLPreviewActivity, ScreenReaderSimulator } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import DigitalLearningMobileNav from '../components/DigitalLearningMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -36,7 +36,7 @@ const DigitalLearningPage: React.FC = () => {
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">1. Introduction</h2>
               <p className="mb-4">Digital content is any material created, stored, and shared in digital format—such as text, images, audio, video, graphics, or interactive media—delivered through computers, mobile devices and other digital platforms. In learning, this includes text-based resources (e-books, PDFs, articles), multimedia (videos, podcasts, narrated slides), visuals (infographics, charts), and interactive elements (quizzes, simulations, polls, discussion boards).</p>
               <p className="mb-4">Digital content has the power to expand access to learning opportunities, but without intentional design, it can also create barriers. Designing for equity and inclusion ensures that all learners—regardless of ability, background, or context—can fully engage with content.</p>
-              
+
               <div className="bg-slate-50 dark:bg-slate-800 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-700 not-prose">
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">Inclusive digital content is:</h3>
                 <div className="grid gap-2 sm:gap-3">
@@ -86,6 +86,9 @@ const DigitalLearningPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Create structured, accessible files (e.g., properly tagged PDFs, semantic HTML). Headings, lists, and tables should follow logical reading order.</li>
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Ensure interactivity (e.g., quizzes, simulations) is keyboard navigable and works with assistive technologies.</li>
                   </ul>
+                  <div className="mt-4">
+                    <ScreenReaderSimulator />
+                  </div>
                 </div>
 
                 <div id="representation" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
@@ -134,7 +137,7 @@ const DigitalLearningPage: React.FC = () => {
             <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">3. Monitoring & Evaluation</h2>
               <p className="mb-6">Designing for equity and inclusion is only effective if we can measure progress. Monitoring and evaluation (M&E) help identify what is working and where barriers remain. Using a combination of accessibility audits, learner analytics, and feedback ensures that inclusivity is not an assumption but a measurable outcome.</p>
-              
+
               <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 not-prose">
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Suggested Metrics:</h3>
                 <div className="grid gap-4">
@@ -175,54 +178,54 @@ const DigitalLearningPage: React.FC = () => {
 
             <div id="checklist">
               <Checklist
-              title="Equity & Inclusion Checklist for Digital Content"
-              items={[
-                "All images, icons, graphs, and diagrams include meaningful alt text",
-                "Decorative images are marked as decorative (so they are ignored by screen readers)",
-                "Videos include closed captions and transcripts",
-                "Audio files include transcripts",
-                "Interactive elements (quizzes, buttons, simulations) are keyboard-accessible",
-                "Content is compatible with screen readers and assistive technologies",
-                "Text and background colors meet WCAG contrast standards (minimum 4.5:1)",
-                "Information is not conveyed by color alone (use labels, patterns, or symbols too)",
-                "Headings and subheadings follow logical, hierarchical structure (H1 → H2 → H3)",
-                "Tables include headers and are properly tagged for accessibility",
-                "Links are descriptive (e.g., 'Read more about equity' instead of 'Click here')",
-                "PDFs and documents are tagged, structured, and tested for accessibility",
-                "Images reflect diversity in gender, race, ethnicity, age, ability, and culture",
-                "Examples and case studies come from varied cultural and geographic contexts",
-                "Content avoids stereotypes, tokenism, and bias",
-                "Gender-neutral or inclusive language is used where appropriate",
-                "Cultural references (idioms, metaphors, humor) are reviewed for cross-cultural relevance",
-                "Multiple perspectives are presented (not a single dominant narrative)",
-                "Content is broken into clear, well-labeled sections",
-                "Headings, bullet points, and white space are used for readability",
-                "Navigation is consistent across modules/pages",
-                "Buttons and links are clearly labeled and easy to identify",
-                "Plain language is used; jargon and technical terms are explained",
-                "Font size, style, and spacing support readability (minimum 12–14pt)",
-                "Content layout adapts well across devices (desktop, tablet, mobile)",
-                "Content loads quickly and efficiently (optimized images, compressed media)",
-                "A low-bandwidth version (e.g., text-only or downloadable file) is available",
-                "Instructions for activities/quizzes are clear and concise",
-                "Content follows predictable patterns (no sudden navigation changes)",
-                "Content is available in multiple formats (text, audio, video, interactive)",
-                "Learners can download materials for offline use",
-                "Audio and video can be paused, replayed, or sped up",
-                "Assessments offer multiple ways of response (e.g., written, oral, visual)",
-                "Alternative text-only versions are provided for multimedia-heavy resources",
-                "Learners can control pacing (self-paced navigation, skip/review options)",
-                "Interactive elements are optional, not mandatory, for progression",
-                "Different learning styles are supported (visual, auditory, kinesthetic, reading/writing)",
-                "Mechanisms for learner feedback are included (surveys, comment forms, forums)",
-                "Learner feedback on accessibility and inclusivity is regularly reviewed",
-                "Analytics track learner engagement across formats (video, text, audio)",
-                "Drop-off points are monitored to identify usability barriers",
-                "Accessibility audits are conducted before release",
-                "Content is tested on multiple devices and browsers",
-                "Updates are made based on learner feedback and analytics",
-                "Peer or expert review includes a check for DEI (Diversity, Equity, Inclusion)"
-              ]}
+                title="Equity & Inclusion Checklist for Digital Content"
+                items={[
+                  "All images, icons, graphs, and diagrams include meaningful alt text",
+                  "Decorative images are marked as decorative (so they are ignored by screen readers)",
+                  "Videos include closed captions and transcripts",
+                  "Audio files include transcripts",
+                  "Interactive elements (quizzes, buttons, simulations) are keyboard-accessible",
+                  "Content is compatible with screen readers and assistive technologies",
+                  "Text and background colors meet WCAG contrast standards (minimum 4.5:1)",
+                  "Information is not conveyed by color alone (use labels, patterns, or symbols too)",
+                  "Headings and subheadings follow logical, hierarchical structure (H1 → H2 → H3)",
+                  "Tables include headers and are properly tagged for accessibility",
+                  "Links are descriptive (e.g., 'Read more about equity' instead of 'Click here')",
+                  "PDFs and documents are tagged, structured, and tested for accessibility",
+                  "Images reflect diversity in gender, race, ethnicity, age, ability, and culture",
+                  "Examples and case studies come from varied cultural and geographic contexts",
+                  "Content avoids stereotypes, tokenism, and bias",
+                  "Gender-neutral or inclusive language is used where appropriate",
+                  "Cultural references (idioms, metaphors, humor) are reviewed for cross-cultural relevance",
+                  "Multiple perspectives are presented (not a single dominant narrative)",
+                  "Content is broken into clear, well-labeled sections",
+                  "Headings, bullet points, and white space are used for readability",
+                  "Navigation is consistent across modules/pages",
+                  "Buttons and links are clearly labeled and easy to identify",
+                  "Plain language is used; jargon and technical terms are explained",
+                  "Font size, style, and spacing support readability (minimum 12–14pt)",
+                  "Content layout adapts well across devices (desktop, tablet, mobile)",
+                  "Content loads quickly and efficiently (optimized images, compressed media)",
+                  "A low-bandwidth version (e.g., text-only or downloadable file) is available",
+                  "Instructions for activities/quizzes are clear and concise",
+                  "Content follows predictable patterns (no sudden navigation changes)",
+                  "Content is available in multiple formats (text, audio, video, interactive)",
+                  "Learners can download materials for offline use",
+                  "Audio and video can be paused, replayed, or sped up",
+                  "Assessments offer multiple ways of response (e.g., written, oral, visual)",
+                  "Alternative text-only versions are provided for multimedia-heavy resources",
+                  "Learners can control pacing (self-paced navigation, skip/review options)",
+                  "Interactive elements are optional, not mandatory, for progression",
+                  "Different learning styles are supported (visual, auditory, kinesthetic, reading/writing)",
+                  "Mechanisms for learner feedback are included (surveys, comment forms, forums)",
+                  "Learner feedback on accessibility and inclusivity is regularly reviewed",
+                  "Analytics track learner engagement across formats (video, text, audio)",
+                  "Drop-off points are monitored to identify usability barriers",
+                  "Accessibility audits are conducted before release",
+                  "Content is tested on multiple devices and browsers",
+                  "Updates are made based on learner feedback and analytics",
+                  "Peer or expert review includes a check for DEI (Diversity, Equity, Inclusion)"
+                ]}
               />
             </div>
           </div>
@@ -240,7 +243,7 @@ const DigitalLearningPage: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <DigitalLearningMobileNav />
       <FloatingBackButton />
     </div>

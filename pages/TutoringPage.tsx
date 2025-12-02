@@ -1,6 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { AssessmentSelectorActivity } from '../components/Activities';
+import { AssessmentSelectorActivity, FeedbackScenario } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import TutoringMobileNav from '../components/TutoringMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -115,7 +115,12 @@ const TutoringPage: React.FC = () => {
                     </div>
                     <div className="flex items-start">
                       <span className="material-icons text-brand-yellow text-sm mr-2 mt-1">forum</span>
-                      <div><strong>Inclusive Communication and Feedback:</strong> Offer feedback in multiple languages and styles. Use culturally sensitive encouragement strategies to boost learner confidence.</div>
+                      <div className="w-full">
+                        <strong>Inclusive Communication and Feedback:</strong> Offer feedback in multiple languages and styles. Use culturally sensitive encouragement strategies to boost learner confidence.
+                        <div className="mt-4">
+                          <FeedbackScenario />
+                        </div>
+                      </div>
                     </div>
                     <div className="flex items-start">
                       <span className="material-icons text-brand-orange text-sm mr-2 mt-1">security</span>
@@ -170,32 +175,32 @@ const TutoringPage: React.FC = () => {
             </div>
 
             <div id="checklist">
-              <Checklist 
-              title="Tutoring Platform Equity & Inclusion Checklist"
-              items={[
-                "Does the live tutoring feature provide real-time captions or transcripts?",
-                "Are all suggested revision materials accessible (captions, alt text, keyboard navigation)?",
-                "Can the platform interface be tailored to visual preferences?",
-                "Are there alternative ways to interact with the tutor or platform?",
-                "Can revision materials be downloaded for offline access?",
-                "Does the live tutoring work well on low-bandwidth connections (e.g., text-only mode)?",
-                "Is the platform compatible with a broad range of devices and browsers?",
-                "Do tutors and revision materials reflect cultural diversity and sensitivity?",
-                "Are language localization options available for the platform and content?",
-                "Does the personalization algorithm provide content in manageable chunks?",
-                "Are materials scaffolded with clear learning objectives and summaries?",
-                "Do progress indicators provide encouraging feedback to learners?",
-                "Are diverse practice formats available (quizzes, oral, visual, performance tasks)?",
-                "Is AI-driven adaptivity checked for bias to prevent stereotyping?",
-                "Do examples and case studies ensure diverse representation?",
-                "Are materials translated and localized for multilingual learners?",
-                "Is content regularly reviewed for cultural fairness and bias?",
-                "Is feedback offered in multiple languages and culturally sensitive styles?",
-                "Are there safe spaces for peer study groups and community support?",
-                "Is learner data use transparent with clear privacy controls?",
-                "Are algorithms powering recommendations and scoring regularly audited?",
-                "Do learners have control over personalization settings?"
-              ]}
+              <Checklist
+                title="Tutoring Platform Equity & Inclusion Checklist"
+                items={[
+                  "Does the live tutoring feature provide real-time captions or transcripts?",
+                  "Are all suggested revision materials accessible (captions, alt text, keyboard navigation)?",
+                  "Can the platform interface be tailored to visual preferences?",
+                  "Are there alternative ways to interact with the tutor or platform?",
+                  "Can revision materials be downloaded for offline access?",
+                  "Does the live tutoring work well on low-bandwidth connections (e.g., text-only mode)?",
+                  "Is the platform compatible with a broad range of devices and browsers?",
+                  "Do tutors and revision materials reflect cultural diversity and sensitivity?",
+                  "Are language localization options available for the platform and content?",
+                  "Does the personalization algorithm provide content in manageable chunks?",
+                  "Are materials scaffolded with clear learning objectives and summaries?",
+                  "Do progress indicators provide encouraging feedback to learners?",
+                  "Are diverse practice formats available (quizzes, oral, visual, performance tasks)?",
+                  "Is AI-driven adaptivity checked for bias to prevent stereotyping?",
+                  "Do examples and case studies ensure diverse representation?",
+                  "Are materials translated and localized for multilingual learners?",
+                  "Is content regularly reviewed for cultural fairness and bias?",
+                  "Is feedback offered in multiple languages and culturally sensitive styles?",
+                  "Are there safe spaces for peer study groups and community support?",
+                  "Is learner data use transparent with clear privacy controls?",
+                  "Are algorithms powering recommendations and scoring regularly audited?",
+                  "Do learners have control over personalization settings?"
+                ]}
               />
             </div>
           </div>

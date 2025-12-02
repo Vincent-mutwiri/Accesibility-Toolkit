@@ -1,6 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { MultilingualToggleActivity } from '../components/Activities';
+import { MultilingualToggleActivity, BandwidthSimulator } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import OnlineLearningMobileNav from '../components/OnlineLearningMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -85,6 +85,9 @@ const OnlineLearningPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span>Ensure core features are usable on low-cost devices.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Design for the broadest range of devices, connectivity levels, and economic realities. The benchmark should be that no learner should be excluded due to technical or economic barriers. When access is equitable, learners can focus on the content rather than struggling with infrastructure challenges, closing the digital divide.</p>
+                  <div className="mt-4">
+                    <BandwidthSimulator />
+                  </div>
                 </div>
 
                 <div id="inclusive-interaction" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
@@ -205,57 +208,57 @@ const OnlineLearningPage: React.FC = () => {
 
             <div id="checklist">
               <Checklist
-              title="Comprehensive Checklist for Assessing Equity & Inclusion in Online Learning"
-              items={[
-                "Conduct needs assessment to identify barriers (digital access, language, disability, socioeconomic)",
-                "Gather input from diverse learners, educators, and community representatives",
-                "Define equity and inclusion goals with measurable outcomes",
-                "Secure partnerships for device access, connectivity, and community outreach",
-                "Plan for multiple learning pathways (asynchronous, synchronous, blended)",
-                "Apply accessibility standards (WCAG 2.1 AA minimum, AAA aspirational)",
-                "Ensure interface works across devices (low-end smartphones, tablets, desktops)",
-                "Incorporate multilingual navigation and right-to-left text support",
-                "Provide customizable features (font size, color contrast, captions, transcripts)",
-                "Design culturally responsive visuals, icons, and representations",
-                "Embed Universal Design for Learning (UDL) principles in learning pathways",
-                "Use examples and case studies reflecting diverse cultural and social contexts",
-                "Avoid stereotypes; represent learners of varied identities and abilities",
-                "Offer multiple formats (text, audio, video, interactive simulations)",
-                "Ensure learning objectives are achievable through different modes of engagement",
-                "Include content that affirms marginalized voices and perspectives",
-                "Build in opportunities for learners to contribute personal knowledge/experiences",
-                "Optimize platform for low-bandwidth environments and offline access",
-                "Ensure compatibility with assistive technologies (screen readers, voice control)",
-                "Implement flexible authentication (guest access, shared devices, family accounts)",
-                "Provide scalable infrastructure for different class sizes and geographies",
-                "Enable secure data storage with learner-controlled privacy settings",
-                "Build progressive web apps (PWA) or mobile-friendly versions",
-                "Create multiple support channels (chat, email, forums, phone)",
-                "Offer multilingual helpdesk and FAQs",
-                "Establish mentorship and peer-support systems",
-                "Provide clear codes of conduct to ensure respectful communication",
-                "Moderate forums to protect marginalized voices",
-                "Facilitate parent/guardian or community engagement where relevant",
-                "Test platform usability across devices, operating systems, and browsers",
-                "Conduct accessibility audits (manual + automated checks)",
-                "Pilot with diverse learner groups before full launch",
-                "Collect feedback on cultural responsiveness and inclusivity",
-                "Check equity in assessment formats (time allowances, varied formats)",
-                "Evaluate data protection and algorithmic fairness",
-                "Track enrollment diversity across gender, age, disability, and socioeconomic groups",
-                "Monitor access patterns (devices, connectivity, geographic distribution)",
-                "Assess early participation levels across demographics",
-                "Gather learner satisfaction surveys on access, usability, and inclusion",
-                "Provide ongoing technical support during launch",
-                "Publicly communicate equity and inclusion commitments",
-                "Regularly update the platform to meet evolving accessibility standards",
-                "Audit algorithmic bias in content recommendations and assessments",
-                "Continuously collect learner feedback on inclusivity and usability",
-                "Provide regular training for educators on equity in online teaching",
-                "Update content to reflect cultural relevance and representation",
-                "Scale up support systems as user base grows (mentorship, community forums)",
-                "Publish annual inclusivity reports with metrics on access and participation"
-              ]}
+                title="Comprehensive Checklist for Assessing Equity & Inclusion in Online Learning"
+                items={[
+                  "Conduct needs assessment to identify barriers (digital access, language, disability, socioeconomic)",
+                  "Gather input from diverse learners, educators, and community representatives",
+                  "Define equity and inclusion goals with measurable outcomes",
+                  "Secure partnerships for device access, connectivity, and community outreach",
+                  "Plan for multiple learning pathways (asynchronous, synchronous, blended)",
+                  "Apply accessibility standards (WCAG 2.1 AA minimum, AAA aspirational)",
+                  "Ensure interface works across devices (low-end smartphones, tablets, desktops)",
+                  "Incorporate multilingual navigation and right-to-left text support",
+                  "Provide customizable features (font size, color contrast, captions, transcripts)",
+                  "Design culturally responsive visuals, icons, and representations",
+                  "Embed Universal Design for Learning (UDL) principles in learning pathways",
+                  "Use examples and case studies reflecting diverse cultural and social contexts",
+                  "Avoid stereotypes; represent learners of varied identities and abilities",
+                  "Offer multiple formats (text, audio, video, interactive simulations)",
+                  "Ensure learning objectives are achievable through different modes of engagement",
+                  "Include content that affirms marginalized voices and perspectives",
+                  "Build in opportunities for learners to contribute personal knowledge/experiences",
+                  "Optimize platform for low-bandwidth environments and offline access",
+                  "Ensure compatibility with assistive technologies (screen readers, voice control)",
+                  "Implement flexible authentication (guest access, shared devices, family accounts)",
+                  "Provide scalable infrastructure for different class sizes and geographies",
+                  "Enable secure data storage with learner-controlled privacy settings",
+                  "Build progressive web apps (PWA) or mobile-friendly versions",
+                  "Create multiple support channels (chat, email, forums, phone)",
+                  "Offer multilingual helpdesk and FAQs",
+                  "Establish mentorship and peer-support systems",
+                  "Provide clear codes of conduct to ensure respectful communication",
+                  "Moderate forums to protect marginalized voices",
+                  "Facilitate parent/guardian or community engagement where relevant",
+                  "Test platform usability across devices, operating systems, and browsers",
+                  "Conduct accessibility audits (manual + automated checks)",
+                  "Pilot with diverse learner groups before full launch",
+                  "Collect feedback on cultural responsiveness and inclusivity",
+                  "Check equity in assessment formats (time allowances, varied formats)",
+                  "Evaluate data protection and algorithmic fairness",
+                  "Track enrollment diversity across gender, age, disability, and socioeconomic groups",
+                  "Monitor access patterns (devices, connectivity, geographic distribution)",
+                  "Assess early participation levels across demographics",
+                  "Gather learner satisfaction surveys on access, usability, and inclusion",
+                  "Provide ongoing technical support during launch",
+                  "Publicly communicate equity and inclusion commitments",
+                  "Regularly update the platform to meet evolving accessibility standards",
+                  "Audit algorithmic bias in content recommendations and assessments",
+                  "Continuously collect learner feedback on inclusivity and usability",
+                  "Provide regular training for educators on equity in online teaching",
+                  "Update content to reflect cultural relevance and representation",
+                  "Scale up support systems as user base grows (mentorship, community forums)",
+                  "Publish annual inclusivity reports with metrics on access and participation"
+                ]}
               />
             </div>
           </div>

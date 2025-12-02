@@ -1,6 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { AuthChoiceActivity } from '../components/Activities';
+import { AuthChoiceActivity, SkillMappingTool } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import WorkforceMobileNav from '../components/WorkforceMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -95,6 +95,9 @@ const WorkforcePage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span><strong>Multi-format career guidance</strong> - Offer coaching and guides in text, video, and audio. Learners without strong literacy still need career support.</li>
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span><strong>Employer engagement</strong> - Partner with employers to raise awareness about alternative credentials. If employers respect digital badges, learners get hired faster.</li>
                   </ul>
+                  <div className="mt-4">
+                    <SkillMappingTool />
+                  </div>
                 </div>
 
                 <div id="mentorship" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
@@ -190,7 +193,7 @@ const WorkforcePage: React.FC = () => {
                   "Equity Monitoring Dashboard provides demographic participation data"
                 ]}
               />
-              
+
               <div className="mt-8 p-6 bg-gradient-to-r from-brand-blue/10 to-brand-purple/10 rounded-2xl border border-brand-blue/20">
                 <p className="text-slate-700 dark:text-slate-200 italic">
                   Workforce & skills platforms have the potential to either reinforce inequities or open doors. By embedding equity from design to implementation, your product ensures that learners from all backgrounds, not just the privileged, can access real opportunities for employment, growth, and dignity.
