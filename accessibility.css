@@ -1,0 +1,164 @@
+/* Font Size Classes */
+[data-font-size="small"] {
+  font-size: 14px;
+}
+
+[data-font-size="small"] .text-sm {
+  font-size: 12px;
+}
+
+[data-font-size="small"] .text-base {
+  font-size: 14px;
+}
+
+[data-font-size="small"] .text-lg {
+  font-size: 16px;
+}
+
+[data-font-size="small"] .text-xl {
+  font-size: 18px;
+}
+
+[data-font-size="small"] .text-2xl {
+  font-size: 20px;
+}
+
+[data-font-size="small"] .text-3xl {
+  font-size: 24px;
+}
+
+[data-font-size="small"] .text-4xl {
+  font-size: 28px;
+}
+
+[data-font-size="medium"] {
+  font-size: 16px;
+}
+
+[data-font-size="large"] {
+  font-size: 18px;
+}
+
+[data-font-size="large"] .text-sm {
+  font-size: 16px;
+}
+
+[data-font-size="large"] .text-base {
+  font-size: 18px;
+}
+
+[data-font-size="large"] .text-lg {
+  font-size: 20px;
+}
+
+[data-font-size="large"] .text-xl {
+  font-size: 22px;
+}
+
+[data-font-size="large"] .text-2xl {
+  font-size: 26px;
+}
+
+[data-font-size="large"] .text-3xl {
+  font-size: 30px;
+}
+
+[data-font-size="large"] .text-4xl {
+  font-size: 34px;
+}
+
+[data-font-size="extra-large"] {
+  font-size: 20px;
+}
+
+[data-font-size="extra-large"] .text-sm {
+  font-size: 18px;
+}
+
+[data-font-size="extra-large"] .text-base {
+  font-size: 20px;
+}
+
+[data-font-size="extra-large"] .text-lg {
+  font-size: 22px;
+}
+
+[data-font-size="extra-large"] .text-xl {
+  font-size: 24px;
+}
+
+[data-font-size="extra-large"] .text-2xl {
+  font-size: 28px;
+}
+
+[data-font-size="extra-large"] .text-3xl {
+  font-size: 32px;
+}
+
+[data-font-size="extra-large"] .text-4xl {
+  font-size: 36px;
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  filter: contrast(150%);
+}
+
+.high-contrast .bg-white {
+  background-color: #ffffff !important;
+}
+
+.high-contrast .bg-slate-50 {
+  background-color: #f8fafc !important;
+}
+
+.high-contrast .text-slate-600 {
+  color: #1e293b !important;
+}
+
+.high-contrast .text-slate-700 {
+  color: #0f172a !important;
+}
+
+.high-contrast .border-slate-200 {
+  border-color: #64748b !important;
+}
+
+/* Dark mode high contrast */
+.dark.high-contrast .bg-slate-900 {
+  background-color: #000000 !important;
+}
+
+.dark.high-contrast .bg-slate-800 {
+  background-color: #1e293b !important;
+}
+
+.dark.high-contrast .text-slate-300 {
+  color: #f1f5f9 !important;
+}
+
+.dark.high-contrast .text-slate-400 {
+  color: #e2e8f0 !important;
+}
+
+.dark.high-contrast .border-slate-700 {
+  border-color: #475569 !important;
+}
+
+/* Reduced Motion */
+.reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Screen Reader Optimization */
+.screen-reader-optimized button:focus,
+.screen-reader-optimized a:focus,
+.screen-reader-optimized input:focus,
+.screen-reader-optimized select:focus,
+.screen-reader-optimized textarea:focus {
+  outline: 3px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}
