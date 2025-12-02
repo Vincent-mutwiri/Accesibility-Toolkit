@@ -2,7 +2,7 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { UDLPreviewActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
-import MobileNavigation from '../components/MobileNavigation';
+import DigitalLearningMobileNav from '../components/DigitalLearningMobileNav';
 
 const DigitalLearningPage: React.FC = () => {
   const navigationItems = [
@@ -99,7 +99,7 @@ const DigitalLearningPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="usability" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">Usability & Navigation</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Usability focuses on how intuitive and consistent the learner's experience is, that is, it ensures that digital content is clear, consistent, and easy to use across devices. Poorly structured content, inconsistent layouts, overly complex text or navigation can make content harder to engage with hence discourage learners, especially for learners with low digital literacy or limited technical experience.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Usability & Navigation:</h4>
@@ -112,7 +112,7 @@ const DigitalLearningPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
+                <div id="flexibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">Flexibility</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Flexibility means offering multiple ways for learners to access and interact with content. No two learners access content in exactly the same way. Some may prefer watching videos, while others rely on reading text or listening to audio. Flexibility allows learners to engage in the format that best suits their needs, increasing both access and learning effectiveness, that is, learning adapts to the learner, not the other way around.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Flexibility:</h4>
@@ -130,7 +130,7 @@ const DigitalLearningPage: React.FC = () => {
             </div>
 
             {/* Monitoring & Evaluation Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">3. Monitoring & Evaluation</h2>
               <p className="mb-6">Designing for equity and inclusion is only effective if we can measure progress. Monitoring and evaluation (M&E) help identify what is working and where barriers remain. Using a combination of accessibility audits, learner analytics, and feedback ensures that inclusivity is not an assumption but a measurable outcome.</p>
               
@@ -172,7 +172,8 @@ const DigitalLearningPage: React.FC = () => {
               </div>
             </div>
 
-            <Checklist
+            <div id="checklist">
+              <Checklist
               title="Equity & Inclusion Checklist for Digital Content"
               items={[
                 "All images, icons, graphs, and diagrams include meaningful alt text",
@@ -221,7 +222,8 @@ const DigitalLearningPage: React.FC = () => {
                 "Updates are made based on learner feedback and analytics",
                 "Peer or expert review includes a check for DEI (Diversity, Equity, Inclusion)"
               ]}
-            />
+              />
+            </div>
           </div>
 
           <div className="hidden lg:block">
@@ -238,7 +240,7 @@ const DigitalLearningPage: React.FC = () => {
         </div>
       </div>
       
-      <MobileNavigation items={navigationItems} />
+      <DigitalLearningMobileNav />
     </div>
   );
 };

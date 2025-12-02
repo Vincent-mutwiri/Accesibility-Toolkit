@@ -2,7 +2,7 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { MultilingualToggleActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
-import MobileNavigation from '../components/MobileNavigation';
+import OnlineLearningMobileNav from '../components/OnlineLearningMobileNav';
 
 const OnlineLearningPage: React.FC = () => {
   const navigationItems = [
@@ -43,7 +43,7 @@ const OnlineLearningPage: React.FC = () => {
               <p className="mb-6">Ensuring online learning environments are designed for equity and inclusion requires embedding accessibility, fairness, and cultural responsiveness across all features that support learners and educators. The following key areas guide inclusive online learning design:</p>
 
               <div className="grid gap-6 not-prose">
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="accessible-design" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">Accessible Design</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Use clear fonts, high-contrast colors, and descriptive alt text.</li>
@@ -53,7 +53,7 @@ const OnlineLearningPage: React.FC = () => {
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Strive for WCAG 2.1 AAA compliance as the benchmark, with AA as the minimum standard. This ensures content is perceivable, operable, understandable, and robust for all learners. Consistently applying these standards ensures that learners with disabilities have equal access to content, thereby reducing accessibility gaps across digital learning environments.</p>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="flexible-learning" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-green mb-3">Flexible Learning Pathways</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Offer content in multiple formats (text, audio, video, interactive).</li>
@@ -63,7 +63,7 @@ const OnlineLearningPage: React.FC = () => {
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Align with UDL principles by giving learners multiple ways to engage with material, express knowledge, and pace themselves. This reduces barriers for learners who process content differently or face contextual challenges. This flexibility empowers learners to take ownership of their education, increasing motivation and long-term engagement.</p>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="cultural-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">Culturally Responsive Content</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span>Use examples and case studies that reflect diverse backgrounds.</li>
@@ -76,7 +76,7 @@ const OnlineLearningPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
+                <div id="equitable-access" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">Equitable Access</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span>Optimize platforms for low-bandwidth and mobile use.</li>
@@ -86,7 +86,7 @@ const OnlineLearningPage: React.FC = () => {
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Design for the broadest range of devices, connectivity levels, and economic realities. The benchmark should be that no learner should be excluded due to technical or economic barriers. When access is equitable, learners can focus on the content rather than struggling with infrastructure challenges, closing the digital divide.</p>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
+                <div id="inclusive-interaction" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-purple mb-3">Inclusive Interaction</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-purple text-sm mr-2 mt-1">check</span>Set clear guidelines for respectful communication.</li>
@@ -96,7 +96,7 @@ const OnlineLearningPage: React.FC = () => {
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Foster collaboration by providing flexible ways to participate while ensuring moderation tools support safe, respectful spaces. The benchmark is that every learner should feel safe, respected, and able to participate fully, regardless of their background or communication style.</p>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
+                <div id="feedback-support" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-red mb-3">Feedback and Support</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-red text-sm mr-2 mt-1">check</span>Give timely, personalized feedback in inclusive formats.</li>
@@ -107,7 +107,7 @@ const OnlineLearningPage: React.FC = () => {
                 </div>
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6">Monitoring and Evaluation (Key Metrics)</h2>
+              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6">Monitoring and Evaluation (Key Metrics)</h2>
               <p className="mb-6">To ensure online learning environments are equitable and inclusive, monitoring must go beyond counting log-ins or completions. Inclusivity in online learning can be measured in different ways as shown below:</p>
 
               <div className="grid gap-4 not-prose">
@@ -202,7 +202,8 @@ const OnlineLearningPage: React.FC = () => {
               </div>
             </div>
 
-            <Checklist
+            <div id="checklist">
+              <Checklist
               title="Comprehensive Checklist for Assessing Equity & Inclusion in Online Learning"
               items={[
                 "Conduct needs assessment to identify barriers (digital access, language, disability, socioeconomic)",
@@ -254,7 +255,8 @@ const OnlineLearningPage: React.FC = () => {
                 "Scale up support systems as user base grows (mentorship, community forums)",
                 "Publish annual inclusivity reports with metrics on access and participation"
               ]}
-            />
+              />
+            </div>
           </div>
 
           <div className="hidden lg:block">
@@ -275,7 +277,7 @@ const OnlineLearningPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <MobileNavigation items={navigationItems} />
+      <OnlineLearningMobileNav />
     </div>
   );
 };

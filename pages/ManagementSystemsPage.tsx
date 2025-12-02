@@ -2,7 +2,7 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { ColorContrastActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
-import MobileNavigation from '../components/MobileNavigation';
+import ManagementMobileNav from '../components/ManagementMobileNav';
 
 const ManagementSystemsPage: React.FC = () => {
   const navigationItems = [
@@ -33,19 +33,19 @@ const ManagementSystemsPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
               <p className="mb-4">Management Systems represent the backbone of digital learning infrastructure, serving as the central hub where learners, educators, administrators, and content intersect. These systems include Learning Management Systems (LMS), Student Information Systems (SIS), Learning Analytics platforms, and integrated educational technology ecosystems that manage the entire learning journey.</p>
               <p className="mb-4">From an equity and inclusion perspective, Management Systems hold unique power and responsibility. They control access to learning opportunities, determine how progress is tracked and reported, influence resource allocation decisions, and shape the overall learning experience for diverse populations. When designed with equity and inclusion at their core, these systems can break down barriers and create pathways to success for all learners. Conversely, when designed without these considerations, they can perpetuate existing inequities and create new forms of exclusion.</p>
             </div>
 
             {/* Practical Applications Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+            <div id="practical-applications" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Practical Applications (How To)</h2>
               <p className="mb-6">Ensuring your management systems are developed effectively with functionalities and features that supports both learners and educators inclusive and equitable use, we must consider the following areas:</p>
 
               <div className="grid gap-6 not-prose">
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="ui-experience" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">1. Inclusive User Interface and Experience Design</h3>
                   
                   <div className="mb-4">
@@ -84,7 +84,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="access-authentication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-green mb-3">2. Equitable Access and Authentication</h3>
                   
                   <div className="mb-4">
@@ -118,7 +118,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="content-management" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">3. Inclusive Content Management and Delivery</h3>
                   
                   <div className="mb-4">
@@ -152,7 +152,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
+                <div id="assessment" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">4. Equitable Assessment and Evaluation</h3>
                   
                   <div className="mb-4">
@@ -186,7 +186,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
+                <div id="communication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-purple mb-3">5. Inclusive Communication and Collaboration Tools</h3>
                   
                   <div className="mb-4">
@@ -210,7 +210,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
+                <div id="data-privacy" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-red mb-3">6. Data Privacy and Algorithmic Fairness</h3>
                   
                   <div className="mb-4">
@@ -235,7 +235,7 @@ const ManagementSystemsPage: React.FC = () => {
                 </div>
               </div>
 
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6">Monitoring and Evaluation (Key Metrics)</h2>
+              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6">Monitoring and Evaluation (Key Metrics)</h2>
 
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
@@ -340,7 +340,8 @@ const ManagementSystemsPage: React.FC = () => {
               </div>
             </div>
 
-            <Checklist
+            <div id="checklist">
+              <Checklist
               title="Comprehensive Checklist for Equitable Management Systems"
               items={[
                 "Conduct comprehensive stakeholder analysis including historically marginalized communities",
@@ -410,7 +411,8 @@ const ManagementSystemsPage: React.FC = () => {
                 "Update content and features based on emerging equity and inclusion research",
                 "Establish succession planning that maintains equity and inclusion commitments"
               ]}
-            />
+              />
+            </div>
           </div>
 
           <div className="hidden lg:block">
@@ -431,7 +433,7 @@ const ManagementSystemsPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <MobileNavigation items={navigationItems} />
+      <ManagementMobileNav />
     </div>
   );
 };
