@@ -3,6 +3,7 @@ import Checklist from '../components/Checklist';
 import { MultilingualToggleActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import OnlineLearningMobileNav from '../components/OnlineLearningMobileNav';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const OnlineLearningPage: React.FC = () => {
   const navigationItems = [
@@ -278,6 +279,7 @@ const OnlineLearningPage: React.FC = () => {
         </div>
       </div>
       <OnlineLearningMobileNav />
+      <FloatingBackButton />
     </div>
   );
 };

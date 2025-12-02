@@ -3,6 +3,7 @@ import Checklist from '../components/Checklist';
 import { BiasSpottingActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import STEAMMobileNav from '../components/STEAMMobileNav';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const STEAMPage: React.FC = () => {
   const navigationItems = [
@@ -270,6 +271,7 @@ const STEAMPage: React.FC = () => {
         </div>
       </div>
       <STEAMMobileNav />
+      <FloatingBackButton />
     </div>
   );
 };
