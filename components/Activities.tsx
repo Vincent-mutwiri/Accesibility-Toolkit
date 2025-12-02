@@ -621,7 +621,7 @@ export const ProjectAdaptationChallenge: React.FC = () => {
 
           <div className="mt-6 bg-blue-50 dark:bg-blue-900/20 p-4 rounded text-sm text-blue-800 dark:text-blue-200">
             {resourceLevel === 'low'
-              ? "Correct! In a low-resource setting, using recycled bottles and sand teaches the same scientific principles without requiring expensive equipment."
+              ? "In a low-resource setting, using recycled bottles and sand teaches the same scientific principles without requiring expensive equipment."
               : "In a high-tech lab, digital simulations or 3D printing can enhance precision, but remember to teach the underlying physical concepts too."}
           </div>
         </div>
