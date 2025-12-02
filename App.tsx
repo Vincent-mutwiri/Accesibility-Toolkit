@@ -9,6 +9,7 @@ import STEAMPage from './pages/STEAMPage';
 import WorkforcePage from './pages/WorkforcePage';
 import AboutPage from './pages/AboutPage';
 import ResourcesPage from './pages/ResourcesPage';
+import SettingsPage from './pages/SettingsPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -22,6 +23,34 @@ const ScrollToTopHelper = () => {
 };
 
 const App: React.FC = () => {
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const applyTheme = () => {
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = mediaQuery.matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    };
+
+    // Initial application
+    applyTheme();
+
+    // Listen for system changes
+    const handleChange = () => {
+      if (!localStorage.getItem('theme')) {
+        applyTheme();
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   return (
     <HashRouter>
       <ScrollToTopHelper />
@@ -38,6 +67,7 @@ const App: React.FC = () => {
             <Route path="/tutoring" element={<TutoringPage />} />
             <Route path="/steam" element={<STEAMPage />} />
             <Route path="/workforce" element={<WorkforcePage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
         <Footer />

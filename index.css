@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "./accessibility.css";
+
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary: #C026D3;

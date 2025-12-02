@@ -31,6 +31,10 @@ const Navbar: React.FC = () => {
             <Link to="/" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Home</Link>
             <Link to="/about" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">About</Link>
             <Link to="/resources" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Resources</Link>
+            <Link to="/settings" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
+              <span className="material-icons text-sm mr-1">settings</span>
+              Settings
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -78,6 +82,15 @@ const Navbar: React.FC = () => {
             <Link to="/steam" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>STEAM</Link>
             <Link to="/workforce" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Workforce</Link>
             <Link to="/management-systems" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Management Systems</Link>
+            <div className="border-t border-border-light dark:border-border-dark my-2"></div>
+            <Link 
+              to="/settings" 
+              className="flex items-center px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <span className="material-icons text-sm mr-2">settings</span>
+              Settings
+            </Link>
           </div>
         </div>
       )}
