@@ -3,6 +3,7 @@ import Checklist from '../components/Checklist';
 import { UDLPreviewActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import DigitalLearningMobileNav from '../components/DigitalLearningMobileNav';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const DigitalLearningPage: React.FC = () => {
   const navigationItems = [
@@ -241,6 +242,7 @@ const DigitalLearningPage: React.FC = () => {
       </div>
       
       <DigitalLearningMobileNav />
+      <FloatingBackButton />
     </div>
   );
 };

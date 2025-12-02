@@ -3,6 +3,7 @@ import Checklist from '../components/Checklist';
 import { ColorContrastActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import ManagementMobileNav from '../components/ManagementMobileNav';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const ManagementSystemsPage: React.FC = () => {
   const navigationItems = [
@@ -434,6 +435,7 @@ const ManagementSystemsPage: React.FC = () => {
         </div>
       </div>
       <ManagementMobileNav />
+      <FloatingBackButton />
     </div>
   );
 };

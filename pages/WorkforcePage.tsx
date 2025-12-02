@@ -3,6 +3,7 @@ import Checklist from '../components/Checklist';
 import { AuthChoiceActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import WorkforceMobileNav from '../components/WorkforceMobileNav';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const WorkforcePage: React.FC = () => {
   const navigationItems = [
@@ -59,7 +60,7 @@ const WorkforcePage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
+                <div id="learning-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">2. Inclusive Learning Content</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">If content assumes only one culture, language, or delivery style, it excludes learners. Content must reflect learners' real lives, jobs, and economies.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
@@ -72,7 +73,7 @@ const WorkforcePage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="assessment" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">3. Inclusive Assessment & Certification</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Traditional, exam-style testing excludes many learners, especially those with low literacy or test anxiety. Alternative assessment recognizes skill in multiple ways.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
@@ -84,7 +85,7 @@ const WorkforcePage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="career-services" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-green mb-3">4. Career Services & Job Matching</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Even when learners gain skills, bias in hiring or poor job-matching tools can block access to work. Career services must be designed for fairness.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
@@ -96,7 +97,7 @@ const WorkforcePage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="mentorship" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">5. Mentorship & Community</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Learning is social. Without diverse mentors and safe peer networks, many learners remain isolated and disconnected from opportunities.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
@@ -119,7 +120,7 @@ const WorkforcePage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+                <div id="templates" className="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">7. Ready-to-Use Templates & Tools</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Teams work faster and more consistently with templates. Pre-built tools reduce guesswork and ensure equity steps aren't skipped.</p>
                   <div className="grid gap-3 text-sm">
@@ -148,7 +149,7 @@ const WorkforcePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-12">
+            <div id="checklist" className="mt-12">
               <Checklist
                 title="Comprehensive Checklist for Workforce & Skills EdTech"
                 items={[
@@ -217,6 +218,7 @@ const WorkforcePage: React.FC = () => {
         </div>
       </div>
       <WorkforceMobileNav />
+      <FloatingBackButton />
     </div>
   );
 };

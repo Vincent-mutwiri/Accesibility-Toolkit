@@ -3,6 +3,7 @@ import Checklist from '../components/Checklist';
 import { AssessmentSelectorActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import TutoringMobileNav from '../components/TutoringMobileNav';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const TutoringPage: React.FC = () => {
   const navigationItems = [
@@ -217,6 +218,7 @@ const TutoringPage: React.FC = () => {
         </div>
       </div>
       <TutoringMobileNav />
+      <FloatingBackButton />
     </div>
   );
 };
