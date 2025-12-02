@@ -2,7 +2,7 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { BiasSpottingActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
-import MobileNavigation from '../components/MobileNavigation';
+import STEAMMobileNav from '../components/STEAMMobileNav';
 
 const STEAMPage: React.FC = () => {
   const navigationItems = [
@@ -32,7 +32,7 @@ const STEAMPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
               <p className="mb-4">STEAM (Science, Technology, Engineering, Arts, and Mathematics) digital platforms foster creativity, innovation, and critical thinking by integrating multiple disciplines into interactive and project-based learning experiences. These platforms go beyond content delivery — they create spaces where learners can experiment, design, build, and problem-solve collaboratively.</p>
               <p className="mb-4">A well-designed STEAM platform empowers learners to connect theory with practice, encouraging inquiry-based learning and real-world application. By combining science and the arts, they nurture both analytical and creative skills, preparing students for future careers in emerging fields.</p>
@@ -40,11 +40,11 @@ const STEAMPage: React.FC = () => {
             </div>
 
             {/* Key Design Areas Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+            <div id="key-design-areas" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Key Design Areas</h2>
 
               <div className="grid gap-6 not-prose">
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">1. Accessibility Features</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Accessible STEAM platforms ensure that learners of all abilities can participate meaningfully in scientific inquiry, design tasks, coding, and digital creation. This helps prevent exclusion and ensures full participation in both technical and creative aspects of STEAM learning.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -60,7 +60,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="interactive-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-green mb-3">2. Interactive & Experiential Content Design</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM learning thrives on hands-on, inquiry-based, and creative experimentation. Platforms should simulate real-world design, modeling, and problem-solving, supporting students as they move from guided exploration to open creative invention.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -75,7 +75,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">3. Cognitive Load & Creative Flow Management</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM tasks can be cognitively demanding, blending analytical reasoning with creative problem-solving. Platforms should balance structure with creative freedom to maintain engagement without overwhelming learners.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -90,7 +90,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
+                <div id="offline-access" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">4. Offline Access & Low-Bandwidth Optimization</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Given the digital divide in STEAM access, platforms should ensure usability in low-connectivity environments so that rural and underserved learners can fully participate.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -105,7 +105,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
+                <div id="cultural-relevance" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-purple mb-3">5. Cultural Relevance & Local Context</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM learning becomes more meaningful when connected to learners' lived experiences, local challenges, and cultural identities. Localizing content can strengthen relevance and engagement across diverse communities.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -145,7 +145,7 @@ const STEAMPage: React.FC = () => {
             </div>
 
             {/* Monitoring & Evaluation Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Monitoring & Evaluation (Key Metrics)</h2>
               <p className="mb-6">Monitoring and Evaluation ensures that inclusive STEAM design is not just well-intentioned but consistently implemented and improved over time. For most early-stage EdTech teams, M&E must be simple, practical, and tightly connected to the product development workflow.</p>
 
@@ -213,7 +213,8 @@ const STEAMPage: React.FC = () => {
               </div>
             </div>
 
-            <Checklist
+            <div id="checklist">
+              <Checklist
               title="STEAM Platform Equity & Inclusion Checklist"
               items={[
                 "Are creative tools screen-reader and keyboard compatible?",
@@ -247,7 +248,8 @@ const STEAMPage: React.FC = () => {
                 "Is learner data use clearly explained and transparent?",
                 "Are AI algorithms audited for fairness in recommendations?"
               ]}
-            />
+              />
+            </div>
           </div>
 
           <div className="hidden lg:block">
@@ -267,7 +269,7 @@ const STEAMPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <MobileNavigation items={navigationItems} />
+      <STEAMMobileNav />
     </div>
   );
 };

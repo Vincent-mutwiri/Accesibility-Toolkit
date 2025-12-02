@@ -2,7 +2,7 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { AuthChoiceActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
-import MobileNavigation from '../components/MobileNavigation';
+import WorkforceMobileNav from '../components/WorkforceMobileNav';
 
 const WorkforcePage: React.FC = () => {
   const navigationItems = [
@@ -216,7 +216,7 @@ const WorkforcePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <MobileNavigation items={navigationItems} />
+      <WorkforceMobileNav />
     </div>
   );
 };

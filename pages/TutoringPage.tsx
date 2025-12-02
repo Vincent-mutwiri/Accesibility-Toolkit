@@ -2,7 +2,7 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { AssessmentSelectorActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
-import MobileNavigation from '../components/MobileNavigation';
+import TutoringMobileNav from '../components/TutoringMobileNav';
 
 const TutoringPage: React.FC = () => {
   const navigationItems = [
@@ -30,7 +30,7 @@ const TutoringPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
               <p className="mb-4">Tutoring digital learning platforms focus on providing personalized educational support to learners by using digital tools and adaptive algorithms to offer extra support in areas where students are struggling. Personalized learning tailors content to each individual's needs and pace, based on their strengths and weaknesses.</p>
               <p className="mb-4">Test prep focuses on preparing students for exams and tests to improve learning outcomes using personalized test prep tools.</p>
@@ -39,11 +39,11 @@ const TutoringPage: React.FC = () => {
             </div>
 
             {/* Essential Features Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="essential-features" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Essential Features for Equity and Inclusion</h2>
 
               <div className="grid gap-6 not-prose">
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">Accessibility Features</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</li>
@@ -54,7 +54,7 @@ const TutoringPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="content-design" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-green mb-3">Content Design (Revision Materials)</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Clear, structured, and uncluttered layout for all recommended revision materials</li>
@@ -63,7 +63,7 @@ const TutoringPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">Cognitive Load Management</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><strong>Personalization Engine:</strong> Make sure the personalization algorithm detects and targets specific learning gaps, providing content in manageable chunks</li>
@@ -126,7 +126,7 @@ const TutoringPage: React.FC = () => {
             </div>
 
             {/* Monitoring and Evaluation Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Monitoring and Evaluation (Key Metrics)</h2>
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
@@ -168,7 +168,8 @@ const TutoringPage: React.FC = () => {
               </div>
             </div>
 
-            <Checklist 
+            <div id="checklist">
+              <Checklist 
               title="Tutoring Platform Equity & Inclusion Checklist"
               items={[
                 "Does the live tutoring feature provide real-time captions or transcripts?",
@@ -194,7 +195,8 @@ const TutoringPage: React.FC = () => {
                 "Are algorithms powering recommendations and scoring regularly audited?",
                 "Do learners have control over personalization settings?"
               ]}
-            />
+              />
+            </div>
           </div>
 
           <div className="hidden lg:block">
@@ -214,7 +216,7 @@ const TutoringPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <MobileNavigation items={navigationItems} />
+      <TutoringMobileNav />
     </div>
   );
 };
