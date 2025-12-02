@@ -2,8 +2,21 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { BiasSpottingActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
+import MobileNavigation from '../components/MobileNavigation';
 
 const STEAMPage: React.FC = () => {
+  const navigationItems = [
+    { label: 'Introduction', href: '#introduction' },
+    { label: 'Key Design Areas', href: '#key-design-areas' },
+    { label: 'Accessibility', href: '#accessibility' },
+    { label: 'Interactive Content', href: '#interactive-content' },
+    { label: 'Cognitive Load', href: '#cognitive-load' },
+    { label: 'Offline Access', href: '#offline-access' },
+    { label: 'Cultural Relevance', href: '#cultural-relevance' },
+    { label: 'Monitoring', href: '#monitoring' },
+    { label: 'Checklist', href: '#checklist' }
+  ];
+
   return (
     <div className="animate-fade-in">
       <PageHeader
@@ -254,6 +267,7 @@ const STEAMPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <MobileNavigation items={navigationItems} />
     </div>
   );
 };

@@ -2,8 +2,21 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { AuthChoiceActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
+import MobileNavigation from '../components/MobileNavigation';
 
 const WorkforcePage: React.FC = () => {
+  const navigationItems = [
+    { label: 'Introduction', href: '#introduction' },
+    { label: 'Practical Applications', href: '#practical-applications' },
+    { label: 'Inclusive Access', href: '#inclusive-access' },
+    { label: 'Learning Content', href: '#learning-content' },
+    { label: 'Assessment', href: '#assessment' },
+    { label: 'Career Services', href: '#career-services' },
+    { label: 'Mentorship', href: '#mentorship' },
+    { label: 'Templates', href: '#templates' },
+    { label: 'Checklist', href: '#checklist' }
+  ];
+
   return (
     <div className="animate-fade-in">
       <PageHeader
@@ -19,18 +32,18 @@ const WorkforcePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
+            <div id="introduction" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Introduction</h2>
               <p className="mb-4">Workforce & Skills EdTech should expand opportunity, not gatekeep it. This toolkit focuses on practical, product-facing guidance for embedding equity and inclusion into workforce learning platforms, content, and services. It maps inclusive practices directly to platform features, delivery models, and team processes so teams can build systems that are fair, accessible, and relevant for learners who are often excluded (women, people with disabilities, low-income and rural learners, informal workers, and other underrepresented professionals).</p>
             </div>
 
             {/* Practical Applications Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Practical Applications</h2>
+            <div id="practical-applications" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Practical Applications</h2>
               <p className="mb-6">Ensuring your workforce & skills product is developed with inclusive features and workflows requires attention across several areas: Inclusive Access & Onboarding; Inclusive Learning Content; Inclusive Assessment & Certification; Career Services & Job Matching; Mentorship & Community; Monitoring, Evaluation & Accountability; and Ready-to-Use Templates & Tools.</p>
 
               <div className="grid gap-6 not-prose">
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
+                <div id="inclusive-access" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-red mb-3">1. Inclusive Access & Onboarding</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">The signup and first learning experience determine whether learners stay or drop out. If this process assumes high literacy, strong internet, or expensive devices, many learners are excluded before they even begin.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
@@ -203,6 +216,7 @@ const WorkforcePage: React.FC = () => {
           </div>
         </div>
       </div>
+      <MobileNavigation items={navigationItems} />
     </div>
   );
 };

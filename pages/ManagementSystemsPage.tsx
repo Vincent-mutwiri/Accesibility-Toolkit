@@ -2,8 +2,22 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { ColorContrastActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
+import MobileNavigation from '../components/MobileNavigation';
 
 const ManagementSystemsPage: React.FC = () => {
+  const navigationItems = [
+    { label: 'Introduction', href: '#introduction' },
+    { label: 'Practical Applications', href: '#practical-applications' },
+    { label: 'UI & Experience', href: '#ui-experience' },
+    { label: 'Access & Authentication', href: '#access-authentication' },
+    { label: 'Content Management', href: '#content-management' },
+    { label: 'Assessment', href: '#assessment' },
+    { label: 'Communication', href: '#communication' },
+    { label: 'Data Privacy', href: '#data-privacy' },
+    { label: 'Monitoring', href: '#monitoring' },
+    { label: 'Checklist', href: '#checklist' }
+  ];
+
   return (
     <div className="animate-fade-in">
       <PageHeader
@@ -417,6 +431,7 @@ const ManagementSystemsPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <MobileNavigation items={navigationItems} />
     </div>
   );
 };

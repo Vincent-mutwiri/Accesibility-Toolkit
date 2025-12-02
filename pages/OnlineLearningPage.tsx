@@ -2,8 +2,22 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { MultilingualToggleActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
+import MobileNavigation from '../components/MobileNavigation';
 
 const OnlineLearningPage: React.FC = () => {
+  const navigationItems = [
+    { label: 'Introduction', href: '#introduction' },
+    { label: 'Practical Applications', href: '#practical-applications' },
+    { label: 'Accessible Design', href: '#accessible-design' },
+    { label: 'Flexible Learning', href: '#flexible-learning' },
+    { label: 'Cultural Content', href: '#cultural-content' },
+    { label: 'Equitable Access', href: '#equitable-access' },
+    { label: 'Inclusive Interaction', href: '#inclusive-interaction' },
+    { label: 'Feedback Support', href: '#feedback-support' },
+    { label: 'Monitoring', href: '#monitoring' },
+    { label: 'Checklist', href: '#checklist' }
+  ];
+
   return (
     <div className="animate-fade-in">
       <PageHeader
@@ -15,17 +29,17 @@ const OnlineLearningPage: React.FC = () => {
         ]}
       />
 
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="introduction" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
               <p className="mb-4">Online learning can take many forms: self-paced modules, live virtual classrooms, and blended approaches, all designed to expand access, flexibility, and personalization in education.</p>
             </div>
 
             {/* Practical Applications Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Practical Applications (How To)</h2>
+            <div id="practical-applications" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Practical Applications (How To)</h2>
               <p className="mb-6">Ensuring online learning environments are designed for equity and inclusion requires embedding accessibility, fairness, and cultural responsiveness across all features that support learners and educators. The following key areas guide inclusive online learning design:</p>
 
               <div className="grid gap-6 not-prose">
@@ -261,6 +275,7 @@ const OnlineLearningPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <MobileNavigation items={navigationItems} />
     </div>
   );
 };
