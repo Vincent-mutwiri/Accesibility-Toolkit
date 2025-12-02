@@ -2,8 +2,20 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { UDLPreviewActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
+import MobileNavigation from '../components/MobileNavigation';
 
 const DigitalLearningPage: React.FC = () => {
+  const navigationItems = [
+    { label: 'Introduction', href: '#introduction' },
+    { label: 'Practical Applications', href: '#practical-applications' },
+    { label: 'Accessibility', href: '#accessibility' },
+    { label: 'Representation', href: '#representation' },
+    { label: 'Usability & Navigation', href: '#usability' },
+    { label: 'Flexibility', href: '#flexibility' },
+    { label: 'Monitoring & Evaluation', href: '#monitoring' },
+    { label: 'Checklist', href: '#checklist' }
+  ];
+
   return (
     <div className="animate-fade-in">
       <PageHeader
@@ -15,18 +27,18 @@ const DigitalLearningPage: React.FC = () => {
         ]}
       />
 
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto py-6 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">1. Introduction</h2>
+            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">1. Introduction</h2>
               <p className="mb-4">Digital content is any material created, stored, and shared in digital format—such as text, images, audio, video, graphics, or interactive media—delivered through computers, mobile devices and other digital platforms. In learning, this includes text-based resources (e-books, PDFs, articles), multimedia (videos, podcasts, narrated slides), visuals (infographics, charts), and interactive elements (quizzes, simulations, polls, discussion boards).</p>
               <p className="mb-4">Digital content has the power to expand access to learning opportunities, but without intentional design, it can also create barriers. Designing for equity and inclusion ensures that all learners—regardless of ability, background, or context—can fully engage with content.</p>
               
-              <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 not-prose">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Inclusive digital content is:</h3>
-                <div className="grid gap-3">
+              <div className="bg-slate-50 dark:bg-slate-800 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-700 not-prose">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">Inclusive digital content is:</h3>
+                <div className="grid gap-2 sm:gap-3">
                   <div className="flex items-start">
                     <span className="material-icons text-brand-blue text-sm mr-3 mt-1">accessibility</span>
                     <div>
@@ -56,16 +68,16 @@ const DigitalLearningPage: React.FC = () => {
             </div>
 
             {/* Practical Applications Section */}
-            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">2. Practical Applications</h2>
+            <div id="practical-applications" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">2. Practical Applications</h2>
               <p className="mb-6">Applying equity and inclusion to digital content requires a deliberate focus on design choices that reduce barriers and expand access. It's not just about compliance with accessibility standards, it's about creating meaningful learning experiences that reflect the diversity of learners and empower them to participate fully.</p>
 
-              <div className="grid gap-6 not-prose">
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-blue mb-3">Accessibility</h3>
+              <div className="grid gap-4 sm:gap-6 not-prose">
+                <div id="accessibility" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-blue mb-3">Accessibility</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Accessibility ensures that learners with disabilities or diverse needs can interact with digital content fully. It is not just a compliance requirement but a way of designing content that benefits everyone. For example, captions help both deaf learners and those who prefer to read along, while clear alt text makes visuals understandable to learners using screen readers.</p>
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Accessibility:</h4>
-                  <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                  <h4 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Accessibility:</h4>
+                  <ul className="space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Add alt text to all images, charts, graphs, and diagrams. Alt text should be descriptive but concise (e.g., "Bar chart showing a 30% increase in maize yield between 2020 and 2022").</li>
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Provide captions and transcripts for all video and audio. Captions support learners who are deaf/hard of hearing and benefit non-native speakers or learners in noisy environments.</li>
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Use sufficient color contrast (minimum 4.5:1) between text and background. Tools such as WebAIM Contrast Checker can help verify compliance.</li>
@@ -75,11 +87,11 @@ const DigitalLearningPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-green mb-3">Representation</h3>
+                <div id="representation" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-brand-green mb-3">Representation</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Representation is about more than just images, it's the voices, stories, and perspectives learners encounter in content. When learners see themselves reflected, they are more likely to feel valued, respected, and motivated, while poor representation, on the other hand, reinforces stereotypes or alienates learners.</p>
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Representation:</h4>
-                  <ul className="space-y-2 text-slate-600 dark:text-slate-400">
+                  <h4 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Representation:</h4>
+                  <ul className="space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Use inclusive and diverse imagery that reflects a range of genders, ethnicities, ages, and abilities. Avoid tokenism by ensuring representation is natural and varied.</li>
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Apply bias-free and culturally sensitive language. Replace terms with neutral alternatives (e.g., "chairperson" instead of "chairman").</li>
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Integrate case studies and examples from multiple contexts so learners can connect with the material. For example, sustainability lessons could feature practices from rural Africa, Asia, and Europe.</li>
@@ -225,6 +237,8 @@ const DigitalLearningPage: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      <MobileNavigation items={navigationItems} />
     </div>
   );
 };

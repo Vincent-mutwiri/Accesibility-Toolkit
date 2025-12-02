@@ -2,8 +2,19 @@ import React from 'react';
 import Checklist from '../components/Checklist';
 import { AssessmentSelectorActivity } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
+import MobileNavigation from '../components/MobileNavigation';
 
 const TutoringPage: React.FC = () => {
+  const navigationItems = [
+    { label: 'Introduction', href: '#introduction' },
+    { label: 'Essential Features', href: '#essential-features' },
+    { label: 'Accessibility', href: '#accessibility' },
+    { label: 'Content Design', href: '#content-design' },
+    { label: 'Cognitive Load', href: '#cognitive-load' },
+    { label: 'Monitoring', href: '#monitoring' },
+    { label: 'Checklist', href: '#checklist' }
+  ];
+
   return (
     <div className="animate-fade-in">
       <PageHeader
@@ -203,6 +214,7 @@ const TutoringPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <MobileNavigation items={navigationItems} />
     </div>
   );
 };
