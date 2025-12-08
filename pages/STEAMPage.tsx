@@ -34,14 +34,14 @@ const STEAMPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">1. Introduction</h2>
               <p className="mb-4">A well-designed STEAM platform empowers learners to connect theory with practice, encouraging inquiry-based learning and real-world application. By combining science and the arts, they nurture both analytical and creative skills, preparing students for future careers in emerging fields.</p>
               <p className="mb-4">From an equity and inclusion perspective, STEAM platforms play a pivotal role in broadening participation — especially for rural learners, and those from under-resourced schools. Fairly designed platforms can help democratize access to scientific tools, labs, and creative technologies that are otherwise out of reach. Poorly designed systems, however, risk reinforcing exclusion in STEM participation and creative opportunities.</p>
             </div>
 
             {/* Key Design Areas Section */}
             <div id="key-design-areas" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Key Design Areas</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">2. Key Design Areas</h2>
 
               <div className="grid gap-6 not-prose">
                 <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors scroll-mt-24">
@@ -149,7 +149,7 @@ const STEAMPage: React.FC = () => {
 
             {/* Monitoring & Evaluation Section */}
             <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Monitoring & Evaluation (Key Metrics)</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">3. Monitoring & Evaluation (Key Metrics)</h2>
               <p className="mb-6">Monitoring and Evaluation ensures that inclusive STEAM design is not just well-intentioned but consistently implemented and improved over time. For most early-stage EdTech teams, M&E must be simple, practical, and tightly connected to the product development workflow.</p>
 
               <div className="grid gap-4 not-prose">

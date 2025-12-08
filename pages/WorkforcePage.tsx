@@ -34,18 +34,18 @@ const WorkforcePage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Introduction</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">1. Introduction</h2>
               <p className="mb-4">Workforce and Skills toolkit maps inclusive practices directly to platform features, delivery models, and team processes so teams can build systems that are fair, accessible, and relevant for learners who are often excluded (women, people with disabilities, low-income and rural learners, informal workers, and other underrepresented professionals).</p>
             </div>
 
             {/* Practical Applications Section */}
             <div id="practical-applications" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Practical Applications</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">2. Practical Applications</h2>
               <p className="mb-6">Ensuring your workforce & skills product is developed with inclusive features and workflows requires attention across several areas: Inclusive Access & Onboarding; Inclusive Learning Content; Inclusive Assessment & Certification; Career Services & Job Matching; Mentorship & Community; Monitoring, Evaluation & Accountability; and Ready-to-Use Templates & Tools.</p>
 
               <div className="grid gap-6 not-prose">
                 <div id="inclusive-access" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-red mb-3">1. Inclusive Access & Onboarding</h3>
+                  <h3 className="text-xl font-bold text-brand-red mb-3">Inclusive Access & Onboarding</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">The signup and first learning experience determine whether learners stay or drop out. If this process assumes high literacy, strong internet, or expensive devices, many learners are excluded before they even begin.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
@@ -61,7 +61,7 @@ const WorkforcePage: React.FC = () => {
                 </div>
 
                 <div id="learning-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-orange mb-3">2. Inclusive Learning Content</h3>
+                  <h3 className="text-xl font-bold text-brand-orange mb-3">Inclusive Learning Content</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">If content assumes only one culture, language, or delivery style, it excludes learners. Content must reflect learners' real lives, jobs, and economies.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
@@ -74,7 +74,7 @@ const WorkforcePage: React.FC = () => {
                 </div>
 
                 <div id="assessment" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-yellow mb-3">3. Inclusive Assessment & Certification</h3>
+                  <h3 className="text-xl font-bold text-brand-yellow mb-3">Inclusive Assessment & Certification</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Traditional, exam-style testing excludes many learners, especially those with low literacy or test anxiety. Alternative assessment recognizes skill in multiple ways.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
@@ -86,7 +86,7 @@ const WorkforcePage: React.FC = () => {
                 </div>
 
                 <div id="career-services" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-green mb-3">4. Career Services & Job Matching</h3>
+                  <h3 className="text-xl font-bold text-brand-green mb-3">Career Services & Job Matching</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Even when learners gain skills, bias in hiring or poor job-matching tools can block access to work. Career services must be designed for fairness.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
@@ -101,7 +101,7 @@ const WorkforcePage: React.FC = () => {
                 </div>
 
                 <div id="mentorship" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-blue mb-3">5. Mentorship & Community</h3>
+                  <h3 className="text-xl font-bold text-brand-blue mb-3">Mentorship & Community</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Learning is social. Without diverse mentors and safe peer networks, many learners remain isolated and disconnected from opportunities.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
@@ -110,9 +110,15 @@ const WorkforcePage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><strong>Safe spaces</strong> - Moderate discussions and create affinity groups (e.g., women in trades). Learners need psychological safety to share openly.</li>
                   </ul>
                 </div>
+              </div>
+            </div>
 
+            <div id="monitoring" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">3. Monitoring & Evaluation</h2>
+              
+              <div className="grid gap-6 not-prose">
                 <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-purple mb-3">6. Monitoring, Evaluation & Accountability</h3>
+                  <h3 className="text-xl font-bold text-brand-purple mb-3">Monitoring, Evaluation & Accountability</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Without measurement, inclusion stays an intention, not a reality. Teams must track outcomes and make changes based on evidence.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
@@ -124,7 +130,7 @@ const WorkforcePage: React.FC = () => {
                 </div>
 
                 <div id="templates" className="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">7. Ready-to-Use Templates & Tools</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Ready-to-Use Templates & Tools</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Teams work faster and more consistently with templates. Pre-built tools reduce guesswork and ensure equity steps aren't skipped.</p>
                   <div className="grid gap-3 text-sm">
                     <div className="flex items-start">
@@ -208,12 +214,8 @@ const WorkforcePage: React.FC = () => {
         icon="work"
         items={[
           { id: 'introduction', label: 'Introduction' },
-          { id: 'inclusive-access', label: 'Inclusive Access' },
-          { id: 'learning-content', label: 'Learning Content' },
-          { id: 'assessment', label: 'Assessment' },
-          { id: 'career-services', label: 'Career Services' },
-          { id: 'mentorship', label: 'Mentorship' },
-          { id: 'templates', label: 'Templates' },
+          { id: 'practical-applications', label: 'Practical Applications' },
+          { id: 'monitoring', label: 'Monitoring & Evaluation' },
           { id: 'checklist', label: 'Checklist' }
         ]}
         color="brand-red"
