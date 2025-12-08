@@ -32,8 +32,7 @@ const OnlineLearningPage: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
+        <div className="max-w-4xl mx-auto">
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12 scroll-mt-24">
               <p className="mb-4">Online learning can take many forms: self-paced modules, live virtual classrooms, and blended approaches, all designed to expand access, flexibility, and personalization in education.</p>
@@ -262,24 +261,6 @@ const OnlineLearningPage: React.FC = () => {
                 ]}
               />
             </div>
-          </div>
-
-          <div className="hidden lg:block">
-            <div className="sticky top-24 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h3>
-              <ul className="space-y-3">
-                <li><a href="#practical-applications" onClick={(e) => { e.preventDefault(); document.getElementById('practical-applications')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-brand-blue font-medium hover:underline cursor-pointer">Practical Applications</a></li>
-                <li><a href="#accessible-design" onClick={(e) => { e.preventDefault(); document.getElementById('accessible-design')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Accessible Design</a></li>
-                <li><a href="#flexible-learning" onClick={(e) => { e.preventDefault(); document.getElementById('flexible-learning')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Flexible Learning Pathways</a></li>
-                <li><a href="#cultural-content" onClick={(e) => { e.preventDefault(); document.getElementById('cultural-content')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Culturally Responsive Content</a></li>
-                <li><a href="#equitable-access" onClick={(e) => { e.preventDefault(); document.getElementById('equitable-access')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Equitable Access</a></li>
-                <li><a href="#inclusive-interaction" onClick={(e) => { e.preventDefault(); document.getElementById('inclusive-interaction')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Inclusive Interaction</a></li>
-                <li><a href="#feedback-support" onClick={(e) => { e.preventDefault(); document.getElementById('feedback-support')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Feedback and Support</a></li>
-                <li><a href="#monitoring" onClick={(e) => { e.preventDefault(); document.getElementById('monitoring')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Monitoring & Evaluation</a></li>
-                <li><a href="#checklist" onClick={(e) => { e.preventDefault(); document.getElementById('checklist')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Checklist</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
       <OnlineLearningMobileNav />
