@@ -31,8 +31,7 @@ const WorkforcePage: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
+        <div className="max-w-4xl mx-auto">
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Introduction</h2>
@@ -201,24 +200,6 @@ const WorkforcePage: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="hidden lg:block">
-            <div className="sticky top-24 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h3>
-              <ul className="space-y-3">
-                <li><a href="#" className="text-brand-red font-medium hover:underline">Introduction</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Inclusive Access & Onboarding</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Learning Content</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Assessment & Certification</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Career Services</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Mentorship & Community</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Monitoring & Evaluation</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Templates & Tools</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-red transition-colors">Checklist</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
       <WorkforceMobileNav />
