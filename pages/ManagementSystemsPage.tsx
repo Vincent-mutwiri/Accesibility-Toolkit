@@ -35,13 +35,13 @@ const ManagementSystemsPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">1. Introduction</h2>
               <p className="mb-4">From an equity and inclusion perspective, Management Systems hold unique power and responsibility. They control access to learning opportunities, determine how progress is tracked and reported, influence resource allocation decisions, and shape the overall learning experience for diverse populations. When designed with equity and inclusion at their core, these systems can break down barriers and create pathways to success for all learners. Conversely, when designed without these considerations, they can perpetuate existing inequities and create new forms of exclusion.</p>
             </div>
 
             {/* Practical Applications Section */}
             <div id="practical-applications" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Practical Applications (How To)</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">2. Practical Applications (How To)</h2>
               <p className="mb-6">Ensuring your management systems are developed effectively with functionalities and features that supports both learners and educators inclusive and equitable use, we must consider the following areas:</p>
 
               <div className="grid gap-6 not-prose">
@@ -238,7 +238,7 @@ const ManagementSystemsPage: React.FC = () => {
                 </div>
               </div>
 
-              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-24">Monitoring and Evaluation (Key Metrics)</h2>
+              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-24">3. Monitoring and Evaluation (Key Metrics)</h2>
 
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">

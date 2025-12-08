@@ -32,7 +32,7 @@ const TutoringPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">1. Introduction</h2>
               <p className="mb-4">Tutoring digital learning platforms focus on providing personalized educational support to learners by using digital tools and adaptive algorithms to offer extra support in areas where students are struggling. Personalized learning tailors content to each individual's needs and pace, based on their strengths and weaknesses.</p>
               <p className="mb-4">Test prep focuses on preparing students for exams and tests to improve learning outcomes using personalized test prep tools.</p>
               <p className="mb-4">From an equity and inclusion perspective, they hold unique influence over who gains access to quality support, how learners' abilities are recognized, and what opportunities are created through exam performance. Designed fairly, they can broaden pathways for underserved learners. When poorly designed, they risk reinforcing systemic barriers and reducing opportunities.</p>
@@ -41,7 +41,7 @@ const TutoringPage: React.FC = () => {
 
             {/* Essential Features Section */}
             <div id="essential-features" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Essential Features for Equity and Inclusion</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">2. Essential Features for Equity and Inclusion</h2>
 
               <div className="grid gap-6 not-prose">
                 <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors scroll-mt-24">
@@ -133,7 +133,7 @@ const TutoringPage: React.FC = () => {
 
             {/* Monitoring and Evaluation Section */}
             <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Monitoring and Evaluation (Key Metrics)</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">3. Monitoring and Evaluation (Key Metrics)</h2>
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">

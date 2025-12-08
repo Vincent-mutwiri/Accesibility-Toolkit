@@ -35,12 +35,13 @@ const OnlineLearningPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12 scroll-mt-24">
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">1. Introduction</h2>
               <p className="mb-4">Online learning can take many forms: self-paced modules, live virtual classrooms, and blended approaches, all designed to expand access, flexibility, and personalization in education.</p>
             </div>
 
             {/* Practical Applications Section */}
             <div id="practical-applications" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 scroll-mt-24">
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Practical Applications (How To)</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">2. Practical Applications (How To)</h2>
               <p className="mb-6">Ensuring online learning environments are designed for equity and inclusion requires embedding accessibility, fairness, and cultural responsiveness across all features that support learners and educators. The following key areas guide inclusive online learning design:</p>
 
               <div className="grid gap-6 not-prose">
@@ -111,7 +112,7 @@ const OnlineLearningPage: React.FC = () => {
                 </div>
               </div>
 
-              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-24">Monitoring and Evaluation (Key Metrics)</h2>
+              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-24">3. Monitoring and Evaluation (Key Metrics)</h2>
               <p className="mb-6">To ensure online learning environments are equitable and inclusive, monitoring must go beyond counting log-ins or completions. Inclusivity in online learning can be measured in different ways as shown below:</p>
 
               <div className="grid gap-4 not-prose">
