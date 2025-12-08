@@ -35,7 +35,6 @@ const STEAMPage: React.FC = () => {
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
-              <p className="mb-4">STEAM (Science, Technology, Engineering, Arts, and Mathematics) digital platforms foster creativity, innovation, and critical thinking by integrating multiple disciplines into interactive and project-based learning experiences. These platforms go beyond content delivery — they create spaces where learners can experiment, design, build, and problem-solve collaboratively.</p>
               <p className="mb-4">A well-designed STEAM platform empowers learners to connect theory with practice, encouraging inquiry-based learning and real-world application. By combining science and the arts, they nurture both analytical and creative skills, preparing students for future careers in emerging fields.</p>
               <p className="mb-4">From an equity and inclusion perspective, STEAM platforms play a pivotal role in broadening participation — especially for rural learners, and those from under-resourced schools. Fairly designed platforms can help democratize access to scientific tools, labs, and creative technologies that are otherwise out of reach. Poorly designed systems, however, risk reinforcing exclusion in STEM participation and creative opportunities.</p>
             </div>

@@ -54,3 +54,7 @@ h5,
 h6 {
   font-family: var(--font-display);
 }
+
+p {
+  text-align: justify;
+}

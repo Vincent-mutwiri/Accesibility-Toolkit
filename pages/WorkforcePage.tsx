@@ -35,7 +35,7 @@ const WorkforcePage: React.FC = () => {
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-8 sm:mb-12">
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6">Introduction</h2>
-              <p className="mb-4">Workforce & Skills EdTech should expand opportunity, not gatekeep it. This toolkit focuses on practical, product-facing guidance for embedding equity and inclusion into workforce learning platforms, content, and services. It maps inclusive practices directly to platform features, delivery models, and team processes so teams can build systems that are fair, accessible, and relevant for learners who are often excluded (women, people with disabilities, low-income and rural learners, informal workers, and other underrepresented professionals).</p>
+              <p className="mb-4">Workforce and Skills toolkit maps inclusive practices directly to platform features, delivery models, and team processes so teams can build systems that are fair, accessible, and relevant for learners who are often excluded (women, people with disabilities, low-income and rural learners, informal workers, and other underrepresented professionals).</p>
             </div>
 
             {/* Practical Applications Section */}
