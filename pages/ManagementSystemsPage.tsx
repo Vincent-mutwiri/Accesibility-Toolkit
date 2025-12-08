@@ -36,7 +36,6 @@ const ManagementSystemsPage: React.FC = () => {
             {/* Introduction Section */}
             <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
-              <p className="mb-4">Management Systems represent the backbone of digital learning infrastructure, serving as the central hub where learners, educators, administrators, and content intersect. These systems include Learning Management Systems (LMS), Student Information Systems (SIS), Learning Analytics platforms, and integrated educational technology ecosystems that manage the entire learning journey.</p>
               <p className="mb-4">From an equity and inclusion perspective, Management Systems hold unique power and responsibility. They control access to learning opportunities, determine how progress is tracked and reported, influence resource allocation decisions, and shape the overall learning experience for diverse populations. When designed with equity and inclusion at their core, these systems can break down barriers and create pathways to success for all learners. Conversely, when designed without these considerations, they can perpetuate existing inequities and create new forms of exclusion.</p>
             </div>
 
