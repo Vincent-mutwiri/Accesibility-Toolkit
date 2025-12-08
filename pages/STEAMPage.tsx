@@ -4,6 +4,7 @@ import { BiasSpottingActivity, ProjectAdaptationChallenge } from '../components/
 import PageHeader from '../components/PageHeader';
 import STEAMMobileNav from '../components/STEAMMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
+import FloatingNavButton from '../components/FloatingNavButton';
 
 const STEAMPage: React.FC = () => {
   const navigationItems = [
@@ -33,18 +34,18 @@ const STEAMPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
               <p className="mb-4">A well-designed STEAM platform empowers learners to connect theory with practice, encouraging inquiry-based learning and real-world application. By combining science and the arts, they nurture both analytical and creative skills, preparing students for future careers in emerging fields.</p>
               <p className="mb-4">From an equity and inclusion perspective, STEAM platforms play a pivotal role in broadening participation — especially for rural learners, and those from under-resourced schools. Fairly designed platforms can help democratize access to scientific tools, labs, and creative technologies that are otherwise out of reach. Poorly designed systems, however, risk reinforcing exclusion in STEM participation and creative opportunities.</p>
             </div>
 
             {/* Key Design Areas Section */}
-            <div id="key-design-areas" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+            <div id="key-design-areas" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Key Design Areas</h2>
 
               <div className="grid gap-6 not-prose">
-                <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">1. Accessibility Features</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Accessible STEAM platforms ensure that learners of all abilities can participate meaningfully in scientific inquiry, design tasks, coding, and digital creation. This helps prevent exclusion and ensures full participation in both technical and creative aspects of STEAM learning.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -60,7 +61,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="interactive-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="interactive-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-green mb-3">2. Interactive & Experiential Content Design</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM learning thrives on hands-on, inquiry-based, and creative experimentation. Platforms should simulate real-world design, modeling, and problem-solving, supporting students as they move from guided exploration to open creative invention.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -75,7 +76,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">3. Cognitive Load & Creative Flow Management</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM tasks can be cognitively demanding, blending analytical reasoning with creative problem-solving. Platforms should balance structure with creative freedom to maintain engagement without overwhelming learners.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -90,7 +91,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="offline-access" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
+                <div id="offline-access" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">4. Offline Access & Low-Bandwidth Optimization</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Given the digital divide in STEAM access, platforms should ensure usability in low-connectivity environments so that rural and underserved learners can fully participate.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -108,7 +109,7 @@ const STEAMPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="cultural-relevance" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
+                <div id="cultural-relevance" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-purple mb-3">5. Cultural Relevance & Local Context</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM learning becomes more meaningful when connected to learners' lived experiences, local challenges, and cultural identities. Localizing content can strengthen relevance and engagement across diverse communities.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
@@ -148,7 +149,7 @@ const STEAMPage: React.FC = () => {
             </div>
 
             {/* Monitoring & Evaluation Section */}
-            <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Monitoring & Evaluation (Key Metrics)</h2>
               <p className="mb-6">Monitoring and Evaluation ensures that inclusive STEAM design is not just well-intentioned but consistently implemented and improved over time. For most early-stage EdTech teams, M&E must be simple, practical, and tightly connected to the product development workflow.</p>
 
@@ -216,7 +217,7 @@ const STEAMPage: React.FC = () => {
               </div>
             </div>
 
-            <div id="checklist">
+            <div id="checklist" className="scroll-mt-24">
               <Checklist
                 title="STEAM Platform Equity & Inclusion Checklist"
                 items={[
@@ -259,14 +260,14 @@ const STEAMPage: React.FC = () => {
             <div className="sticky top-24 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-brand-purple font-medium hover:underline">Introduction</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors">Accessibility Features</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors">Interactive Content Design</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors">Cognitive Load Management</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors">Offline Access & Bandwidth</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors">Cultural Relevance</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors">Monitoring & Evaluation</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors">Checklist</a></li>
+                <li><a href="#introduction" onClick={(e) => { e.preventDefault(); document.getElementById('introduction')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-brand-purple font-medium hover:underline cursor-pointer">Introduction</a></li>
+                <li><a href="#accessibility" onClick={(e) => { e.preventDefault(); document.getElementById('accessibility')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors cursor-pointer">Accessibility Features</a></li>
+                <li><a href="#interactive-content" onClick={(e) => { e.preventDefault(); document.getElementById('interactive-content')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors cursor-pointer">Interactive Content Design</a></li>
+                <li><a href="#cognitive-load" onClick={(e) => { e.preventDefault(); document.getElementById('cognitive-load')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors cursor-pointer">Cognitive Load Management</a></li>
+                <li><a href="#offline-access" onClick={(e) => { e.preventDefault(); document.getElementById('offline-access')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors cursor-pointer">Offline Access & Bandwidth</a></li>
+                <li><a href="#cultural-relevance" onClick={(e) => { e.preventDefault(); document.getElementById('cultural-relevance')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors cursor-pointer">Cultural Relevance</a></li>
+                <li><a href="#monitoring" onClick={(e) => { e.preventDefault(); document.getElementById('monitoring')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors cursor-pointer">Monitoring & Evaluation</a></li>
+                <li><a href="#checklist" onClick={(e) => { e.preventDefault(); document.getElementById('checklist')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-purple transition-colors cursor-pointer">Checklist</a></li>
               </ul>
             </div>
           </div>
@@ -274,6 +275,20 @@ const STEAMPage: React.FC = () => {
       </div>
       <STEAMMobileNav />
       <FloatingBackButton />
+      <FloatingNavButton 
+        icon="science"
+        items={[
+          { id: 'introduction', label: 'Introduction' },
+          { id: 'accessibility', label: 'Accessibility' },
+          { id: 'interactive-content', label: 'Interactive Content' },
+          { id: 'cognitive-load', label: 'Cognitive Load' },
+          { id: 'offline-access', label: 'Offline Access' },
+          { id: 'cultural-relevance', label: 'Cultural Relevance' },
+          { id: 'monitoring', label: 'Monitoring' },
+          { id: 'checklist', label: 'Checklist' }
+        ]}
+        color="brand-purple"
+      />
     </div>
   );
 };

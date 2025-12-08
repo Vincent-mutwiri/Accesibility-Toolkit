@@ -4,6 +4,7 @@ import { ColorContrastActivity, PrivacyConfigurator } from '../components/Activi
 import PageHeader from '../components/PageHeader';
 import ManagementMobileNav from '../components/ManagementMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
+import FloatingNavButton from '../components/FloatingNavButton';
 
 const ManagementSystemsPage: React.FC = () => {
   const navigationItems = [
@@ -34,18 +35,18 @@ const ManagementSystemsPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
               <p className="mb-4">From an equity and inclusion perspective, Management Systems hold unique power and responsibility. They control access to learning opportunities, determine how progress is tracked and reported, influence resource allocation decisions, and shape the overall learning experience for diverse populations. When designed with equity and inclusion at their core, these systems can break down barriers and create pathways to success for all learners. Conversely, when designed without these considerations, they can perpetuate existing inequities and create new forms of exclusion.</p>
             </div>
 
             {/* Practical Applications Section */}
-            <div id="practical-applications" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+            <div id="practical-applications" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Practical Applications (How To)</h2>
               <p className="mb-6">Ensuring your management systems are developed effectively with functionalities and features that supports both learners and educators inclusive and equitable use, we must consider the following areas:</p>
 
               <div className="grid gap-6 not-prose">
-                <div id="ui-experience" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="ui-experience" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">1. Inclusive User Interface and Experience Design</h3>
 
                   <div className="mb-4">
@@ -84,7 +85,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="access-authentication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="access-authentication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-green mb-3">2. Equitable Access and Authentication</h3>
 
                   <div className="mb-4">
@@ -118,7 +119,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="content-management" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="content-management" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">3. Inclusive Content Management and Delivery</h3>
 
                   <div className="mb-4">
@@ -152,7 +153,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="assessment" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
+                <div id="assessment" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">4. Equitable Assessment and Evaluation</h3>
 
                   <div className="mb-4">
@@ -186,7 +187,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="communication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors">
+                <div id="communication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-purple/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-purple mb-3">5. Inclusive Communication and Collaboration Tools</h3>
 
                   <div className="mb-4">
@@ -210,7 +211,7 @@ const ManagementSystemsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div id="data-privacy" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors">
+                <div id="data-privacy" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-red/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-red mb-3">6. Data Privacy and Algorithmic Fairness</h3>
 
                   <div className="mb-4">
@@ -238,7 +239,7 @@ const ManagementSystemsPage: React.FC = () => {
                 </div>
               </div>
 
-              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6">Monitoring and Evaluation (Key Metrics)</h2>
+              <h2 id="monitoring" className="text-2xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-24">Monitoring and Evaluation (Key Metrics)</h2>
 
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
@@ -343,7 +344,7 @@ const ManagementSystemsPage: React.FC = () => {
               </div>
             </div>
 
-            <div id="checklist">
+            <div id="checklist" className="scroll-mt-24">
               <Checklist
                 title="Comprehensive Checklist for Equitable Management Systems"
                 items={[
@@ -422,15 +423,15 @@ const ManagementSystemsPage: React.FC = () => {
             <div className="sticky top-24 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-brand-blue font-medium hover:underline">Introduction</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">UI & Experience Design</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Access & Authentication</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Content Management</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Assessment & Evaluation</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Communication Tools</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Data Privacy & Fairness</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Monitoring & Evaluation</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Checklist</a></li>
+                <li><a href="#introduction" onClick={(e) => { e.preventDefault(); document.getElementById('introduction')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-brand-blue font-medium hover:underline cursor-pointer">Introduction</a></li>
+                <li><a href="#ui-experience" onClick={(e) => { e.preventDefault(); document.getElementById('ui-experience')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">UI & Experience Design</a></li>
+                <li><a href="#access-authentication" onClick={(e) => { e.preventDefault(); document.getElementById('access-authentication')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Access & Authentication</a></li>
+                <li><a href="#content-management" onClick={(e) => { e.preventDefault(); document.getElementById('content-management')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Content Management</a></li>
+                <li><a href="#assessment" onClick={(e) => { e.preventDefault(); document.getElementById('assessment')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Assessment & Evaluation</a></li>
+                <li><a href="#communication" onClick={(e) => { e.preventDefault(); document.getElementById('communication')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Communication Tools</a></li>
+                <li><a href="#data-privacy" onClick={(e) => { e.preventDefault(); document.getElementById('data-privacy')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Data Privacy & Fairness</a></li>
+                <li><a href="#monitoring" onClick={(e) => { e.preventDefault(); document.getElementById('monitoring')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Monitoring & Evaluation</a></li>
+                <li><a href="#checklist" onClick={(e) => { e.preventDefault(); document.getElementById('checklist')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Checklist</a></li>
               </ul>
             </div>
           </div>
@@ -438,6 +439,21 @@ const ManagementSystemsPage: React.FC = () => {
       </div>
       <ManagementMobileNav />
       <FloatingBackButton />
+      <FloatingNavButton 
+        icon="settings_suggest"
+        items={[
+          { id: 'introduction', label: 'Introduction' },
+          { id: 'ui-experience', label: 'UI & Experience' },
+          { id: 'access-authentication', label: 'Access & Authentication' },
+          { id: 'content-management', label: 'Content Management' },
+          { id: 'assessment', label: 'Assessment' },
+          { id: 'communication', label: 'Communication' },
+          { id: 'data-privacy', label: 'Data Privacy' },
+          { id: 'monitoring', label: 'Monitoring' },
+          { id: 'checklist', label: 'Checklist' }
+        ]}
+        color="brand-cyan"
+      />
     </div>
   );
 };

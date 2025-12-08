@@ -4,6 +4,7 @@ import { UDLPreviewActivity, ScreenReaderSimulator } from '../components/Activit
 import PageHeader from '../components/PageHeader';
 import DigitalLearningMobileNav from '../components/DigitalLearningMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
+import FloatingNavButton from '../components/FloatingNavButton';
 
 const DigitalLearningPage: React.FC = () => {
   const navigationItems = [
@@ -246,6 +247,19 @@ const DigitalLearningPage: React.FC = () => {
 
       <DigitalLearningMobileNav />
       <FloatingBackButton />
+      <FloatingNavButton 
+        icon="article"
+        items={[
+          { id: 'introduction', label: 'Introduction' },
+          { id: 'accessibility', label: 'Accessibility' },
+          { id: 'representation', label: 'Representation' },
+          { id: 'usability', label: 'Usability' },
+          { id: 'flexibility', label: 'Flexibility' },
+          { id: 'monitoring', label: 'Monitoring' },
+          { id: 'checklist', label: 'Checklist' }
+        ]}
+        color="brand-green"
+      />
     </div>
   );
 };

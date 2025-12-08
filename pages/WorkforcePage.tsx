@@ -4,6 +4,7 @@ import { AuthChoiceActivity, SkillMappingTool } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import WorkforceMobileNav from '../components/WorkforceMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
+import FloatingNavButton from '../components/FloatingNavButton';
 
 const WorkforcePage: React.FC = () => {
   const navigationItems = [
@@ -222,6 +223,20 @@ const WorkforcePage: React.FC = () => {
       </div>
       <WorkforceMobileNav />
       <FloatingBackButton />
+      <FloatingNavButton 
+        icon="work"
+        items={[
+          { id: 'introduction', label: 'Introduction' },
+          { id: 'inclusive-access', label: 'Inclusive Access' },
+          { id: 'learning-content', label: 'Learning Content' },
+          { id: 'assessment', label: 'Assessment' },
+          { id: 'career-services', label: 'Career Services' },
+          { id: 'mentorship', label: 'Mentorship' },
+          { id: 'templates', label: 'Templates' },
+          { id: 'checklist', label: 'Checklist' }
+        ]}
+        color="brand-red"
+      />
     </div>
   );
 };
