@@ -4,6 +4,7 @@ import { AssessmentSelectorActivity, FeedbackScenario } from '../components/Acti
 import PageHeader from '../components/PageHeader';
 import TutoringMobileNav from '../components/TutoringMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
+import FloatingNavButton from '../components/FloatingNavButton';
 
 const TutoringPage: React.FC = () => {
   const navigationItems = [
@@ -31,7 +32,7 @@ const TutoringPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             {/* Introduction Section */}
-            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="introduction" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Introduction</h2>
               <p className="mb-4">Tutoring digital learning platforms focus on providing personalized educational support to learners by using digital tools and adaptive algorithms to offer extra support in areas where students are struggling. Personalized learning tailors content to each individual's needs and pace, based on their strengths and weaknesses.</p>
               <p className="mb-4">Test prep focuses on preparing students for exams and tests to improve learning outcomes using personalized test prep tools.</p>
@@ -40,11 +41,11 @@ const TutoringPage: React.FC = () => {
             </div>
 
             {/* Essential Features Section */}
-            <div id="essential-features" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="essential-features" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Essential Features for Equity and Inclusion</h2>
 
               <div className="grid gap-6 not-prose">
-                <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
+                <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">Accessibility Features</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</li>
@@ -55,7 +56,7 @@ const TutoringPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div id="content-design" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
+                <div id="content-design" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-green mb-3">Content Design (Revision Materials)</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
                     <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Clear, structured, and uncluttered layout for all recommended revision materials</li>
@@ -64,7 +65,7 @@ const TutoringPage: React.FC = () => {
                   </ul>
                 </div>
 
-                <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
+                <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">Cognitive Load Management</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
                     <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><strong>Personalization Engine:</strong> Make sure the personalization algorithm detects and targets specific learning gaps, providing content in manageable chunks</li>
@@ -132,7 +133,7 @@ const TutoringPage: React.FC = () => {
             </div>
 
             {/* Monitoring and Evaluation Section */}
-            <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12">
+            <div id="monitoring" className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 mb-12 scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Monitoring and Evaluation (Key Metrics)</h2>
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
@@ -174,7 +175,7 @@ const TutoringPage: React.FC = () => {
               </div>
             </div>
 
-            <div id="checklist">
+            <div id="checklist" className="scroll-mt-24">
               <Checklist
                 title="Tutoring Platform Equity & Inclusion Checklist"
                 items={[
@@ -209,14 +210,12 @@ const TutoringPage: React.FC = () => {
             <div className="sticky top-24 bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Navigation</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-brand-blue font-medium hover:underline">Introduction</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Accessibility Features</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Content Design</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Cognitive Load Management</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Offline Access & Bandwidth</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Cultural Relevance</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Monitoring & Evaluation</a></li>
-                <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors">Checklist</a></li>
+                <li><a href="#introduction" onClick={(e) => { e.preventDefault(); document.getElementById('introduction')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-brand-blue font-medium hover:underline cursor-pointer">Introduction</a></li>
+                <li><a href="#accessibility" onClick={(e) => { e.preventDefault(); document.getElementById('accessibility')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Accessibility Features</a></li>
+                <li><a href="#content-design" onClick={(e) => { e.preventDefault(); document.getElementById('content-design')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Content Design</a></li>
+                <li><a href="#cognitive-load" onClick={(e) => { e.preventDefault(); document.getElementById('cognitive-load')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Cognitive Load Management</a></li>
+                <li><a href="#monitoring" onClick={(e) => { e.preventDefault(); document.getElementById('monitoring')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Monitoring & Evaluation</a></li>
+                <li><a href="#checklist" onClick={(e) => { e.preventDefault(); document.getElementById('checklist')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-slate-600 dark:text-slate-400 hover:text-brand-blue transition-colors cursor-pointer">Checklist</a></li>
               </ul>
             </div>
           </div>
@@ -224,6 +223,18 @@ const TutoringPage: React.FC = () => {
       </div>
       <TutoringMobileNav />
       <FloatingBackButton />
+      <FloatingNavButton 
+        icon="quiz"
+        items={[
+          { id: 'introduction', label: 'Introduction' },
+          { id: 'accessibility', label: 'Accessibility' },
+          { id: 'content-design', label: 'Content Design' },
+          { id: 'cognitive-load', label: 'Cognitive Load' },
+          { id: 'monitoring', label: 'Monitoring' },
+          { id: 'checklist', label: 'Checklist' }
+        ]}
+        color="brand-yellow"
+      />
     </div>
   );
 };

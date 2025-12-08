@@ -10,6 +10,7 @@ import WorkforcePage from './pages/WorkforcePage';
 import AboutPage from './pages/AboutPage';
 import ResourcesPage from './pages/ResourcesPage';
 import SettingsPage from './pages/SettingsPage';
+import LMSPage from './pages/LMSPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -67,6 +68,7 @@ const App: React.FC = () => {
             <Route path="/tutoring" element={<TutoringPage />} />
             <Route path="/steam" element={<STEAMPage />} />
             <Route path="/workforce" element={<WorkforcePage />} />
+            <Route path="/lms" element={<LMSPage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
