@@ -47,11 +47,11 @@ const TutoringPage: React.FC = () => {
                 <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-blue mb-3">Accessibility Features</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><strong>Live Tutoring:</strong> Provide real-time captioning and transcription options for live sessions, ensuring clear and concise verbal communication while allowing pauses</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><strong>Revision Materials:</strong> All recommended materials such as videos, reading resources, and interactive exercises must include closed captions, transcripts, and alternative text for images</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><strong>Interface:</strong> Ensure full keyboard navigation, screen reader compatibility, and customizable display options (font size, contrast, color schemes)</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><strong>Input/Interaction:</strong> Voice input options for chat/search, and interactive elements that do not solely depend on fine motor skills</li>
+                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><span><strong>Live Tutoring:</strong> Provide real-time captioning and transcription options for live sessions, ensuring clear and concise verbal communication while allowing pauses</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> All recommended materials such as videos, reading resources, and interactive exercises must include closed captions, transcripts, and alternative text for images</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><span><strong>Interface:</strong> Ensure full keyboard navigation, screen reader compatibility, and customizable display options (font size, contrast, color schemes)</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span><span><strong>Input/Interaction:</strong> Voice input options for chat/search, and interactive elements that do not solely depend on fine motor skills</span></li>
                   </ul>
                 </div>
 
@@ -67,10 +67,10 @@ const TutoringPage: React.FC = () => {
                 <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-brand-yellow mb-3">Cognitive Load Management</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><strong>Personalization Engine:</strong> Make sure the personalization algorithm detects and targets specific learning gaps, providing content in manageable chunks</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><strong>Tutoring content:</strong> Break down complex topics using clear analogies and regularly check for understanding</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><strong>Revision Materials:</strong> Materials should be scaffolded, gradually increasing in complexity, with clear learning objectives and summaries</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><strong>Progress Tracking:</strong> Provide visible and encouraging progress indicators (e.g., "You have completed 70% of this topic!")</li>
+                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><span><strong>Personalization Engine:</strong> Make sure the personalization algorithm detects and targets specific learning gaps, providing content in manageable chunks</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><span><strong>Tutoring content:</strong> Break down complex topics using clear analogies and regularly check for understanding</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> Materials should be scaffolded, gradually increasing in complexity, with clear learning objectives and summaries</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span><span><strong>Progress Tracking:</strong> Provide visible and encouraging progress indicators (e.g., "You have completed 70% of this topic!")</span></li>
                   </ul>
                   <div className="mt-4">
                     <AssessmentSelectorActivity />
@@ -80,9 +80,9 @@ const TutoringPage: React.FC = () => {
                 <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
                   <h3 className="text-xl font-bold text-brand-orange mb-3">Offline Access & Low Bandwidth Optimization</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span><strong>Revision Materials:</strong> Allow downloading of recommended revision materials for offline study</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span><strong>Platform Functionality:</strong> Prioritize core tutoring functionalities for low-bandwidth connections. Offer text-only modes for live sessions if video is problematic</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span><strong>Device Compatibility:</strong> Ensure the platform and revision materials function well on a wide range of devices (smartphones, tablets, various browsers) with minimal hardware requirements</li>
+                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> Allow downloading of recommended revision materials for offline study</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span><span><strong>Platform Functionality:</strong> Prioritize core tutoring functionalities for low-bandwidth connections. Offer text-only modes for live sessions if video is problematic</span></li>
+                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span><span><strong>Device Compatibility:</strong> Ensure the platform and revision materials function well on a wide range of devices (smartphones, tablets, various browsers) with minimal hardware requirements</span></li>
                   </ul>
                 </div>
 
