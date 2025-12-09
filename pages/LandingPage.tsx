@@ -6,7 +6,7 @@ const categories = [
     title: "Online Learning",
     path: "/online-learning",
     icon: "laptop_chromebook",
-    desc: "Platforms delivering structured courses or programs over the internet.",
+    desc: "Products that deliver instruction, lessons, or courses entirely over the internet through virtual platforms.",
     color: "text-brand-blue",
     bg: "bg-brand-blue/10",
     border: "hover:border-brand-blue/50"
@@ -15,7 +15,7 @@ const categories = [
     title: "Digital Learning",
     path: "/digital-learning",
     icon: "article",
-    desc: "Instruction delivered through digital formats like text, video, and interactive media.",
+    desc: "Products that use digital tools, content, or media online or offline to support or enhance the learning process.",
     color: "text-brand-green",
     bg: "bg-brand-green/10",
     border: "hover:border-brand-green/50"
@@ -24,7 +24,7 @@ const categories = [
     title: "Tutoring & Test Prep",
     path: "/tutoring",
     icon: "quiz",
-    desc: "Personalized support and exam preparation tools.",
+    desc: "Products that provide personalized academic support, practice materials, or exam preparation for learners",
     color: "text-brand-yellow",
     bg: "bg-brand-yellow/10",
     border: "hover:border-brand-yellow/50"
@@ -33,7 +33,7 @@ const categories = [
     title: "STEAM",
     path: "/steam",
     icon: "science",
-    desc: "Interactive technologies for Science, Technology, Engineering, Arts, and Math.",
+    desc: "Products that provide interactive technologies for Science, Technology, Engineering, Arts, and Math (STEAM)",
     color: "text-brand-purple",
     bg: "bg-brand-purple/10",
     border: "hover:border-brand-purple/50"
@@ -42,7 +42,7 @@ const categories = [
     title: "Workforce & Skills",
     path: "/workforce",
     icon: "work",
-    desc: "Platforms for employment preparation and professional development.",
+    desc: "Products that help learners build employability, vocational, or professional skills for the modern workplace.",
     color: "text-brand-red",
     bg: "bg-brand-red/10",
     border: "hover:border-brand-red/50"
@@ -51,7 +51,7 @@ const categories = [
     title: "Management Systems",
     path: "/management-systems",
     icon: "settings_suggest",
-    desc: "LMS, SIS, and analytics platforms managing the learning journey.",
+    desc: "Products that supports the operations of schools or training institutions such as administration, communication, reporting, or content delivery.",
     color: "text-brand-cyan",
     bg: "bg-brand-cyan/10",
     border: "hover:border-brand-cyan/50"
@@ -113,8 +113,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-gradient-to-br from-brand-blue/10 to-transparent rounded-2xl p-8 border border-brand-blue/20">
             <h3 className="text-xl font-bold text-brand-blue mb-3">Equity</h3>
             <p className="text-text-light dark:text-text-dark text-sm leading-relaxed">
-              In the context of this toolkit, Equity in EdTech ensures that all learners have fair access to opportunities, resources, and outcomes, taking into account systemic barriers and individual needs. Equity does not mean sameness; it means providing tailored support that recognizes learners’ diverse contexts.
-            </p>
+              Equity refers to intentionally designing products, content, and experiences that address the different needs, barriers, and starting points of learners. Equitable design ensures that each learner receives the specific support, resources, and opportunities they need to thrive, rather than assuming a one size fits all approach.            </p>
           </div>
           <div className="bg-gradient-to-br from-brand-purple/10 to-transparent rounded-2xl p-8 border border-brand-purple/20">
             <h3 className="text-xl font-bold text-brand-purple mb-3">Inclusion</h3>
