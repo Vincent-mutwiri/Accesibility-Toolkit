@@ -11,6 +11,7 @@ interface ChecklistProps {
 
 const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist", items }) => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleItem = (index: number) => {
     setCheckedItems(prev => ({
@@ -20,39 +21,57 @@ const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist",
   };
 
   return (
-    <div className="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl p-6 md:p-8 mt-12">
-      <div className="flex items-center gap-3 mb-6">
-        <span className="material-icons text-primary text-3xl">checklist</span>
-        <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">{title}</h3>
-      </div>
-      <div className="grid gap-3">
-        {items.map((item, index) => (
-          <label 
-            key={index} 
-            className={`flex items-start gap-4 p-3 rounded-lg transition-all cursor-pointer ${
-              checkedItems[index] 
-                ? 'bg-primary/10 dark:bg-primary/20' 
-                : 'hover:bg-white/50 dark:hover:bg-gray-800/50'
-            }`}
-          >
-            <div className="relative flex items-center mt-1">
-              <input 
-                type="checkbox" 
-                className="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
-                checked={!!checkedItems[index]}
-                onChange={() => toggleItem(index)}
-              />
-            </div>
-            <span className={`text-base ${
-              checkedItems[index] 
-                ? 'text-text-light dark:text-text-dark font-medium' 
-                : 'text-subtle-light dark:text-subtle-dark'
-            }`}>
-              {item}
-            </span>
-          </label>
-        ))}
-      </div>
+    <div className="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl mt-12 overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-6 md:p-8 text-left flex items-center justify-between hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
+      >
+        <div className="flex items-center gap-3">
+          <span className="material-icons text-primary text-3xl">checklist</span>
+          <span className="text-lg font-medium text-text-light dark:text-text-dark">
+            Click here for the checklist
+          </span>
+        </div>
+        <span className={`material-icons text-subtle-light dark:text-subtle-dark transition-transform duration-200 ${
+          isOpen ? 'rotate-180' : ''
+        }`}>
+          expand_more
+        </span>
+      </button>
+      
+      {isOpen && (
+        <div className="px-6 md:px-8 pb-6 md:pb-8 border-t border-primary/20">
+          <h3 className="text-2xl font-bold text-text-light dark:text-text-dark mb-6 mt-4">{title}</h3>
+          <div className="grid gap-3">
+            {items.map((item, index) => (
+              <label 
+                key={index} 
+                className={`flex items-start gap-4 p-3 rounded-lg transition-all cursor-pointer ${
+                  checkedItems[index] 
+                    ? 'bg-primary/10 dark:bg-primary/20' 
+                    : 'hover:bg-white/50 dark:hover:bg-gray-800/50'
+                }`}
+              >
+                <div className="relative flex items-center mt-1">
+                  <input 
+                    type="checkbox" 
+                    className="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
+                    checked={!!checkedItems[index]}
+                    onChange={() => toggleItem(index)}
+                  />
+                </div>
+                <span className={`text-base ${
+                  checkedItems[index] 
+                    ? 'text-text-light dark:text-text-dark font-medium' 
+                    : 'text-subtle-light dark:text-subtle-dark'
+                }`}>
+                  {item}
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
