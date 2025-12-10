@@ -77,10 +77,12 @@ const LandingPage: React.FC = () => {
         <div className="lg:col-span-2 space-y-8">
           <section className="bg-card-light dark:bg-card-dark rounded-2xl p-8 shadow-sm border border-border-light dark:border-border-dark relative overflow-hidden">
              <div className="absolute top-0 left-0 w-1 h-full bg-brand-orange"></div>
-            <h2 className="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Introduction & Problem Statement</h2>
+            <h2 className="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Have you ever wondered why digital learning solutions,
+despite their innovation, they often fail to reach or effectively serve marginalized
+learners?</h2>
             <div className="prose dark:prose-invert max-w-none text-subtle-light dark:text-subtle-dark">
               <p className="mb-4">
-                Across the world, EdTech has transformed access to education, yet gaps persist in who benefits and how. Many digital learning solutions, despite their innovation, fail to reach or serve marginalized learners effectively.
+                Across the world, EdTech has transformed access to education, yet gaps persist in who benefits and how.
               </p>
               <p className="mb-4">
                 Learners from low-resource settings, those with disabilities, or students with limited connectivity often face barriers that limit full participation. While global frameworks exist, most were not created specifically for EdTech product teams.
