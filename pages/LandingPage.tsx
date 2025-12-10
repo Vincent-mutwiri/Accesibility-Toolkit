@@ -72,9 +72,28 @@ const LandingPage: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-        {/* Left Column: Context */}
-        <div className="lg:col-span-2 space-y-8">
+      {/* Key Words Section */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-text-light dark:text-text-dark mb-8">Key Words</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-brand-blue/10 to-transparent rounded-2xl p-8 border border-brand-blue/20">
+            <h3 className="text-xl font-bold text-brand-blue mb-3">Equity</h3>
+            <p className="text-text-light dark:text-text-dark text-sm leading-relaxed">
+              Equity refers to intentionally designing products, content, and experiences that address the different needs, barriers, and starting points of learners. Equitable design ensures that each learner receives the specific support, resources, and opportunities they need to thrive, rather than assuming a one size fits all approach.
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-brand-purple/10 to-transparent rounded-2xl p-8 border border-brand-purple/20">
+            <h3 className="text-xl font-bold text-brand-purple mb-3">Inclusion</h3>
+            <p className="text-text-light dark:text-text-dark text-sm leading-relaxed">
+              Inclusion refers to designing products, content, and experiences so that every learner, regardless of ability, background, or identity, feels valued, represented, and supported. Inclusive design goes beyond accessibility to ensure cultural relevance and representation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 gap-8 mb-16">
+        {/* Main Content */}
+        <div className="space-y-8">
           <section className="bg-card-light dark:bg-card-dark rounded-2xl p-8 shadow-sm border border-border-light dark:border-border-dark relative overflow-hidden">
              <div className="absolute top-0 left-0 w-1 h-full bg-brand-orange"></div>
             <h2 className="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Have you ever wondered why digital learning solutions,
@@ -110,19 +129,9 @@ learners?</h2>
           </section>
         </div>
 
-        {/* Right Column: Definitions */}
+        {/* Right Column: Additional Info */}
         <div className="space-y-6">
-          <div className="bg-gradient-to-br from-brand-blue/10 to-transparent rounded-2xl p-8 border border-brand-blue/20">
-            <h3 className="text-xl font-bold text-brand-blue mb-3">Equity</h3>
-            <p className="text-text-light dark:text-text-dark text-sm leading-relaxed">
-              Equity refers to intentionally designing products, content, and experiences that address the different needs, barriers, and starting points of learners. Equitable design ensures that each learner receives the specific support, resources, and opportunities they need to thrive, rather than assuming a one size fits all approach.            </p>
-          </div>
-          <div className="bg-gradient-to-br from-brand-purple/10 to-transparent rounded-2xl p-8 border border-brand-purple/20">
-            <h3 className="text-xl font-bold text-brand-purple mb-3">Inclusion</h3>
-            <p className="text-text-light dark:text-text-dark text-sm leading-relaxed">
-              Inclusion refers to designing products, content, and experiences so that every learner, regardless of ability, background, or identity, feels valued, represented, and supported. Inclusive design goes beyond accessibility to ensure cultural relevance and representation.
-            </p>
-          </div>
+          {/* This column can be used for additional content if needed */}
         </div>
       </div>
 
