@@ -74,7 +74,7 @@ const LandingPage: React.FC = () => {
 
       {/* Key Words Section */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-text-light dark:text-text-dark mb-8">Key Words</h2>
+        <h2 className="text-3xl font-bold text-text-light dark:text-text-dark mb-8">Keywords:</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-brand-blue/10 to-transparent rounded-2xl p-8 border border-brand-blue/20">
             <h3 className="text-xl font-bold text-brand-blue mb-3">Equity</h3>
