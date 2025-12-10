@@ -97,7 +97,7 @@ const LandingPage: React.FC = () => {
           <section className="bg-card-light dark:bg-card-dark rounded-2xl p-8 shadow-sm border border-border-light dark:border-border-dark relative overflow-hidden">
              <div className="absolute top-0 left-0 w-1 h-full bg-brand-orange"></div>
             <h2 className="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Have you ever wondered why digital learning solutions,
-despite their innovation, they often fail to reach or effectively serve marginalized
+despite their innovation, often fail to reach or effectively serve marginalized
 learners?</h2>
             <div className="prose dark:prose-invert max-w-none text-subtle-light dark:text-subtle-dark">
               <p className="mb-4">
