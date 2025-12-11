@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const STORAGE_KEY = 'feedback-form-data';
 
 const FeedbackPage: React.FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     primaryRole: '',
     categories: [] as string[],
@@ -57,7 +58,8 @@ const FeedbackPage: React.FC = () => {
     console.log('Feedback submitted:', formData);
     // Clear saved data after successful submission
     localStorage.removeItem(STORAGE_KEY);
-    // Handle form submission here
+    // Redirect to thank you page
+    navigate('/feedback/thank-you');
   };
 
   return (
