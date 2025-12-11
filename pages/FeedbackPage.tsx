@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+const STORAGE_KEY = 'feedback-form-data';
 
 const FeedbackPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +17,23 @@ const FeedbackPage: React.FC = () => {
     newFeature: '',
     comparison: ''
   });
+
+  // Load saved data on component mount
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        setFormData(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to load saved form data:', e);
+      }
+    }
+  }, []);
+
+  // Save data to localStorage whenever formData changes
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  }, [formData]);
 
   const handleSelectChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -36,6 +55,8 @@ const FeedbackPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Feedback submitted:', formData);
+    // Clear saved data after successful submission
+    localStorage.removeItem(STORAGE_KEY);
     // Handle form submission here
   };
 
