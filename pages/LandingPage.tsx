@@ -158,6 +158,25 @@ learners?</h2>
         </div>
       </section>
 
+      {/* Feedback Section */}
+      <section className="mt-16">
+        <div className="bg-gradient-to-r from-brand-purple/10 via-brand-pink/10 to-brand-orange/10 rounded-2xl p-8 border border-brand-purple/20">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-text-light dark:text-text-dark mb-4">Help Us Improve</h2>
+            <p className="text-subtle-light dark:text-subtle-dark mb-6 max-w-2xl mx-auto">
+              Your feedback is essential to making this toolkit more valuable. Share your experience and help us build better accessibility tools.
+            </p>
+            <Link 
+              to="/feedback"
+              className="inline-flex items-center bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+            >
+              <span className="material-icons mr-2">feedback</span>
+              Give Feedback
+            </Link>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };
