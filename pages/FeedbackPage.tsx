@@ -53,13 +53,35 @@ const FeedbackPage: React.FC = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Feedback submitted:', formData);
-    // Clear saved data after successful submission
-    localStorage.removeItem(STORAGE_KEY);
-    // Redirect to thank you page
-    navigate('/feedback/thank-you');
+    
+    const formDataToSubmit = new FormData();
+    formDataToSubmit.append('data[primaryRole]', formData.primaryRole);
+    formDataToSubmit.append('data[categories]', formData.categories.join(', '));
+    formDataToSubmit.append('data[testingType]', formData.testingType);
+    formDataToSubmit.append('data[testingFrequency]', formData.testingFrequency);
+    formDataToSubmit.append('data[experienceLevel]', formData.experienceLevel);
+    formDataToSubmit.append('data[usabilityRating]', formData.usabilityRating);
+    formDataToSubmit.append('data[missingFeatures]', formData.missingFeatures);
+    formDataToSubmit.append('data[challenges]', formData.challenges);
+    formDataToSubmit.append('data[standards]', formData.standards);
+    formDataToSubmit.append('data[newFeature]', formData.newFeature);
+    formDataToSubmit.append('data[comparison]', formData.comparison);
+    formDataToSubmit.append('data[submittedAt]', new Date().toISOString());
+
+    try {
+      await fetch('https://sheetdb.io/api/v1/3ich0qtv30auf', {
+        method: 'POST',
+        body: formDataToSubmit
+      });
+      
+      localStorage.removeItem(STORAGE_KEY);
+      navigate('/feedback/thank-you');
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      alert('There was an error submitting your feedback. Please try again.');
+    }
   };
 
   return (
