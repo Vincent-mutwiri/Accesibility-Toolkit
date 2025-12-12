@@ -11,6 +11,8 @@ import AboutPage from './pages/AboutPage';
 import ResourcesPage from './pages/ResourcesPage';
 import SettingsPage from './pages/SettingsPage';
 import LMSPage from './pages/LMSPage';
+import FeedbackPage from './pages/FeedbackPage';
+import FeedbackThankYouPage from './pages/FeedbackThankYouPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -70,6 +72,8 @@ const App: React.FC = () => {
             <Route path="/workforce" element={<WorkforcePage />} />
             <Route path="/lms" element={<LMSPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/feedback" element={<FeedbackPage />} />
+            <Route path="/feedback/thank-you" element={<FeedbackThankYouPage />} />
           </Routes>
         </main>
         <Footer />
