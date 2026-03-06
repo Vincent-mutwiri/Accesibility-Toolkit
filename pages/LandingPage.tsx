@@ -222,6 +222,23 @@ learners?</h2>
         </div>
       </section>
 
+      {/* Feedback CTA */}
+      <section className="mt-16">
+        <div className="bg-gradient-to-r from-brand-blue/10 via-brand-purple/10 to-brand-pink/10 border border-border-light dark:border-border-dark rounded-2xl p-8 text-center">
+          <span className="material-icons text-4xl text-brand-blue">feedback</span>
+          <h2 className="text-2xl font-bold text-text-light dark:text-text-dark mt-3">Help us improve the toolkit</h2>
+          <p className="text-subtle-light dark:text-subtle-dark mt-2 max-w-2xl mx-auto">
+            Share what worked, what didn’t, and what you want to see next. Your feedback keeps this resource practical and relevant.
+          </p>
+          <Link
+            to="/feedback"
+            className="inline-flex items-center justify-center mt-5 px-6 py-3 rounded-lg bg-brand-blue text-white font-semibold hover:bg-brand-blue/90"
+          >
+            Go to feedback form
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 };

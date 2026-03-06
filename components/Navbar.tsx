@@ -31,6 +31,10 @@ const Navbar: React.FC = () => {
             <Link to="/" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Home</Link>
             <Link to="/about" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">About</Link>
             <Link to="/resources" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Resources</Link>
+            <Link to="/feedback" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
+              <span className="material-icons text-sm mr-1">feedback</span>
+              Feedback
+            </Link>
             <Link to="/settings" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
               <span className="material-icons text-sm mr-1">settings</span>
               Settings
@@ -73,6 +77,13 @@ const Navbar: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Resources
+            </Link>
+            <Link 
+              to="/feedback" 
+              className="block px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Feedback
             </Link>
             <div className="border-t border-border-light dark:border-border-dark my-2"></div>
             <p className="px-3 py-2 text-xs font-semibold text-subtle-light uppercase tracking-wider">Categories</p>
