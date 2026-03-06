@@ -6,26 +6,73 @@ import FloatingBackButton from '../components/FloatingBackButton';
 const STORAGE_KEY = 'equity-toolkit-feedback';
 
 type FeedbackForm = {
-  name: string;
-  email: string;
   role: string;
-  organization: string;
-  category: string;
-  rating: string;
-  message: string;
-  consent: boolean;
+  categories: string[];
+  testingType: string;
+  testingFrequency: string;
+  experienceLevel: string;
+  usabilityRating: string;
+  missingTools: string;
+  challenges: string;
+  standards: string;
+  newFeature: string;
+  comparison: string;
 };
 
 const defaultForm: FeedbackForm = {
-  name: '',
-  email: '',
   role: '',
-  organization: '',
-  category: 'general',
-  rating: '5',
-  message: '',
-  consent: false
+  categories: [],
+  testingType: '',
+  testingFrequency: '',
+  experienceLevel: '',
+  usabilityRating: '',
+  missingTools: '',
+  challenges: '',
+  standards: '',
+  newFeature: '',
+  comparison: ''
 };
+
+const roleOptions = [
+  'Developer/Engineer',
+  'Founder',
+  'CTO',
+  'Designer/UX Professional',
+  'Product Manager',
+  'QA/Tester',
+  'Accessibility Specialist',
+  'Content Creator',
+  'Other'
+];
+
+const categoryOptions = [
+  'Online Learning',
+  'Digital Learning',
+  'Tutoring & Test Prep',
+  'STEAM',
+  'Workforce & Skills',
+  'Management Systems'
+];
+
+const testingTypeOptions = [
+  'Web accessibility (WCAG compliance)',
+  'Mobile app accessibility',
+  'Desktop application accessibility',
+  'Document accessibility',
+  'All of the above'
+];
+
+const testingFrequencyOptions = [
+  'Daily',
+  'Weekly',
+  'Monthly',
+  'Occasionally',
+  'This is my first time'
+];
+
+const experienceOptions = ['Beginner', 'Intermediate', 'Advanced', 'Expert'];
+
+const usabilityOptions = ['Excellent', 'Good', 'Fair', 'Poor', 'Very Poor'];
 
 const FeedbackPage: React.FC = () => {
   const navigate = useNavigate();
@@ -49,16 +96,30 @@ const FeedbackPage: React.FC = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
   }, [form]);
 
-  const updateField = (key: keyof FeedbackForm, value: string | boolean) => {
+  const updateField = (key: keyof FeedbackForm, value: string | string[]) => {
     setForm(prev => ({ ...prev, [key]: value }));
+  };
+
+  const toggleCategory = (category: string) => {
+    setForm(prev => ({
+      ...prev,
+      categories: prev.categories.includes(category)
+        ? prev.categories.filter(item => item !== category)
+        : [...prev.categories, category]
+    }));
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError('');
 
-    if (!form.message.trim()) {
-      setError('Please share a short message before submitting.');
+    if (!form.role || !form.testingType || !form.testingFrequency || !form.experienceLevel || !form.usabilityRating) {
+      setError('Please complete all dropdown questions before submitting.');
+      return;
+    }
+
+    if (form.categories.length === 0) {
+      setError('Please select at least one category.');
       return;
     }
 
@@ -96,106 +157,160 @@ const FeedbackPage: React.FC = () => {
       <div className="max-w-6xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto space-y-8">
           <section className="bg-card-light dark:bg-card-dark rounded-2xl p-6 sm:p-8 border border-border-light dark:border-border-dark">
-            <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Share your feedback</h2>
+            <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Dropdown Questions</h2>
             <p className="text-subtle-light dark:text-subtle-dark mt-2">
-              Tell us what worked, what didn’t, and what you want to see next.
+              Select the options that best describe your role and usage.
             </p>
 
-            <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-text-light dark:text-text-dark">Name</label>
-                  <input
-                    type="text"
-                    className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
-                    value={form.name}
-                    onChange={event => updateField('name', event.target.value)}
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-text-light dark:text-text-dark">Email (optional)</label>
-                  <input
-                    type="email"
-                    className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
-                    value={form.email}
-                    onChange={event => updateField('email', event.target.value)}
-                  />
-                </div>
+            <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">What is your primary role?</label>
+                <select
+                  className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.role}
+                  onChange={event => updateField('role', event.target.value)}
+                >
+                  <option value="">Select an option</option>
+                  {roleOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-text-light dark:text-text-dark">Role</label>
-                  <input
-                    type="text"
-                    className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
-                    placeholder="e.g., Product Manager"
-                    value={form.role}
-                    onChange={event => updateField('role', event.target.value)}
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-text-light dark:text-text-dark">Organization</label>
-                  <input
-                    type="text"
-                    className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
-                    placeholder="Company or school"
-                    value={form.organization}
-                    onChange={event => updateField('organization', event.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-text-light dark:text-text-dark">Feedback category</label>
-                  <select
-                    className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
-                    value={form.category}
-                    onChange={event => updateField('category', event.target.value)}
-                  >
-                    <option value="general">General</option>
-                    <option value="content">Content</option>
-                    <option value="design">Design & UX</option>
-                    <option value="accessibility">Accessibility</option>
-                    <option value="bug">Bug / Issue</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-text-light dark:text-text-dark">Overall rating</label>
-                  <select
-                    className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
-                    value={form.rating}
-                    onChange={event => updateField('rating', event.target.value)}
-                  >
-                    <option value="5">5 - Excellent</option>
-                    <option value="4">4 - Good</option>
-                    <option value="3">3 - Okay</option>
-                    <option value="2">2 - Needs work</option>
-                    <option value="1">1 - Poor</option>
-                  </select>
+              <div>
+                <p className="text-sm font-medium text-text-light dark:text-text-dark">What is your category? (Allow for multiple selections)</p>
+                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {categoryOptions.map(option => (
+                    <label key={option} className="flex items-start gap-2 text-sm text-subtle-light dark:text-subtle-dark">
+                      <input
+                        type="checkbox"
+                        className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
+                        checked={form.categories.includes(option)}
+                        onChange={() => toggleCategory(option)}
+                      />
+                      <span>{option}</span>
+                    </label>
+                  ))}
                 </div>
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">Your message</label>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">What type of accessibility testing do you primarily need?</label>
+                <select
+                  className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.testingType}
+                  onChange={event => updateField('testingType', event.target.value)}
+                >
+                  <option value="">Select an option</option>
+                  {testingTypeOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">How often do you perform accessibility testing?</label>
+                <select
+                  className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.testingFrequency}
+                  onChange={event => updateField('testingFrequency', event.target.value)}
+                >
+                  <option value="">Select an option</option>
+                  {testingFrequencyOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">What is your experience level with accessibility?</label>
+                <select
+                  className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.experienceLevel}
+                  onChange={event => updateField('experienceLevel', event.target.value)}
+                >
+                  <option value="">Select an option</option>
+                  {experienceOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">How would you rate the overall usability of this toolkit?</label>
+                <select
+                  className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.usabilityRating}
+                  onChange={event => updateField('usabilityRating', event.target.value)}
+                >
+                  <option value="">Select an option</option>
+                  {usabilityOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="pt-4 border-t border-border-light dark:border-border-dark">
+                <h3 className="text-xl font-bold text-text-light dark:text-text-dark">Open-Ended Questions</h3>
+                <p className="text-subtle-light dark:text-subtle-dark mt-2">
+                  Share context so we can prioritize improvements.
+                </p>
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                  What specific accessibility features or tools are you missing that would make this toolkit more valuable for your work?
+                </label>
                 <textarea
-                  className="mt-2 w-full min-h-[140px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
-                  placeholder="What should we improve or keep?"
-                  value={form.message}
-                  onChange={event => updateField('message', event.target.value)}
+                  className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.missingTools}
+                  onChange={event => updateField('missingTools', event.target.value)}
                 />
               </div>
 
-              <label className="flex items-start gap-2 text-sm text-subtle-light dark:text-subtle-dark">
-                <input
-                  type="checkbox"
-                  className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
-                  checked={form.consent}
-                  onChange={event => updateField('consent', event.target.checked)}
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                  Describe any challenges or difficulties you encountered while using the toolkit. What could be improved?
+                </label>
+                <textarea
+                  className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.challenges}
+                  onChange={event => updateField('challenges', event.target.value)}
                 />
-                I’m okay with CcHUB following up about this feedback.
-              </label>
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                  What accessibility standards or guidelines do you most commonly work with, and how well does this toolkit support them?
+                </label>
+                <textarea
+                  className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.standards}
+                  onChange={event => updateField('standards', event.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                  If you could add one new feature to this toolkit, what would it be and why?
+                </label>
+                <textarea
+                  className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.newFeature}
+                  onChange={event => updateField('newFeature', event.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                  How does this toolkit compare to other accessibility tools you've used? What makes it better or worse?
+                </label>
+                <textarea
+                  className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  value={form.comparison}
+                  onChange={event => updateField('comparison', event.target.value)}
+                />
+              </div>
 
               {error && (
                 <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
