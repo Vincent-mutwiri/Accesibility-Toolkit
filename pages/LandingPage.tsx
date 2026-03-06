@@ -77,6 +77,7 @@ const disabilityCategories = [
   },
   {
     title: "Hearing Impairment in EdTech Systems",
+    path: "/hearing-impairment",
     icon: "hearing_disabled",
     color: "text-brand-purple",
     bg: "bg-brand-purple/10",
