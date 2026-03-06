@@ -14,6 +14,7 @@ import LMSPage from './pages/LMSPage';
 import FeedbackPage from './pages/FeedbackPage';
 import FeedbackThankYouPage from './pages/FeedbackThankYouPage';
 import VisualImpairmentPage from './pages/VisualImpairmentPage';
+import IntellectualDevelopmentalDisabilitiesPage from './pages/IntellectualDevelopmentalDisabilitiesPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -76,6 +77,7 @@ const App: React.FC = () => {
             <Route path="/feedback" element={<FeedbackPage />} />
             <Route path="/feedback/thank-you" element={<FeedbackThankYouPage />} />
             <Route path="/visual-impairment" element={<VisualImpairmentPage />} />
+            <Route path="/intellectual-developmental-disabilities" element={<IntellectualDevelopmentalDisabilitiesPage />} />
           </Routes>
         </main>
         <Footer />
