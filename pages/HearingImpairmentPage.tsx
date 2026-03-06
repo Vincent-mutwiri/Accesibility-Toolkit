@@ -15,13 +15,19 @@ const HearingImpairmentPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-10">
-          <section className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+          <section className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed space-y-5">
             <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Introduction</h2>
             <p>
               Hearing impairment is a partial or complete loss of hearing that can limit access to audio-based
-              information. Some learners use hearing aids or cochlear implants, some rely on lip-reading, and others use
-              sign language as their primary mode of communication.
+              information.
             </p>
+            <p className="text-subtle-light dark:text-subtle-dark">Common communication modes include:</p>
+            <ul className="list-disc list-inside">
+              <li>Hearing aids or cochlear implants</li>
+              <li>Lip-reading</li>
+              <li>Sign language as a primary language</li>
+              <li>Text-based communication</li>
+            </ul>
             <p>
               In EdTech, this affects how learners receive instruction, interpret communication, participate in live
               sessions, and demonstrate mastery. When audio is the primary channel, learners with hearing impairments may
