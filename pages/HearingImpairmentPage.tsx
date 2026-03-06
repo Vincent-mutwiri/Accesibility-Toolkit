@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const HearingImpairmentPage: React.FC = () => {
   return (
@@ -244,6 +245,7 @@ const HearingImpairmentPage: React.FC = () => {
           </section>
         </div>
       </div>
+      <FloatingBackButton />
     </div>
   );
 };
