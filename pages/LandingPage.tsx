@@ -222,22 +222,20 @@ learners?</h2>
         </div>
       </section>
 
-      {/* Feedback Section */}
+      {/* Feedback CTA */}
       <section className="mt-16">
-        <div className="bg-gradient-to-r from-brand-purple/10 via-brand-pink/10 to-brand-orange/10 rounded-2xl p-8 border border-brand-purple/20">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-text-light dark:text-text-dark mb-4">Help Us Improve</h2>
-            <p className="text-subtle-light dark:text-subtle-dark mb-6 max-w-2xl mx-auto">
-              Your feedback is essential to making this toolkit more valuable. Share your experience and help us build better accessibility tools.
-            </p>
-            <Link 
-              to="/feedback"
-              className="inline-flex items-center bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors"
-            >
-              <span className="material-icons mr-2">feedback</span>
-              Give Feedback
-            </Link>
-          </div>
+        <div className="bg-gradient-to-r from-brand-blue/10 via-brand-purple/10 to-brand-pink/10 border border-border-light dark:border-border-dark rounded-2xl p-8 text-center">
+          <span className="material-icons text-4xl text-brand-blue">feedback</span>
+          <h2 className="text-2xl font-bold text-text-light dark:text-text-dark mt-3">Help us improve the toolkit</h2>
+          <p className="text-subtle-light dark:text-subtle-dark mt-2 max-w-2xl mx-auto">
+            Share what worked, what didn’t, and what you want to see next. Your feedback keeps this resource practical and relevant.
+          </p>
+          <Link
+            to="/feedback"
+            className="inline-flex items-center justify-center mt-5 px-6 py-3 rounded-lg bg-brand-blue text-white font-semibold hover:bg-brand-blue/90"
+          >
+            Go to feedback form
+          </Link>
         </div>
       </section>
 

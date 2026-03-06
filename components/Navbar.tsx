@@ -31,7 +31,10 @@ const Navbar: React.FC = () => {
             <Link to="/" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Home</Link>
             <Link to="/about" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">About</Link>
             <Link to="/resources" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Resources</Link>
-            <Link to="/feedback" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Feedback</Link>
+            <Link to="/feedback" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
+              <span className="material-icons text-sm mr-1">feedback</span>
+              Feedback
+            </Link>
             <Link to="/settings" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
               <span className="material-icons text-sm mr-1">settings</span>
               Settings
