@@ -146,57 +146,80 @@ const HearingImpairmentPage: React.FC = () => {
           <section>
             <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Comprehensive Checklist: Hearing Impairment in EdTech</h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Content & Multimedia</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>All videos include accurate, human-reviewed captions.</li>
-                  <li>Captions are synchronized and readable.</li>
-                  <li>Sound cues are described in captions.</li>
-                  <li>Full transcripts are available for all audio/video content.</li>
-                  <li>Sign language interpretation is provided where appropriate.</li>
-                  <li>Essential concepts are not dependent on spoken explanation alone.</li>
-                </ul>
-              </div>
-
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Communication & Interaction</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>All verbal instructions are also available in writing.</li>
-                  <li>Text-based discussion options are available.</li>
-                  <li>Live sessions provide captioning where possible.</li>
-                  <li>Breakout room instructions are provided in written format.</li>
-                  <li>Collaborative tools support written participation.</li>
-                  <li>Notifications include visual alerts.</li>
-                  <li>Key discussions are summarized in text.</li>
-                </ul>
-              </div>
-
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Assessment Design</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>Listening is required only when it is the explicit learning objective.</li>
-                  <li>All assessment instructions are provided in text.</li>
-                  <li>Audio-based tasks have equivalent text-based alternatives where appropriate.</li>
-                  <li>Alternative modalities maintain equal rigor.</li>
-                  <li>Extended time is available where needed.</li>
-                  <li>Assessment measures conceptual mastery, not auditory decoding.</li>
-                  <li>Performance does not depend on the speed of auditory processing.</li>
-                </ul>
-              </div>
-
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Platform & System</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>Caption customization is supported by the video player.</li>
-                  <li>Learners can adjust caption size, style, and contrast.</li>
-                  <li>Transcripts are downloadable.</li>
-                  <li>The platform supports persistent visual alerts.</li>
-                  <li>AI tools offer full text-based functionality.</li>
-                  <li>Accessibility audits are conducted before release.</li>
-                  <li>Accessibility standards are embedded into development workflows.</li>
-                  <li>Deaf/hard-of-hearing users are included in usability testing where possible.</li>
-                </ul>
-              </div>
+              {[
+                {
+                  title: 'Content & Multimedia',
+                  items: [
+                    'All videos include accurate, human-reviewed captions.',
+                    'Captions are synchronized and readable.',
+                    'Sound cues are described in captions.',
+                    'Full transcripts are available for all audio/video content.',
+                    'Sign language interpretation is provided where appropriate.',
+                    'Essential concepts are not dependent on spoken explanation alone.'
+                  ]
+                },
+                {
+                  title: 'Communication & Interaction',
+                  items: [
+                    'All verbal instructions are also available in writing.',
+                    'Text-based discussion options are available.',
+                    'Live sessions provide captioning where possible.',
+                    'Breakout room instructions are provided in written format.',
+                    'Collaborative tools support written participation.',
+                    'Notifications include visual alerts.',
+                    'Key discussions are summarized in text.'
+                  ]
+                },
+                {
+                  title: 'Assessment Design',
+                  items: [
+                    'Listening is required only when it is the explicit learning objective.',
+                    'All assessment instructions are provided in text.',
+                    'Audio-based tasks have equivalent text-based alternatives where appropriate.',
+                    'Alternative modalities maintain equal rigor.',
+                    'Extended time is available where needed.',
+                    'Assessment measures conceptual mastery, not auditory decoding.',
+                    'Performance does not depend on the speed of auditory processing.'
+                  ]
+                },
+                {
+                  title: 'Platform & System',
+                  items: [
+                    'Caption customization is supported by the video player.',
+                    'Learners can adjust caption size, style, and contrast.',
+                    'Transcripts are downloadable.',
+                    'The platform supports persistent visual alerts.',
+                    'AI tools offer full text-based functionality.',
+                    'Accessibility audits are conducted before release.',
+                    'Accessibility standards are embedded into development workflows.',
+                    'Deaf/hard-of-hearing users are included in usability testing where possible.'
+                  ]
+                }
+              ].map((section) => (
+                <div
+                  key={section.title}
+                  className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark"
+                >
+                  <h4 className="font-semibold text-text-light dark:text-text-dark">{section.title}</h4>
+                  <ul className="mt-3 space-y-3">
+                    {section.items.map((item) => {
+                      const inputId = `${section.title}-${item}`.replace(/\s+/g, '-').toLowerCase();
+                      return (
+                        <li key={item} className="flex items-start gap-3 text-subtle-light dark:text-subtle-dark">
+                          <input
+                            id={inputId}
+                            type="checkbox"
+                            className="mt-1 h-4 w-4 rounded border-border-light dark:border-border-dark text-brand-purple focus:ring-brand-purple"
+                          />
+                          <label htmlFor={inputId} className="leading-relaxed">
+                            {item}
+                          </label>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
             </div>
 
             <div className="mt-6 bg-brand-purple/5 rounded-2xl p-5 border border-brand-purple/10 text-subtle-light dark:text-subtle-dark">
