@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const VisualImpairmentPage: React.FC = () => {
   return (
@@ -215,65 +216,185 @@ const VisualImpairmentPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">1. Content & Perception</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>All images include meaningful, instructional alt text</li>
-                  <li>Decorative images are ignored by screen readers</li>
-                  <li>No essential information is embedded inside images</li>
-                  <li>Charts and graphs include structured text summaries</li>
-                  <li>Complex visuals include long descriptions where needed</li>
-                  <li>Color is not the sole method of conveying meaning</li>
-                  <li>Minimum contrast ratio of 4.5:1 (7:1 preferred for key content)</li>
-                  <li>Text can be resized to at least 200–400% without layout breakage</li>
-                  <li>The platform supports light and dark modes</li>
-                  <li>All videos include transcripts</li>
-                  <li>Audio descriptions provided where visuals carry critical meaning</li>
-                  <li>Playback controls are keyboard accessible</li>
+                <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>All images include meaningful, instructional alt text</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Decorative images are ignored by screen readers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>No essential information is embedded inside images</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Charts and graphs include structured text summaries</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Complex visuals include long descriptions where needed</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Color is not the sole method of conveying meaning</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Minimum contrast ratio of 4.5:1 (7:1 preferred for key content)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Text can be resized to at least 200–400% without layout breakage</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>The platform supports light and dark modes</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>All videos include transcripts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Audio descriptions provided where visuals carry critical meaning</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Playback controls are keyboard accessible</span>
+                  </li>
                 </ul>
               </div>
 
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">2. Navigation & Structure</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>All functions are operable without a mouse</li>
-                  <li>Logical tab order across the platform</li>
-                  <li>Visible keyboard focus indicators</li>
-                  <li>No keyboard traps</li>
-                  <li>Proper semantic structure (headings, landmarks)</li>
-                  <li>ARIA labels used appropriately</li>
-                  <li>All form fields are properly labeled</li>
-                  <li>Error messages announced by screen readers</li>
-                  <li>Pop-ups are detectable and dismissible</li>
-                  <li>Consistent navigation layout</li>
-                  <li>Skip-to-content option available</li>
+                <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>All functions are operable without a mouse</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Logical tab order across the platform</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Visible keyboard focus indicators</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>No keyboard traps</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Proper semantic structure (headings, landmarks)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>ARIA labels used appropriately</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>All form fields are properly labeled</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Error messages announced by screen readers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Pop-ups are detectable and dismissible</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Consistent navigation layout</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Skip-to-content option available</span>
+                  </li>
                 </ul>
               </div>
 
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">3. Interaction & Participation</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>Drag-and-drop activities have accessible alternatives</li>
-                  <li>Timed tasks allow extensions</li>
-                  <li>Animations can be paused or disabled</li>
-                  <li>Interactive simulations include non-visual equivalents</li>
-                  <li>Collaborative tools compatible with assistive technology</li>
-                  <li>Notifications are available in both audio and visual formats</li>
-                  <li>No hover-only actions required</li>
-                  <li>Live instruction includes verbal description of visuals</li>
+                <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Drag-and-drop activities have accessible alternatives</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Timed tasks allow extensions</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Animations can be paused or disabled</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Interactive simulations include non-visual equivalents</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Collaborative tools compatible with assistive technology</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Notifications are available in both audio and visual formats</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>No hover-only actions required</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Live instruction includes verbal description of visuals</span>
+                  </li>
                 </ul>
               </div>
 
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">4. Assessment</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-                  <li>No assessment relies solely on image-based prompts</li>
-                  <li>Mathematical notation rendered accessibly (e.g., MathML)</li>
-                  <li>Diagrams accompanied by text alternatives</li>
-                  <li>Extended time available when required</li>
-                  <li>Alternative response formats permitted</li>
-                  <li>Quiz navigation keyboard accessible</li>
-                  <li>Feedback accessible in text format</li>
-                  <li>Performance disparities monitored</li>
-                  <li>Assessment measures knowledge, not visual speed</li>
+                <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>No assessment relies solely on image-based prompts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Mathematical notation rendered accessibly (e.g., MathML)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Diagrams accompanied by text alternatives</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Extended time available when required</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Alternative response formats permitted</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Quiz navigation keyboard accessible</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Feedback accessible in text format</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Performance disparities monitored</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <input type="checkbox" className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600" />
+                    <span>Assessment measures knowledge, not visual speed</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -289,6 +410,7 @@ const VisualImpairmentPage: React.FC = () => {
           </section>
         </div>
       </div>
+      <FloatingBackButton />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const DualSensoryLossPage: React.FC = () => {
   return (
@@ -279,6 +280,7 @@ const DualSensoryLossPage: React.FC = () => {
 
         </div>
       </div>
+      <FloatingBackButton />
     </div>
   );
 };
