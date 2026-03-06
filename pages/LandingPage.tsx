@@ -69,6 +69,7 @@ const disabilityCategories = [
   },
   {
     title: "Intellectual and Developmental Disabilities (IDD)",
+    path: "/intellectual-developmental-disabilities",
     icon: "psychology",
     color: "text-brand-green",
     bg: "bg-brand-green/10",
