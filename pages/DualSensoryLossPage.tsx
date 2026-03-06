@@ -1,63 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
-
-const productCategories = [
-  {
-    title: "Online Learning",
-    path: "/online-learning",
-    icon: "laptop_chromebook",
-    desc: "Products that deliver instruction, lessons, or courses entirely over the internet through virtual platforms.",
-    color: "text-brand-blue",
-    bg: "bg-brand-blue/10",
-    border: "hover:border-brand-blue/50"
-  },
-  {
-    title: "Digital Learning",
-    path: "/digital-learning",
-    icon: "article",
-    desc: "Products that use digital tools, content, or media online or offline to support or enhance the learning process.",
-    color: "text-brand-green",
-    bg: "bg-brand-green/10",
-    border: "hover:border-brand-green/50"
-  },
-  {
-    title: "Tutoring & Test Prep",
-    path: "/tutoring",
-    icon: "quiz",
-    desc: "Products that provide personalized academic support, practice materials, or exam preparation for learners.",
-    color: "text-brand-yellow",
-    bg: "bg-brand-yellow/10",
-    border: "hover:border-brand-yellow/50"
-  },
-  {
-    title: "STEAM",
-    path: "/steam",
-    icon: "science",
-    desc: "Products that provide interactive technologies for Science, Technology, Engineering, Arts, and Math (STEAM).",
-    color: "text-brand-purple",
-    bg: "bg-brand-purple/10",
-    border: "hover:border-brand-purple/50"
-  },
-  {
-    title: "Workforce & Skills",
-    path: "/workforce",
-    icon: "work",
-    desc: "Products that help learners build employability, vocational, or professional skills for the modern workplace.",
-    color: "text-brand-red",
-    bg: "bg-brand-red/10",
-    border: "hover:border-brand-red/50"
-  },
-  {
-    title: "Management Systems",
-    path: "/management-systems",
-    icon: "settings_suggest",
-    desc: "Products that supports the operations of schools or training institutions such as administration, communication, reporting, or content delivery.",
-    color: "text-brand-cyan",
-    bg: "bg-brand-cyan/10",
-    border: "hover:border-brand-cyan/50"
-  }
-];
 
 const DualSensoryLossPage: React.FC = () => {
   return (
@@ -335,27 +277,6 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
           </section>
 
-          <section className="space-y-6">
-            <h2 className="text-2xl font-bold text-text-light dark:text-text-dark text-center">Explore EdTech Product Categories</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {productCategories.map((cat) => (
-                <Link
-                  key={cat.path}
-                  to={cat.path}
-                  className={`group bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark ${cat.border} hover:shadow-md transition-all duration-200 flex flex-col`}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`p-3 ${cat.bg} rounded-lg ${cat.color} group-hover:scale-110 transition-transform duration-200`}>
-                      <span className="material-icons text-2xl">{cat.icon}</span>
-                    </div>
-                    <span className={`material-icons text-subtle-light dark:text-subtle-dark hover:${cat.color} transition-colors`}>arrow_forward</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-2">{cat.title}</h3>
-                  <p className="text-subtle-light dark:text-subtle-dark text-sm leading-relaxed">{cat.desc}</p>
-                </Link>
-              ))}
-            </div>
-          </section>
         </div>
       </div>
     </div>
