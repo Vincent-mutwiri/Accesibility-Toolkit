@@ -58,6 +58,37 @@ const categories = [
   }
 ];
 
+const disabilityCategories = [
+  {
+    title: "Visual Impairment in EdTech Systems",
+    icon: "visibility_off",
+    color: "text-brand-blue",
+    bg: "bg-brand-blue/10",
+    border: "hover:border-brand-blue/50"
+  },
+  {
+    title: "Intellectual and Developmental Disabilities (IDD)",
+    icon: "psychology",
+    color: "text-brand-green",
+    bg: "bg-brand-green/10",
+    border: "hover:border-brand-green/50"
+  },
+  {
+    title: "Hearing Impairment in EdTech Systems",
+    icon: "hearing_disabled",
+    color: "text-brand-purple",
+    bg: "bg-brand-purple/10",
+    border: "hover:border-brand-purple/50"
+  },
+  {
+    title: "Dual Sensory Loss (DSL)",
+    icon: "accessibility_new",
+    color: "text-brand-orange",
+    bg: "bg-brand-orange/10",
+    border: "hover:border-brand-orange/50"
+  }
+];
+
 const LandingPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 animate-fade-in-up">
@@ -134,6 +165,26 @@ learners?</h2>
           {/* This column can be used for additional content if needed */}
         </div>
       </div>
+
+      {/* Disability Categories */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold text-center mb-10 text-text-light dark:text-text-dark">Designing for Specific Disabilities</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          {disabilityCategories.map((item) => (
+            <div
+              key={item.title}
+              className={`group bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark ${item.border} hover:shadow-md transition-all duration-200 flex flex-col`}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className={`p-3 ${item.bg} rounded-lg ${item.color} group-hover:scale-110 transition-transform duration-200`}>
+                  <span className="material-icons text-2xl">{item.icon}</span>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-text-light dark:text-text-dark">{item.title}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Categories Grid */}
       <section>
