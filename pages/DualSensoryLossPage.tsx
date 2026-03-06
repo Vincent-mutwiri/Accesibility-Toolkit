@@ -1,5 +1,63 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
+
+const productCategories = [
+  {
+    title: "Online Learning",
+    path: "/online-learning",
+    icon: "laptop_chromebook",
+    desc: "Products that deliver instruction, lessons, or courses entirely over the internet through virtual platforms.",
+    color: "text-brand-blue",
+    bg: "bg-brand-blue/10",
+    border: "hover:border-brand-blue/50"
+  },
+  {
+    title: "Digital Learning",
+    path: "/digital-learning",
+    icon: "article",
+    desc: "Products that use digital tools, content, or media online or offline to support or enhance the learning process.",
+    color: "text-brand-green",
+    bg: "bg-brand-green/10",
+    border: "hover:border-brand-green/50"
+  },
+  {
+    title: "Tutoring & Test Prep",
+    path: "/tutoring",
+    icon: "quiz",
+    desc: "Products that provide personalized academic support, practice materials, or exam preparation for learners.",
+    color: "text-brand-yellow",
+    bg: "bg-brand-yellow/10",
+    border: "hover:border-brand-yellow/50"
+  },
+  {
+    title: "STEAM",
+    path: "/steam",
+    icon: "science",
+    desc: "Products that provide interactive technologies for Science, Technology, Engineering, Arts, and Math (STEAM).",
+    color: "text-brand-purple",
+    bg: "bg-brand-purple/10",
+    border: "hover:border-brand-purple/50"
+  },
+  {
+    title: "Workforce & Skills",
+    path: "/workforce",
+    icon: "work",
+    desc: "Products that help learners build employability, vocational, or professional skills for the modern workplace.",
+    color: "text-brand-red",
+    bg: "bg-brand-red/10",
+    border: "hover:border-brand-red/50"
+  },
+  {
+    title: "Management Systems",
+    path: "/management-systems",
+    icon: "settings_suggest",
+    desc: "Products that supports the operations of schools or training institutions such as administration, communication, reporting, or content delivery.",
+    color: "text-brand-cyan",
+    bg: "bg-brand-cyan/10",
+    border: "hover:border-brand-cyan/50"
+  }
+];
 
 const DualSensoryLossPage: React.FC = () => {
   return (
@@ -14,7 +72,7 @@ const DualSensoryLossPage: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto space-y-10">
+        <div className="max-w-4xl mx-auto space-y-12">
           <section className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
             <p>
               Dual sensory loss encompasses full deafblindness through partial hearing/vision impairments, requiring
@@ -24,9 +82,9 @@ const DualSensoryLossPage: React.FC = () => {
             </p>
           </section>
 
-          <section className="bg-brand-orange/5 rounded-2xl p-6 border border-brand-orange/10">
+          <section className="bg-brand-orange/5 rounded-2xl p-6 border border-brand-orange/10 space-y-3">
             <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Core Design Principles</h2>
-            <ul className="mt-3 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
+            <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
               <li>Access independence through touch-based interfaces.</li>
               <li>Predictable haptic/Braille patterns platform-wide.</li>
               <li>Zero reliance on residual sight/sound capabilities.</li>
@@ -34,33 +92,37 @@ const DualSensoryLossPage: React.FC = () => {
             </ul>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 1: Content Delivery</h3>
-            <p className="text-subtle-light dark:text-subtle-dark mt-2">
-              Challenge: Information locked in visual/auditory formats blocks tactile comprehension.
-            </p>
+          <section className="space-y-4">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 1: Content Delivery</h2>
+              <p className="text-subtle-light dark:text-subtle-dark">
+                Challenge: Information locked in visual/auditory formats blocks tactile comprehension.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
-              <div className="bg-brand-red/5 rounded-lg p-4 border border-brand-red/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+                <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
+                <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Static images/charts without touch equivalents.</li>
                   <li>Video lectures lacking vibration-encoded transcripts.</li>
                   <li>Color/audio cues for progress or errors.</li>
                   <li>Non-exportable interactive modules.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-4 border border-brand-green/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h4>
-                <div className="mt-2 text-subtle-light dark:text-subtle-dark">
-                  <p className="font-medium text-text-light dark:text-text-dark">Content Pipeline</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+                <div>
+                  <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Content Pipeline</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>Auto-convert all assets to Grade 2 Braille + haptic sequences.</li>
                     <li>Generate 3D-printable models for spatial concepts.</li>
                     <li>Embed vibration dictionaries for alerts (short/long patterns).</li>
                   </ul>
-                  <p className="font-medium text-text-light dark:text-text-dark mt-4">Interface Requirements</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+                </div>
+                <div>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark">Interface Requirements</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>Universal refreshable Braille output support.</li>
                     <li>Device-agnostic haptic protocols (phone/watch compatible).</li>
                     <li>Tactile preview mode before full content load.</li>
@@ -70,33 +132,37 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 2: Platform Flow</h3>
-            <p className="text-subtle-light dark:text-subtle-dark mt-2">
-              Challenge: Disorientation in spatial/audio-guided environments erodes user autonomy.
-            </p>
+          <section className="space-y-4">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 2: Platform Flow</h2>
+              <p className="text-subtle-light dark:text-subtle-dark">
+                Challenge: Disorientation in spatial/audio-guided environments erodes user autonomy.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
-              <div className="bg-brand-red/5 rounded-lg p-4 border border-brand-red/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+                <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
+                <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Visual hierarchy without tactile mapping.</li>
                   <li>Time-sensitive navigation prompts.</li>
                   <li>Dynamic layouts shifting focus points.</li>
                   <li>Mouse/gesture-exclusive controls.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-4 border border-brand-green/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h4>
-                <div className="mt-2 text-subtle-light dark:text-subtle-dark">
-                  <p className="font-medium text-text-light dark:text-text-dark">Structural Engineering</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+                <div>
+                  <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Structural Engineering</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>Sequential Braille keyboard pathways (no branching dead-ends).</li>
                     <li>Section-specific vibration signatures (e.g., 3 short pulses = lessons).</li>
                     <li>Persistent “where am I” haptic status updates.</li>
                   </ul>
-                  <p className="font-medium text-text-light dark:text-text-dark mt-4">Validation Protocol</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+                </div>
+                <div>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark">Validation Protocol</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>End-to-end testing via Braille display + screen reader stack.</li>
                     <li>Multi-device haptic consistency audit.</li>
                     <li>Zero-sight/zero-sound completion certification.</li>
@@ -106,34 +172,38 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 3: Active Engagement</h3>
-            <p className="text-subtle-light dark:text-subtle-dark mt-2">
-              Challenge: Visual-timed or audio-collaborative activities exclude tactile participants.
-            </p>
+          <section className="space-y-4">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 3: Active Engagement</h2>
+              <p className="text-subtle-light dark:text-subtle-dark">
+                Challenge: Visual-timed or audio-collaborative activities exclude tactile participants.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
-              <div className="bg-brand-red/5 rounded-lg p-4 border border-brand-red/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+                <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
+                <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Live sessions without real-time Braille feed.</li>
                   <li>Spatial manipulation games.</li>
                   <li>Rapid visual feedback loops.</li>
                   <li>Group tools requiring sight/sound sync.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-4 border border-brand-green/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h4>
-                <div className="mt-2 text-subtle-light dark:text-subtle-dark">
-                  <p className="font-medium text-text-light dark:text-text-dark">Engagement Redesign</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+                <div>
+                  <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Engagement Redesign</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>Visual activities → Braille selection hierarchies.</li>
                     <li>Replace timers with escalating vibration countdowns.</li>
                     <li>Shared Braille documents for collaboration.</li>
                     <li>Haptic “turn indicators” for discussions.</li>
                   </ul>
-                  <p className="font-medium text-text-light dark:text-text-dark mt-4">Feedback Architecture</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+                </div>
+                <div>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark">Feedback Architecture</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>Layered vibration responses (intensity = urgency).</li>
                     <li>Braille confirmation receipts for all actions.</li>
                   </ul>
@@ -142,34 +212,38 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 4: Outcome Capture</h3>
-            <p className="text-subtle-light dark:text-subtle-dark mt-2">
-              Challenge: Assessment formats measuring sensory agility rather than knowledge mastery.
-            </p>
+          <section className="space-y-4">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 4: Outcome Capture</h2>
+              <p className="text-subtle-light dark:text-subtle-dark">
+                Challenge: Assessment formats measuring sensory agility rather than knowledge mastery.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
-              <div className="bg-brand-red/5 rounded-lg p-4 border border-brand-red/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h4>
-                <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+                <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
+                <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Image-heavy question banks.</li>
                   <li>Fixed-duration response windows.</li>
                   <li>Graphical data interpretation tasks.</li>
                   <li>Audio narration of results.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-4 border border-brand-green/10">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h4>
-                <div className="mt-2 text-subtle-light dark:text-subtle-dark">
-                  <p className="font-medium text-text-light dark:text-text-dark">Evaluation Engineering</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+                <div>
+                  <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Evaluation Engineering</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>Nemeth Braille for all mathematics/notation.</li>
                     <li>Tactile graph templates + data tables.</li>
                     <li>Flexible response windows with haptic prompts.</li>
                     <li>Multi-modal proof options (Braille input, pattern selection).</li>
                   </ul>
-                  <p className="font-medium text-text-light dark:text-text-dark mt-4">Analytics Layer</p>
-                  <ul className="list-disc list-inside space-y-1 mt-1">
+                </div>
+                <div>
+                  <p className="text-sm text-subtle-light dark:text-subtle-dark">Analytics Layer</p>
+                  <ul className="list-disc list-inside space-y-1 mt-2 text-subtle-light dark:text-subtle-dark">
                     <li>Braille-accessible performance dashboards.</li>
                     <li>Haptic trend notifications.</li>
                   </ul>
@@ -178,58 +252,108 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">DSL Edtech Compliance Matrix</h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Content Delivery</h4>
-                <ul className="mt-2 space-y-1 text-subtle-light dark:text-subtle-dark">
-                  <li>□ 100% Braille-convertible assets</li>
-                  <li>□ Haptic alert dictionary implemented</li>
-                  <li>□ Tactile previews for complex modules</li>
-                  <li>□ Zero visual/audio content dependency</li>
-                </ul>
-              </div>
+          <section className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">DSL EdTech Compliance Matrix</h2>
+              <p className="text-subtle-light dark:text-subtle-dark">
+                Use this checklist to validate tactile-first readiness across the entire product experience.
+              </p>
+            </div>
 
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Platform Flow</h4>
-                <ul className="mt-2 space-y-1 text-subtle-light dark:text-subtle-dark">
-                  <li>□ Linear Braille navigation paths</li>
-                  <li>□ Distinct haptic section markers</li>
-                  <li>□ No-sight/zero-sound certification</li>
-                  <li>□ Device-consistent vibration patterns</li>
-                </ul>
-              </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {[
+                {
+                  title: 'Content Delivery',
+                  items: [
+                    '100% Braille-convertible assets',
+                    'Haptic alert dictionary implemented',
+                    'Tactile previews for complex modules',
+                    'Zero visual/audio content dependency'
+                  ]
+                },
+                {
+                  title: 'Platform Flow',
+                  items: [
+                    'Linear Braille navigation paths',
+                    'Distinct haptic section markers',
+                    'No-sight/zero-sound certification',
+                    'Device-consistent vibration patterns'
+                  ]
+                },
+                {
+                  title: 'Active Engagement',
+                  items: [
+                    'Visual tasks re-engineered for touch',
+                    'Haptic timing + turn-taking signals',
+                    'Braille-collaborative workspaces',
+                    'Layered vibration feedback system'
+                  ]
+                },
+                {
+                  title: 'Outcome Capture',
+                  items: [
+                    'Nemeth Braille mathematics rendering',
+                    'Tactile assessment alternatives',
+                    'Flexible response accommodations',
+                    'Haptic progress communication'
+                  ]
+                },
+                {
+                  title: 'Deployment Readiness',
+                  items: [
+                    'Full workflow tested with production Braille hardware',
+                    'Cross-platform haptic validation complete',
+                    'User independence benchmark: 95% task completion solo',
+                    'Ongoing tactile access monitoring pipeline'
+                  ]
+                }
+              ].map((section) => (
+                <div
+                  key={section.title}
+                  className="bg-card-light dark:bg-card-dark rounded-lg p-5 border border-border-light dark:border-border-dark space-y-3"
+                >
+                  <h3 className="font-semibold text-text-light dark:text-text-dark">{section.title}</h3>
+                  <ul className="space-y-3">
+                    {section.items.map((item) => {
+                      const inputId = `${section.title}-${item}`.replace(/\s+/g, '-').toLowerCase();
+                      return (
+                        <li key={item} className="flex items-start gap-3 text-subtle-light dark:text-subtle-dark">
+                          <input
+                            id={inputId}
+                            type="checkbox"
+                            className="mt-1 h-4 w-4 rounded border-border-light dark:border-border-dark text-brand-green focus:ring-brand-green"
+                          />
+                          <label htmlFor={inputId} className="leading-relaxed">
+                            {item}
+                          </label>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
 
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Active Engagement</h4>
-                <ul className="mt-2 space-y-1 text-subtle-light dark:text-subtle-dark">
-                  <li>□ Visual tasks re-engineered for touch</li>
-                  <li>□ Haptic timing + turn-taking signals</li>
-                  <li>□ Braille-collaborative workspaces</li>
-                  <li>□ Layered vibration feedback system</li>
-                </ul>
-              </div>
-
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Outcome Capture</h4>
-                <ul className="mt-2 space-y-1 text-subtle-light dark:text-subtle-dark">
-                  <li>□ Nemeth Braille mathematics rendering</li>
-                  <li>□ Tactile assessment alternatives</li>
-                  <li>□ Flexible response accommodations</li>
-                  <li>□ Haptic progress communication</li>
-                </ul>
-              </div>
-
-              <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
-                <h4 className="font-semibold text-text-light dark:text-text-dark">Deployment Readiness</h4>
-                <ul className="mt-2 space-y-1 text-subtle-light dark:text-subtle-dark">
-                  <li>□ Full workflow tested with production Braille hardware</li>
-                  <li>□ Cross-platform haptic validation complete</li>
-                  <li>□ User independence benchmark: 95% task completion solo</li>
-                  <li>□ Ongoing tactile access monitoring pipeline</li>
-                </ul>
-              </div>
+          <section className="space-y-6">
+            <h2 className="text-2xl font-bold text-text-light dark:text-text-dark text-center">Explore EdTech Product Categories</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {productCategories.map((cat) => (
+                <Link
+                  key={cat.path}
+                  to={cat.path}
+                  className={`group bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark ${cat.border} hover:shadow-md transition-all duration-200 flex flex-col`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`p-3 ${cat.bg} rounded-lg ${cat.color} group-hover:scale-110 transition-transform duration-200`}>
+                      <span className="material-icons text-2xl">{cat.icon}</span>
+                    </div>
+                    <span className={`material-icons text-subtle-light dark:text-subtle-dark hover:${cat.color} transition-colors`}>arrow_forward</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-2">{cat.title}</h3>
+                  <p className="text-subtle-light dark:text-subtle-dark text-sm leading-relaxed">{cat.desc}</p>
+                </Link>
+              ))}
             </div>
           </section>
         </div>
