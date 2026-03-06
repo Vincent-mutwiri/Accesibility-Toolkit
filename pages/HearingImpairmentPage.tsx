@@ -18,26 +18,25 @@ const HearingImpairmentPage: React.FC = () => {
           <section className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
             <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Introduction</h2>
             <p>
-              Hearing impairment refers to partial or complete loss of hearing that may affect a learner’s ability to
-              access audio-based information. Some learners use hearing aids or cochlear implants, some rely on lip
-              reading, and others use sign language as their primary mode of communication.
+              Hearing impairment is a partial or complete loss of hearing that can limit access to audio-based
+              information. Some learners use hearing aids or cochlear implants, some rely on lip-reading, and others use
+              sign language as their primary mode of communication.
             </p>
             <p>
-              In EdTech, hearing impairment affects how learners receive instruction, interpret communication,
-              participate in live learning environments and demonstrate mastery within digitally mediated systems. When
-              audio is the primary mode of communication for the instructional content, learners with hearing impairments
-              may experience:
+              In EdTech, this affects how learners receive instruction, interpret communication, participate in live
+              sessions, and demonstrate mastery. When audio is the primary channel, learners with hearing impairments may
+              experience:
             </p>
             <ul>
               <li>Reduced comprehension</li>
               <li>Delayed participation</li>
-              <li>Social exclusion in group interactions</li>
-              <li>Cognitive overload from trying to lip-read or interpret incomplete cues</li>
+              <li>Social exclusion during group work</li>
+              <li>Cognitive overload from lip-reading or missing cues</li>
             </ul>
             <p>
-              Designing EdTech systems for learners with hearing impairments requires intentional planning across
-              content, communication, interaction and platform features. The goal is not just to “add captions,” but to
-              ensure meaningful access to learning experiences.
+              Designing for hearing accessibility requires intentional planning across content, communication,
+              interaction, and platform features. The goal isn’t just to “add captions,” but to ensure meaningful access to
+              learning experiences.
             </p>
           </section>
 
