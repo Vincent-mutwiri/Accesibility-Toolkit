@@ -85,6 +85,7 @@ const disabilityCategories = [
   },
   {
     title: "Dual Sensory Loss (DSL)",
+    path: "/dual-sensory-loss",
     icon: "accessibility_new",
     color: "text-brand-orange",
     bg: "bg-brand-orange/10",
