@@ -220,6 +220,26 @@ learners?</h2>
             );
           })}
         </div>
+
+        {/* References */}
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold text-center mb-6 text-text-light dark:text-text-dark">References</h3>
+
+          <Link
+            to="/resources"
+            className="group block max-w-3xl mx-auto bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark hover:shadow-md transition-all duration-200"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h4 className="text-xl font-bold text-text-light dark:text-text-dark">List of publications used</h4>
+                <p className="text-subtle-light dark:text-subtle-dark text-sm leading-relaxed mt-2">
+                  Disclaimer: This toolkit compiles external publications and guidelines for reference; all content remains the work of its original authors.
+                </p>
+              </div>
+              <span className="material-icons text-subtle-light dark:text-subtle-dark group-hover:text-brand-blue transition-colors">arrow_forward</span>
+            </div>
+          </Link>
+        </div>
       </section>
 
       {/* Feedback CTA */}
