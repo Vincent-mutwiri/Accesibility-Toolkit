@@ -226,7 +226,7 @@ learners?</h2>
           <h3 className="text-2xl font-bold text-center mb-6 text-text-light dark:text-text-dark">References</h3>
 
           <Link
-            to="/resources"
+            to="/references"
             className="group block max-w-3xl mx-auto bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark hover:shadow-md transition-all duration-200"
           >
             <div className="flex items-start justify-between gap-4">
