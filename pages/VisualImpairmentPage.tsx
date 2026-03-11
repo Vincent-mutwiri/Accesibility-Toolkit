@@ -72,12 +72,12 @@ const VisualImpairmentPage: React.FC = () => {
                     <li>Write meaningful alt text that explains instructional significance, not just objects.</li>
                     <li>Provide structured text summaries beneath graphs and charts.</li>
                     <li>Avoid embedding critical texts within images.</li>
-                    <li>Provide transcripts for all audio and video content.</li>
+                    <li>Provide transcripts for all audio and video content to support screen reader navigation and text-based access.</li>
                     <li>Provide audio descriptions for demonstrations that rely on visual cues.</li>
                   </ul>
                   <p className="font-medium text-text-light dark:text-text-dark mt-4">Visual & interface standards</p>
                   <ul className="list-disc list-inside space-y-1 mt-1">
-                    <li>Maintain a minimum 4.5:1 contrast ratio (7.1 preferred for critical content).</li>
+                    <li>Maintain a minimum 4.5:1 contrast ratio (7:1 preferred for critical content).</li>
                     <li>Allow text resizing up to 200%-400% without layout distortion.</li>
                     <li>Provide both light and dark mode options.</li>
                     <li>Do not rely on color alone to convey meaning.</li>
@@ -116,12 +116,12 @@ const VisualImpairmentPage: React.FC = () => {
                     <li>Ensure full keyboard-only navigation</li>
                     <li>Provide visible focus indicators for all interactive elements</li>
                     <li>Use semantic structure with proper heading hierarchy</li>
-                    <li>Apply ARIA labels where native HTML is insufficient</li>
+                    <li>Apply ARIA (Accessible Rich Internet Applications) labels where native HTML (HyperText Markup Language) is insufficient</li>
                     <li>Ensure pop-ups and modals are screen reader detectable</li>
                   </ul>
                   <p className="font-medium text-text-light dark:text-text-dark mt-4">Assistive technology testing</p>
                   <ul className="list-disc list-inside space-y-1 mt-1">
-                    <li>Test complete workflows (login → lesson → quiz → submission) using JAWS, NVDA, or VoiceOver</li>
+                    <li>Test complete workflows (login → lesson → quiz → submission) using JAWS (Job Access With Speech), NVDA (Non Visual Desktop Access), or VoiceOver</li>
                     <li>Test navigation at multiple zoom levels</li>
                     <li>Test on low-cost devices and older operating systems</li>
                   </ul>
