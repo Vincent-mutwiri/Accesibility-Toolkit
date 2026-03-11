@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const ResourcesPage: React.FC = () => {
   return (
@@ -37,6 +38,7 @@ const ResourcesPage: React.FC = () => {
         </div>
 
       </div>
+      <FloatingBackButton />
     </div>
   );
 };
