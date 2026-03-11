@@ -31,6 +31,7 @@ const Navbar: React.FC = () => {
             <Link to="/" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Home</Link>
             <Link to="/about" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">About</Link>
             <Link to="/resources" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Resources</Link>
+            <Link to="/references" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">References</Link>
             <Link to="/feedback" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
               <span className="material-icons text-sm mr-1">feedback</span>
               Feedback
@@ -77,6 +78,13 @@ const Navbar: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Resources
+            </Link>
+            <Link 
+              to="/references" 
+              className="block px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              References
             </Link>
             <Link 
               to="/feedback" 
