@@ -36,11 +36,6 @@ const DualSensoryLossPage: React.FC = () => {
             </ul>
           </section>
 
-          <div className="not-prose">
-            <HapticPatternDictionaryActivity />
-            <BrailleFirstNavigationActivity />
-          </div>
-
           <section className="space-y-4">
             <div className="space-y-2">
               <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Access Layer 1: Content Delivery</h2>
@@ -119,6 +114,10 @@ const DualSensoryLossPage: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            <div className="not-prose">
+              <BrailleFirstNavigationActivity />
+            </div>
           </section>
 
           <section className="space-y-4">
@@ -158,6 +157,10 @@ const DualSensoryLossPage: React.FC = () => {
                   </ul>
                 </div>
               </div>
+            </div>
+
+            <div className="not-prose">
+              <HapticPatternDictionaryActivity />
             </div>
           </section>
 
