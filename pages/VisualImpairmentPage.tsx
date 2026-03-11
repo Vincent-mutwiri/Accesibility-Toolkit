@@ -400,14 +400,6 @@ const VisualImpairmentPage: React.FC = () => {
             </div>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">References</h3>
-            <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-              <li>American Educational Research Association, American Psychological Association, & National Council on Measurement in Education. (2014). Standards for Educational and Psychological Testing (7th ed.). Washington, DC: AERA</li>
-              <li>Meyer, A., Rose, D. H., & Gordon, D. (2014). Universal design for learning: Theory and practice. (No Title).</li>
-              <li>World Wide Web Consortium. (2025). Web Content Accessibility Guidelines (WCAG) 2.1 (W3C Recommendation). Retrieved from https://www.w3.org/TR/WCAG21/</li>
-            </ul>
-          </section>
         </div>
       </div>
       <FloatingBackButton />

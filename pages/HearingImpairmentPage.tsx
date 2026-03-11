@@ -235,14 +235,6 @@ const HearingImpairmentPage: React.FC = () => {
             </div>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">References</h3>
-            <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-              <li>CAST. (2018). Universal design for learning guidelines version 2.2. http://udlguidelines.cast.org</li>
-              <li>Mayer, R. E. (2009). Multimedia learning (2nd ed.). Cambridge University Press.</li>
-              <li>World Wide Web Consortium (W3C). (2018). Web content accessibility guidelines (WCAG) 2.1. https://www.w3.org/TR/WCAG21/</li>
-            </ul>
-          </section>
         </div>
       </div>
       <FloatingBackButton />
