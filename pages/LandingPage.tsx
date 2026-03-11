@@ -170,8 +170,31 @@ learners?</h2>
         </div>
       </div>
 
-      {/* Disability Categories */}
+      {/* Categories Grid */}
       <section className="mb-16">
+        <h2 className="text-3xl font-bold text-center mb-10 text-text-light dark:text-text-dark">EdTech Product Categories</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((cat) => (
+            <Link 
+              key={cat.path} 
+              to={cat.path}
+              className={`group bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark ${cat.border} hover:shadow-md transition-all duration-200 flex flex-col`}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className={`p-3 ${cat.bg} rounded-lg ${cat.color} group-hover:scale-110 transition-transform duration-200`}>
+                  <span className="material-icons text-2xl">{cat.icon}</span>
+                </div>
+                <span className={`material-icons text-subtle-light dark:text-subtle-dark hover:${cat.color} transition-colors`}>arrow_forward</span>
+              </div>
+              <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-2">{cat.title}</h3>
+              <p className="text-subtle-light dark:text-subtle-dark text-sm leading-relaxed">{cat.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Disability Categories */}
+      <section>
         <h2 className="text-3xl font-bold text-center mb-10 text-text-light dark:text-text-dark">Designing for Specific Disabilities</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {disabilityCategories.map((item) => {
@@ -196,29 +219,6 @@ learners?</h2>
               </CardWrapper>
             );
           })}
-        </div>
-      </section>
-
-      {/* Categories Grid */}
-      <section>
-        <h2 className="text-3xl font-bold text-center mb-10 text-text-light dark:text-text-dark">EdTech Product Categories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((cat) => (
-            <Link 
-              key={cat.path} 
-              to={cat.path}
-              className={`group bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark ${cat.border} hover:shadow-md transition-all duration-200 flex flex-col`}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className={`p-3 ${cat.bg} rounded-lg ${cat.color} group-hover:scale-110 transition-transform duration-200`}>
-                  <span className="material-icons text-2xl">{cat.icon}</span>
-                </div>
-                <span className={`material-icons text-subtle-light dark:text-subtle-dark hover:${cat.color} transition-colors`}>arrow_forward</span>
-              </div>
-              <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-2">{cat.title}</h3>
-              <p className="text-subtle-light dark:text-subtle-dark text-sm leading-relaxed">{cat.desc}</p>
-            </Link>
-          ))}
         </div>
       </section>
 
