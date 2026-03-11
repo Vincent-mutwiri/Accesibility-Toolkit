@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FloatingBackButton from '../components/FloatingBackButton';
 
 const ReferencesPage: React.FC = () => {
   return (
@@ -47,6 +48,7 @@ const ReferencesPage: React.FC = () => {
           <Link to="/resources" className="text-brand-blue hover:underline">Go to Global Resources &rarr;</Link>
         </div>
       </div>
+      <FloatingBackButton />
     </div>
   );
 };
