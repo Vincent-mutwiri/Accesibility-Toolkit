@@ -214,12 +214,6 @@ const IntellectualDevelopmentalDisabilitiesPage: React.FC = () => {
             </div>
           </section>
 
-          <section>
-            <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Ref</h3>
-            <ul className="mt-2 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-              <li>Bartoshesky, L. E., & Wright, C. (2021). Intellectual developmental disabilities: Definitions, diagnosis, and delivery of care. Delaware Journal of Public Health, 7(2), 6.</li>
-            </ul>
-          </section>
         </div>
       </div>
       <FloatingBackButton />
