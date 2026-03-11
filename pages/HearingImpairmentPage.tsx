@@ -114,10 +114,6 @@ const HearingImpairmentPage: React.FC = () => {
                   <li>Replace sound-only notifications with persistent visual alerts.</li>
                   <li>Provide written summaries of key live session discussions.</li>
                 </ul>
-
-                <div className="not-prose">
-                  <AlertModalityActivity />
-                </div>
               </div>
 
               <div className="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
@@ -154,6 +150,10 @@ const HearingImpairmentPage: React.FC = () => {
                   <li>Include deaf and hard-of-hearing users in usability testing where possible.</li>
                   <li>Embed accessibility standards into product development guidelines and QA processes.</li>
                 </ul>
+
+                <div className="not-prose">
+                  <AlertModalityActivity />
+                </div>
               </div>
             </div>
           </section>

@@ -49,14 +49,12 @@ const IntellectualDevelopmentalDisabilitiesPage: React.FC = () => {
           <section>
             <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Practical Application (How to?)</h3>
 
-            <div className="not-prose">
-              <PlainLanguageRewriteActivity />
-              <StepByStepTaskActivity />
-            </div>
-
             <div className="space-y-8 mt-4">
               <div className="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
                 <h4 className="text-xl font-semibold text-text-light dark:text-text-dark">Content Design for Cognitive Accessibility</h4>
+                <div className="not-prose">
+                  <PlainLanguageRewriteActivity />
+                </div>
                 <ul className="mt-3 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-2">
                   <li>Use simple, plain language: prioritizes clear, straightforward, and concise communication, minimizing unnecessary complexity that can confuse or exhaust learners.</li>
                   <li>Apply the segmenting principle: by breaking instructions into granular steps. Presenting one task at a time (e.g., select → respond → confirm) reduces extraneous cognitive load, preventing working memory overload.</li>
@@ -92,6 +90,9 @@ const IntellectualDevelopmentalDisabilitiesPage: React.FC = () => {
 
               <div className="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
                 <h4 className="text-xl font-semibold text-text-light dark:text-text-dark">Assessment & Progress Monitoring</h4>
+                <div className="not-prose">
+                  <StepByStepTaskActivity />
+                </div>
                 <ul className="mt-3 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-2">
                   <li>Use game-based or performance-based assessments: Reduces test anxiety and improves the measurement of authentic skills. For example, a learner with Down Syndrome demonstrating money skills through a mock grocery store game rather than a written test reduces pressure while accurately measuring their ability to handle real-world transactions.</li>
                   <li>Spread assessments across short interactions: Avoid long quizzes; use micro-assessments over time.</li>
