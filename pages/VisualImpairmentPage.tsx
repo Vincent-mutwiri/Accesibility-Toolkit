@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
 import FloatingBackButton from '../components/FloatingBackButton';
+import { TextSizeAndSpacingActivity, FocusIndicatorActivity } from '../components/DisabilityActivities';
 
 const VisualImpairmentPage: React.FC = () => {
   return (
@@ -86,6 +87,11 @@ const VisualImpairmentPage: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Interactive demos */}
+            <div className="not-prose">
+              <TextSizeAndSpacingActivity />
+            </div>
           </section>
 
           {/* 2. Navigation barriers */}
@@ -128,6 +134,11 @@ const VisualImpairmentPage: React.FC = () => {
                   <p className="mt-3">A visually impaired user should complete enrollment, participation, and assessment tasks independently.</p>
                 </div>
               </div>
+            </div>
+
+            {/* Interactive demos */}
+            <div className="not-prose">
+              <FocusIndicatorActivity />
             </div>
           </section>
 

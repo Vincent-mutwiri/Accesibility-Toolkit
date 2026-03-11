@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
 import FloatingBackButton from '../components/FloatingBackButton';
+import { PlainLanguageRewriteActivity, StepByStepTaskActivity } from '../components/DisabilityActivities';
 
 const IntellectualDevelopmentalDisabilitiesPage: React.FC = () => {
   return (
@@ -47,6 +48,11 @@ const IntellectualDevelopmentalDisabilitiesPage: React.FC = () => {
           {/* Practical Applications */}
           <section>
             <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">Practical Application (How to?)</h3>
+
+            <div className="not-prose">
+              <PlainLanguageRewriteActivity />
+              <StepByStepTaskActivity />
+            </div>
 
             <div className="space-y-8 mt-4">
               <div className="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
 import FloatingBackButton from '../components/FloatingBackButton';
+import { HapticPatternDictionaryActivity, BrailleFirstNavigationActivity } from '../components/DisabilityActivities';
 
 const DualSensoryLossPage: React.FC = () => {
   return (
@@ -34,6 +35,11 @@ const DualSensoryLossPage: React.FC = () => {
               <li>Scalable from severe to mild DSL spectrums.</li>
             </ul>
           </section>
+
+          <div className="not-prose">
+            <HapticPatternDictionaryActivity />
+            <BrailleFirstNavigationActivity />
+          </div>
 
           <section className="space-y-4">
             <div className="space-y-2">

@@ -1,6 +1,7 @@
 import React from 'react';
 import PageHeader from '../components/PageHeader';
 import FloatingBackButton from '../components/FloatingBackButton';
+import { CaptionsAndTranscriptActivity, AlertModalityActivity } from '../components/DisabilityActivities';
 
 const HearingImpairmentPage: React.FC = () => {
   return (
@@ -91,6 +92,10 @@ const HearingImpairmentPage: React.FC = () => {
                   <li>Avoid instructional phrasing that assumes hearing (e.g., “as you can hear…”).</li>
                   <li>Ensure essential concepts are understandable through visual and textual elements independently of narration.</li>
                 </ul>
+
+                <div className="not-prose">
+                  <CaptionsAndTranscriptActivity />
+                </div>
               </div>
 
               <div className="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
@@ -109,6 +114,10 @@ const HearingImpairmentPage: React.FC = () => {
                   <li>Replace sound-only notifications with persistent visual alerts.</li>
                   <li>Provide written summaries of key live session discussions.</li>
                 </ul>
+
+                <div className="not-prose">
+                  <AlertModalityActivity />
+                </div>
               </div>
 
               <div className="bg-card-light dark:bg-card-dark rounded-2xl p-6 border border-border-light dark:border-border-dark">
