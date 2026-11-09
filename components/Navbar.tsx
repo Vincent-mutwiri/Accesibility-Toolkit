@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Logo = () => (
   <img 
-    src="/CcHUB logo.png" 
-    alt="CcHUB Logo" 
+    src="/logos/ihub-logo.png" 
+    alt="iHUB Logo" 
     className="h-10 w-auto mr-3"
   />
 );
