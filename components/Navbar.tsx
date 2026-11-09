@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     <Link to="/" className="brand-home" aria-label="iHUB EdTech Inclusion Toolkit home">
       <img src="/logos/ihub-logo.png" width="150" height="45" alt="iHUB, a CcHUB Company" className="logo-light" />
       <img src="/logos/ihub-logo-dark.png" width="150" height="45" alt="iHUB, a CcHUB Company" className="logo-dark" />
-      <span className="brand-product">EdTech<br /><strong>Inclusion Toolkit</strong></span>
+      <span className="brand-product"> <strong>iHUB's EdTech </strong><br /><strong>Inclusion Toolkit</strong></span>
     </Link>
     <nav aria-label="Main navigation" className="desktop-nav">{links.map(link => <NavLink key={link.to} to={link.to} end={link.to === '/'}>{link.label}</NavLink>)}<NavLink to="/settings" className="settings-link"><span className="material-icons" aria-hidden="true">tune</span><span>Accessibility</span></NavLink></nav>
     <button type="button" className="menu-toggle" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(value => !value)}><span className="material-icons" aria-hidden="true">{open ? 'close' : 'menu'}</span></button>
