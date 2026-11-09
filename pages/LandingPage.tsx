@@ -16,7 +16,7 @@ const learnerGuides = [
 ];
 const LandingPage: React.FC = () => <>
   <section className="landing-hero site-container" aria-labelledby="hero-title">
-    <div className="hero-copy"><span className="toolkit-label"><span className="material-icons" aria-hidden="true">accessibility_new</span> The EdTech Inclusion Toolkit</span>
+    <div className="hero-copy">
       <h1 id="hero-title">Better learning starts with inclusive design.</h1><p>Turn equity and inclusion into everyday product decisions. Practical guidance, interactive activities, and checklists for the people building learning experiences.</p>
       <div className="hero-actions"><button type="button" className="brand-button" onClick={() => document.getElementById('product-guides')?.scrollIntoView({ behavior: 'auto' })}>Explore the toolkit <span className="material-icons" aria-hidden="true">south</span></button><Link to="/about" className="text-link">About this resource</Link></div>
       <div className="hero-audience"><span className="material-icons" aria-hidden="true">groups</span><span>For educators, designers, and EdTech product teams.</span></div>
