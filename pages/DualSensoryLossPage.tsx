@@ -26,7 +26,7 @@ const DualSensoryLossPage: React.FC = () => {
             </p>
           </section>
 
-          <section className="bg-brand-orange/5 rounded-2xl p-6 border border-brand-orange/10 space-y-3">
+          <section className="bg-primary/5 rounded-2xl p-6 border border-primary/10 space-y-3">
             <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Core Design Principles</h2>
             <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
               <li>Access independence through touch-based interfaces.</li>
@@ -45,7 +45,7 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-2">
                 <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
                 <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Static images/charts without touch equivalents.</li>
@@ -54,7 +54,7 @@ const DualSensoryLossPage: React.FC = () => {
                   <li>Non-exportable interactive modules.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-4">
                 <div>
                   <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
                   <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Content Pipeline</p>
@@ -85,7 +85,7 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-2">
                 <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
                 <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Visual hierarchy without tactile mapping.</li>
@@ -94,7 +94,7 @@ const DualSensoryLossPage: React.FC = () => {
                   <li>Mouse/gesture-exclusive controls.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-4">
                 <div>
                   <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
                   <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Structural Engineering</p>
@@ -129,7 +129,7 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-2">
                 <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
                 <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Live sessions without real-time Braille feed.</li>
@@ -138,7 +138,7 @@ const DualSensoryLossPage: React.FC = () => {
                   <li>Group tools requiring sight/sound sync.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-4">
                 <div>
                   <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
                   <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Engagement Redesign</p>
@@ -173,7 +173,7 @@ const DualSensoryLossPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-brand-red/5 rounded-lg p-5 border border-brand-red/10 space-y-2">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-2">
                 <h3 className="font-semibold text-text-light dark:text-text-dark">Risk Indicators</h3>
                 <ul className="list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
                   <li>Image-heavy question banks.</li>
@@ -182,7 +182,7 @@ const DualSensoryLossPage: React.FC = () => {
                   <li>Audio narration of results.</li>
                 </ul>
               </div>
-              <div className="bg-brand-green/5 rounded-lg p-5 border border-brand-green/10 space-y-4">
+              <div className="bg-primary/5 rounded-lg p-5 border border-primary/10 space-y-4">
                 <div>
                   <h3 className="font-semibold text-text-light dark:text-text-dark">Implementation Roadmap</h3>
                   <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">Evaluation Engineering</p>
@@ -273,7 +273,7 @@ const DualSensoryLossPage: React.FC = () => {
                           <input
                             id={inputId}
                             type="checkbox"
-                            className="mt-1 h-4 w-4 rounded border-border-light dark:border-border-dark text-brand-green focus:ring-brand-green"
+                            className="mt-1 h-4 w-4 rounded border-border-light dark:border-border-dark text-secondary focus:ring-secondary"
                           />
                           <label htmlFor={inputId} className="leading-relaxed">
                             {item}

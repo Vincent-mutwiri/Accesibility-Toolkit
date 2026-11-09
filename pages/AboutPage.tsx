@@ -1,32 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const AboutPage: React.FC = () => {
-  return (
-    <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 animate-fade-in">
-      <nav aria-label="Breadcrumb" className="flex items-center text-sm font-medium text-subtle-light dark:text-subtle-dark mb-8">
-        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-        <span className="material-icons-outlined text-base mx-2">chevron_right</span>
-        <span className="text-text-light dark:text-text-dark font-semibold">About</span>
-      </nav>
-
-      <div className="bg-card-light dark:bg-card-dark rounded-2xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden p-8 md:p-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-text-light dark:text-text-dark mb-6">About the Toolkit</h1>
-        <div className="prose prose-lg dark:prose-invert max-w-none text-subtle-light dark:text-subtle-dark space-y-6">
-          <p>
-            The iHUB's EdTech Inclusion Toolkit was developed to address the growing need for practical guidance in designing inclusive educational technology.
-          </p>
-          <p>
-            This living document and interactive tool serves learning engineers, instructional designers, and product developers. Our mission is to ensure that no learner is left behind due to the design choices made in digital products.
-          </p>
-          <h3 className="text-2xl font-bold text-text-light dark:text-text-dark mt-8 mb-4">Our Vision</h3>
-          <p>
-            A world where digital learning is inherently accessible, culturally responsive, and equitable for all learners regardless of their background, ability, or location.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
+import PageHeader from '../components/PageHeader';
+const AboutPage: React.FC = () => <>
+  <PageHeader title="Inclusion is a design decision." description="A practical toolkit for the teams creating digital learning experiences." breadcrumbs={[{ label: 'Toolkit', to: '/' }, { label: 'About' }]} />
+  <div className="site-container about-grid">
+    <section><h2>Why this toolkit exists</h2><p>Digital learning can open doors. But inaccessible interfaces, limited connectivity, and content that overlooks learners’ backgrounds can create new barriers.</p><p>The iHUB EdTech Inclusion Toolkit connects equity and inclusion principles to the everyday work of product design, development, and evaluation. It helps learning engineers, instructional designers, developers, and educators make informed choices.</p><h2>Our vision</h2><p>Learning experiences that are accessible, culturally responsive, and equitable, whatever a learner’s background, ability, or location.</p><Link to="/" className="brand-button">Explore the product guides</Link></section>
+    <div><section className="content-panel"><h2>Use it in your work</h2><ol className="list-decimal pl-5 space-y-4"><li>Choose the guide that matches your product or the learner needs you want to understand.</li><li>Explore practical approaches and try the interactive activities with your team.</li><li>Use the checklists to review your product and identify the next improvements.</li></ol></section><section className="mt-8"><h2>About iHUB</h2><p>iHUB supports entrepreneurs and innovators through technology, collaboration, and experimentation.</p><p>This toolkit is a living resource. Your experience helps make its guidance more useful.</p><Link to="/feedback" className="text-link">Share your feedback</Link></section></div>
+  </div>
+</>;
 export default AboutPage;

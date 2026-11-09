@@ -16,7 +16,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ items, currentSecti
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: document.documentElement.classList.contains('reduced-motion') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
       setIsOpen(false);
     }
   };
@@ -25,7 +25,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ items, currentSecti
     <div className="lg:hidden fixed bottom-4 right-4 z-50">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-brand-blue text-white p-3 rounded-full shadow-lg hover:bg-brand-blue/90 transition-colors"
+        className="bg-brand-ink text-white p-3 rounded-full shadow-lg hover:bg-brand-ink/80 transition-colors"
         aria-label="Toggle navigation menu"
       >
         <span className="material-icons">
@@ -45,8 +45,8 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ items, currentSecti
                   <button
                     onClick={() => scrollToSection(item.href)}
                     className={`w-full text-left px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${
-                      currentSection === item.href.substring(1) 
-                        ? 'text-brand-blue font-medium' 
+                      currentSection === item.href.substring(1)
+                        ? 'text-secondary font-medium'
                         : 'text-slate-600 dark:text-slate-400'
                     }`}
                   >

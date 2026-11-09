@@ -1,119 +1,23 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-const Logo = () => (
-  <>
-    <img
-      src="/logos/ihub-logo.png"
-      alt="iHUB Logo"
-      className="h-10 w-auto mr-3 dark:hidden"
-    />
-    <img
-      src="/logos/ihub-logo-dark.png"
-      alt="iHUB Logo"
-      className="h-10 w-auto mr-3 hidden dark:block"
-    />
-  </>
-);
-
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+const links = [{ to: '/', label: 'Toolkit' }, { to: '/about', label: 'About' }, { to: '/resources', label: 'Resources' }, { to: '/feedback', label: 'Feedback' }];
 const Navbar: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="bg-card-light dark:bg-card-dark shadow-sm border-b border-border-light dark:border-border-dark sticky top-0 z-10 transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center group" onClick={() => setIsMobileMenuOpen(false)}>
-            <div className="group-hover:scale-105 transition-transform duration-200">
-              <Logo />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-xl leading-tight text-text-light dark:text-text-dark">iHUB's EdTech Inclusion</span>
-              <span className="text-xs font-medium tracking-wider text-primary uppercase">Toolkit</span>
-            </div>
-          </Link>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Home</Link>
-            <Link to="/about" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">About</Link>
-            <Link to="/resources" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium">Resources</Link>
-            <Link to="/feedback" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
-              <span className="material-icons text-sm mr-1">feedback</span>
-              Feedback
-            </Link>
-            <Link to="/settings" className="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors font-medium flex items-center">
-              <span className="material-icons text-sm mr-1">settings</span>
-              Settings
-            </Link>
-          </nav>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-subtle-light hover:text-primary p-2 focus:outline-none"
-            >
-              <span className="material-icons">{isMobileMenuOpen ? 'close' : 'menu'}</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark animate-fade-in">
-          <div className="px-4 pt-2 pb-6 space-y-1">
-            <Link 
-              to="/" 
-              className="block px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/about" 
-              className="block px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              to="/resources" 
-              className="block px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Resources
-            </Link>
-            <Link 
-              to="/feedback" 
-              className="block px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Feedback
-            </Link>
-            <div className="border-t border-border-light dark:border-border-dark my-2"></div>
-            <p className="px-3 py-2 text-xs font-semibold text-subtle-light uppercase tracking-wider">Categories</p>
-            <Link to="/online-learning" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Online Learning</Link>
-            <Link to="/digital-learning" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Digital Learning</Link>
-            <Link to="/tutoring" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Tutoring & Prep</Link>
-            <Link to="/steam" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>STEAM</Link>
-            <Link to="/workforce" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Workforce</Link>
-            <Link to="/management-systems" className="block px-3 py-2 text-sm text-subtle-light hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Management Systems</Link>
-            <div className="border-t border-border-light dark:border-border-dark my-2"></div>
-            <Link 
-              to="/settings" 
-              className="flex items-center px-3 py-3 rounded-md text-base font-medium text-text-light dark:text-text-dark hover:bg-primary/5 hover:text-primary"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <span className="material-icons text-sm mr-2">settings</span>
-              Settings
-            </Link>
-          </div>
-        </div>
-      )}
-    </header>
-  );
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  useEffect(function closeOnRouteChange() { setOpen(false); }, [pathname]);
+  useEffect(function dismissMenu() {
+    const close = (event: KeyboardEvent) => { if (event.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
+  return <header className="site-header"><div className="site-container header-inner">
+    <Link to="/" className="brand-home" aria-label="iHUB EdTech Inclusion Toolkit home">
+      <img src="/logos/ihub-logo.png" width="150" height="45" alt="iHUB, a CcHUB Company" className="logo-light" />
+      <img src="/logos/ihub-logo-dark.png" width="150" height="45" alt="iHUB, a CcHUB Company" className="logo-dark" />
+      <span className="brand-product">EdTech<br /><strong>Inclusion Toolkit</strong></span>
+    </Link>
+    <nav aria-label="Main navigation" className="desktop-nav">{links.map(link => <NavLink key={link.to} to={link.to} end={link.to === '/'}>{link.label}</NavLink>)}<NavLink to="/settings" className="settings-link"><span className="material-icons" aria-hidden="true">tune</span><span>Accessibility</span></NavLink></nav>
+    <button type="button" className="menu-toggle" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(value => !value)}><span className="material-icons" aria-hidden="true">{open ? 'close' : 'menu'}</span></button>
+  </div>{open && <nav id="mobile-menu" aria-label="Mobile navigation" className="mobile-nav site-container">{links.map(link => <NavLink key={link.to} to={link.to} end={link.to === '/'} onClick={() => setOpen(false)}>{link.label}</NavLink>)}<NavLink to="/settings" onClick={() => setOpen(false)}>Accessibility settings</NavLink></nav>}</header>;
 };
-
 export default Navbar;

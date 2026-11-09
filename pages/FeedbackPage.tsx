@@ -178,13 +178,13 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <p className="text-sm font-medium text-text-light dark:text-text-dark">What is your category? (Allow for multiple selections)</p>
+                <p className="text-sm font-medium text-text-light dark:text-text-dark">What is your category? (multiple selections allowed)</p>
                 <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {categoryOptions.map(option => (
                     <label key={option} className="flex items-start gap-2 text-sm text-subtle-light dark:text-subtle-dark">
                       <input
                         type="checkbox"
-                        className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600"
+                        className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600"
                         checked={form.categories.includes(option)}
                         onChange={() => toggleCategory(option)}
                       />
@@ -319,7 +319,7 @@ const FeedbackPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-blue text-white font-semibold hover:bg-brand-blue/90 transition-colors disabled:opacity-60"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-ink text-white font-semibold hover:bg-brand-ink/80 transition-colors disabled:opacity-60"
               >
                 {submitting ? 'Submitting…' : 'Submit feedback'}
               </button>

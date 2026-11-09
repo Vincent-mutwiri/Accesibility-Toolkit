@@ -1,18 +1,12 @@
+import PageHeader from '../components/PageHeader';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FloatingBackButton from '../components/FloatingBackButton';
 
 const ReferencesPage: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 animate-fade-in">
-      <nav aria-label="Breadcrumb" className="flex items-center text-sm font-medium text-subtle-light dark:text-subtle-dark mb-8">
-        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-        <span className="material-icons-outlined text-base mx-2">chevron_right</span>
-        <span className="text-text-light dark:text-text-dark font-semibold">References</span>
-      </nav>
-
+    <><PageHeader title="References" description="Source publications and guidance referenced throughout the toolkit." breadcrumbs={[{ label: 'Toolkit', to: '/' }, { label: 'References' }]} /><div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="bg-card-light dark:bg-card-dark rounded-2xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden p-8 md:p-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-text-light dark:text-text-dark mb-6">References</h1>
         <p className="text-lg text-subtle-light dark:text-subtle-dark leading-relaxed">
           Disclaimer: This toolkit compiles external publications and guidelines for reference; all content remains the work of its original authors.
         </p>
@@ -45,11 +39,11 @@ const ReferencesPage: React.FC = () => {
         </div>
 
         <div className="mt-10">
-          <Link to="/resources" className="text-brand-blue hover:underline">Go to Global Resources &rarr;</Link>
+          <Link to="/resources" className="text-secondary hover:underline">Go to Global Resources &rarr;</Link>
         </div>
       </div>
       <FloatingBackButton />
-    </div>
+    </div></>
   );
 };
 

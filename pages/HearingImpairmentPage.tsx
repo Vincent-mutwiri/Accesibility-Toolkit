@@ -48,7 +48,7 @@ const HearingImpairmentPage: React.FC = () => {
             </p>
           </section>
 
-          <section className="bg-brand-purple/5 rounded-2xl p-6 border border-brand-purple/10">
+          <section className="bg-primary/5 rounded-2xl p-6 border border-primary/10">
             <h3 className="text-xl font-bold text-text-light dark:text-text-dark">Understanding Hearing Impairment in Digital Learning Contexts</h3>
             <p className="text-subtle-light dark:text-subtle-dark mt-2">
               Hearing impairment exists on a spectrum and may include:
@@ -224,7 +224,7 @@ const HearingImpairmentPage: React.FC = () => {
                           <input
                             id={inputId}
                             type="checkbox"
-                            className="mt-1 h-4 w-4 rounded border-border-light dark:border-border-dark text-brand-purple focus:ring-brand-purple"
+                            className="mt-1 h-4 w-4 rounded border-border-light dark:border-border-dark text-secondary focus:ring-secondary"
                           />
                           <label htmlFor={inputId} className="leading-relaxed">
                             {item}
@@ -237,7 +237,7 @@ const HearingImpairmentPage: React.FC = () => {
               ))}
             </div>
 
-            <div className="mt-6 bg-brand-purple/5 rounded-2xl p-5 border border-brand-purple/10 text-subtle-light dark:text-subtle-dark">
+            <div className="mt-6 bg-primary/5 rounded-2xl p-5 border border-primary/10 text-subtle-light dark:text-subtle-dark">
               Designing for hearing impairment often improves learning for everyone. Captions benefit non-native language
               learners, learners in noisy environments, learners reviewing material in quiet settings, and learners who
               process text better than audio. Therefore, designing for the margins improves the experience for all.

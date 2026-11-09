@@ -99,50 +99,25 @@
   font-size: 36px;
 }
 
-/* High Contrast Mode */
+/* High contrast strengthens text and boundaries without filtering the page
+   or changing the positioning of fixed navigation controls. */
 .high-contrast {
-  filter: contrast(150%);
+  --muted: #242423;
+  --line: #242423;
+  --color-subtle-light: #242423;
+  --color-border-light: #242423;
 }
-
-.high-contrast .bg-white {
-  background-color: #ffffff !important;
+.high-contrast :is(.text-slate-500, .text-slate-600, .text-slate-700, .text-gray-500, .text-gray-600, .text-gray-700) {
+  color: #242423 !important;
 }
-
-.high-contrast .bg-slate-50 {
-  background-color: #f8fafc !important;
+.dark.high-contrast {
+  --muted: #FFFFFF;
+  --line: #FFFFFF;
+  --color-subtle-dark: #FFFFFF;
+  --color-border-dark: #C4C8BD;
 }
-
-.high-contrast .text-slate-600 {
-  color: #1e293b !important;
-}
-
-.high-contrast .text-slate-700 {
-  color: #0f172a !important;
-}
-
-.high-contrast .border-slate-200 {
-  border-color: #64748b !important;
-}
-
-/* Dark mode high contrast */
-.dark.high-contrast .bg-slate-900 {
-  background-color: #000000 !important;
-}
-
-.dark.high-contrast .bg-slate-800 {
-  background-color: #1e293b !important;
-}
-
-.dark.high-contrast .text-slate-300 {
-  color: #f1f5f9 !important;
-}
-
-.dark.high-contrast .text-slate-400 {
-  color: #e2e8f0 !important;
-}
-
-.dark.high-contrast .border-slate-700 {
-  border-color: #475569 !important;
+.dark.high-contrast :is(.dark\:text-slate-200, .dark\:text-slate-300, .dark\:text-slate-400, .dark\:text-gray-200, .dark\:text-gray-300, .dark\:text-gray-400, .dark\:text-subtle-dark) {
+  color: #FFFFFF !important;
 }
 
 /* Reduced Motion */
@@ -159,6 +134,6 @@
 .screen-reader-optimized input:focus,
 .screen-reader-optimized select:focus,
 .screen-reader-optimized textarea:focus {
-  outline: 3px solid #12806E !important; /* Brand Teal — focus rings per brand guidelines */
+  outline: 3px solid var(--ink) !important;
   outline-offset: 2px !important;
 }

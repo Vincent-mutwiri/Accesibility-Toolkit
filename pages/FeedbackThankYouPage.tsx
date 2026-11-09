@@ -14,7 +14,7 @@ const FeedbackThankYouPage: React.FC = () => {
         <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center px-5 py-2 rounded-lg bg-brand-blue text-white font-semibold hover:bg-brand-blue/90"
+            className="inline-flex items-center justify-center px-5 py-2 rounded-lg bg-brand-ink text-white font-semibold hover:bg-brand-ink/80"
           >
             Back to Home
           </Link>

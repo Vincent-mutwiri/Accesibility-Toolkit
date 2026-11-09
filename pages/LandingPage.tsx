@@ -1,266 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const categories = [
-  {
-    title: "Online Learning",
-    path: "/online-learning",
-    icon: "laptop_chromebook",
-    desc: "Products that deliver instruction, lessons, or courses entirely over the internet through virtual platforms.",
-    color: "text-brand-blue",
-    bg: "bg-brand-blue/10",
-    border: "hover:border-brand-blue/50"
-  },
-  {
-    title: "Digital Learning",
-    path: "/digital-learning",
-    icon: "article",
-    desc: "Products that use digital tools, content, or media online or offline to support or enhance the learning process.",
-    color: "text-brand-green",
-    bg: "bg-brand-green/10",
-    border: "hover:border-brand-green/50"
-  },
-  {
-    title: "Tutoring & Test Prep",
-    path: "/tutoring",
-    icon: "quiz",
-    desc: "Products that provide personalized academic support, practice materials, or exam preparation for learners",
-    color: "text-brand-yellow",
-    bg: "bg-brand-yellow/10",
-    border: "hover:border-brand-yellow/50"
-  },
-  {
-    title: "STEAM",
-    path: "/steam",
-    icon: "science",
-    desc: "Products that provide interactive technologies for Science, Technology, Engineering, Arts, and Math (STEAM)",
-    color: "text-brand-purple",
-    bg: "bg-brand-purple/10",
-    border: "hover:border-brand-purple/50"
-  },
-  {
-    title: "Workforce & Skills",
-    path: "/workforce",
-    icon: "work",
-    desc: "Products that help learners build employability, vocational, or professional skills for the modern workplace.",
-    color: "text-brand-red",
-    bg: "bg-brand-red/10",
-    border: "hover:border-brand-red/50"
-  },
-  {
-    title: "Management Systems",
-    path: "/management-systems",
-    icon: "settings_suggest",
-    desc: "Products that supports the operations of schools or training institutions such as administration, communication, reporting, or content delivery.",
-    color: "text-brand-cyan",
-    bg: "bg-brand-cyan/10",
-    border: "hover:border-brand-cyan/50"
-  }
+  { title: 'Online learning', path: '/online-learning', icon: 'laptop_chromebook', desc: 'Make internet-based lessons, virtual classrooms, and courses accessible to more learners.' },
+  { title: 'Digital learning', path: '/digital-learning', icon: 'auto_stories', desc: 'Build inclusive digital content and learning tools, whether learners are online or offline.' },
+  { title: 'Tutoring & test prep', path: '/tutoring', icon: 'quiz', desc: 'Design personalised support, practice materials, and exam preparation for different needs.' },
+  { title: 'STEAM', path: '/steam', icon: 'science', desc: 'Open up science, technology, engineering, arts, and maths through inclusive experiences.' },
+  { title: 'Workforce & skills', path: '/workforce', icon: 'work_outline', desc: 'Help learners develop vocational, professional, and employability skills without barriers.' },
+  { title: 'Management systems', path: '/management-systems', icon: 'dashboard_customize', desc: 'Make administration, communication, reporting, and content delivery work for everyone.' },
 ];
-
-const disabilityCategories = [
-  {
-    title: "Visual Impairment in EdTech Systems",
-    path: "/visual-impairment",
-    icon: "visibility_off",
-    color: "text-brand-blue",
-    bg: "bg-brand-blue/10",
-    border: "hover:border-brand-blue/50"
-  },
-  {
-    title: "Intellectual and Developmental Disabilities (IDD)",
-    path: "/intellectual-developmental-disabilities",
-    icon: "psychology",
-    color: "text-brand-green",
-    bg: "bg-brand-green/10",
-    border: "hover:border-brand-green/50"
-  },
-  {
-    title: "Hearing Impairment in EdTech Systems",
-    path: "/hearing-impairment",
-    icon: "hearing_disabled",
-    color: "text-brand-purple",
-    bg: "bg-brand-purple/10",
-    border: "hover:border-brand-purple/50"
-  },
-  {
-    title: "Dual Sensory Loss (DSL)",
-    path: "/dual-sensory-loss",
-    icon: "accessibility_new",
-    color: "text-brand-orange",
-    bg: "bg-brand-orange/10",
-    border: "hover:border-brand-orange/50"
-  }
+const learnerGuides = [
+  { title: 'Visual impairment', path: '/visual-impairment', icon: 'visibility', desc: 'Readable content, assistive technology, and keyboard access.' },
+  { title: 'Intellectual & developmental disabilities', path: '/intellectual-developmental-disabilities', icon: 'psychology', desc: 'Clear instructions, flexible pacing, and cognitive support.' },
+  { title: 'Hearing impairment', path: '/hearing-impairment', icon: 'hearing', desc: 'Captions, visual communication, and accessible media.' },
+  { title: 'Dual sensory loss', path: '/dual-sensory-loss', icon: 'accessibility_new', desc: 'Multiple ways to communicate, navigate, and participate.' },
 ];
-
-const LandingPage: React.FC = () => {
-  return (
-    <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 animate-fade-in-up">
-      
-      {/* Hero Header */}
-      <div className="text-center mb-16 space-y-6">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-text-light dark:text-text-dark tracking-tight">
-          Designing For <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-brand-pink to-brand-orange">Equity and Inclusion</span> <br className="hidden md:block" /> In EdTech Products
-        </h1>
-        <p className="text-xl text-subtle-light dark:text-subtle-dark max-w-3xl mx-auto leading-relaxed">
-          A practical, implementation-focused toolkit connecting accessibility and inclusion principles directly to product design, development, and evaluation.
-        </p>
-      </div>
-
-      {/* Key Words Section */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-text-light dark:text-text-dark mb-8">Keywords:</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-brand-blue/10 to-transparent rounded-2xl p-8 border border-brand-blue/20">
-            <h3 className="text-xl font-bold text-brand-blue mb-3">Equity</h3>
-            <p className="text-text-light dark:text-text-dark text-sm leading-relaxed">
-              Equity refers to intentionally designing products, content, and experiences that address the different needs, barriers, and starting points of learners. Equitable design ensures that each learner receives the specific support, resources, and opportunities they need to thrive, rather than assuming a one size fits all approach.
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-brand-purple/10 to-transparent rounded-2xl p-8 border border-brand-purple/20">
-            <h3 className="text-xl font-bold text-brand-purple mb-3">Inclusion</h3>
-            <p className="text-text-light dark:text-text-dark text-sm leading-relaxed">
-              Inclusion refers to designing products, content, and experiences so that every learner, regardless of ability, background, or identity, feels valued, represented, and supported. Inclusive design goes beyond accessibility to ensure cultural relevance and representation.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 gap-8 mb-16">
-        {/* Main Content */}
-        <div className="space-y-8">
-          <section className="bg-card-light dark:bg-card-dark rounded-2xl p-8 shadow-sm border border-border-light dark:border-border-dark relative overflow-hidden">
-             <div className="absolute top-0 left-0 w-1 h-full bg-brand-orange"></div>
-            <h2 className="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Have you ever wondered why digital learning solutions,
-despite their innovation, often fail to reach or effectively serve marginalized
-learners?</h2>
-            <div className="prose dark:prose-invert max-w-none text-subtle-light dark:text-subtle-dark">
-              <p className="mb-4">
-                Across the world, EdTech has transformed access to education, yet gaps persist in who benefits and how.
-              </p>
-              <p className="mb-4">
-                Learners from low-resource settings, those with disabilities, or students with limited connectivity often face barriers that limit full participation. While global frameworks exist, most were not created specifically for EdTech product teams.
-              </p>
-              <p>
-                <strong className="text-brand-pink">The Goal:</strong> To equip educators, designers, and technologists with the knowledge, tools, and methodologies needed to design, implement, and evaluate digital learning experiences that promote equity and inclusion across diverse learner populations.
-              </p>
-            </div>
-          </section>
-
-          <section className="bg-card-light dark:bg-card-dark rounded-2xl p-8 shadow-sm border border-border-light dark:border-border-dark relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-1 h-full bg-brand-green"></div>
-            <h2 className="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Target Audience</h2>
-            <p className="text-subtle-light dark:text-subtle-dark mb-4">
-              This toolkit is intended for professionals and teams working at the intersection of education, design, and technology, including:
-            </p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {['Learning Engineers', 'Instructional Designers', 'EdTech Developers', 'Product Managers', 'Educators', 'Curriculum Specialists'].map(role => (
-                <li key={role} className="flex items-center text-text-light dark:text-text-dark">
-                  <span className="material-icons text-brand-green text-sm mr-2">check_circle</span>
-                  {role}
-                </li>
-              ))}
-            </ul>
-          </section>
-        </div>
-
-        {/* Right Column: Additional Info */}
-        <div className="space-y-6">
-          {/* This column can be used for additional content if needed */}
-        </div>
-      </div>
-
-      {/* Categories Grid */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-center mb-10 text-text-light dark:text-text-dark">EdTech Product Categories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((cat) => (
-            <Link 
-              key={cat.path} 
-              to={cat.path}
-              className={`group bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark ${cat.border} hover:shadow-md transition-all duration-200 flex flex-col`}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className={`p-3 ${cat.bg} rounded-lg ${cat.color} group-hover:scale-110 transition-transform duration-200`}>
-                  <span className="material-icons text-2xl">{cat.icon}</span>
-                </div>
-                <span className={`material-icons text-subtle-light dark:text-subtle-dark hover:${cat.color} transition-colors`}>arrow_forward</span>
-              </div>
-              <h3 className="text-xl font-bold text-text-light dark:text-text-dark mb-2">{cat.title}</h3>
-              <p className="text-subtle-light dark:text-subtle-dark text-sm leading-relaxed">{cat.desc}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Disability Categories */}
-      <section>
-        <h2 className="text-3xl font-bold text-center mb-10 text-text-light dark:text-text-dark">Designing for Specific Disabilities</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          {disabilityCategories.map((item) => {
-            const CardWrapper = item.path ? Link : 'div';
-            const wrapperProps = item.path ? { to: item.path } : {};
-
-            return (
-              <CardWrapper
-                key={item.title}
-                {...wrapperProps}
-                className={`group bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark ${item.border} hover:shadow-md transition-all duration-200 flex flex-col`}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`p-3 ${item.bg} rounded-lg ${item.color} group-hover:scale-110 transition-transform duration-200`}>
-                    <span className="material-icons text-2xl">{item.icon}</span>
-                  </div>
-                  {item.path && (
-                    <span className={`material-icons text-subtle-light dark:text-subtle-dark hover:${item.color} transition-colors`}>arrow_forward</span>
-                  )}
-                </div>
-                <h3 className="text-xl font-bold text-text-light dark:text-text-dark">{item.title}</h3>
-              </CardWrapper>
-            );
-          })}
-        </div>
-
-        {/* References */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold text-center mb-6 text-text-light dark:text-text-dark">References</h3>
-
-          <Link
-            to="/references"
-            className="group block max-w-3xl mx-auto bg-card-light dark:bg-card-dark rounded-xl p-6 shadow-sm border border-border-light dark:border-border-dark hover:shadow-md transition-all duration-200"
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h4 className="text-xl font-bold text-text-light dark:text-text-dark">List of publications used</h4>
-                <p className="text-subtle-light dark:text-subtle-dark text-sm leading-relaxed mt-2">
-                  Disclaimer: This toolkit compiles external publications and guidelines for reference; all content remains the work of its original authors.
-                </p>
-              </div>
-              <span className="material-icons text-subtle-light dark:text-subtle-dark group-hover:text-brand-blue transition-colors">arrow_forward</span>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* Feedback CTA */}
-      <section className="mt-16">
-        <div className="bg-gradient-to-r from-brand-blue/10 via-brand-purple/10 to-brand-pink/10 border border-border-light dark:border-border-dark rounded-2xl p-8 text-center">
-          <span className="material-icons text-4xl text-brand-blue">feedback</span>
-          <h2 className="text-2xl font-bold text-text-light dark:text-text-dark mt-3">Help us improve the toolkit</h2>
-          <p className="text-subtle-light dark:text-subtle-dark mt-2 max-w-2xl mx-auto">
-            Share what worked, what didn’t, and what you want to see next. Your feedback keeps this resource practical and relevant.
-          </p>
-          <Link
-            to="/feedback"
-            className="inline-flex items-center justify-center mt-5 px-6 py-3 rounded-lg bg-brand-blue text-white font-semibold hover:bg-brand-blue/90"
-          >
-            Go to feedback form
-          </Link>
-        </div>
-      </section>
-
-    </div>
-  );
-};
-
+const LandingPage: React.FC = () => <>
+  <section className="landing-hero site-container" aria-labelledby="hero-title">
+    <div className="hero-copy"><span className="toolkit-label"><span className="material-icons" aria-hidden="true">accessibility_new</span> The EdTech Inclusion Toolkit</span>
+      <h1 id="hero-title">Better learning starts with inclusive design.</h1><p>Turn equity and inclusion into everyday product decisions. Practical guidance, interactive activities, and checklists for the people building learning experiences.</p>
+      <div className="hero-actions"><button type="button" className="brand-button" onClick={() => document.getElementById('product-guides')?.scrollIntoView({ behavior: 'auto' })}>Explore the toolkit <span className="material-icons" aria-hidden="true">south</span></button><Link to="/about" className="text-link">About this resource</Link></div>
+      <div className="hero-audience"><span className="material-icons" aria-hidden="true">groups</span><span>For educators, designers, and EdTech product teams.</span></div>
+    </div><div className="hero-art"><div className="hero-pattern" aria-hidden="true" /><div className="hero-note"><span className="material-icons" aria-hidden="true">diversity_3</span><h2>Different learners.<br />Shared possibilities.</h2><p>Make room for more ways to learn.</p></div></div>
+  </section>
+  <section id="product-guides" className="product-section site-container" aria-labelledby="products-title">
+    <div className="section-heading"><div><h2 id="products-title">What are you building?</h2><p>Choose your product type to find guidance you can put to work.</p></div><span className="section-count">6 product guides</span></div>
+    <div className="product-grid">{categories.map(cat => <Link key={cat.path} to={cat.path} className="product-card"><div className="product-card-top"><span className="guide-icon material-icons" aria-hidden="true">{cat.icon}</span><span className="material-icons card-arrow" aria-hidden="true">north_east</span></div><h3>{cat.title}</h3><p>{cat.desc}</p><span className="card-action">Explore guide</span></Link>)}</div>
+  </section>
+  <section className="learner-section" aria-labelledby="learners-title"><div className="site-container learner-layout">
+    <div className="learner-intro"><span className="material-icons learner-mark" aria-hidden="true">accessibility_new</span><h2 id="learners-title">Start with the learner.</h2><p>Understand specific access needs and build experiences that support different abilities.</p><p className="learner-context">Explore practical design approaches, try interactive activities, and check your work.</p></div>
+    <div className="learner-grid">{learnerGuides.map(guide => <Link key={guide.path} to={guide.path} className="learner-card"><span className="material-icons" aria-hidden="true">{guide.icon}</span><h3>{guide.title}</h3><p>{guide.desc}</p><span className="learner-action">Read the guide <span className="material-icons" aria-hidden="true">arrow_forward</span></span></Link>)}</div>
+  </div></section>
+  <section className="foundations-section site-container" aria-labelledby="foundations-title">
+    <div className="foundations-intro"><h2 id="foundations-title">Good design considers everyone.</h2><p>Innovation alone does not remove barriers. Limited connectivity, low-resource settings, and inaccessible interfaces can prevent learners from taking part.</p><p>This toolkit connects inclusion principles to product design, development, and evaluation, so your team can make more informed decisions.</p><Link to="/resources" className="text-link">Explore supporting resources <span className="material-icons" aria-hidden="true">arrow_forward</span></Link></div>
+    <div className="foundation-definitions"><article><h3>Equity</h3><p>Recognise different starting points. Give each learner the support, resources, and opportunities they need, rather than assuming one approach fits all.</p></article><article><h3>Inclusion</h3><p>Create experiences where every learner feels valued, represented, and supported, across abilities, backgrounds, identities, and cultures.</p></article></div>
+  </section>
+  <section className="audience-section site-container" aria-labelledby="audience-title"><div><h2 id="audience-title">Built for teams shaping education.</h2><p>Bring an inclusion perspective to every stage of your work.</p></div><ul>{['Learning engineers', 'Instructional designers', 'EdTech developers', 'Product managers', 'Educators', 'Curriculum specialists'].map(role => <li key={role}><span className="material-icons" aria-hidden="true">check</span>{role}</li>)}</ul></section>
+  <section className="feedback-band"><div className="site-container feedback-band-inner"><div><h2>A better toolkit starts with your experience.</h2><p>Tell us what worked, what is missing, and what would help your team.</p></div><Link to="/feedback" className="brand-button brand-button-dark">Share your feedback <span className="material-icons" aria-hidden="true">arrow_forward</span></Link></div></section>
+</>;
 export default LandingPage;

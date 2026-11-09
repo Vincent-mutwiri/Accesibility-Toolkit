@@ -11,20 +11,20 @@ interface WrapperProps {
 }
 
 const ActivityWrapper: React.FC<WrapperProps> = ({ title, description, icon, children }) => (
-  <div className="my-10 bg-white dark:bg-gray-800 rounded-xl border-2 border-primary/20 overflow-hidden shadow-lg transition-all hover:shadow-xl">
+  <div className="activity-shell min-w-0 my-10 bg-white dark:bg-gray-800 rounded-xl border-2 border-primary/20 overflow-hidden shadow-none">
     <div className="bg-primary/5 dark:bg-primary/20 p-4 border-b border-primary/10 flex items-center gap-3">
-      <div className="p-2 bg-primary/10 rounded-full text-primary">
+      <div className="p-2 bg-primary/10 rounded-full text-secondary">
         <span className="material-icons">{icon}</span>
       </div>
-      <div>
-        <h3 className="font-bold text-lg text-text-light dark:text-text-dark flex items-center gap-2">
+      <div className="min-w-0">
+        <h3 className="font-bold text-lg text-text-light dark:text-text-dark flex flex-wrap items-center gap-2">
           {title}{' '}
-          <span className="text-xs bg-primary text-white px-2 py-0.5 rounded-full uppercase tracking-wide">Interactive</span>
+          <span className="text-xs bg-primary text-brand-black px-2 py-0.5 rounded-full">Interactive</span>
         </h3>
         <p className="text-sm text-subtle-light dark:text-subtle-dark">{description}</p>
       </div>
     </div>
-    <div className="p-6 md:p-8">{children}</div>
+    <div className="p-4 sm:p-6 md:p-8">{children}</div>
   </div>
 );
 
@@ -55,7 +55,7 @@ export const TextSizeAndSpacingActivity: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setSize(opt.id)}
-                  className={`px-3 py-1.5 rounded text-sm border transition-colors ${size === opt.id ? 'bg-primary text-white border-primary' : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-primary/50'}`}
+                  className={`px-3 py-1.5 rounded text-sm border transition-colors ${size === opt.id ? 'bg-primary text-brand-black border-primary' : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-primary/50'}`}
                 >
                   {opt.label}
                 </button>
@@ -74,7 +74,7 @@ export const TextSizeAndSpacingActivity: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setLineHeight(opt.id)}
-                  className={`px-3 py-1.5 rounded text-sm border transition-colors ${lineHeight === opt.id ? 'bg-primary text-white border-primary' : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-primary/50'}`}
+                  className={`px-3 py-1.5 rounded text-sm border transition-colors ${lineHeight === opt.id ? 'bg-primary text-brand-black border-primary' : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-primary/50'}`}
                 >
                   {opt.label}
                 </button>
@@ -159,7 +159,7 @@ export const CaptionsAndTranscriptActivity: React.FC = () => {
       <div className="space-y-5">
         <div className="flex flex-wrap gap-3 items-center justify-between p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-card-light dark:bg-card-dark">
           <div className="flex items-center gap-3">
-            <span className="material-icons text-primary">smart_display</span>
+            <span className="material-icons text-secondary">smart_display</span>
             <div>
               <p className="font-semibold text-text-light dark:text-text-dark">Video: Algebra Basics</p>
               <p className="text-xs text-subtle-light dark:text-subtle-dark">Duration: 3:12</p>
@@ -196,11 +196,11 @@ export const CaptionsAndTranscriptActivity: React.FC = () => {
         <div className="flex items-center justify-between">
           <button
             onClick={() => setShowTranscript((v) => !v)}
-            className="text-primary font-semibold text-sm hover:underline"
+            className="text-secondary font-semibold text-sm hover:underline"
           >
             {showTranscript ? 'Hide transcript' : 'Open transcript'}
           </button>
-          <button className="text-sm px-3 py-2 rounded-lg bg-primary text-white hover:bg-primary/90">
+          <button className="text-sm px-3 py-2 rounded-lg bg-primary text-brand-black hover:bg-brand-ink/80">
             Download transcript
           </button>
         </div>
@@ -265,7 +265,7 @@ export const AlertModalityActivity: React.FC = () => {
                   <div>
                     <p className="font-semibold text-text-light dark:text-text-dark">New assignment</p>
                     <p className="text-sm text-subtle-light dark:text-subtle-dark">Please complete the algebra quiz by Friday.</p>
-                    <button className="mt-2 text-sm font-bold text-primary hover:underline">View details</button>
+                    <button className="mt-2 text-sm font-bold text-secondary hover:underline">View details</button>
                   </div>
                 </div>
               </div>
@@ -355,7 +355,7 @@ export const StepByStepTaskActivity: React.FC = () => {
             </button>
             <button
               onClick={() => setCurrent((c) => Math.min(steps.length - 1, c + 1))}
-              className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90"
+              className="px-4 py-2 rounded-lg bg-primary text-brand-black text-sm font-semibold hover:bg-brand-ink/80"
               disabled={current === steps.length - 1}
             >
               Next
@@ -394,7 +394,7 @@ export const HapticPatternDictionaryActivity: React.FC = () => {
             <button
               key={key}
               onClick={() => setSelected(key)}
-              className={`px-3 py-2 rounded-lg border text-sm font-semibold ${selected === key ? 'border-primary bg-primary/5 text-primary' : 'border-gray-200 dark:border-gray-700'}`}
+              className={`px-3 py-2 rounded-lg border text-sm font-semibold ${selected === key ? 'border-primary bg-primary/5 text-secondary' : 'border-gray-200 dark:border-gray-700'}`}
             >
               {patterns[key].label}
             </button>
@@ -454,7 +454,7 @@ export const BrailleFirstNavigationActivity: React.FC = () => {
             </button>
             <button
               onClick={() => setStep((s) => Math.min(flow.length - 1, s + 1))}
-              className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90"
+              className="px-4 py-2 rounded-lg bg-primary text-brand-black text-sm font-semibold hover:bg-brand-ink/80"
               disabled={step === flow.length - 1}
             >
               Next

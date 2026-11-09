@@ -9,19 +9,19 @@ interface WrapperProps {
 }
 
 const ActivityWrapper: React.FC<WrapperProps> = ({ title, description, icon, children }) => (
-  <div className="my-10 bg-white dark:bg-gray-800 rounded-xl border-2 border-primary/20 overflow-hidden shadow-lg transition-all hover:shadow-xl">
+  <div className="activity-shell min-w-0 my-10 bg-white dark:bg-gray-800 rounded-xl border-2 border-primary/20 overflow-hidden shadow-none">
     <div className="bg-primary/5 dark:bg-primary/20 p-4 border-b border-primary/10 flex items-center gap-3">
-      <div className="p-2 bg-primary/10 rounded-full text-primary">
+      <div className="p-2 bg-primary/10 rounded-full text-secondary">
         <span className="material-icons">{icon}</span>
       </div>
-      <div>
-        <h3 className="font-bold text-lg text-text-light dark:text-text-dark flex items-center gap-2">
-          {title} <span className="text-xs bg-primary text-white px-2 py-0.5 rounded-full uppercase tracking-wide">Interactive</span>
+      <div className="min-w-0">
+        <h3 className="font-bold text-lg text-text-light dark:text-text-dark flex flex-wrap items-center gap-2">
+          {title} <span className="text-xs bg-primary text-brand-black px-2 py-0.5 rounded-full">Interactive</span>
         </h3>
         <p className="text-sm text-subtle-light dark:text-subtle-dark">{description}</p>
       </div>
     </div>
-    <div className="p-6 md:p-8">
+    <div className="p-4 sm:p-6 md:p-8">
       {children}
     </div>
   </div>
@@ -46,13 +46,13 @@ export const ColorContrastActivity: React.FC = () => {
       icon="contrast"
     >
       <div className="space-y-6">
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           {(['low', 'medium', 'high'] as const).map((l) => (
             <button
               key={l}
               onClick={() => setLevel(l)}
               className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors ${level === l
-                  ? 'bg-primary text-white shadow-md'
+                  ? 'bg-primary text-brand-black shadow-md'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                 }`}
             >
@@ -96,21 +96,21 @@ export const MultilingualToggleActivity: React.FC = () => {
       icon="translate"
     >
       <div className="space-y-6">
-        <div className="flex justify-center gap-2">
-          <button onClick={() => setLang('en')} className={`px-3 py-1 rounded text-sm ${lang === 'en' ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-gray-700'}`}>English</button>
-          <button onClick={() => setLang('sw')} className={`px-3 py-1 rounded text-sm ${lang === 'sw' ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-gray-700'}`}>Kiswahili</button>
-          <button onClick={() => setLang('ar')} className={`px-3 py-1 rounded text-sm ${lang === 'ar' ? 'bg-primary text-white' : 'bg-gray-100 dark:bg-gray-700'}`}>Arabic (RTL)</button>
+        <div className="flex flex-wrap justify-center gap-2">
+          <button onClick={() => setLang('en')} className={`px-3 py-1 rounded text-sm ${lang === 'en' ? 'bg-primary text-brand-black' : 'bg-gray-100 dark:bg-gray-700'}`}>English</button>
+          <button onClick={() => setLang('sw')} className={`px-3 py-1 rounded text-sm ${lang === 'sw' ? 'bg-primary text-brand-black' : 'bg-gray-100 dark:bg-gray-700'}`}>Kiswahili</button>
+          <button onClick={() => setLang('ar')} className={`px-3 py-1 rounded text-sm ${lang === 'ar' ? 'bg-primary text-brand-black' : 'bg-gray-100 dark:bg-gray-700'}`}>Arabic (RTL)</button>
         </div>
 
         <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-card-light dark:bg-card-dark shadow-sm max-w-sm mx-auto" dir={current.dir}>
           <div className={`flex items-start gap-4 ${current.dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
             <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full shrink-0">
-              <span className="material-icons text-primary">notifications</span>
+              <span className="material-icons text-secondary">notifications</span>
             </div>
             <div>
               <h4 className="font-bold text-lg text-text-light dark:text-text-dark">{current.title}</h4>
               <p className="text-subtle-light dark:text-subtle-dark text-sm mt-1 mb-3">{current.body}</p>
-              <button className="text-primary text-sm font-bold hover:underline">{current.button}</button>
+              <button className="text-secondary text-sm font-bold hover:underline">{current.button}</button>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export const UDLPreviewActivity: React.FC = () => {
       icon="auto_stories"
     >
       <div className="space-y-4">
-        <div className="flex border-b border-gray-200 dark:border-gray-700">
+        <div className="flex flex-wrap border-b border-gray-200 dark:border-gray-700">
           {[
             { id: 'text', icon: 'description', label: 'Read' },
             { id: 'audio', icon: 'headphones', label: 'Listen' },
@@ -140,7 +140,7 @@ export const UDLPreviewActivity: React.FC = () => {
               key={tab.id}
               onClick={() => setMode(tab.id as any)}
               className={`flex items-center gap-2 px-6 py-3 text-sm font-medium border-b-2 transition-colors ${mode === tab.id
-                  ? 'border-primary text-primary'
+                  ? 'border-primary text-secondary'
                   : 'border-transparent text-subtle-light dark:text-subtle-dark hover:text-text-light'
                 }`}
             >
@@ -160,7 +160,7 @@ export const UDLPreviewActivity: React.FC = () => {
           {mode === 'audio' && (
             <div className="animate-fade-in flex flex-col items-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                <span className="material-icons text-primary text-3xl">play_arrow</span>
+                <span className="material-icons text-secondary text-3xl">play_arrow</span>
               </div>
               <p className="text-sm font-bold mb-2">Audio Transcript:</p>
               <p className="text-sm italic text-center text-subtle-light dark:text-subtle-dark">"Welcome to this lesson on Photosynthesis. Imagine a plant as a factory..."</p>
@@ -215,7 +215,7 @@ export const AssessmentSelectorActivity: React.FC = () => {
               key={f}
               onClick={() => setFormat(f)}
               className={`w-full text-left px-4 py-3 rounded-lg border transition-all ${format === f
-                  ? 'border-primary bg-primary/5 text-primary font-bold'
+                  ? 'border-primary bg-primary/5 text-secondary font-bold'
                   : 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
             >
@@ -239,7 +239,7 @@ export const AssessmentSelectorActivity: React.FC = () => {
           )}
           {format === 'oral' && (
             <div className="flex flex-col items-center text-center animate-fade-in">
-              <span className="material-icons text-5xl text-primary mb-2">mic</span>
+              <span className="material-icons text-5xl text-secondary mb-2">mic</span>
               <h5 className="font-bold mb-2">Record your answer</h5>
               <p className="text-sm text-subtle-light mb-4">Explain the primary cause in your own words (Max 2 mins).</p>
               <button className="bg-red-500 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-red-600">
@@ -393,7 +393,7 @@ export const BandwidthSimulator: React.FC = () => {
       icon="wifi"
     >
       <div className="space-y-6">
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-4">
           <button
             onClick={() => setBandwidth('high')}
             className={`px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 transition-colors ${bandwidth === 'high'
@@ -425,7 +425,7 @@ export const BandwidthSimulator: React.FC = () => {
               <div className="text-center animate-fade-in">
                 <span className="material-icons text-white text-6xl opacity-80">play_circle</span>
                 <p className="text-white mt-2">HD Video Loading...</p>
-                <div className="w-64 h-1 bg-gray-700 rounded-full mt-4 mx-auto overflow-hidden">
+                <div className="w-full max-w-64 h-1 bg-gray-700 rounded-full mt-4 mx-auto overflow-hidden">
                   <div className="w-full h-full bg-blue-500 animate-[loading_1s_ease-in-out]"></div>
                 </div>
               </div>
@@ -670,7 +670,7 @@ export const SkillMappingTool: React.FC = () => {
               ) : (
                 <button
                   onClick={() => handleMatch(skill.id, skill.formal)}
-                  className="w-full text-left px-3 py-2 border border-dashed border-gray-400 rounded text-gray-500 text-sm hover:border-primary hover:text-primary transition-colors"
+                  className="w-full text-left px-3 py-2 border border-dashed border-gray-400 rounded text-gray-500 text-sm hover:border-primary hover:text-secondary transition-colors"
                 >
                   Click to translate skill...
                 </button>

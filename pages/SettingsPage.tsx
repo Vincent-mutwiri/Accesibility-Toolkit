@@ -1,3 +1,4 @@
+import PageHeader from '../components/PageHeader';
 import React, { useState, useEffect } from 'react';
 import FloatingBackButton from '../components/FloatingBackButton';
 
@@ -90,23 +91,14 @@ const SettingsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+    <div className="min-h-screen bg-background-light dark:bg-background-dark">
+      <PageHeader title="Make the toolkit work for you." description="Choose your preferred appearance, text size, and accessibility options." breadcrumbs={[{ label: 'Toolkit', to: '/' }, { label: 'Accessibility settings' }]} />
       <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            <span className="material-icons text-brand-blue text-4xl mr-3 align-middle">settings</span>
-            Accessibility Settings
-          </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300">
-            Customize your experience with accessibility options and preferences.
-          </p>
-        </div>
-
         <div className="space-y-8">
           {/* Theme Settings */}
           <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-brand-blue mr-2">palette</span>
+              <span className="material-icons text-secondary mr-2">palette</span>
               Theme
             </h2>
             <p className="text-slate-600 dark:text-slate-300 mb-4">Choose between light and dark mode for better visibility.</p>
@@ -114,8 +106,8 @@ const SettingsPage: React.FC = () => {
               <button
                 onClick={() => handleThemeChange('light')}
                 className={`flex items-center px-4 py-3 rounded-lg border-2 transition-all ${theme === 'light'
-                  ? 'border-brand-blue bg-brand-blue text-white'
-                  : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-brand-blue'
+                  ? 'border-primary bg-brand-ink text-white'
+                  : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-primary'
                   }`}
                 aria-pressed={theme === 'light'}
               >
@@ -125,8 +117,8 @@ const SettingsPage: React.FC = () => {
               <button
                 onClick={() => handleThemeChange('dark')}
                 className={`flex items-center px-4 py-3 rounded-lg border-2 transition-all ${theme === 'dark'
-                  ? 'border-brand-blue bg-brand-blue text-white'
-                  : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-brand-blue'
+                  ? 'border-primary bg-brand-ink text-white'
+                  : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-primary'
                   }`}
                 aria-pressed={theme === 'dark'}
               >
@@ -139,7 +131,7 @@ const SettingsPage: React.FC = () => {
           {/* Font Size Settings */}
           <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-brand-green mr-2">text_fields</span>
+              <span className="material-icons text-secondary mr-2">text_fields</span>
               Font Size
             </h2>
             <p className="text-slate-600 dark:text-slate-300 mb-4">Adjust text size for better readability.</p>
@@ -154,8 +146,8 @@ const SettingsPage: React.FC = () => {
                   key={option.value}
                   onClick={() => handleFontSizeChange(option.value as any)}
                   className={`px-4 py-3 rounded-lg border-2 transition-all ${option.size} ${fontSize === option.value
-                    ? 'border-brand-green bg-brand-green text-white'
-                    : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-brand-green'
+                    ? 'border-primary bg-brand-ink text-white'
+                    : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-primary'
                     }`}
                   aria-pressed={fontSize === option.value}
                 >
@@ -168,7 +160,7 @@ const SettingsPage: React.FC = () => {
           {/* Accessibility Options */}
           <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-brand-orange mr-2">accessibility</span>
+              <span className="material-icons text-secondary mr-2">accessibility</span>
               Accessibility Options
             </h2>
             <div className="space-y-6">
@@ -180,7 +172,7 @@ const SettingsPage: React.FC = () => {
                 </div>
                 <button
                   onClick={() => handleHighContrastChange(!highContrast)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${highContrast ? 'bg-brand-orange' : 'bg-slate-300 dark:bg-slate-600'
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${highContrast ? 'bg-brand-ink' : 'bg-slate-300 dark:bg-slate-600'
                     }`}
                   role="switch"
                   aria-checked={highContrast}
@@ -201,7 +193,7 @@ const SettingsPage: React.FC = () => {
                 </div>
                 <button
                   onClick={() => handleReducedMotionChange(!reducedMotion)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${reducedMotion ? 'bg-brand-orange' : 'bg-slate-300 dark:bg-slate-600'
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${reducedMotion ? 'bg-brand-ink' : 'bg-slate-300 dark:bg-slate-600'
                     }`}
                   role="switch"
                   aria-checked={reducedMotion}
@@ -222,7 +214,7 @@ const SettingsPage: React.FC = () => {
                 </div>
                 <button
                   onClick={() => handleScreenReaderChange(!screenReader)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${screenReader ? 'bg-brand-orange' : 'bg-slate-300 dark:bg-slate-600'
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${screenReader ? 'bg-brand-ink' : 'bg-slate-300 dark:bg-slate-600'
                     }`}
                   role="switch"
                   aria-checked={screenReader}
@@ -240,7 +232,7 @@ const SettingsPage: React.FC = () => {
           {/* Reset Settings */}
           <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-red-500 mr-2">restore</span>
+              <span className="material-icons text-secondary mr-2">restore</span>
               Reset Settings
             </h2>
             <p className="text-slate-600 dark:text-slate-300 mb-4">
@@ -248,7 +240,7 @@ const SettingsPage: React.FC = () => {
             </p>
             <button
               onClick={resetSettings}
-              className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors flex items-center"
+              className="px-6 py-3 bg-brand-ink text-white rounded-lg hover:bg-brand-ink/80 transition-colors flex items-center"
             >
               <span className="material-icons mr-2">refresh</span>
               Reset to Defaults

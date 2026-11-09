@@ -1,46 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FloatingBackButton from '../components/FloatingBackButton';
-
-const ResourcesPage: React.FC = () => {
-  return (
-    <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 animate-fade-in">
-      <nav aria-label="Breadcrumb" className="flex items-center text-sm font-medium text-subtle-light dark:text-subtle-dark mb-8">
-        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-        <span className="material-icons-outlined text-base mx-2">chevron_right</span>
-        <span className="text-text-light dark:text-text-dark font-semibold">Resources</span>
-      </nav>
-
-      <div className="bg-card-light dark:bg-card-dark rounded-2xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden p-8 md:p-12">
-        <h1 className="text-3xl md:text-5xl font-bold text-text-light dark:text-text-dark mb-6">Global Resources</h1>
-        <p className="text-lg text-subtle-light dark:text-subtle-dark leading-relaxed mb-8">
-          A curated list of frameworks, standards, and tools to support your inclusive design journey.
-        </p>
-
-        <div className="grid gap-6">
-          <div className="p-6 bg-background-light dark:bg-background-dark rounded-xl border border-border-light dark:border-border-dark">
-            <h3 className="text-xl font-bold text-primary mb-2">Web Content Accessibility Guidelines (WCAG)</h3>
-            <p className="text-subtle-light dark:text-subtle-dark mb-4">The international standard for web accessibility.</p>
-            <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noreferrer" className="text-brand-blue hover:underline">Visit Website &rarr;</a>
-          </div>
-
-          <div className="p-6 bg-background-light dark:bg-background-dark rounded-xl border border-border-light dark:border-border-dark">
-            <h3 className="text-xl font-bold text-primary mb-2">Universal Design for Learning (UDL)</h3>
-            <p className="text-subtle-light dark:text-subtle-dark mb-4">Guidelines for optimizing teaching and learning for all people.</p>
-            <a href="https://udlguidelines.cast.org/" target="_blank" rel="noreferrer" className="text-brand-blue hover:underline">Visit CAST.org &rarr;</a>
-          </div>
-
-          <div className="p-6 bg-background-light dark:bg-background-dark rounded-xl border border-border-light dark:border-border-dark">
-            <h3 className="text-xl font-bold text-primary mb-2">A11y Project</h3>
-            <p className="text-subtle-light dark:text-subtle-dark mb-4">A community-driven effort to make digital accessibility easier.</p>
-            <a href="https://www.a11yproject.com/" target="_blank" rel="noreferrer" className="text-brand-blue hover:underline">Visit A11y Project &rarr;</a>
-          </div>
-        </div>
-
-      </div>
-      <FloatingBackButton />
-    </div>
-  );
-};
-
+import PageHeader from '../components/PageHeader';
+const resources = [
+  { title: 'Web Content Accessibility Guidelines (WCAG)', description: 'Explore guidance for making web content more accessible to people with disabilities.', href: 'https://www.w3.org/WAI/standards-guidelines/wcag/', label: 'Explore W3C guidance' },
+  { title: 'Universal Design for Learning (UDL)', description: 'Consider different ways for learners to engage, access information, and express what they know.', href: 'https://udlguidelines.cast.org/', label: 'Explore CAST guidelines' },
+  { title: 'The A11y Project', description: 'Find community resources and practical guidance for making digital accessibility part of your work.', href: 'https://www.a11yproject.com/', label: 'Explore The A11y Project' },
+];
+const ResourcesPage: React.FC = () => <>
+  <PageHeader title="Keep building your understanding." description="Frameworks, guidance, and practical resources to support your inclusive design work." breadcrumbs={[{ label: 'Toolkit', to: '/' }, { label: 'Resources' }]} />
+  <div className="site-container"><div className="resource-list">{resources.map(resource => <article key={resource.href} className="resource-card"><h2>{resource.title}</h2><p>{resource.description}</p><a href={resource.href} target="_blank" rel="noreferrer" className="text-link">{resource.label}<span className="material-icons" aria-hidden="true">open_in_new</span><span className="sr-only"> (opens in a new tab)</span></a></article>)}<div className="content-panel"><h2 className="text-xl font-bold mb-3">Looking for source material?</h2><p className="text-subtle-light dark:text-subtle-dark mb-4">Find the publications and guidance referenced throughout the toolkit.</p><Link to="/references" className="text-link">View references</Link></div></div></div>
+</>;
 export default ResourcesPage;

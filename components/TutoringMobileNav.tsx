@@ -6,7 +6,7 @@ const TutoringMobileNav: React.FC = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: document.documentElement.classList.contains('reduced-motion') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
       setIsOpen(false);
     }
   };
@@ -25,7 +25,7 @@ const TutoringMobileNav: React.FC = () => {
     <div className="lg:hidden fixed bottom-4 right-4 z-50">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-brand-green text-white p-3 rounded-full shadow-lg hover:bg-brand-green/90 transition-colors"
+        className="bg-brand-ink text-white p-3 rounded-full shadow-lg hover:bg-brand-ink/80 transition-colors"
         aria-label="Toggle navigation menu"
       >
         <span className="material-icons text-lg">

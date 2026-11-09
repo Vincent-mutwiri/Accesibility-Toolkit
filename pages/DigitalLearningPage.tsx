@@ -41,27 +41,27 @@ const DigitalLearningPage: React.FC = () => {
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">Inclusive digital content is:</h3>
                 <div className="grid gap-2 sm:gap-3">
                   <div className="flex items-start">
-                    <span className="material-icons text-brand-blue text-sm mr-3 mt-1">accessibility</span>
+                    <span className="material-icons text-secondary text-sm mr-3 mt-1">accessibility</span>
                     <div>
-                      <strong className="text-brand-blue">Accessible</strong> – usable by people with diverse abilities (e.g., compatible with screen readers, captions, alt text).
+                      <strong className="text-secondary">Accessible</strong> – usable by people with diverse abilities (e.g., compatible with screen readers, captions, alt text).
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <span className="material-icons text-brand-green text-sm mr-3 mt-1">diversity_3</span>
+                    <span className="material-icons text-secondary text-sm mr-3 mt-1">diversity_3</span>
                     <div>
-                      <strong className="text-brand-green">Representative</strong> – reflects diverse voices, perspectives, and imagery.
+                      <strong className="text-secondary">Representative</strong> – reflects diverse voices, perspectives, and imagery.
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <span className="material-icons text-brand-yellow text-sm mr-3 mt-1">devices</span>
+                    <span className="material-icons text-secondary text-sm mr-3 mt-1">devices</span>
                     <div>
-                      <strong className="text-brand-yellow">Usable</strong> – structured, easy to navigate, and adaptable to different devices and bandwidths.
+                      <strong className="text-secondary">Usable</strong> – structured, easy to navigate, and adaptable to different devices and bandwidths.
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <span className="material-icons text-brand-orange text-sm mr-3 mt-1">tune</span>
+                    <span className="material-icons text-secondary text-sm mr-3 mt-1">tune</span>
                     <div>
-                      <strong className="text-brand-orange">Flexible</strong> – offered in multiple formats to accommodate varied learning preferences and needs.
+                      <strong className="text-secondary">Flexible</strong> – offered in multiple formats to accommodate varied learning preferences and needs.
                     </div>
                   </div>
                 </div>
@@ -74,57 +74,57 @@ const DigitalLearningPage: React.FC = () => {
               <p className="mb-6">Applying equity and inclusion to digital content requires a deliberate focus on design choices that reduce barriers and expand access. It's not just about compliance with accessibility standards, it's about creating meaningful learning experiences that reflect the diversity of learners and empower them to participate fully.</p>
 
               <div className="grid gap-4 sm:gap-6 not-prose">
-                <div id="accessibility" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-blue/50 transition-colors">
-                  <h3 className="text-lg sm:text-xl font-bold text-brand-blue mb-3">Accessibility</h3>
+                <div id="accessibility" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-secondary mb-3">Accessibility</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Accessibility ensures that learners with disabilities or diverse needs can interact with digital content fully. It is not just a compliance requirement but a way of designing content that benefits everyone. For example, captions help both deaf learners and those who prefer to read along, while clear alt text makes visuals understandable to learners using screen readers.</p>
                   <h4 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Accessibility:</h4>
                   <ul className="space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Add alt text to all images, charts, graphs, and diagrams. Alt text should be descriptive but concise (e.g., "Bar chart showing a 30% increase in maize yield between 2020 and 2022").</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Provide captions and transcripts for all video and audio. Captions support learners who are deaf/hard of hearing and benefit non-native speakers or learners in noisy environments.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Use sufficient color contrast (minimum 4.5:1) between text and background. Tools such as WebAIM Contrast Checker can help verify compliance.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Avoid conveying meaning with color alone. Pair color with labels, patterns, or symbols.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Create structured, accessible files (e.g., properly tagged PDFs, semantic HTML). Headings, lists, and tables should follow logical reading order.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-blue text-sm mr-2 mt-1">check</span>Ensure interactivity (e.g., quizzes, simulations) is keyboard navigable and works with assistive technologies.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Add alt text to all images, charts, graphs, and diagrams. Alt text should be descriptive but concise (e.g., "Bar chart showing a 30% increase in maize yield between 2020 and 2022").</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide captions and transcripts for all video and audio. Captions support learners who are deaf/hard of hearing and benefit non-native speakers or learners in noisy environments.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use sufficient color contrast (minimum 4.5:1) between text and background. Tools such as WebAIM Contrast Checker can help verify compliance.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Avoid conveying meaning with color alone. Pair color with labels, patterns, or symbols.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create structured, accessible files (e.g., properly tagged PDFs, semantic HTML). Headings, lists, and tables should follow logical reading order.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure interactivity (e.g., quizzes, simulations) is keyboard navigable and works with assistive technologies.</li>
                   </ul>
                   <div className="mt-4">
                     <ScreenReaderSimulator />
                   </div>
                 </div>
 
-                <div id="representation" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-green/50 transition-colors">
-                  <h3 className="text-lg sm:text-xl font-bold text-brand-green mb-3">Representation</h3>
+                <div id="representation" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-secondary mb-3">Representation</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Representation is about more than just images, it's the voices, stories, and perspectives learners encounter in content. When learners see themselves reflected, they are more likely to feel valued, respected, and motivated, while poor representation, on the other hand, reinforces stereotypes or alienates learners.</p>
                   <h4 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Representation:</h4>
                   <ul className="space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Use inclusive and diverse imagery that reflects a range of genders, ethnicities, ages, and abilities. Avoid tokenism by ensuring representation is natural and varied.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Apply bias-free and culturally sensitive language. Replace terms with neutral alternatives (e.g., "chairperson" instead of "chairman").</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Integrate case studies and examples from multiple contexts so learners can connect with the material. For example, sustainability lessons could feature practices from rural Africa, Asia, and Europe.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-green text-sm mr-2 mt-1">check</span>Be mindful of cultural cues and idioms. Avoid metaphors or jokes that may not translate well across cultures.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use inclusive and diverse imagery that reflects a range of genders, ethnicities, ages, and abilities. Avoid tokenism by ensuring representation is natural and varied.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Apply bias-free and culturally sensitive language. Replace terms with neutral alternatives (e.g., "chairperson" instead of "chairman").</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Integrate case studies and examples from multiple contexts so learners can connect with the material. For example, sustainability lessons could feature practices from rural Africa, Asia, and Europe.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Be mindful of cultural cues and idioms. Avoid metaphors or jokes that may not translate well across cultures.</li>
                   </ul>
                 </div>
 
-                <div id="usability" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-yellow/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-yellow mb-3">Usability & Navigation</h3>
+                <div id="usability" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
+                  <h3 className="text-xl font-bold text-secondary mb-3">Usability & Navigation</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Usability focuses on how intuitive and consistent the learner's experience is, that is, it ensures that digital content is clear, consistent, and easy to use across devices. Poorly structured content, inconsistent layouts, overly complex text or navigation can make content harder to engage with hence discourage learners, especially for learners with low digital literacy or limited technical experience.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Usability & Navigation:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span>Organize content into logical, clearly labeled sections with headings and subheadings. This aids both learners and screen readers.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span>Use plain language whenever possible. If technical terms are necessary, provide definitions or glossaries.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span>Maintain consistent navigation. Place menus, buttons, and controls in the same location across modules.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span>Optimize for mobile-first design, as many learners, particularly in low-resource contexts, rely on smartphones.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-yellow text-sm mr-2 mt-1">check</span>Compress images and provide low-bandwidth alternatives, such as downloadable PDFs or text-only versions.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Organize content into logical, clearly labeled sections with headings and subheadings. This aids both learners and screen readers.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use plain language whenever possible. If technical terms are necessary, provide definitions or glossaries.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Maintain consistent navigation. Place menus, buttons, and controls in the same location across modules.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Optimize for mobile-first design, as many learners, particularly in low-resource contexts, rely on smartphones.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Compress images and provide low-bandwidth alternatives, such as downloadable PDFs or text-only versions.</li>
                   </ul>
                 </div>
 
-                <div id="flexibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-orange/50 transition-colors">
-                  <h3 className="text-xl font-bold text-brand-orange mb-3">Flexibility</h3>
+                <div id="flexibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
+                  <h3 className="text-xl font-bold text-secondary mb-3">Flexibility</h3>
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Flexibility means offering multiple ways for learners to access and interact with content. No two learners access content in exactly the same way. Some may prefer watching videos, while others rely on reading text or listening to audio. Flexibility allows learners to engage in the format that best suits their needs, increasing both access and learning effectiveness, that is, learning adapts to the learner, not the other way around.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">How to Ensure Flexibility:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span>Offer content in multiple formats: Text (articles, summaries), Audio (narrations, podcasts), Video (demonstrations, animations), Interactive elements (quizzes, polls, reflective questions).</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span>Provide downloadable or offline options for learners with unreliable internet.</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span>Design assessments with multiple means of expression (e.g., allow learners to submit text, audio, or visual responses).</li>
-                    <li className="flex items-start"><span className="material-icons text-brand-orange text-sm mr-2 mt-1">check</span>Encourage self-pacing by enabling learners to pause, replay, or skip content as needed.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer content in multiple formats: Text (articles, summaries), Audio (narrations, podcasts), Video (demonstrations, animations), Interactive elements (quizzes, polls, reflective questions).</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide downloadable or offline options for learners with unreliable internet.</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design assessments with multiple means of expression (e.g., allow learners to submit text, audio, or visual responses).</li>
+                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Encourage self-pacing by enabling learners to pause, replay, or skip content as needed.</li>
                   </ul>
                   <div className="mt-4">
                     <UDLPreviewActivity />
@@ -142,7 +142,7 @@ const DigitalLearningPage: React.FC = () => {
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Suggested Metrics:</h3>
                 <div className="grid gap-4">
                   <div>
-                    <h4 className="font-semibold text-brand-blue mb-2">Accessibility:</h4>
+                    <h4 className="font-semibold text-secondary mb-2">Accessibility:</h4>
                     <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-400">
                       <li>• % of images/graphics with accurate alt text</li>
                       <li>• % of multimedia with captions and transcripts</li>
@@ -150,14 +150,14 @@ const DigitalLearningPage: React.FC = () => {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-brand-green mb-2">Representation:</h4>
+                    <h4 className="font-semibold text-secondary mb-2">Representation:</h4>
                     <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-400">
                       <li>• Proportion of content featuring diverse images, examples, and case studies</li>
                       <li>• Internal Diversity, equity, and inclusion (DEI) review of content before publishing</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-brand-yellow mb-2">Engagement & Usability:</h4>
+                    <h4 className="font-semibold text-secondary mb-2">Engagement & Usability:</h4>
                     <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-400">
                       <li>• Completion rates across different content formats</li>
                       <li>• Drop-off rates at specific sections or modules</li>
@@ -166,7 +166,7 @@ const DigitalLearningPage: React.FC = () => {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-brand-orange mb-2">Equity of Reach:</h4>
+                    <h4 className="font-semibold text-secondary mb-2">Equity of Reach:</h4>
                     <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-400">
                       <li>• Demographic analysis to see if usage differs across groups</li>
                       <li>• Internet/device type breakdown to ensure design meets diverse access needs</li>
@@ -233,7 +233,7 @@ const DigitalLearningPage: React.FC = () => {
 
       <DigitalLearningMobileNav />
       <FloatingBackButton />
-      <FloatingNavButton 
+      <FloatingNavButton
         icon="article"
         items={[
           { id: 'introduction', label: 'Introduction' },
@@ -244,7 +244,6 @@ const DigitalLearningPage: React.FC = () => {
           { id: 'monitoring', label: 'Monitoring' },
           { id: 'checklist', label: 'Checklist' }
         ]}
-        color="brand-green"
       />
     </div>
   );

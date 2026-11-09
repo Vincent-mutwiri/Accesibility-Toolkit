@@ -1,23 +1,23 @@
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import ManagementSystemsPage from './pages/ManagementSystemsPage';
-import OnlineLearningPage from './pages/OnlineLearningPage';
-import DigitalLearningPage from './pages/DigitalLearningPage';
-import TutoringPage from './pages/TutoringPage';
-import STEAMPage from './pages/STEAMPage';
-import WorkforcePage from './pages/WorkforcePage';
-import AboutPage from './pages/AboutPage';
-import ResourcesPage from './pages/ResourcesPage';
-import ReferencesPage from './pages/ReferencesPage';
-import SettingsPage from './pages/SettingsPage';
-import LMSPage from './pages/LMSPage';
-import FeedbackPage from './pages/FeedbackPage';
-import FeedbackThankYouPage from './pages/FeedbackThankYouPage';
-import VisualImpairmentPage from './pages/VisualImpairmentPage';
-import IntellectualDevelopmentalDisabilitiesPage from './pages/IntellectualDevelopmentalDisabilitiesPage';
-import HearingImpairmentPage from './pages/HearingImpairmentPage';
-import DualSensoryLossPage from './pages/DualSensoryLossPage';
+const LandingPage = React.lazy(() => import('./pages/LandingPage'));
+const ManagementSystemsPage = React.lazy(() => import('./pages/ManagementSystemsPage'));
+const OnlineLearningPage = React.lazy(() => import('./pages/OnlineLearningPage'));
+const DigitalLearningPage = React.lazy(() => import('./pages/DigitalLearningPage'));
+const TutoringPage = React.lazy(() => import('./pages/TutoringPage'));
+const STEAMPage = React.lazy(() => import('./pages/STEAMPage'));
+const WorkforcePage = React.lazy(() => import('./pages/WorkforcePage'));
+const AboutPage = React.lazy(() => import('./pages/AboutPage'));
+const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
+const ReferencesPage = React.lazy(() => import('./pages/ReferencesPage'));
+const SettingsPage = React.lazy(() => import('./pages/SettingsPage'));
+const LMSPage = React.lazy(() => import('./pages/LMSPage'));
+const FeedbackPage = React.lazy(() => import('./pages/FeedbackPage'));
+const FeedbackThankYouPage = React.lazy(() => import('./pages/FeedbackThankYouPage'));
+const VisualImpairmentPage = React.lazy(() => import('./pages/VisualImpairmentPage'));
+const IntellectualDevelopmentalDisabilitiesPage = React.lazy(() => import('./pages/IntellectualDevelopmentalDisabilitiesPage'));
+const HearingImpairmentPage = React.lazy(() => import('./pages/HearingImpairmentPage'));
+const DualSensoryLossPage = React.lazy(() => import('./pages/DualSensoryLossPage'));
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -45,8 +45,15 @@ const App: React.FC = () => {
       }
     };
 
-    // Initial application
+    // Restore preferences on every entry route, not only on the settings page.
     applyTheme();
+    const fontSize = localStorage.getItem('fontSize');
+    if (fontSize && ['small', 'medium', 'large', 'extra-large'].includes(fontSize)) {
+      document.documentElement.setAttribute('data-font-size', fontSize);
+    }
+    for (const [key, className] of [['highContrast', 'high-contrast'], ['reducedMotion', 'reduced-motion'], ['screenReader', 'screen-reader-optimized']]) {
+      document.documentElement.classList.toggle(className, localStorage.getItem(key) === 'true');
+    }
 
     // Listen for system changes
     const handleChange = () => {
@@ -63,8 +70,10 @@ const App: React.FC = () => {
     <HashRouter>
       <ScrollToTopHelper />
       <div className="min-h-screen flex flex-col font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+        <a href="#main-content" className="skip-link" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus(); }}>Skip to content</a>
         <Navbar />
-        <main className="flex-grow">
+        <main id="main-content" tabIndex={-1} className="flex-grow">
+          <React.Suspense fallback={<div className="site-container py-16" role="status">Loading guide…</div>}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -85,6 +94,7 @@ const App: React.FC = () => {
             <Route path="/hearing-impairment" element={<HearingImpairmentPage />} />
             <Route path="/dual-sensory-loss" element={<DualSensoryLossPage />} />
           </Routes>
+          </React.Suspense>
         </main>
         <Footer />
       </div>
