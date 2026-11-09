@@ -21,7 +21,7 @@ const DigitalLearningPage: React.FC = () => {
   return (
     <div className="animate-fade-in">
       <PageHeader
-        title="Designing for Equity and Inclusion Toolkit"
+        title="Designing for iHUB's EdTech Inclusion Toolkit"
         description="Digital content has the power to expand access to learning opportunities, but without intentional design, it can also create barriers. This toolkit ensures all learners can fully engage with content."
         breadcrumbs={[
           { label: 'Toolkit', to: '/' },

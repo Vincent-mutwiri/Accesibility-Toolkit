@@ -1,11 +1,11 @@
 
-# Equity and Inclusion Toolkit
+# iHUB's EdTech Inclusion Toolkit
 
 A comprehensive, interactive toolkit designed to help EdTech professionals create more accessible and inclusive digital learning experiences. This practical resource connects accessibility and inclusion principles directly to product design, development, and evaluation.
 
 ## 🎯 Purpose
 
-The Equity and Inclusion Toolkit addresses the growing need for practical guidance in designing inclusive educational technology. While EdTech has transformed access to education globally, gaps persist in who benefits and how. This toolkit ensures that no learner is left behind due to design choices made in digital products.
+The iHUB's EdTech Inclusion Toolkit addresses the growing need for practical guidance in designing inclusive educational technology. While EdTech has transformed access to education globally, gaps persist in who benefits and how. This toolkit ensures that no learner is left behind due to design choices made in digital products.
 
 ## ✨ Features
 

@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
               <Logo />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xl leading-tight text-text-light dark:text-text-dark">Equity and Inclusion</span>
+              <span className="font-bold text-xl leading-tight text-text-light dark:text-text-dark">iHUB's EdTech Inclusion</span>
               <span className="text-xs font-medium tracking-wider text-primary uppercase">Toolkit</span>
             </div>
           </Link>

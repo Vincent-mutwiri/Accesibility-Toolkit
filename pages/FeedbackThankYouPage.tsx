@@ -9,7 +9,7 @@ const FeedbackThankYouPage: React.FC = () => {
         <span className="material-icons text-4xl text-green-600 dark:text-green-400">check_circle</span>
         <h1 className="text-3xl font-bold text-text-light dark:text-text-dark mt-4">Thanks for your feedback!</h1>
         <p className="text-subtle-light dark:text-subtle-dark mt-3">
-          We appreciate you taking the time to help improve the Equity and Inclusion Toolkit.
+          We appreciate you taking the time to help improve the iHUB's EdTech Inclusion Toolkit.
         </p>
         <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
           <Link

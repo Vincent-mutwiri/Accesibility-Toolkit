@@ -14,7 +14,7 @@ const AboutPage: React.FC = () => {
         <h1 className="text-3xl md:text-5xl font-bold text-text-light dark:text-text-dark mb-6">About the Toolkit</h1>
         <div className="prose prose-lg dark:prose-invert max-w-none text-subtle-light dark:text-subtle-dark space-y-6">
           <p>
-            The Equity and Inclusion Toolkit was developed to address the growing need for practical guidance in designing inclusive educational technology.
+            The iHUB's EdTech Inclusion Toolkit was developed to address the growing need for practical guidance in designing inclusive educational technology.
           </p>
           <p>
             This living document and interactive tool serves learning engineers, instructional designers, and product developers. Our mission is to ensure that no learner is left behind due to the design choices made in digital products.
