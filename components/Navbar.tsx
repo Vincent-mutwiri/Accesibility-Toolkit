@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Logo = () => (
-  <img 
-    src="/logos/ihub-logo.png" 
-    alt="iHUB Logo" 
-    className="h-10 w-auto mr-3"
-  />
+  <>
+    <img
+      src="/logos/ihub-logo.png"
+      alt="iHUB Logo"
+      className="h-10 w-auto mr-3 dark:hidden"
+    />
+    <img
+      src="/logos/ihub-logo-dark.png"
+      alt="iHUB Logo"
+      className="h-10 w-auto mr-3 hidden dark:block"
+    />
+  </>
 );
 
 const Navbar: React.FC = () => {

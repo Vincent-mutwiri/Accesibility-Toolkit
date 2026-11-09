@@ -184,7 +184,7 @@ const FeedbackPage: React.FC = () => {
                     <label key={option} className="flex items-start gap-2 text-sm text-subtle-light dark:text-subtle-dark">
                       <input
                         type="checkbox"
-                        className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
+                        className="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600"
                         checked={form.categories.includes(option)}
                         onChange={() => toggleCategory(option)}
                       />

@@ -128,7 +128,7 @@ export const FocusIndicatorActivity: React.FC = () => {
               key={label}
               className={`px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-text-light dark:text-text-dark font-semibold ${
                 strongFocus
-                  ? 'focus:outline-none focus:ring-4 focus:ring-primary/40 focus:border-primary'
+                  ? 'focus:outline-none focus:ring-4 focus:ring-secondary/40 focus:border-primary'
                   : 'focus:outline-none focus:ring-0'
               }`}
             >

@@ -159,6 +159,6 @@
 .screen-reader-optimized input:focus,
 .screen-reader-optimized select:focus,
 .screen-reader-optimized textarea:focus {
-  outline: 3px solid #3b82f6 !important;
+  outline: 3px solid #12806E !important; /* Brand Teal — focus rings per brand guidelines */
   outline-offset: 2px !important;
 }

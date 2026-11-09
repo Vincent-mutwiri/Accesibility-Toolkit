@@ -55,7 +55,7 @@ const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist",
                 <div className="relative flex items-center mt-1">
                   <input 
                     type="checkbox" 
-                    className="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary dark:bg-gray-700 dark:border-gray-600"
+                    className="w-5 h-5 text-primary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600"
                     checked={!!checkedItems[index]}
                     onChange={() => toggleItem(index)}
                   />
