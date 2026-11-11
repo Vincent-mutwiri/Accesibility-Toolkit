@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAccessibility } from './Preferences';
 import { createReader, extractReadableText, SpeechState } from './readAloud';
 import { downloadElementAsPdf } from './pdfExport';
+import { PdfCaptureProvider, PdfHeader } from './pdfCapture';
 
 export default function Guide({ children }: { children: React.ReactNode }) {
   const content = useRef<HTMLDivElement>(null);
@@ -27,6 +28,10 @@ export default function Guide({ children }: { children: React.ReactNode }) {
   const exportPdf = async () => {
     if (!content.current || exporting) return;
     setExporting(true);
+    // Wait for React to commit the capture state (forces the Checklist open
+    // and reveals the PDF header) before html2canvas snapshots the DOM.
+    await new Promise(resolve => requestAnimationFrame(() => resolve(null)));
+    await new Promise(resolve => requestAnimationFrame(() => resolve(null)));
     try {
       await downloadElementAsPdf(content.current, undefined, setExportStatus);
     } catch (error) {
@@ -58,6 +63,11 @@ export default function Guide({ children }: { children: React.ReactNode }) {
       {!supported && <p>Read aloud is unavailable in this browser. All guide text remains available.</p>}
       <p className="reading-status" role="status" aria-atomic="true">{message}</p>
     </section>}
-    <div ref={content} data-guide-content>{children}</div>
+    <div ref={content} data-guide-content>
+      <PdfCaptureProvider value={exporting}>
+        <PdfHeader />
+        {children}
+      </PdfCaptureProvider>
+    </div>
   </>;
 }

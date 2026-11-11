@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { downloadElementsAsPdf } from './pdfExport';
+import { PdfCaptureProvider, PdfHeader } from './pdfCapture';
 
 // Guide pages are imported eagerly (not lazy) so they are guaranteed to be
 // mounted and measurable when the capture runs.
@@ -108,7 +109,10 @@ const ToolkitDownloadButton: React.FC<Props> = ({ className, label = 'Download t
           <div style={{ background: '#ffffff', color: '#242423' }}>
             {guides.map(({ title, Component }) => (
               <section key={title} data-toolkit-section={title} style={{ padding: '24px 32px' }}>
-                <Component />
+                <PdfCaptureProvider value={true}>
+                  <PdfHeader title={title} />
+                  <Component />
+                </PdfCaptureProvider>
               </section>
             ))}
           </div>

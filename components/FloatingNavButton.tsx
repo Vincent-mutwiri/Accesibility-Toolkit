@@ -36,7 +36,7 @@ const FloatingNavButton: React.FC<FloatingNavButtonProps> = ({ icon, items }) =>
         aria-expanded={isOpen}
         aria-controls={panelId}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 z-50 bg-brand-ink hover:bg-brand-ink/80 text-white p-4 rounded-full shadow-lg transition-all"
+        className="fixed bottom-4 right-4 z-50 bg-brand-ink hover:bg-brand-ink/80 text-white p-4 rounded-full shadow-lg transition-all pdf-ignore"
         aria-label="Toggle page contents"
       >
         <span aria-hidden="true" className="material-icons text-2xl">
@@ -45,7 +45,7 @@ const FloatingNavButton: React.FC<FloatingNavButtonProps> = ({ icon, items }) =>
       </button>
 
       {isOpen && (
-        <div id={panelId} className="fixed bottom-20 right-4 z-50 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 w-64 max-h-96 overflow-y-auto">
+        <div id={panelId} className="fixed bottom-20 right-4 z-50 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 w-64 max-h-96 overflow-y-auto pdf-ignore">
           <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-3">Quick Navigation</h3>
           <ul className="space-y-2">
             {items.map((item) => (

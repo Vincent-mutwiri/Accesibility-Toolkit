@@ -11,7 +11,7 @@ const FloatingBackButton: React.FC = () => {
   return (
     <button
       onClick={handleBackClick}
-      className="fixed bottom-4 left-4 z-50 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 p-3 rounded-full shadow-lg hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors"
+      className="fixed bottom-4 left-4 z-50 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 p-3 rounded-full shadow-lg hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors pdf-ignore"
       aria-label="Back to homepage"
     >
       <span aria-hidden="true" className="material-icons text-lg">

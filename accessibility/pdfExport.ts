@@ -104,8 +104,10 @@ export async function downloadElementAsPdf(
 }
 
 // Capture several elements sequentially into a single combined PDF.
-// Used for the "download the whole toolkit" action — each guide becomes a
-// titled section, paginated end-to-end.
+// Used for the "download the whole toolkit" action — each guide is captured
+// with its own PDF header (logo + title) already in the rendered content, so
+// each section is simply paginated end-to-end. `title` is only used for the
+// status message shown to the user while the capture runs.
 export async function downloadElementsAsPdf(
   sections: { element: HTMLElement; title: string }[],
   filename: string,
@@ -117,43 +119,11 @@ export async function downloadElementsAsPdf(
   }
   const { jsPDF, html2canvas } = await loadLibs();
   const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-  let first = true;
   for (let index = 0; index < sections.length; index += 1) {
     const { element, title } = sections[index];
     onProgress?.(`Capturing ${title} (${index + 1}/${sections.length})…`);
     const canvas = await withHiddenChrome(() => captureToCanvas(element, html2canvas));
-    if (!first) doc.addPage();
-    if (title) {
-      doc.setFontSize(20);
-      doc.setTextColor(36, 36, 35);
-      doc.text(title, MARGIN_MM, MARGIN_MM + 8);
-      // Reserve ~18mm for the section title above the captured image.
-      const pageWidth = A4_WIDTH_MM - MARGIN_MM * 2;
-      const pageHeight = A4_HEIGHT_MM - MARGIN_MM * 2 - 18;
-      const pxPerMm = canvas.width / pageWidth;
-      const renderedPageHeightPx = pageHeight * pxPerMm;
-      const totalPages = Math.ceil(canvas.height / renderedPageHeightPx);
-      for (let i = 0; i < totalPages; i += 1) {
-        if (i > 0) doc.addPage();
-        const slice = document.createElement('canvas');
-        slice.width = canvas.width;
-        slice.height = Math.min(renderedPageHeightPx, canvas.height - i * renderedPageHeightPx);
-        const ctx = slice.getContext('2d')!;
-        ctx.drawImage(
-          canvas,
-          0, i * renderedPageHeightPx,
-          canvas.width, slice.height,
-          0, 0,
-          canvas.width, slice.height,
-        );
-        const dataUrl = slice.toDataURL('image/png');
-        const renderedSliceHeightMm = slice.height / pxPerMm;
-        doc.addImage(dataUrl, 'PNG', MARGIN_MM, MARGIN_MM + 18, pageWidth, renderedSliceHeightMm);
-      }
-    } else {
-      addCanvasToPdf(doc, canvas, first);
-    }
-    first = false;
+    addCanvasToPdf(doc, canvas, index === 0);
   }
   onProgress?.('Saving toolkit…');
   doc.save(`${slugify(filename)}.pdf`);

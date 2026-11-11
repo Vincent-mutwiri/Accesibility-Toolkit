@@ -1,4 +1,5 @@
 import React, { useState, useId } from 'react';
+import { usePdfCapturing } from '../accessibility/pdfCapture';
 
 interface ChecklistItem {
   text: string;
@@ -11,7 +12,11 @@ interface ChecklistProps {
 
 const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist", items }) => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
-  const [isOpen, setIsOpen] = useState(false);
+  const [userOpened, setUserOpened] = useState(false);
+  // Force the checklist fully expanded while a PDF is being captured so the
+  // exported document shows every item, not just the collapsed toggle.
+  const capturing = usePdfCapturing();
+  const isOpen = capturing || userOpened;
   const panelId = useId();
 
   const toggleItem = (index: number) => {
@@ -26,7 +31,7 @@ const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist",
       <button
         aria-controls={panelId}
         aria-expanded={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setUserOpened(!userOpened)}
         className="w-full p-6 md:p-8 text-left flex items-center justify-between hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
       >
         <div className="flex items-center gap-3">

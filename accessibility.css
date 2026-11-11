@@ -160,13 +160,25 @@
 .export-status { font-size: .85rem; margin-top: .65rem; color: var(--muted); }
 
 /* While html2canvas captures, hide on-screen chrome that should never appear
-   in the PDF (floating buttons, the export toolbar itself, read-aloud tools).
-   The class is toggled on <html> for the duration of a capture. */
-.pdf-capturing .floating-back-button,
-.pdf-capturing .floating-nav-button,
-.pdf-capturing [data-floating-nav],
+   in the PDF (floating buttons, the export toolbar itself, read-aloud tools)
+   and reveal PDF-only elements (the iHUB logo header). The class is toggled
+   on <html> for the duration of a capture. */
+.pdf-capturing .pdf-ignore,
 .pdf-capturing .guide-export,
 .pdf-capturing .reading-tools { display: none !important; }
+
+/* PDF-only header — hidden on screen, shown only during capture. */
+.pdf-only { display: none; }
+.pdf-capturing .pdf-only { display: flex; }
+.pdf-header {
+  align-items: center; gap: 1rem;
+  padding: 1rem 1.5rem; margin-bottom: 1.5rem;
+  border-bottom: 2px solid #BAD531;
+}
+.pdf-logo { height: 48px; width: auto; }
+.pdf-header-text { display: flex; flex-direction: column; gap: .15rem; }
+.pdf-header-product { font-size: 1rem; font-weight: 700; color: #242423; }
+.pdf-header-title { font-size: 1.4rem; font-weight: 700; color: #242423; }
 .reading-ruler { position: fixed; left: 0; right: 0; height: 40px; pointer-events: none; z-index: 100;
   background: rgba(186, 213, 49, .18); border-block: 2px solid #687915; }
 .dark .reading-ruler { border-color: #BAD531; }
