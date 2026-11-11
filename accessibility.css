@@ -142,6 +142,31 @@
 .reading-actions a { text-decoration: underline; padding-block: .6rem; }
 .reading-help, .reading-status { font-size: .85rem; margin-top: .65rem; }
 .reading-status { min-height: 1.5em; }
+
+/* PDF export toolbar — always visible on guide pages. */
+.guide-export { padding-block: 1.25rem; }
+.guide-export .pdf-button { margin-block: 0; }
+.pdf-button {
+  display: inline-flex; align-items: center; gap: .6rem;
+  color: var(--ink); background: var(--surface); border: 1px solid var(--line);
+  border-radius: .4rem; padding: .6rem 1rem; min-height: 44px; max-width: 100%;
+  font-size: .95rem; font-weight: 600; cursor: pointer;
+}
+.pdf-button .material-icons { font-size: 1.25rem; color: #687915; }
+.dark .pdf-button .material-icons { color: #BAD531; }
+.pdf-button:hover:not(:disabled) { border-color: #BAD531; }
+.pdf-button:disabled { opacity: .65; cursor: default; }
+.foundations-download { margin-top: 1.5rem; }
+.export-status { font-size: .85rem; margin-top: .65rem; color: var(--muted); }
+
+/* While html2canvas captures, hide on-screen chrome that should never appear
+   in the PDF (floating buttons, the export toolbar itself, read-aloud tools).
+   The class is toggled on <html> for the duration of a capture. */
+.pdf-capturing .floating-back-button,
+.pdf-capturing .floating-nav-button,
+.pdf-capturing [data-floating-nav],
+.pdf-capturing .guide-export,
+.pdf-capturing .reading-tools { display: none !important; }
 .reading-ruler { position: fixed; left: 0; right: 0; height: 40px; pointer-events: none; z-index: 100;
   background: rgba(186, 213, 49, .18); border-block: 2px solid #687915; }
 .dark .reading-ruler { border-color: #BAD531; }

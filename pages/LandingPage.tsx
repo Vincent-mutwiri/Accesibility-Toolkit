@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom';
+const ToolkitDownloadButton = React.lazy(() => import('../accessibility/ToolkitPdfExport'));
 const categories = [
   { title: 'Online learning', path: '/online-learning', icon: 'laptop_chromebook', desc: 'Make internet-based lessons, virtual classrooms, and courses accessible to more learners.' },
   { title: 'Digital learning', path: '/digital-learning', icon: 'auto_stories', desc: 'Build inclusive digital content and learning tools, whether learners are online or offline.' },
@@ -24,7 +25,7 @@ const LandingPage: React.FC = () => <>
   </section>
   <section className="foundations-section" aria-labelledby="foundations-title">
     <div className="site-container foundations-inner">
-    <div className="foundations-intro"><h2 id="foundations-title">Good design considers everyone.</h2><p>Innovation alone does not remove barriers. Limited connectivity, low-resource settings, and inaccessible interfaces can prevent learners from taking part.</p><p>This toolkit connects inclusion principles to product design, development, and evaluation, so your team can make more informed decisions.</p></div>
+    <div className="foundations-intro"><h2 id="foundations-title">Good design considers everyone.</h2><p>Innovation alone does not remove barriers. Limited connectivity, low-resource settings, and inaccessible interfaces can prevent learners from taking part.</p><p>This toolkit connects inclusion principles to product design, development, and evaluation, so your team can make more informed decisions.</p><Suspense fallback={<button type="button" className="pdf-button foundations-download" disabled><span className="material-icons" aria-hidden="true">picture_as_pdf</span><span>Download the whole toolkit</span></button>}><ToolkitDownloadButton className="pdf-button foundations-download" label="Download the whole toolkit" /></Suspense></div>
     <div className="foundation-definitions"><article><h3>Equity</h3><p>Recognise different starting points. Give each learner the support, resources, and opportunities they need, rather than assuming one approach fits all.</p></article><article><h3>Inclusion</h3><p>Create experiences where every learner feels valued, represented, and supported, across abilities, backgrounds, identities, and cultures.</p></article></div>
     </div>
   </section>

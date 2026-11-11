@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAccessibility } from './Preferences';
 import { createReader, extractReadableText, SpeechState } from './readAloud';
+import { downloadElementAsPdf } from './pdfExport';
 
 export default function Guide({ children }: { children: React.ReactNode }) {
   const content = useRef<HTMLDivElement>(null);
@@ -9,6 +10,8 @@ export default function Guide({ children }: { children: React.ReactNode }) {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [state, setState] = useState<SpeechState>('idle');
   const [message, setMessage] = useState('');
+  const [exporting, setExporting] = useState(false);
+  const [exportStatus, setExportStatus] = useState('');
   const [reader] = useState(() => createReader((next, text) => { setState(next); setMessage(text); }));
   const supported = typeof window.speechSynthesis?.speak === 'function' && typeof window.SpeechSynthesisUtterance === 'function';
   useEffect(function speechLifecycle() {
@@ -21,7 +24,27 @@ export default function Guide({ children }: { children: React.ReactNode }) {
     }
     return () => reader.dispose();
   }, [reader, supported, preferences.readAloudControls]);
+  const exportPdf = async () => {
+    if (!content.current || exporting) return;
+    setExporting(true);
+    try {
+      await downloadElementAsPdf(content.current, undefined, setExportStatus);
+    } catch (error) {
+      console.error('PDF export failed', error);
+      setExportStatus('Could not build the PDF. Please try again.');
+    } finally {
+      setExporting(false);
+      setTimeout(() => setExportStatus(''), 4000);
+    }
+  };
   return <>
+    <section className="guide-export site-container" aria-label="Download this guide">
+      <button type="button" className="pdf-button" onClick={exportPdf} disabled={exporting}>
+        <span className="material-icons" aria-hidden="true">{exporting ? 'hourglass_empty' : 'picture_as_pdf'}</span>
+        <span>{exporting ? (exportStatus || 'Preparing…') : 'Download PDF'}</span>
+      </button>
+      {exportStatus && exporting && <p className="export-status" role="status" aria-atomic="true">{exportStatus}</p>}
+    </section>
     {preferences.readAloudControls && <section className="reading-tools site-container" aria-label="Guide reading tools" data-reading-tools>
       <div className="reading-actions">
         <button type="button" disabled={!supported || state !== 'idle'} onClick={() => reader.start(extractReadableText(content.current!), preferences.rate, voices.find(voice => voice.voiceURI === preferences.voice))}>Read guide</button>
