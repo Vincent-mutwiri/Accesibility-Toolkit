@@ -24,7 +24,7 @@ const ReferencesPage: React.FC = () => {
           <section className="bg-background-light dark:bg-background-dark rounded-xl border border-border-light dark:border-border-dark p-6">
             <h2 className="text-xl font-bold text-text-light dark:text-text-dark">Hearing impairment</h2>
             <ul className="mt-3 list-disc list-inside text-subtle-light dark:text-subtle-dark space-y-1">
-              <li>CAST. (2018). <em>Universal design for learning guidelines version 2.2</em>. http://udlguidelines.cast.org</li>
+              <li>CAST. (2018). <em>Universal design for learning guidelines version 2.2</em>. https://udlguidelines.cast.org</li>
               <li>Mayer, R. E. (2009). <em>Multimedia learning</em> (2nd ed.). Cambridge University Press.</li>
               <li>World Wide Web Consortium (W3C). (2018). <em>Web content accessibility guidelines (WCAG) 2.1</em>. https://www.w3.org/TR/WCAG21/</li>
             </ul>
