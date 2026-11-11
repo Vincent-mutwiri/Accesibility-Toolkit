@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-const links = [{ to: '/', label: 'Toolkit' }, { to: '/about', label: 'About' }, { to: '/resources', label: 'Resources' }, { to: '/feedback', label: 'Feedback' }];
+const links = [{ to: '/', label: 'Toolkit' }, { to: '/about', label: 'About' }, { to: '/feedback', label: 'Feedback' }];
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
