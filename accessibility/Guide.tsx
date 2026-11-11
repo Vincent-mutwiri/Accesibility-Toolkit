@@ -12,6 +12,7 @@ export default function Guide({ children }: { children: React.ReactNode }) {
   const [reader] = useState(() => createReader((next, text) => { setState(next); setMessage(text); }));
   const supported = typeof window.speechSynthesis?.speak === 'function' && typeof window.SpeechSynthesisUtterance === 'function';
   useEffect(function speechLifecycle() {
+    if (!preferences.readAloudControls) return;
     if (supported) {
       const load = () => setVoices(window.speechSynthesis.getVoices());
       load();
@@ -19,9 +20,9 @@ export default function Guide({ children }: { children: React.ReactNode }) {
       return () => { reader.dispose(); window.speechSynthesis.removeEventListener('voiceschanged', load); };
     }
     return () => reader.dispose();
-  }, [reader, supported]);
+  }, [reader, supported, preferences.readAloudControls]);
   return <>
-    <section className="reading-tools site-container" aria-label="Guide reading tools" data-reading-tools>
+    {preferences.readAloudControls && <section className="reading-tools site-container" aria-label="Guide reading tools" data-reading-tools>
       <div className="reading-actions">
         <button type="button" disabled={!supported || state !== 'idle'} onClick={() => reader.start(extractReadableText(content.current!), preferences.rate, voices.find(voice => voice.voiceURI === preferences.voice))}>Read guide</button>
         <button type="button" disabled={state !== 'reading' && state !== 'paused'} onClick={() => state === 'paused' ? reader.resume() : reader.pause()}>{state === 'paused' ? 'Resume' : 'Pause'}</button>
@@ -33,7 +34,7 @@ export default function Guide({ children }: { children: React.ReactNode }) {
       <p className="reading-help">Read aloud starts only when you choose. Voice availability depends on your device.</p>
       {!supported && <p>Read aloud is unavailable in this browser. All guide text remains available.</p>}
       <p className="reading-status" role="status" aria-atomic="true">{message}</p>
-    </section>
+    </section>}
     <div ref={content} data-guide-content>{children}</div>
   </>;
 }

@@ -8,17 +8,19 @@ export interface Preferences {
   textSpacing: boolean;
   bigTargets: boolean;
   readingRuler: boolean;
+  screenReaderSupport: boolean;
+  readAloudControls: boolean;
   rate: number;
   voice: string;
 }
 const KEY = 'ihub-accessibility-v1';
-const defaults: Preferences = { theme: 'system', fontSize: 'medium', highContrast: false, reducedMotion: false, textSpacing: false, bigTargets: false, readingRuler: false, rate: 1, voice: '' };
+const defaults: Preferences = { theme: 'system', fontSize: 'medium', highContrast: false, reducedMotion: false, textSpacing: false, bigTargets: false, readingRuler: false, screenReaderSupport: false, readAloudControls: false, rate: 1, voice: '' };
 const legacyKeys = ['theme', 'fontSize', 'highContrast', 'reducedMotion', 'screenReader'];
 function validate(value: Partial<Preferences>): Preferences {
   const p = { ...defaults };
   if (['system', 'light', 'dark'].includes(value.theme)) p.theme = value.theme;
   if (['small', 'medium', 'large', 'extra-large'].includes(value.fontSize)) p.fontSize = value.fontSize;
-  for (const key of ['highContrast', 'reducedMotion', 'textSpacing', 'bigTargets', 'readingRuler'] as const) {
+  for (const key of ['highContrast', 'reducedMotion', 'textSpacing', 'bigTargets', 'readingRuler', 'screenReaderSupport', 'readAloudControls'] as const) {
     if (typeof value[key] === 'boolean') p[key] = value[key];
   }
   if ([.5, .75, 1, 1.25, 1.5, 2].includes(value.rate)) p.rate = value.rate;

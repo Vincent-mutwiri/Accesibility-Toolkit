@@ -12,6 +12,7 @@ from playwright.sync_api import sync_playwright, expect
 parser = argparse.ArgumentParser()
 parser.add_argument('--url', default='http://localhost:3000')
 parser.add_argument('--axe', type=Path)
+parser.add_argument('--settings-only', action='store_true')
 parser.add_argument('--browser', default='/opt/brave.com/brave/brave')
 parser.add_argument('--output', type=Path, default=Path('/tmp/ihub-accessibility-qa'))
 args = parser.parse_args()
@@ -40,6 +41,72 @@ with sync_playwright() as p:
         page.goto(args.url + '/#/' + route)
         page.wait_for_load_state('networkidle')
         expect(page.locator('main h1')).to_have_count(1)
+    if args.settings_only:
+        go('online-learning')
+        expect(page.get_by_role('region', name='Guide reading tools')).to_have_count(0)
+        go('settings')
+        read_aloud = page.get_by_role('switch', name='Read aloud', exact=True)
+        expect(read_aloud).to_have_attribute('aria-checked', 'false')
+        read_aloud.click()
+        go('online-learning')
+        expect(page.get_by_role('region', name='Guide reading tools')).to_be_visible()
+        page.reload()
+        expect(page.get_by_role('region', name='Guide reading tools')).to_be_visible()
+        go('settings')
+        read_aloud.click()
+        go('online-learning')
+        expect(page.get_by_role('region', name='Guide reading tools')).to_have_count(0)
+        go('settings')
+        screen_reader = page.get_by_role('switch', name='Screen reader support', exact=True)
+        expect(screen_reader).to_have_attribute('aria-checked', 'false')
+        assert not page.locator('main h1').evaluate('(el) => el === document.activeElement')
+        screen_reader.click()
+        expect(screen_reader).to_be_focused()
+        go('resources')
+        expect(page.locator('main h1')).to_be_focused()
+        page.reload()
+        expect(page.locator('main h1')).to_be_focused()
+        go('settings')
+        expect(screen_reader).to_have_attribute('aria-checked', 'true')
+        screen_reader.click()
+        go('about')
+        expect(page).to_have_title(re.compile('Inclusion is a design decision'))
+        assert not page.locator('main h1').evaluate('(el) => el === document.activeElement')
+        for width in [1440, 390, 320]:
+            page.set_viewport_size({'width': width, 'height': 1000})
+            go('settings')
+            page.get_by_role('button', name='Reset to defaults', exact=True).click()
+            page.get_by_role('button', name='Light Mode', exact=True).click()
+            for name in ['Small', 'Large', 'Extra Large', 'Medium']:
+                button = page.get_by_role('button', name=name, exact=True)
+                button.click()
+                expect(button).to_have_attribute('aria-pressed', 'true')
+            page.screenshot(path=str(args.output / f'settings-restored-{width}.png'), full_page=True)
+            for switch in page.get_by_role('switch').all():
+                switch.focus()
+                page.keyboard.press('Space')
+                expect(switch).to_have_attribute('aria-checked', 'true')
+            page.get_by_role('button', name='Extra Large', exact=True).click()
+            for theme in ['Dark Mode', 'Light Mode']:
+                page.get_by_role('button', name=theme, exact=True).click()
+                assert not page.evaluate('document.documentElement.scrollWidth > innerWidth + 1'), width
+                if args.axe:
+                    page.add_script_tag(path=str(args.axe))
+                    audit = page.evaluate("async () => await axe.run(document, {runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}})")
+                    results.append({'width': width, 'theme': theme, 'violations': [v['id'] for v in audit['violations']]})
+            page.get_by_role('button', name='Reset to defaults', exact=True).click()
+            expect(page.get_by_role('button', name='Medium', exact=True)).to_have_attribute('aria-pressed', 'true')
+            expect(page.locator('.reading-ruler')).to_have_count(0)
+            for switch in page.get_by_role('switch').all(): expect(switch).to_have_attribute('aria-checked', 'false')
+        assert not errors, errors
+        (args.output / 'settings-results.json').write_text(json.dumps(results, indent=2))
+        assert not any(result['violations'] for result in results), results
+        print('Settings buttons, switches, keyboard access, reset, reflow and axe checks passed.')
+        browser.close()
+        raise SystemExit(0)
+    go('settings')
+    page.get_by_role('switch', name='Screen reader support', exact=True).click()
+    page.get_by_role('switch', name='Read aloud', exact=True).click()
     for route in routes:
         go(route)
         expect(page.locator('main h1')).to_be_focused()
@@ -67,10 +134,10 @@ with sync_playwright() as p:
 
     # Settings, ruler input paths, persistence and reset.
     go('settings')
-    page.get_by_label('Theme', exact=True).select_option('dark')
-    page.get_by_label('Text size', exact=True).select_option('extra-large')
+    page.get_by_role('button', name='Dark Mode', exact=True).click()
+    page.get_by_role('button', name='Extra Large', exact=True).click()
     for label in ['High contrast', 'Increased text spacing', 'Larger controls', 'Reading ruler']:
-        page.get_by_role('checkbox', name=label, exact=True).check()
+        page.get_by_role('switch', name=label, exact=True).click()
     expect(page.locator('.reading-ruler')).to_have_count(1)
     page.mouse.move(100, 200)
     page.wait_for_timeout(50)
@@ -128,9 +195,10 @@ with sync_playwright() as p:
     # Reflow and combined preferences across every route.
     for enhanced in [False, True]:
         go('settings')
-        page.get_by_label('Text size', exact=True).select_option('extra-large' if enhanced else 'medium')
+        page.get_by_role('button', name='Extra Large' if enhanced else 'Medium', exact=True).click()
         for label in ['High contrast', 'Increased text spacing', 'Larger controls']:
-            page.get_by_role('checkbox', name=label, exact=True).set_checked(enhanced)
+            switch = page.get_by_role('switch', name=label, exact=True)
+            if (switch.get_attribute('aria-checked') == 'true') != enhanced: switch.click()
         for width in [320, 720]:  # 720 CSS px approximates 200% zoom at 1440 px.
             page.set_viewport_size({'width': width, 'height': 900})
             for route in routes:
@@ -147,7 +215,7 @@ with sync_playwright() as p:
         page.screenshot(path=str(args.output / f'guide-enhanced-{enhanced}.png'), full_page=True)
 
     go('settings')
-    page.get_by_label('Theme', exact=True).select_option('dark')
+    page.get_by_role('button', name='Dark Mode', exact=True).click()
     for route in ['online-learning', 'settings', 'feedback']:
         go(route)
         if args.axe:
@@ -159,6 +227,7 @@ with sync_playwright() as p:
     # Deterministic speech lifecycle (real audio needs manual listening).
     speech_context = browser.new_context()
     speech_context.add_init_script(speech_stub)
+    speech_context.add_init_script("localStorage.setItem('ihub-accessibility-v1', JSON.stringify({readAloudControls:true}))")
     speech = speech_context.new_page()
     speech.goto(args.url + '/#/online-learning')
     speech.wait_for_load_state('networkidle')
@@ -214,9 +283,9 @@ with sync_playwright() as p:
     migration = migration_context.new_page()
     migration.goto(args.url + '/#/settings')
     migration.wait_for_load_state('networkidle')
-    expect(migration.get_by_label('Theme', exact=True)).to_have_value('dark')
-    expect(migration.get_by_label('Text size', exact=True)).to_have_value('large')
-    expect(migration.get_by_role('checkbox', name='High contrast', exact=True)).to_be_checked()
+    expect(migration.get_by_role('button', name='Dark Mode', exact=True)).to_have_attribute('aria-pressed', 'true')
+    expect(migration.get_by_role('button', name='Large', exact=True)).to_have_attribute('aria-pressed', 'true')
+    expect(migration.get_by_role('switch', name='High contrast', exact=True)).to_have_attribute('aria-checked', 'true')
     assert migration.evaluate("localStorage.getItem('screenReader') === null")
     migration_context.close()
 
@@ -224,7 +293,7 @@ with sync_playwright() as p:
     corrupt_context.add_init_script("localStorage.setItem('ihub-accessibility-v1', '{invalid-json')")
     corrupt = corrupt_context.new_page()
     corrupt.goto(args.url + '/#/settings')
-    expect(corrupt.get_by_label('Text size', exact=True)).to_have_value('medium')
+    expect(corrupt.get_by_role('button', name='Medium', exact=True)).to_have_attribute('aria-pressed', 'true')
     corrupt_context.close()
 
     # Storage denied and speech unavailable must leave all content usable.
@@ -235,12 +304,14 @@ with sync_playwright() as p:
     fallback.on('pageerror', lambda error: fallback_errors.append(str(error)))
     fallback.goto(args.url + '/#/settings')
     fallback.wait_for_load_state('networkidle')
-    fallback.get_by_role('checkbox', name='Reading ruler', exact=True).check()
+    fallback.get_by_role('switch', name='Reading ruler', exact=True).click()
     fallback.get_by_role('button', name='Reset to defaults').click()
     assert fallback.evaluate("document.documentElement.classList.contains('reduced-motion') && document.documentElement.classList.contains('dark')")
     fallback.goto(args.url + '/#/feedback')
     fallback.get_by_role('button', name='Submit feedback').click()
     expect(fallback.locator('#feedback-error')).to_be_focused()
+    fallback.goto(args.url + '/#/settings')
+    fallback.get_by_role('switch', name='Read aloud', exact=True).click()
     fallback.goto(args.url + '/#/online-learning')
     expect(fallback.get_by_role('button', name='Read guide', exact=True)).to_be_disabled()
     assert not fallback_errors, fallback_errors

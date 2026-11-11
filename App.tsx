@@ -21,13 +21,17 @@ const DualSensoryLossPage = React.lazy(() => import('./pages/DualSensoryLossPage
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-import { AccessibilityProvider } from './accessibility/Preferences';
+import { AccessibilityProvider, useAccessibility } from './accessibility/Preferences';
 import ReadingRuler from './accessibility/ReadingRuler';
 import Guide from './accessibility/Guide';
 
 // Inside Suspense: run only after the new route's content has committed.
 function RouteAccessibility({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
+  const { preferences } = useAccessibility();
+  // RouteView remounts this boundary for each new page. Changing the switch
+  // should leave focus on the switch until the user chooses another page.
+  const focusOnEntry = React.useRef(preferences.screenReaderSupport).current;
   React.useLayoutEffect(function focusLoadedPage() {
     // Wait past the hash navigation's native focus/scroll handling and any
     // lazy fallback. A hidden previous page must never receive focus.
@@ -37,8 +41,10 @@ function RouteAccessibility({ children }: { children: React.ReactNode }) {
       const heading = main.querySelector<HTMLElement>('h1');
       if (!heading?.getClientRects().length) return;
       document.title = `${heading.textContent?.trim()} | iHUB Inclusion Toolkit`;
-      heading.tabIndex = -1;
-      heading.focus({ preventScroll: true });
+      if (focusOnEntry) {
+        heading.tabIndex = -1;
+        heading.focus({ preventScroll: true });
+      }
       window.scrollTo(0, 0);
       observer.disconnect();
     };
@@ -47,7 +53,7 @@ function RouteAccessibility({ children }: { children: React.ReactNode }) {
     observer.observe(main, { childList: true, subtree: true });
     schedule();
     return () => { cancelAnimationFrame(frame); observer.disconnect(); };
-  }, [pathname]);
+  }, [pathname, focusOnEntry]);
   return <>{children}</>;
 }
 

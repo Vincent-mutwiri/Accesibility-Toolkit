@@ -1,10 +1,14 @@
 # Accessibility integration
 
-Guide routes provide explicit read-aloud controls. The Accessibility page
+Guide routes show read-aloud controls only after the person enables Read aloud
+on the Accessibility page. The whole toolbar and its help text are hidden by
+default; the choice persists, and reset hides it again. The Accessibility page
 controls theme, text size, contrast, motion, spacing, larger targets and a
-reading ruler. Screen reader semantics and keyboard focus do not require a
-setting. Guide navigation waits for lazy content, updates the page title,
-and focuses the new heading. Contents controls move focus to section headings.
+reading ruler. The Screen reader support switch is off by default and enables
+automatic heading focus on page changes. The choice persists and reset turns
+it off. Navigation always waits for lazy content and updates the page title;
+normal semantic HTML, keyboard controls, skip links and explicit status/error
+messages remain available. Contents controls move focus to section headings.
 
 ## Adapter boundaries
 
