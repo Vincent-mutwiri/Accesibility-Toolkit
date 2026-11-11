@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { createPortal } from 'react-dom';
 import { useAccessibility } from './Preferences';
 import { createReader, extractReadableText, SpeechState } from './readAloud';
 import { downloadElementAsPdf } from './pdfExport';
@@ -13,6 +14,12 @@ export default function Guide({ children }: { children: React.ReactNode }) {
   const [message, setMessage] = useState('');
   const [exporting, setExporting] = useState(false);
   const [exportStatus, setExportStatus] = useState('');
+  // Anchor node the Download PDF button is portalled into. We insert it as a
+  // placeholder immediately before the #checklist section (the last block of
+  // every guide), so the button sits at the bottom of the guide body, just
+  // above the checklist — without editing each guide page.
+  const [pdfAnchor, setPdfAnchor] = useState<HTMLElement | null>(null);
+  const { pathname } = useLocation();
   const [reader] = useState(() => createReader((next, text) => { setState(next); setMessage(text); }));
   const supported = typeof window.speechSynthesis?.speak === 'function' && typeof window.SpeechSynthesisUtterance === 'function';
   useEffect(function speechLifecycle() {
@@ -25,6 +32,22 @@ export default function Guide({ children }: { children: React.ReactNode }) {
     }
     return () => reader.dispose();
   }, [reader, supported, preferences.readAloudControls]);
+
+  // Locate the checklist inside this guide and create a placeholder for the
+  // PDF button directly before it. Re-runs on route change so each guide
+  // gets its own anchor.
+  useEffect(function placePdfButton() {
+    const root = content.current;
+    if (!root) return;
+    const checklist = root.querySelector('#checklist');
+    if (!checklist || !(checklist instanceof HTMLElement)) return;
+    const anchor = document.createElement('div');
+    anchor.className = 'guide-export site-container pdf-ignore';
+    checklist.before(anchor);
+    setPdfAnchor(anchor);
+    return () => { anchor.remove(); setPdfAnchor(null); };
+  }, [pathname]);
+
   const exportPdf = async () => {
     if (!content.current || exporting) return;
     setExporting(true);
@@ -42,14 +65,16 @@ export default function Guide({ children }: { children: React.ReactNode }) {
       setTimeout(() => setExportStatus(''), 4000);
     }
   };
-  return <>
-    <section className="guide-export site-container" aria-label="Download this guide">
+  const pdfButton = (
+    <>
       <button type="button" className="pdf-button" onClick={exportPdf} disabled={exporting}>
         <span className="material-icons" aria-hidden="true">{exporting ? 'hourglass_empty' : 'picture_as_pdf'}</span>
         <span>{exporting ? (exportStatus || 'Preparing…') : 'Download PDF'}</span>
       </button>
       {exportStatus && exporting && <p className="export-status" role="status" aria-atomic="true">{exportStatus}</p>}
-    </section>
+    </>
+  );
+  return <>
     {preferences.readAloudControls && <section className="reading-tools site-container" aria-label="Guide reading tools" data-reading-tools>
       <div className="reading-actions">
         <button type="button" disabled={!supported || state !== 'idle'} onClick={() => reader.start(extractReadableText(content.current!), preferences.rate, voices.find(voice => voice.voiceURI === preferences.voice))}>Read guide</button>
@@ -69,5 +94,8 @@ export default function Guide({ children }: { children: React.ReactNode }) {
         {children}
       </PdfCaptureProvider>
     </div>
+    {/* The Download PDF button is portalled into a placeholder inserted just
+        before #checklist, so it appears at the bottom of the guide body. */}
+    {pdfAnchor && createPortal(pdfButton, pdfAnchor)}
   </>;
 }

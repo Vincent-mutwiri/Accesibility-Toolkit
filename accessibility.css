@@ -157,6 +157,8 @@
 .pdf-button:hover:not(:disabled) { border-color: #BAD531; }
 .pdf-button:disabled { opacity: .65; cursor: default; }
 .foundations-download { margin-top: 1.5rem; }
+/* Per-guide Download PDF button sits just above the checklist. */
+.guide-export.pdf-ignore { margin-block: 2rem 0; }
 .export-status { font-size: .85rem; margin-top: .65rem; color: var(--muted); }
 
 /* While html2canvas captures, hide on-screen chrome that should never appear

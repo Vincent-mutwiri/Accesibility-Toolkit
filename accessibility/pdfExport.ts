@@ -56,41 +56,74 @@ interface Capture { canvas: HTMLCanvasElement; protectedRanges: VerticalRange[];
 // of whitespace surrounding a word do not affect these boundaries.
 function collectProtectedRanges(element: HTMLElement): { height: number; ranges: VerticalRange[] } {
   const origin = element.getBoundingClientRect();
+  const owner = element.ownerDocument;
+  const view = owner.defaultView!;
   const ranges: VerticalRange[] = [];
   const add = (rect: DOMRect) => {
     if (!rect.width || !rect.height) return;
     ranges.push({ start: rect.top - origin.top - 2, end: rect.bottom - origin.top + 2 });
   };
-  const ignored = '.pdf-ignore, .guide-export, .reading-tools, [hidden], [aria-hidden="true"]';
-  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  // aria-hidden controls the accessibility tree, not paint. The combined
+  // export surface is aria-hidden but its visible text still needs protecting.
+  const ignored = '.pdf-ignore, .guide-export, .reading-tools, [hidden]';
+  const walker = owner.createTreeWalker(element, NodeFilter.SHOW_TEXT);
   let node: Node | null;
   while ((node = walker.nextNode())) {
     const parent = node.parentElement;
     if (!node.textContent?.trim() || !parent || parent.closest(ignored)) continue;
-    const style = getComputedStyle(parent);
+    const style = view.getComputedStyle(parent);
     if (style.visibility === 'hidden' || style.display === 'none') continue;
-    const textRange = document.createRange();
+    const textRange = owner.createRange();
     textRange.selectNodeContents(node);
     for (const rect of textRange.getClientRects()) add(rect);
   }
   for (const item of element.querySelectorAll<HTMLElement>('label, li:has(input[type="checkbox"]), h1, h2, h3, h4, h5, h6, img, input, [data-pdf-keep-together]')) {
     if (!item.closest(ignored)) add(item.getBoundingClientRect());
   }
+  // A heading travels with the first line of its following content. This
+  // also avoids leaving the title stranded at the bottom of a page.
+  for (const heading of element.querySelectorAll<HTMLElement>('h1,h2,h3,h4,h5,h6')) {
+    const next = heading.nextElementSibling;
+    if (!next || heading.closest(ignored)) continue;
+    const text = owner.createTreeWalker(next, NodeFilter.SHOW_TEXT);
+    let first: Node | null;
+    while ((first = text.nextNode())) {
+      if (!first.textContent?.trim() || first.parentElement?.closest('.material-icons, [hidden]')) continue;
+      const line = owner.createRange();
+      line.selectNodeContents(first);
+      const rect = line.getClientRects()[0];
+      if (rect?.height) {
+        ranges.push({ start: heading.getBoundingClientRect().top - origin.top - 2, end: rect.bottom - origin.top + 2 });
+        break;
+      }
+    }
+  }
   return { height: origin.height, ranges };
 }
 
 async function captureToCanvas(element: HTMLElement, html2canvas: typeof import('html2canvas-pro')['default']): Promise<Capture> {
   await document.fonts.ready;
-  const measured = collectProtectedRanges(element);
+  let measured: ReturnType<typeof collectProtectedRanges> | undefined;
   const canvas = await html2canvas(element, {
     scale: 2,
     useCORS: true,
     backgroundColor: getComputedStyle(document.body).backgroundColor || '#ffffff',
+    onclone: async (cloneDocument, cloneElement) => {
+      // Capture and pagination must use the SAME document. Removing ignored
+      // chrome and resolving fonts can reflow the clone relative to the live
+      // page, making live coordinates unsafe even when they protect a heading.
+      const style = cloneDocument.createElement('style');
+      style.textContent = '*, *::before, *::after { animation: none !important; transition: none !important; }';
+      cloneDocument.head.appendChild(style);
+      await cloneDocument.fonts.ready;
+      measured = collectProtectedRanges(cloneElement);
+    },
     // Ignore elements that are only meaningful on screen (the floating back /
     // next buttons, the reading-tools toolbar, the print toolbar itself).
     ignoreElements: el =>
       el.closest('.pdf-ignore, .reading-tools, .floating-back-button, .floating-nav-button, [data-floating-nav]') !== null,
   });
+  if (!measured?.height) throw new Error('Could not measure PDF capture layout');
   const scale = canvas.height / measured.height;
   return { canvas, protectedRanges: measured.ranges.map(range => ({ start: range.start * scale, end: range.end * scale })) };
 }

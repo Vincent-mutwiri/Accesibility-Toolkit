@@ -3,6 +3,7 @@
 Requires Python Playwright and pypdf. PDFs/artifacts are saved under /tmp.
 """
 from pathlib import Path
+import json
 from playwright.sync_api import sync_playwright, expect
 from pypdf import PdfReader
 from pypdf.generic import ContentStream
@@ -41,15 +42,39 @@ with sync_playwright() as p:
     # the real Download PDF button, html2canvas and jsPDF.
     page.evaluate("""() => {
       window.pdfSlices=[]; window.pdfBounds=null;
+      const snapshot = (source, kind) => {
+        const owner=source.ownerDocument;
+        const origin=source.getBoundingClientRect();
+        const bounds=el=>{const r=el.getBoundingClientRect();return {start:r.top-origin.top,end:r.bottom-origin.top,text:el.textContent?.slice(0,90)}};
+        const rows=[...source.querySelectorAll('[data-pdf-keep-together]')].map(bounds);
+        const headings=[...source.querySelectorAll('h1,h2,h3,h4,h5,h6')].map(bounds);
+        const lines=[];
+        const walker=owner.createTreeWalker(source,NodeFilter.SHOW_TEXT);
+        let node;
+        while((node=walker.nextNode())) {
+          if(!node.textContent.trim() || node.parentElement.closest('.pdf-ignore,[hidden]'))continue;
+          const style=owner.defaultView.getComputedStyle(node.parentElement);
+          if(style.display==='none'||style.visibility==='hidden')continue;
+          const range=owner.createRange();range.selectNodeContents(node);
+          for(const r of range.getClientRects()) if(r.width&&r.height)lines.push({start:r.top-origin.top,end:r.bottom-origin.top,text:node.textContent.slice(0,90)});
+        }
+        return {height:origin.height,rows,headings,lines,kind};
+      };
       new MutationObserver(() => {
         if(!document.documentElement.classList.contains('pdf-capturing')) return;
-        const source=document.querySelector('[data-guide-content]');
-        const origin=source.getBoundingClientRect();
-        const rows=[...source.querySelectorAll('[data-pdf-keep-together]')].map(el=>{
-          const r=el.getBoundingClientRect(); return {start:r.top-origin.top,end:r.bottom-origin.top};
-        });
-        window.pdfBounds={height:origin.height,rows};
+        const source=document.querySelector('[data-toolkit-section], [data-guide-content]');
+        window.pdfBounds=snapshot(source,'live');
       }).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+      // Read the actual renderer document immediately before html2canvas
+      // disposes its iframe. Live page coordinates can differ after cloning.
+      const removeChild=Node.prototype.removeChild;
+      Node.prototype.removeChild=function(node){
+        if(node instanceof HTMLIFrameElement && node.classList.contains('html2canvas-container')) {
+          const source=node.contentDocument?.querySelector('[data-toolkit-section]') || node.contentDocument?.querySelector('[data-guide-content]');
+          if(source)window.pdfBounds=snapshot(source,'clone');
+        }
+        return Reflect.apply(removeChild,this,[node]);
+      };
       const original=CanvasRenderingContext2D.prototype.drawImage;
       CanvasRenderingContext2D.prototype.drawImage=function(...args){
         const [image,sx,sy,sw,sh,dx,dy,dw,dh]=args;
@@ -59,21 +84,40 @@ with sync_playwright() as p:
         return Reflect.apply(original,this,args);
       };
     }""")
-    for size, width in [('standard',1280),('large',390)]:
+    for route,size,width in [('management-systems','combined',1280),('online-learning','standard',1280),('management-systems','standard',1280),('management-systems','large',960)]:
         page.set_viewport_size({'width':width,'height':900})
         if size == 'large':
             page.goto('http://localhost:3000/#/settings')
             page.get_by_role('button',name='Extra Large',exact=True).click()
-            page.goto('http://localhost:3000/#/online-learning')
-            page.wait_for_load_state('networkidle')
+        page.goto('http://localhost:3000/#/'+route)
+        page.wait_for_load_state('networkidle')
+        if size == 'combined':
+            page.get_by_role('button',name='Click here for the checklist',exact=False).click()
+            page.evaluate("""() => {
+              const surface=document.createElement('div');surface.setAttribute('aria-hidden','true');surface.dataset.testPdfSurface='';
+              surface.style.cssText='position:fixed;left:-99999px;top:0;width:820px;opacity:0;pointer-events:none';
+              const section=document.createElement('section');section.dataset.toolkitSection='Management Systems';section.style.padding='24px 32px';
+              const source=document.querySelector('[data-guide-content]');
+              for(const child of source.childNodes)section.append(child.cloneNode(true));
+              surface.append(section);document.body.append(surface);
+            }""")
         page.evaluate('window.pdfSlices=[];window.pdfBounds=null')
         with page.expect_download(timeout=120000) as download:
-            page.get_by_role('button',name='Download PDF',exact=True).click()
-        path=OUTPUT/f'online-learning-{size}.pdf'
+            if size == 'combined':
+                page.evaluate("""async () => {
+                  const {downloadElementsAsPdf}=await import('/accessibility/pdfExport.ts');
+                  await downloadElementsAsPdf([{element:document.querySelector('[data-toolkit-section]'),title:'Management Systems'}],'management-combined-test');
+                }""")
+            else:
+                page.get_by_role('button',name='Download PDF',exact=True).click()
+        path=OUTPUT/f'{route}-{size}.pdf'
         download.value.save_as(path)
         slices=page.evaluate('pdfSlices')
         bounds=page.evaluate('pdfBounds')
         assert slices and bounds and bounds['rows'], 'Capture was not observed'
+        assert bounds['kind']=='clone', 'Must verify actual rendered layout'
+        assert bounds['headings'] and bounds['lines'], 'Hidden export surfaces must still have text bounds'
+        (OUTPUT/f'{route}-{size}-bounds.json').write_text(json.dumps({'bounds':bounds,'slices':slices},indent=2))
         pdf=PdfReader(path)
         assert len(pdf.pages)==len(slices), (len(pdf.pages),len(slices))
         cursor=0
@@ -88,6 +132,8 @@ with sync_playwright() as p:
                     # ordinary checklist rows must stay on a single page.
                     if row['end']-row['start'] < (269/190)*slice['width']/scale:
                         assert not row['start']<boundary<row['end'], (size,index,boundary,row)
+                for text in bounds['headings']+bounds['lines']:
+                    assert not text['start']<boundary<text['end'], (route,size,index,boundary,text)
             # Inspect actual PDF image transforms: nothing can extend below
             # the A4 content box even if a candidate gap is below the limit.
             for operands,operator in ContentStream(pdf.pages[index].get_contents(),pdf).operations:
@@ -97,5 +143,6 @@ with sync_playwright() as p:
         assert cursor==slices[0]['sourceHeight'], 'The end of the guide was lost'
         expect(page.get_by_role('button',name='Download PDF',exact=True)).to_be_enabled()
         assert not page.evaluate("document.documentElement.classList.contains('pdf-capturing')")
-        print(f'{size}: {len(pdf.pages)} PDF pages; {len(bounds["rows"])} intact checklist rows; no clipped pages. {path}',flush=True)
+        print(f'{route} {size}: {len(pdf.pages)} pages; {len(bounds["rows"])} intact rows; {len(bounds["lines"])} unsplit text lines. {path}',flush=True)
+        if size == 'combined': page.evaluate("document.querySelector('[data-test-pdf-surface]').remove()")
     browser.close()
