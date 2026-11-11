@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 
 interface ChecklistItem {
   text: string;
@@ -12,6 +12,7 @@ interface ChecklistProps {
 const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist", items }) => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
   const [isOpen, setIsOpen] = useState(false);
+  const panelId = useId();
 
   const toggleItem = (index: number) => {
     setCheckedItems(prev => ({
@@ -23,12 +24,13 @@ const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist",
   return (
     <div className="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl mt-12 overflow-hidden">
       <button
+        aria-controls={panelId}
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
         className="w-full p-6 md:p-8 text-left flex items-center justify-between hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
       >
         <div className="flex items-center gap-3">
-          <span className="material-icons text-secondary text-3xl">checklist</span>
+          <span aria-hidden="true" className="material-icons text-secondary text-3xl">checklist</span>
           <span className="text-lg font-medium text-text-light dark:text-text-dark">
             Click here for the checklist
           </span>
@@ -41,7 +43,7 @@ const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist",
       </button>
 
       {isOpen && (
-        <div className="px-6 md:px-8 pb-6 md:pb-8 border-t border-primary/20">
+        <div id={panelId} className="px-6 md:px-8 pb-6 md:pb-8 border-t border-primary/20">
           <h3 className="text-2xl font-bold text-text-light dark:text-text-dark mb-6 mt-4">{title}</h3>
           <div className="grid gap-3">
             {items.map((item, index) => (

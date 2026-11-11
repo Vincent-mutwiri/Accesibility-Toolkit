@@ -1,7 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
 import PageHeader from '../components/PageHeader';
-import ManagementMobileNav from '../components/ManagementMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
 import FloatingNavButton from '../components/FloatingNavButton';
 
@@ -50,31 +49,31 @@ const ManagementSystemsPage: React.FC = () => {
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Multi-language Support Implementation</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide comprehensive multilingual interfaces beyond surface-level translation</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement right-to-left language support for Arabic, Hebrew, and other languages</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure cultural appropriateness of visual elements, colors, and symbols across different cultural contexts</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create culturally responsive avatars and representation in visual elements</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide comprehensive multilingual interfaces beyond surface-level translation</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement right-to-left language support for Arabic, Hebrew, and other languages</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure cultural appropriateness of visual elements, colors, and symbols across different cultural contexts</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create culturally responsive avatars and representation in visual elements</li>
                     </ul>
                   </div>
 
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Accessibility-First Design Principles</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide multiple input methods (keyboard, voice, eye-tracking, switch navigation)</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design for various assistive technologies including screen readers, magnification software, and voice recognition</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure color contrast ratios meet accessibility standards and provide alternative visual indicators</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement adjustable font sizes, spacing, and contrast options</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide multiple input methods (keyboard, voice, eye-tracking, switch navigation)</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design for various assistive technologies including screen readers, magnification software, and voice recognition</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure color contrast ratios meet accessibility standards and provide alternative visual indicators</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement adjustable font sizes, spacing, and contrast options</li>
                     </ul>
                   </div>
 
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Culturally Responsive Interface Elements</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design iconography that is universally understood across cultures</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide customizable themes that reflect diverse cultural preferences</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement flexible calendar systems that accommodate different cultural and religious observances</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create inclusive imagery that represents diverse learners across race, ethnicity, ability, age, and other dimensions</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design iconography that is universally understood across cultures</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide customizable themes that reflect diverse cultural preferences</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement flexible calendar systems that accommodate different cultural and religious observances</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create inclusive imagery that represents diverse learners across race, ethnicity, ability, age, and other dimensions</li>
                     </ul>
                   </div>
 
@@ -86,30 +85,30 @@ const ManagementSystemsPage: React.FC = () => {
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Flexible Authentication Systems</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement multiple authentication methods to accommodate various technology access levels</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide offline authentication options for areas with limited internet connectivity</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design guest access capabilities for learners without institutional email addresses</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create family account options for shared device situations</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement multiple authentication methods to accommodate various technology access levels</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide offline authentication options for areas with limited internet connectivity</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design guest access capabilities for learners without institutional email addresses</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create family account options for shared device situations</li>
                     </ul>
                   </div>
 
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Device and Connectivity Accommodations</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Optimize for low-bandwidth environments with Progressive Web App (PWA) technology</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure full functionality across various devices, from smartphones to desktop computers</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement offline synchronization capabilities for intermittent internet access</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide downloadable content options for learners with limited data plans</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Optimize for low-bandwidth environments with Progressive Web App (PWA) technology</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure full functionality across various devices, from smartphones to desktop computers</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement offline synchronization capabilities for intermittent internet access</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide downloadable content options for learners with limited data plans</li>
                     </ul>
                   </div>
 
                   <div>
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Economic Barrier Reduction</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design freemium models that don't compromise educational quality for non-paying users</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Partner with libraries and community centers for free access points</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement sliding scale pricing based on economic need</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide free device lending programs in partnership with educational institutions</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design freemium models that don't compromise educational quality for non-paying users</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Partner with libraries and community centers for free access points</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement sliding scale pricing based on economic need</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide free device lending programs in partnership with educational institutions</li>
                     </ul>
                   </div>
                 </div>
@@ -120,30 +119,30 @@ const ManagementSystemsPage: React.FC = () => {
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Universal Design for Learning (UDL) Implementation</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide multiple means of representation (visual, auditory, tactile content options)</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer various engagement strategies that connect to diverse learner interests and cultural backgrounds</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Enable multiple ways for learners to express their knowledge and demonstrate learning</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement adaptive content delivery based on individual learning preferences and needs</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide multiple means of representation (visual, auditory, tactile content options)</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer various engagement strategies that connect to diverse learner interests and cultural backgrounds</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Enable multiple ways for learners to express their knowledge and demonstrate learning</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement adaptive content delivery based on individual learning preferences and needs</li>
                     </ul>
                   </div>
 
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Bias-Free Content Curation and Review</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Establish diverse content review panels that include community representatives</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement algorithmic bias detection and mitigation strategies</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide content warnings and context for potentially sensitive material</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure diverse representation in case studies, examples, and scenarios</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Establish diverse content review panels that include community representatives</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement algorithmic bias detection and mitigation strategies</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide content warnings and context for potentially sensitive material</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure diverse representation in case studies, examples, and scenarios</li>
                     </ul>
                   </div>
 
                   <div>
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Personalization Without Stereotyping</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use inclusive data collection practices that avoid reinforcing stereotypes</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement recommendation systems that expand rather than limit learner exposure to content</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide learner control over personalization settings and data usage</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design adaptive learning paths that consider cultural learning preferences without making assumptions</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use inclusive data collection practices that avoid reinforcing stereotypes</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement recommendation systems that expand rather than limit learner exposure to content</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide learner control over personalization settings and data usage</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design adaptive learning paths that consider cultural learning preferences without making assumptions</li>
                     </ul>
                   </div>
                 </div>
@@ -154,30 +153,30 @@ const ManagementSystemsPage: React.FC = () => {
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Multiple Assessment Formats</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide various assessment types including written, oral, visual, and performance-based options</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement authentic assessments that connect to learners' real-world experiences and cultural contexts</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer extended time options and alternative testing environments</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Enable portfolio-based assessment approaches that showcase learning over time</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide various assessment types including written, oral, visual, and performance-based options</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement authentic assessments that connect to learners' real-world experiences and cultural contexts</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer extended time options and alternative testing environments</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Enable portfolio-based assessment approaches that showcase learning over time</li>
                     </ul>
                   </div>
 
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Bias Mitigation in Automated Scoring</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Regularly audit AI-powered assessment tools for cultural and linguistic bias</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide human review options for high-stakes assessments</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement multiple scoring rubrics that account for diverse communication styles</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Train automated systems on diverse datasets that represent various populations</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Regularly audit AI-powered assessment tools for cultural and linguistic bias</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide human review options for high-stakes assessments</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement multiple scoring rubrics that account for diverse communication styles</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Train automated systems on diverse datasets that represent various populations</li>
                     </ul>
                   </div>
 
                   <div>
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Culturally Responsive Feedback Systems</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design feedback mechanisms that are culturally appropriate and constructive</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide feedback in multiple languages and cultural communication styles</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement peer feedback systems that promote cross-cultural understanding</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create mentor matching systems that connect learners with culturally similar role models</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design feedback mechanisms that are culturally appropriate and constructive</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide feedback in multiple languages and cultural communication styles</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement peer feedback systems that promote cross-cultural understanding</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create mentor matching systems that connect learners with culturally similar role models</li>
                     </ul>
                   </div>
                 </div>
@@ -188,20 +187,20 @@ const ManagementSystemsPage: React.FC = () => {
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Cross-Cultural Communication Support</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide real-time translation and cultural context for global learning communities</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement moderation tools that prevent harassment and promote respectful dialogue</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create discussion forum structures that accommodate different cultural communication styles</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design group formation algorithms that promote diversity while respecting learner preferences</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide real-time translation and cultural context for global learning communities</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement moderation tools that prevent harassment and promote respectful dialogue</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create discussion forum structures that accommodate different cultural communication styles</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design group formation algorithms that promote diversity while respecting learner preferences</li>
                     </ul>
                   </div>
 
                   <div>
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Family and Community Engagement</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Develop parent/guardian portals with culturally appropriate communication styles</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide community liaison interfaces for educational partners</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement multi-generational learning support for families learning together</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create community showcase spaces where learners can share achievements with their cultural communities</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Develop parent/guardian portals with culturally appropriate communication styles</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide community liaison interfaces for educational partners</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement multi-generational learning support for families learning together</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create community showcase spaces where learners can share achievements with their cultural communities</li>
                     </ul>
                   </div>
                 </div>
@@ -212,20 +211,20 @@ const ManagementSystemsPage: React.FC = () => {
                   <div className="mb-4">
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Ethical Data Collection and Usage</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement transparent data collection practices with clear opt-in/opt-out mechanisms</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide learners with control over their data and how it's used for personalization</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Regularly audit algorithms for disparate impact across different demographic groups</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Establish community advisory boards to guide ethical AI implementation</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement transparent data collection practices with clear opt-in/opt-out mechanisms</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide learners with control over their data and how it's used for personalization</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Regularly audit algorithms for disparate impact across different demographic groups</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Establish community advisory boards to guide ethical AI implementation</li>
                     </ul>
                   </div>
 
                   <div>
                     <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Privacy Protection Across Cultures</h4>
                     <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Understand and accommodate different cultural attitudes toward privacy and data sharing</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement varying levels of privacy settings based on cultural preferences and legal requirements</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide clear explanations of data usage in multiple languages and cultural contexts</li>
-                      <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure compliance with international privacy regulations (GDPR, COPPA, etc.)</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Understand and accommodate different cultural attitudes toward privacy and data sharing</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Implement varying levels of privacy settings based on cultural preferences and legal requirements</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide clear explanations of data usage in multiple languages and cultural contexts</li>
+                      <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure compliance with international privacy regulations (GDPR, COPPA, etc.)</li>
                     </ul>
                   </div>
                 </div>
@@ -236,7 +235,7 @@ const ManagementSystemsPage: React.FC = () => {
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">analytics</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">analytics</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Access and Participation Metrics</strong>
                       <div className="text-sm text-slate-600 dark:text-slate-400">
@@ -261,7 +260,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">school</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">school</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Learning Outcomes and Achievement Metrics</strong>
                       <div className="text-sm text-slate-600 dark:text-slate-400">
@@ -286,7 +285,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">sentiment_satisfied</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">sentiment_satisfied</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">User Experience and Satisfaction Metrics</strong>
                       <div className="text-sm text-slate-600 dark:text-slate-400">
@@ -311,7 +310,7 @@ const ManagementSystemsPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">balance</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">balance</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">System Performance and Equity Metrics</strong>
                       <div className="text-sm text-slate-600 dark:text-slate-400">
@@ -411,21 +410,10 @@ const ManagementSystemsPage: React.FC = () => {
             </div>
         </div>
       </div>
-      <ManagementMobileNav />
       <FloatingBackButton />
       <FloatingNavButton
         icon="settings_suggest"
-        items={[
-          { id: 'introduction', label: 'Introduction' },
-          { id: 'ui-experience', label: 'UI & Experience' },
-          { id: 'access-authentication', label: 'Access & Authentication' },
-          { id: 'content-management', label: 'Content Management' },
-          { id: 'assessment', label: 'Assessment' },
-          { id: 'communication', label: 'Communication' },
-          { id: 'data-privacy', label: 'Data Privacy' },
-          { id: 'monitoring', label: 'Monitoring' },
-          { id: 'checklist', label: 'Checklist' }
-        ]}
+        items={navigationItems.map(item => ({ id: item.href.slice(1), label: item.label }))}
       />
     </div>
   );

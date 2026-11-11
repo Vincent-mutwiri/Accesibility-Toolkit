@@ -19,11 +19,14 @@
 </head>
   <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased">
     <script>
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      // Apply appearance before React loads; storage is optional.
+      let appearance;
+      try {
+        const saved = JSON.parse(localStorage.getItem('ihub-accessibility-v1') || 'null');
+        appearance = saved ? saved.theme : localStorage.getItem('theme');
+      } catch { /* Use the device preference when storage is unavailable. */ }
+      document.documentElement.classList.toggle('dark', appearance === 'dark' ||
+        (appearance !== 'light' && appearance !== 'dark' && window.matchMedia('(prefers-color-scheme: dark)').matches));
     </script>
     <div id="root"></div>
   </body>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
 import PageHeader from '../components/PageHeader';
-import TutoringMobileNav from '../components/TutoringMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
 import FloatingNavButton from '../components/FloatingNavButton';
 
@@ -46,55 +45,55 @@ const TutoringPage: React.FC = () => {
                 <div id="accessibility" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Accessibility Features</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Live Tutoring:</strong> Provide real-time captioning and transcription options for live sessions, ensuring clear and concise verbal communication while allowing pauses</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> All recommended materials such as videos, reading resources, and interactive exercises must include closed captions, transcripts, and alternative text for images</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Interface:</strong> Ensure full keyboard navigation, screen reader compatibility, and customizable display options (font size, contrast, color schemes)</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Input/Interaction:</strong> Voice input options for chat/search, and interactive elements that do not solely depend on fine motor skills</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span>Implement WCAG 2.1 AA compliance as a baseline, striving for AAA where possible</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Live Tutoring:</strong> Provide real-time captioning and transcription options for live sessions, ensuring clear and concise verbal communication while allowing pauses</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> All recommended materials such as videos, reading resources, and interactive exercises must include closed captions, transcripts, and alternative text for images</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Interface:</strong> Ensure full keyboard navigation, screen reader compatibility, and customizable display options (font size, contrast, color schemes)</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Input/Interaction:</strong> Voice input options for chat/search, and interactive elements that do not solely depend on fine motor skills</span></li>
                   </ul>
                 </div>
 
                 <div id="content-design" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Content Design (Revision Materials)</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Clear, structured, and uncluttered layout for all recommended revision materials</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Avoidance of distracting animations or rapidly flashing visuals</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Multiple modalities for concept explanation (e.g., text, diagram, video, audio)</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Clear, structured, and uncluttered layout for all recommended revision materials</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Avoidance of distracting animations or rapidly flashing visuals</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Multiple modalities for concept explanation (e.g., text, diagram, video, audio)</li>
                   </ul>
                 </div>
 
                 <div id="cognitive-load" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Cognitive Load Management</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Personalization Engine:</strong> Make sure the personalization algorithm detects and targets specific learning gaps, providing content in manageable chunks</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Tutoring content:</strong> Break down complex topics using clear analogies and regularly check for understanding</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> Materials should be scaffolded, gradually increasing in complexity, with clear learning objectives and summaries</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Progress Tracking:</strong> Provide visible and encouraging progress indicators (e.g., "You have completed 70% of this topic!")</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Personalization Engine:</strong> Make sure the personalization algorithm detects and targets specific learning gaps, providing content in manageable chunks</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Tutoring content:</strong> Break down complex topics using clear analogies and regularly check for understanding</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> Materials should be scaffolded, gradually increasing in complexity, with clear learning objectives and summaries</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Progress Tracking:</strong> Provide visible and encouraging progress indicators (e.g., "You have completed 70% of this topic!")</span></li>
                   </ul>
                 </div>
 
                 <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-xl font-bold text-secondary mb-3">Offline Access & Low Bandwidth Optimization</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> Allow downloading of recommended revision materials for offline study</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Platform Functionality:</strong> Prioritize core tutoring functionalities for low-bandwidth connections. Offer text-only modes for live sessions if video is problematic</span></li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Device Compatibility:</strong> Ensure the platform and revision materials function well on a wide range of devices (smartphones, tablets, various browsers) with minimal hardware requirements</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> Allow downloading of recommended revision materials for offline study</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Platform Functionality:</strong> Prioritize core tutoring functionalities for low-bandwidth connections. Offer text-only modes for live sessions if video is problematic</span></li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Device Compatibility:</strong> Ensure the platform and revision materials function well on a wide range of devices (smartphones, tablets, various browsers) with minimal hardware requirements</span></li>
                   </ul>
                 </div>
 
                 <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-xl font-bold text-secondary mb-3">Cultural Relevance & Sensitivity</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><strong>Content Localization:</strong> Ensure revision materials and examples are culturally relevant and sensitive</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer language localization for the platform interface and key content that the learners can relate with</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span><strong>Content Localization:</strong> Ensure revision materials and examples are culturally relevant and sensitive</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer language localization for the platform interface and key content that the learners can relate with</li>
                   </ul>
                 </div>
 
                 <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
                   <h3 className="text-xl font-bold text-secondary mb-3">Cost & Infrastructure</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design the platform to minimize data usage</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide clear system requirements to manage learner expectations regarding internet speed or device capabilities</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design the platform to minimize data usage</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide clear system requirements to manage learner expectations regarding internet speed or device capabilities</li>
                   </ul>
                 </div>
 
@@ -102,21 +101,21 @@ const TutoringPage: React.FC = () => {
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Additional Key Features</h3>
                   <div className="grid gap-3 text-sm">
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">quiz</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">quiz</span>
                       <div><strong>Adaptive Practice and Assessments:</strong> Implement diverse practice formats such as quizzes, oral, visual, and performance tasks. Use AI-driven adaptivity cautiously, with bias checks to prevent stereotyping.</div>
                     </div>
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">library_books</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">library_books</span>
                       <div><strong>Equitable Content and Test Prep Materials:</strong> Ensure diverse representation in examples, case studies, and practice items. Translate and localize materials for multilingual learners.</div>
                     </div>
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">forum</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">forum</span>
                       <div className="w-full">
                         <strong>Inclusive Communication and Feedback:</strong> Offer feedback in multiple languages and styles. Use culturally sensitive encouragement strategies to boost learner confidence.
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">security</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">security</span>
                       <div><strong>Data Privacy and Fairness:</strong> Ensure transparent use of learner data. Review algorithms powering recommendations and scoring. Give learners control over personalization settings.</div>
                     </div>
                   </div>
@@ -130,7 +129,7 @@ const TutoringPage: React.FC = () => {
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">trending_up</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">trending_up</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Learning Outcomes</strong>
                       <span className="text-sm text-slate-600 dark:text-slate-400">Track score improvements, mastery progress, and skill retention.</span>
@@ -139,7 +138,7 @@ const TutoringPage: React.FC = () => {
                 </div>
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">equalizer</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">equalizer</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Equity Gaps</strong>
                       <span className="text-sm text-slate-600 dark:text-slate-400">Record performance and engagement across gender, socioeconomic, linguistic, and disability groups.</span>
@@ -148,7 +147,7 @@ const TutoringPage: React.FC = () => {
                 </div>
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">sentiment_satisfied</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">sentiment_satisfied</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">User Experience</strong>
                       <span className="text-sm text-slate-600 dark:text-slate-400">Measure satisfaction with tutor interactions, accessibility feature use, and sense of belonging.</span>
@@ -157,7 +156,7 @@ const TutoringPage: React.FC = () => {
                 </div>
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">fact_check</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">fact_check</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Fairness Checks</strong>
                       <span className="text-sm text-slate-600 dark:text-slate-400">Conduct bias audits of matching algorithms and practice test scoring.</span>
@@ -198,18 +197,10 @@ const TutoringPage: React.FC = () => {
             </div>
         </div>
       </div>
-      <TutoringMobileNav />
       <FloatingBackButton />
       <FloatingNavButton
         icon="quiz"
-        items={[
-          { id: 'introduction', label: 'Introduction' },
-          { id: 'accessibility', label: 'Accessibility' },
-          { id: 'content-design', label: 'Content Design' },
-          { id: 'cognitive-load', label: 'Cognitive Load' },
-          { id: 'monitoring', label: 'Monitoring' },
-          { id: 'checklist', label: 'Checklist' }
-        ]}
+        items={navigationItems.map(item => ({ id: item.href.slice(1), label: item.label }))}
       />
     </div>
   );

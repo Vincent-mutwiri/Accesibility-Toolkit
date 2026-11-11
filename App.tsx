@@ -21,84 +21,77 @@ const DualSensoryLossPage = React.lazy(() => import('./pages/DualSensoryLossPage
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Helper to scroll to top on route change
-const ScrollToTopHelper = () => {
+import { AccessibilityProvider } from './accessibility/Preferences';
+import ReadingRuler from './accessibility/ReadingRuler';
+import Guide from './accessibility/Guide';
+
+// Inside Suspense: run only after the new route's content has committed.
+function RouteAccessibility({ children }: { children: React.ReactNode }) {
   const { pathname } = useLocation();
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
+  React.useLayoutEffect(function focusLoadedPage() {
+    // Wait past the hash navigation's native focus/scroll handling and any
+    // lazy fallback. A hidden previous page must never receive focus.
+    let frame = 0;
+    const main = document.getElementById('main-content')!;
+    const focus = () => {
+      const heading = main.querySelector<HTMLElement>('h1');
+      if (!heading?.getClientRects().length) return;
+      document.title = `${heading.textContent?.trim()} | iHUB Inclusion Toolkit`;
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+      window.scrollTo(0, 0);
+      observer.disconnect();
+    };
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(focus); };
+    const observer = new MutationObserver(schedule);
+    observer.observe(main, { childList: true, subtree: true });
+    schedule();
+    return () => { cancelAnimationFrame(frame); observer.disconnect(); };
   }, [pathname]);
-  return null;
-};
+  return <>{children}</>;
+}
+
+function RouteView({ children }: { children: React.ReactNode }) {
+  const { pathname } = useLocation();
+  return <React.Suspense key={pathname} fallback={<div className="site-container py-16" role="status">Loading guide…</div>}>
+    <RouteAccessibility>{children}</RouteAccessibility>
+  </React.Suspense>;
+}
 
 const App: React.FC = () => {
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const applyTheme = () => {
-      const savedTheme = localStorage.getItem('theme');
-      const systemPrefersDark = mediaQuery.matches;
-
-      if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    };
-
-    // Restore preferences on every entry route, not only on the settings page.
-    applyTheme();
-    const fontSize = localStorage.getItem('fontSize');
-    if (fontSize && ['small', 'medium', 'large', 'extra-large'].includes(fontSize)) {
-      document.documentElement.setAttribute('data-font-size', fontSize);
-    }
-    for (const [key, className] of [['highContrast', 'high-contrast'], ['reducedMotion', 'reduced-motion'], ['screenReader', 'screen-reader-optimized']]) {
-      document.documentElement.classList.toggle(className, localStorage.getItem(key) === 'true');
-    }
-
-    // Listen for system changes
-    const handleChange = () => {
-      if (!localStorage.getItem('theme')) {
-        applyTheme();
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
   return (
-    <HashRouter>
-      <ScrollToTopHelper />
+    <AccessibilityProvider><HashRouter>
+      <ReadingRuler />
       <div className="min-h-screen flex flex-col font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
         <a href="#main-content" className="skip-link" onClick={event => { event.preventDefault(); document.getElementById('main-content')?.focus(); }}>Skip to content</a>
         <Navbar />
         <main id="main-content" tabIndex={-1} className="flex-grow">
-          <React.Suspense fallback={<div className="site-container py-16" role="status">Loading guide…</div>}>
+          <RouteView>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/references" element={<ReferencesPage />} />
-            <Route path="/management-systems" element={<ManagementSystemsPage />} />
-            <Route path="/online-learning" element={<OnlineLearningPage />} />
-            <Route path="/digital-learning" element={<DigitalLearningPage />} />
-            <Route path="/tutoring" element={<TutoringPage />} />
-            <Route path="/steam" element={<STEAMPage />} />
-            <Route path="/workforce" element={<WorkforcePage />} />
-            <Route path="/lms" element={<LMSPage />} />
+            <Route path="/management-systems" element={<Guide key="ManagementSystemsPage"><ManagementSystemsPage /></Guide>} />
+            <Route path="/online-learning" element={<Guide key="OnlineLearningPage"><OnlineLearningPage /></Guide>} />
+            <Route path="/digital-learning" element={<Guide key="DigitalLearningPage"><DigitalLearningPage /></Guide>} />
+            <Route path="/tutoring" element={<Guide key="TutoringPage"><TutoringPage /></Guide>} />
+            <Route path="/steam" element={<Guide key="STEAMPage"><STEAMPage /></Guide>} />
+            <Route path="/workforce" element={<Guide key="WorkforcePage"><WorkforcePage /></Guide>} />
+            <Route path="/lms" element={<Guide key="LMSPage"><LMSPage /></Guide>} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/feedback" element={<FeedbackPage />} />
             <Route path="/feedback/thank-you" element={<FeedbackThankYouPage />} />
-            <Route path="/visual-impairment" element={<VisualImpairmentPage />} />
-            <Route path="/intellectual-developmental-disabilities" element={<IntellectualDevelopmentalDisabilitiesPage />} />
-            <Route path="/hearing-impairment" element={<HearingImpairmentPage />} />
-            <Route path="/dual-sensory-loss" element={<DualSensoryLossPage />} />
+            <Route path="/visual-impairment" element={<Guide key="VisualImpairmentPage"><VisualImpairmentPage /></Guide>} />
+            <Route path="/intellectual-developmental-disabilities" element={<Guide key="IntellectualDevelopmentalDisabilitiesPage"><IntellectualDevelopmentalDisabilitiesPage /></Guide>} />
+            <Route path="/hearing-impairment" element={<Guide key="HearingImpairmentPage"><HearingImpairmentPage /></Guide>} />
+            <Route path="/dual-sensory-loss" element={<Guide key="DualSensoryLossPage"><DualSensoryLossPage /></Guide>} />
           </Routes>
-          </React.Suspense>
+          </RouteView>
         </main>
         <Footer />
       </div>
-    </HashRouter>
+    </HashRouter></AccessibilityProvider>
   );
 };
 

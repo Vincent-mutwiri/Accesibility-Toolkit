@@ -1,257 +1,36 @@
+import React, { useState } from 'react';
 import PageHeader from '../components/PageHeader';
-import React, { useState, useEffect } from 'react';
 import FloatingBackButton from '../components/FloatingBackButton';
+import { useAccessibility, Preferences } from '../accessibility/Preferences';
 
-const SettingsPage: React.FC = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [fontSize, setFontSize] = useState<'small' | 'medium' | 'large' | 'extra-large'>('medium');
-  const [highContrast, setHighContrast] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const [screenReader, setScreenReader] = useState(false);
-
-  useEffect(() => {
-    // Load saved settings
-    // Load saved settings
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-
-    const savedFontSize = localStorage.getItem('fontSize') as 'small' | 'medium' | 'large' | 'extra-large' || 'medium';
-    const savedHighContrast = localStorage.getItem('highContrast') === 'true';
-    const savedReducedMotion = localStorage.getItem('reducedMotion') === 'true';
-    const savedScreenReader = localStorage.getItem('screenReader') === 'true';
-
-    setTheme(initialTheme);
-    setFontSize(savedFontSize);
-    setHighContrast(savedHighContrast);
-    setReducedMotion(savedReducedMotion);
-    setScreenReader(savedScreenReader);
-
-    // Apply theme
-    document.documentElement.classList.toggle('dark', initialTheme === 'dark');
-
-    // Apply font size
-    document.documentElement.setAttribute('data-font-size', savedFontSize);
-
-    // Apply accessibility settings
-    document.documentElement.classList.toggle('high-contrast', savedHighContrast);
-    document.documentElement.classList.toggle('reduced-motion', savedReducedMotion);
-    document.documentElement.classList.toggle('screen-reader-optimized', savedScreenReader);
-  }, []);
-
-  const handleThemeChange = (newTheme: 'light' | 'dark') => {
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-  };
-
-  const handleFontSizeChange = (newSize: 'small' | 'medium' | 'large' | 'extra-large') => {
-    setFontSize(newSize);
-    localStorage.setItem('fontSize', newSize);
-    document.documentElement.setAttribute('data-font-size', newSize);
-  };
-
-  const handleHighContrastChange = (enabled: boolean) => {
-    setHighContrast(enabled);
-    localStorage.setItem('highContrast', enabled.toString());
-    document.documentElement.classList.toggle('high-contrast', enabled);
-  };
-
-  const handleReducedMotionChange = (enabled: boolean) => {
-    setReducedMotion(enabled);
-    localStorage.setItem('reducedMotion', enabled.toString());
-    document.documentElement.classList.toggle('reduced-motion', enabled);
-  };
-
-  const handleScreenReaderChange = (enabled: boolean) => {
-    setScreenReader(enabled);
-    localStorage.setItem('screenReader', enabled.toString());
-    document.documentElement.classList.toggle('screen-reader-optimized', enabled);
-  };
-
-  const resetSettings = () => {
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const defaultTheme = systemPrefersDark ? 'dark' : 'light';
-
-    setTheme(defaultTheme);
-    setFontSize('medium');
-    setHighContrast(false);
-    setReducedMotion(false);
-    setScreenReader(false);
-
-    localStorage.removeItem('theme');
-    localStorage.removeItem('fontSize');
-    localStorage.removeItem('highContrast');
-    localStorage.removeItem('reducedMotion');
-    localStorage.removeItem('screenReader');
-
-    document.documentElement.classList.remove('high-contrast', 'reduced-motion', 'screen-reader-optimized');
-    document.documentElement.classList.toggle('dark', defaultTheme === 'dark');
-    document.documentElement.setAttribute('data-font-size', 'medium');
-  };
-
-  return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <PageHeader title="Make the toolkit work for you." description="Choose your preferred appearance, text size, and accessibility options." breadcrumbs={[{ label: 'Toolkit', to: '/' }, { label: 'Accessibility settings' }]} />
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="space-y-8">
-          {/* Theme Settings */}
-          <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-secondary mr-2">palette</span>
-              Theme
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300 mb-4">Choose between light and dark mode for better visibility.</p>
-            <div className="flex gap-4">
-              <button
-                onClick={() => handleThemeChange('light')}
-                className={`flex items-center px-4 py-3 rounded-lg border-2 transition-all ${theme === 'light'
-                  ? 'border-primary bg-brand-ink text-white'
-                  : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-primary'
-                  }`}
-                aria-pressed={theme === 'light'}
-              >
-                <span className="material-icons mr-2">light_mode</span>
-                Light Mode
-              </button>
-              <button
-                onClick={() => handleThemeChange('dark')}
-                className={`flex items-center px-4 py-3 rounded-lg border-2 transition-all ${theme === 'dark'
-                  ? 'border-primary bg-brand-ink text-white'
-                  : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-primary'
-                  }`}
-                aria-pressed={theme === 'dark'}
-              >
-                <span className="material-icons mr-2">dark_mode</span>
-                Dark Mode
-              </button>
-            </div>
-          </div>
-
-          {/* Font Size Settings */}
-          <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-secondary mr-2">text_fields</span>
-              Font Size
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300 mb-4">Adjust text size for better readability.</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { value: 'small', label: 'Small', size: 'text-sm' },
-                { value: 'medium', label: 'Medium', size: 'text-base' },
-                { value: 'large', label: 'Large', size: 'text-lg' },
-                { value: 'extra-large', label: 'Extra Large', size: 'text-xl' }
-              ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleFontSizeChange(option.value as any)}
-                  className={`px-4 py-3 rounded-lg border-2 transition-all ${option.size} ${fontSize === option.value
-                    ? 'border-primary bg-brand-ink text-white'
-                    : 'border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-primary'
-                    }`}
-                  aria-pressed={fontSize === option.value}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Accessibility Options */}
-          <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-secondary mr-2">accessibility</span>
-              Accessibility Options
-            </h2>
-            <div className="space-y-6">
-              {/* High Contrast */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">High Contrast</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Increase contrast for better visibility</p>
-                </div>
-                <button
-                  onClick={() => handleHighContrastChange(!highContrast)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${highContrast ? 'bg-brand-ink' : 'bg-slate-300 dark:bg-slate-600'
-                    }`}
-                  role="switch"
-                  aria-checked={highContrast}
-                  aria-label="Toggle high contrast"
-                >
-                  <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${highContrast ? 'translate-x-6' : 'translate-x-1'
-                      }`}
-                  />
-                </button>
-              </div>
-
-              {/* Reduced Motion */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Reduced Motion</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Minimize animations and transitions</p>
-                </div>
-                <button
-                  onClick={() => handleReducedMotionChange(!reducedMotion)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${reducedMotion ? 'bg-brand-ink' : 'bg-slate-300 dark:bg-slate-600'
-                    }`}
-                  role="switch"
-                  aria-checked={reducedMotion}
-                  aria-label="Toggle reduced motion"
-                >
-                  <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${reducedMotion ? 'translate-x-6' : 'translate-x-1'
-                      }`}
-                  />
-                </button>
-              </div>
-
-              {/* Screen Reader Optimization */}
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Screen Reader Optimization</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Optimize interface for screen readers</p>
-                </div>
-                <button
-                  onClick={() => handleScreenReaderChange(!screenReader)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${screenReader ? 'bg-brand-ink' : 'bg-slate-300 dark:bg-slate-600'
-                    }`}
-                  role="switch"
-                  aria-checked={screenReader}
-                  aria-label="Toggle screen reader optimization"
-                >
-                  <span
-                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${screenReader ? 'translate-x-6' : 'translate-x-1'
-                      }`}
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Reset Settings */}
-          <div className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center">
-              <span className="material-icons text-secondary mr-2">restore</span>
-              Reset Settings
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300 mb-4">
-              Reset all accessibility settings to their default values.
-            </p>
-            <button
-              onClick={resetSettings}
-              className="px-6 py-3 bg-brand-ink text-white rounded-lg hover:bg-brand-ink/80 transition-colors flex items-center"
-            >
-              <span className="material-icons mr-2">refresh</span>
-              Reset to Defaults
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <FloatingBackButton />
+const options = [
+  { key: 'highContrast', label: 'High contrast', help: 'Strengthen text and boundaries.' },
+  { key: 'reducedMotion', label: 'Reduced motion', help: 'Minimize animations and transitions. Your device’s reduced motion preference is always respected.' },
+  { key: 'textSpacing', label: 'Increased text spacing', help: 'Add space between letters, words, and lines.' },
+  { key: 'bigTargets', label: 'Larger controls', help: 'Make buttons and form controls at least 44 pixels tall and wide. Linked text receives extra spacing.' },
+  { key: 'readingRuler', label: 'Reading ruler', help: 'Follow a line with a highlight band. Move your pointer, touch the page, tab to content, or use the up and down arrow keys outside form fields.' },
+] as const;
+export default function SettingsPage() {
+  const { preferences, update, reset } = useAccessibility();
+  const [message, setMessage] = useState('');
+  return <>
+    <PageHeader title="Make the toolkit work for you." description="Choose your preferred appearance, text size, and reading options." breadcrumbs={[{ label: 'Toolkit', to: '/' }, { label: 'Accessibility settings' }]} />
+    <div className="site-container accessibility-settings">
+      <p>Keyboard and screen reader access are always enabled. Read aloud controls are available above each guide.</p>
+      <fieldset className="content-panel"><legend>Appearance</legend>
+        <div className="reading-field"><label htmlFor="accessibility-theme">Theme</label><select id="accessibility-theme" value={preferences.theme} onChange={event => update({ theme: event.target.value as Preferences['theme'] })}><option value="system">Use device setting</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+        <div className="reading-field"><label htmlFor="accessibility-size">Text size</label><select id="accessibility-size" value={preferences.fontSize} onChange={event => update({ fontSize: event.target.value as Preferences['fontSize'] })}><option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option><option value="extra-large">Extra large</option></select></div>
+      </fieldset>
+      <fieldset className="content-panel"><legend>Reading and interaction</legend>
+        {options.map(option => <label key={option.key} className="preference-option">
+          <input type="checkbox" checked={preferences[option.key]} onChange={event => update({ [option.key]: event.target.checked })} aria-labelledby={`${option.key}-label`} aria-describedby={`${option.key}-help`} />
+          <span><strong id={`${option.key}-label`}>{option.label}</strong><span id={`${option.key}-help`} className="preference-help">{option.help}</span></span>
+        </label>)}
+      </fieldset>
+      <p>Preferences are saved in this browser when storage is available. Reset restores device appearance, standard text size, and turns optional tools off.</p>
+      <button className="brand-button brand-button-dark" type="button" onClick={() => { reset(); setMessage('Accessibility preferences reset to defaults.'); }}>Reset to defaults</button>
+      <p role="status">{message}</p>
     </div>
-  );
-};
-
-export default SettingsPage;
+    <FloatingBackButton />
+  </>;
+}

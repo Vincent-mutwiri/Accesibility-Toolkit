@@ -1,7 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
 import PageHeader from '../components/PageHeader';
-import OnlineLearningMobileNav from '../components/OnlineLearningMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
 import FloatingNavButton from '../components/FloatingNavButton';
 
@@ -47,9 +46,9 @@ const OnlineLearningPage: React.FC = () => {
                 <div id="accessible-design" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Accessible Design</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use clear fonts, high-contrast colors, and descriptive alt text.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide transcripts and captions for video/audio content.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure full compatibility with assistive technologies.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use clear fonts, high-contrast colors, and descriptive alt text.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide transcripts and captions for video/audio content.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure full compatibility with assistive technologies.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Strive for WCAG 2.1 AAA compliance as the benchmark, with AA as the minimum standard. This ensures content is perceivable, operable, understandable, and robust for all learners. Consistently applying these standards ensures that learners with disabilities have equal access to content, thereby reducing accessibility gaps across digital learning environments.</p>
                 </div>
@@ -57,9 +56,9 @@ const OnlineLearningPage: React.FC = () => {
                 <div id="flexible-learning" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Flexible Learning Pathways</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer content in multiple formats (text, audio, video, interactive).</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Allow learners to progress at their own pace.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide varied assignment options that match different strengths.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer content in multiple formats (text, audio, video, interactive).</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Allow learners to progress at their own pace.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide varied assignment options that match different strengths.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Align with UDL principles by giving learners multiple ways to engage with material, express knowledge, and pace themselves. This reduces barriers for learners who process content differently or face contextual challenges. This flexibility empowers learners to take ownership of their education, increasing motivation and long-term engagement.</p>
                 </div>
@@ -67,9 +66,9 @@ const OnlineLearningPage: React.FC = () => {
                 <div id="cultural-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Culturally Responsive Content</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use examples and case studies that reflect diverse backgrounds.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Avoid stereotypes; represent learners across race, gender, age, and ability.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Invite learners to share personal experiences to enrich content.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use examples and case studies that reflect diverse backgrounds.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Avoid stereotypes; represent learners across race, gender, age, and ability.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Invite learners to share personal experiences to enrich content.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm mb-4">Aim for culturally relevant and bias-free learning design. UDL emphasizes engaging learners through content that connects to their identity and interests. Embedding cultural responsiveness creates a sense of belonging, which is critical for sustained participation and equitable learning outcomes.</p>
                 </div>
@@ -77,9 +76,9 @@ const OnlineLearningPage: React.FC = () => {
                 <div id="equitable-access" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Equitable Access</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Optimize platforms for low-bandwidth and mobile use.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide downloadable or offline learning options.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure core features are usable on low-cost devices.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Optimize platforms for low-bandwidth and mobile use.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide downloadable or offline learning options.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure core features are usable on low-cost devices.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Design for the broadest range of devices, connectivity levels, and economic realities. The benchmark should be that no learner should be excluded due to technical or economic barriers. When access is equitable, learners can focus on the content rather than struggling with infrastructure challenges, closing the digital divide.</p>
                 </div>
@@ -87,9 +86,9 @@ const OnlineLearningPage: React.FC = () => {
                 <div id="inclusive-interaction" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Inclusive Interaction</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Set clear guidelines for respectful communication.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer multiple ways to participate (chat, forums, polls, collaborative docs).</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Moderate discussions to protect marginalized voices.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Set clear guidelines for respectful communication.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer multiple ways to participate (chat, forums, polls, collaborative docs).</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Moderate discussions to protect marginalized voices.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Foster collaboration by providing flexible ways to participate while ensuring moderation tools support safe, respectful spaces. The benchmark is that every learner should feel safe, respected, and able to participate fully, regardless of their background or communication style.</p>
                 </div>
@@ -97,9 +96,9 @@ const OnlineLearningPage: React.FC = () => {
                 <div id="feedback-support" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
                   <h3 className="text-xl font-bold text-secondary mb-3">Feedback and Support</h3>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Give timely, personalized feedback in inclusive formats.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide multiple support channels (peer, mentor, live help, automated FAQs).</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create safe, open spaces for learners to express challenges.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Give timely, personalized feedback in inclusive formats.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide multiple support channels (peer, mentor, live help, automated FAQs).</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create safe, open spaces for learners to express challenges.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Set the benchmark of timely, constructive, and culturally appropriate feedback. Feedback should not only highlight areas for growth but also affirm learner strengths, building confidence and resilience. The benchmark is to ensure that no learner is left without meaningful guidance, regardless of their learning needs or circumstances.</p>
                 </div>
@@ -111,7 +110,7 @@ const OnlineLearningPage: React.FC = () => {
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">analytics</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">analytics</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">1. Access</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -126,7 +125,7 @@ const OnlineLearningPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">groups</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">groups</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">2. Participation</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -141,7 +140,7 @@ const OnlineLearningPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">school</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">school</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">3. Learning Outcomes</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -156,7 +155,7 @@ const OnlineLearningPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">support_agent</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">support_agent</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">4. Support & Feedback</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -171,7 +170,7 @@ const OnlineLearningPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">sentiment_satisfied</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">sentiment_satisfied</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">5. Inclusion & Belonging</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -186,7 +185,7 @@ const OnlineLearningPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">balance</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">balance</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">6. System Fairness</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -257,21 +256,10 @@ const OnlineLearningPage: React.FC = () => {
             </div>
         </div>
       </div>
-      <OnlineLearningMobileNav />
       <FloatingBackButton />
       <FloatingNavButton
         icon="laptop_chromebook"
-        items={[
-          { id: 'practical-applications', label: 'Practical Applications' },
-          { id: 'accessible-design', label: 'Accessible Design' },
-          { id: 'flexible-learning', label: 'Flexible Learning' },
-          { id: 'cultural-content', label: 'Cultural Content' },
-          { id: 'equitable-access', label: 'Equitable Access' },
-          { id: 'inclusive-interaction', label: 'Inclusive Interaction' },
-          { id: 'feedback-support', label: 'Feedback Support' },
-          { id: 'monitoring', label: 'Monitoring' },
-          { id: 'checklist', label: 'Checklist' }
-        ]}
+        items={navigationItems.map(item => ({ id: item.href.slice(1), label: item.label }))}
       />
     </div>
   );

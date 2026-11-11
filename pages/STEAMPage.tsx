@@ -1,7 +1,6 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
 import PageHeader from '../components/PageHeader';
-import STEAMMobileNav from '../components/STEAMMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
 import FloatingNavButton from '../components/FloatingNavButton';
 
@@ -48,11 +47,11 @@ const STEAMPage: React.FC = () => {
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Accessible STEAM platforms ensure that learners of all abilities can participate meaningfully in scientific inquiry, design tasks, coding, and digital creation. This helps prevent exclusion and ensures full participation in both technical and creative aspects of STEAM learning.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Comply with WCAG 2.1 AA accessibility standards, ensuring lab simulations, coding interfaces, and creative tools are compatible with screen readers, voice input, and keyboard navigation.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide color contrast options and pattern variations for color-blind users in graphs, simulations, and artistic visualizations.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer both visual (drag-and-drop) and code-based modes for programming and design to support learners with diverse abilities.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Include captions, transcripts, and audio descriptions for experiment videos, design walkthroughs, and tutorials.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Incorporate haptic or tactile feedback where possible, especially in robotics or design tasks requiring sensory cues.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Comply with WCAG 2.1 AA accessibility standards, ensuring lab simulations, coding interfaces, and creative tools are compatible with screen readers, voice input, and keyboard navigation.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide color contrast options and pattern variations for color-blind users in graphs, simulations, and artistic visualizations.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer both visual (drag-and-drop) and code-based modes for programming and design to support learners with diverse abilities.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Include captions, transcripts, and audio descriptions for experiment videos, design walkthroughs, and tutorials.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Incorporate haptic or tactile feedback where possible, especially in robotics or design tasks requiring sensory cues.</li>
                   </ul>
                   <div className="bg-slate-50 dark:bg-slate-700 p-3 rounded-lg text-sm">
                     <strong>Evidence-in-Practice:</strong> PhET Interactive Simulations and LabXchange integrate accessible coding/lab environments. GeoGebra and PhET use accessible visual contrast and pattern differentiation. Scratch, Tynker, and Blockly combine block-based and text-based modes.
@@ -64,10 +63,10 @@ const STEAMPage: React.FC = () => {
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM learning thrives on hands-on, inquiry-based, and creative experimentation. Platforms should simulate real-world design, modeling, and problem-solving, supporting students as they move from guided exploration to open creative invention.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Support digital labs, maker challenges, and creative coding projects that mirror real-world STEAM inquiry.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Scaffold creativity by moving from guided steps to more open-ended design tasks.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use multimodal content — text, visuals, video, AR/VR, storytelling — to explain complex STEAM concepts.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide reflection tools such as journals or prompts to help learners evaluate their creative and scientific processes.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Support digital labs, maker challenges, and creative coding projects that mirror real-world STEAM inquiry.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Scaffold creativity by moving from guided steps to more open-ended design tasks.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use multimodal content — text, visuals, video, AR/VR, storytelling — to explain complex STEAM concepts.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide reflection tools such as journals or prompts to help learners evaluate their creative and scientific processes.</li>
                   </ul>
                   <div className="bg-slate-50 dark:bg-slate-700 p-3 rounded-lg text-sm">
                     <strong>Evidence-in-Practice:</strong> TinkerCAD, CoSpaces EDU, and PhET simulate real-world experimentation and digital making.
@@ -79,10 +78,10 @@ const STEAMPage: React.FC = () => {
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM tasks can be cognitively demanding, blending analytical reasoning with creative problem-solving. Platforms should balance structure with creative freedom to maintain engagement without overwhelming learners.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use guided discovery with manageable steps and clear progress indicators.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide creative checkpoints to allow pausing, reviewing feedback, and iterating designs.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Keep interfaces clean and intuitive with minimal clutter and clear tooltips.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Adjust challenge levels adaptively based on learner progress.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use guided discovery with manageable steps and clear progress indicators.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide creative checkpoints to allow pausing, reviewing feedback, and iterating designs.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Keep interfaces clean and intuitive with minimal clutter and clear tooltips.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Adjust challenge levels adaptively based on learner progress.</li>
                   </ul>
                 </div>
 
@@ -91,10 +90,10 @@ const STEAMPage: React.FC = () => {
                   <p className="mb-4 text-slate-700 dark:text-slate-200">Given the digital divide in STEAM access, platforms should ensure usability in low-connectivity environments so that rural and underserved learners can fully participate.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400 mb-4">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Allow project templates or datasets to be downloaded for offline use.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer lightweight or text-based versions of STEAM simulations.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure full functionality on low-cost devices and mobile browsers.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Enable local offline work with automatic syncing when online.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Allow project templates or datasets to be downloaded for offline use.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Offer lightweight or text-based versions of STEAM simulations.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure full functionality on low-cost devices and mobile browsers.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Enable local offline work with automatic syncing when online.</li>
                   </ul>
                   <div className="bg-slate-50 dark:bg-slate-700 p-3 rounded-lg text-sm">
                     <strong>Evidence-in-Practice:</strong> Kolibri and LabXchange offer offline access and syncing capabilities.
@@ -106,9 +105,9 @@ const STEAMPage: React.FC = () => {
                   <p className="mb-4 text-slate-700 dark:text-slate-200">STEAM learning becomes more meaningful when connected to learners' lived experiences, local challenges, and cultural identities. Localizing content can strengthen relevance and engagement across diverse communities.</p>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Design Considerations:</h4>
                   <ul className="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use familiar cultural contexts in science or design challenges.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Encourage projects addressing local issues like energy, water, or waste.</li>
-                    <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Highlight scientists, artists, engineers, and innovators from diverse backgrounds.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Use familiar cultural contexts in science or design challenges.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Encourage projects addressing local issues like energy, water, or waste.</li>
+                    <li className="flex items-start"><span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Highlight scientists, artists, engineers, and innovators from diverse backgrounds.</li>
                   </ul>
                 </div>
 
@@ -116,23 +115,23 @@ const STEAMPage: React.FC = () => {
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Additional Key Areas</h3>
                   <div className="grid gap-3 text-sm">
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">attach_money</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">attach_money</span>
                       <div><strong>Cost & Infrastructure:</strong> Reduce data consumption by optimizing multimedia and simulations. Support shared labs, mobile devices, and low-spec machines. Integrate open-source or free tools.</div>
                     </div>
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">route</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">route</span>
                       <div><strong>Adaptive Learning Paths:</strong> Recommend projects aligned with learner interests and strengths. Support multiple assessment formats: portfolios, prototypes, presentations, and quizzes.</div>
                     </div>
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">diversity_3</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">diversity_3</span>
                       <div><strong>Equitable Representation:</strong> Use inclusive narratives that celebrate contributions from underrepresented groups. Avoid gender stereotypes in avatars, storylines, or project framing.</div>
                     </div>
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">groups</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">groups</span>
                       <div><strong>Inclusive Collaboration:</strong> Facilitate peer studios or collaborative workspaces. Provide mentorship opportunities with educators and industry practitioners.</div>
                     </div>
                     <div className="flex items-start">
-                      <span className="material-icons text-secondary text-sm mr-2 mt-1">security</span>
+                      <span aria-hidden="true" className="material-icons text-secondary text-sm mr-2 mt-1">security</span>
                       <div><strong>Data Privacy & Ethics:</strong> Clearly explain how learner data, projects, and creative outputs are used. Audit AI algorithms for fairness in project recommendations or feedback.</div>
                     </div>
                   </div>
@@ -148,7 +147,7 @@ const STEAMPage: React.FC = () => {
               <div className="grid gap-4 not-prose">
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">accessibility</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">accessibility</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Accessibility Indicators</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -164,7 +163,7 @@ const STEAMPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">trending_up</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">trending_up</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Engagement Indicators</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -179,7 +178,7 @@ const STEAMPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">feedback</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">feedback</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Learner Feedback Indicators</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -194,7 +193,7 @@ const STEAMPage: React.FC = () => {
 
                 <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start">
-                    <span className="material-icons text-secondary mr-3 mt-1">equalizer</span>
+                    <span aria-hidden="true" className="material-icons text-secondary mr-3 mt-1">equalizer</span>
                     <div>
                       <strong className="block text-slate-900 dark:text-white mb-2">Equity of Reach Indicators</strong>
                       <ul className="text-sm text-slate-600 dark:text-slate-400 space-y-1">
@@ -248,20 +247,10 @@ const STEAMPage: React.FC = () => {
             </div>
         </div>
       </div>
-      <STEAMMobileNav />
       <FloatingBackButton />
       <FloatingNavButton
         icon="science"
-        items={[
-          { id: 'introduction', label: 'Introduction' },
-          { id: 'accessibility', label: 'Accessibility' },
-          { id: 'interactive-content', label: 'Interactive Content' },
-          { id: 'cognitive-load', label: 'Cognitive Load' },
-          { id: 'offline-access', label: 'Offline Access' },
-          { id: 'cultural-relevance', label: 'Cultural Relevance' },
-          { id: 'monitoring', label: 'Monitoring' },
-          { id: 'checklist', label: 'Checklist' }
-        ]}
+        items={navigationItems.map(item => ({ id: item.href.slice(1), label: item.label }))}
       />
     </div>
   );

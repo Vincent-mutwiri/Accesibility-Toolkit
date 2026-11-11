@@ -8,7 +8,7 @@ const LMSPage: React.FC = () => {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="flex items-center text-sm font-medium text-subtle-light dark:text-subtle-dark mb-8">
         <Link to="/" className="hover:text-secondary transition-colors">Toolkit</Link>
-        <span className="material-icons-outlined text-base mx-2">chevron_right</span>
+        <span aria-hidden="true" className="material-icons-outlined text-base mx-2">chevron_right</span>
         <span className="text-text-light dark:text-text-dark font-semibold">LMS Definition</span>
       </nav>
 

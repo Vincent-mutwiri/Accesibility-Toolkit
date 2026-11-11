@@ -13,7 +13,7 @@ const ActivityWrapper: React.FC<WrapperProps> = ({ title, description, icon, chi
   <div className="activity-shell min-w-0 my-10 bg-white dark:bg-gray-800 rounded-xl border-2 border-primary/20 overflow-hidden shadow-none">
     <div className="bg-primary/5 dark:bg-primary/20 p-4 border-b border-primary/10 flex items-center gap-3">
       <div className="p-2 bg-primary/10 rounded-full text-secondary">
-        <span className="material-icons">{icon}</span>
+        <span aria-hidden="true" className="material-icons">{icon}</span>
       </div>
       <div className="min-w-0">
         <h3 className="font-bold text-lg text-text-light dark:text-text-dark flex flex-wrap items-center gap-2">
@@ -54,6 +54,7 @@ export const TextSizeAndSpacingActivity: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setSize(opt.id)}
+                  aria-pressed={size === opt.id}
                   className={`px-3 py-1.5 rounded text-sm border transition-colors ${size === opt.id ? 'bg-primary text-brand-black border-primary' : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-primary/50'}`}
                 >
                   {opt.label}
@@ -73,6 +74,7 @@ export const TextSizeAndSpacingActivity: React.FC = () => {
                 <button
                   key={opt.id}
                   onClick={() => setLineHeight(opt.id)}
+                  aria-pressed={lineHeight === opt.id}
                   className={`px-3 py-1.5 rounded text-sm border transition-colors ${lineHeight === opt.id ? 'bg-primary text-brand-black border-primary' : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-primary/50'}`}
                 >
                   {opt.label}
@@ -116,6 +118,7 @@ export const FocusIndicatorActivity: React.FC = () => {
             onClick={() => setStrongFocus((v) => !v)}
             className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${strongFocus ? 'bg-primary' : 'bg-gray-300'}`}
             aria-label="Toggle strong focus"
+            aria-pressed={strongFocus}
           >
             <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${strongFocus ? 'translate-x-6' : 'translate-x-1'}`} />
           </button>
@@ -128,7 +131,7 @@ export const FocusIndicatorActivity: React.FC = () => {
               className={`px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-text-light dark:text-text-dark font-semibold ${
                 strongFocus
                   ? 'focus:outline-none focus:ring-4 focus:ring-secondary/40 focus:border-primary'
-                  : 'focus:outline-none focus:ring-0'
+                  : 'focus-visible:outline-2 focus-visible:outline-offset-2 focus:ring-0'
               }`}
             >
               {label}
@@ -158,7 +161,7 @@ export const CaptionsAndTranscriptActivity: React.FC = () => {
       <div className="space-y-5">
         <div className="flex flex-wrap gap-3 items-center justify-between p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-card-light dark:bg-card-dark">
           <div className="flex items-center gap-3">
-            <span className="material-icons text-secondary">smart_display</span>
+            <span aria-hidden="true" className="material-icons text-secondary">smart_display</span>
             <div>
               <p className="font-semibold text-text-light dark:text-text-dark">Video: Algebra Basics</p>
               <p className="text-xs text-subtle-light dark:text-subtle-dark">Duration: 3:12</p>
@@ -170,6 +173,7 @@ export const CaptionsAndTranscriptActivity: React.FC = () => {
               onClick={() => setCaptionsOn((v) => !v)}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${captionsOn ? 'bg-primary' : 'bg-gray-300'}`}
               aria-label="Toggle captions"
+              aria-pressed={captionsOn}
             >
               <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${captionsOn ? 'translate-x-6' : 'translate-x-1'}`} />
             </button>
@@ -178,7 +182,7 @@ export const CaptionsAndTranscriptActivity: React.FC = () => {
 
         <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-black relative">
           <div className="aspect-video flex items-center justify-center text-white/70">
-            <span className="material-icons text-6xl">play_circle</span>
+            <span aria-hidden="true" className="material-icons text-6xl">play_circle</span>
           </div>
           {captionsOn ? (
             <div className="absolute bottom-3 left-3 right-3 bg-black/70 text-white text-sm p-3 rounded-lg">
@@ -195,6 +199,7 @@ export const CaptionsAndTranscriptActivity: React.FC = () => {
         <div className="flex items-center justify-between">
           <button
             onClick={() => setShowTranscript((v) => !v)}
+            aria-expanded={showTranscript}
             className="text-secondary font-semibold text-sm hover:underline"
           >
             {showTranscript ? 'Hide transcript' : 'Open transcript'}
@@ -231,12 +236,14 @@ export const AlertModalityActivity: React.FC = () => {
         <div className="flex gap-2">
           <button
             onClick={() => setMode('soundOnly')}
+            aria-pressed={mode === 'soundOnly'}
             className={`px-3 py-2 rounded-lg border text-sm font-semibold ${mode === 'soundOnly' ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-400 text-orange-700 dark:text-orange-200' : 'border-gray-200 dark:border-gray-700'}`}
           >
             Sound-only
           </button>
           <button
             onClick={() => setMode('visualText')}
+            aria-pressed={mode === 'visualText'}
             className={`px-3 py-2 rounded-lg border text-sm font-semibold ${mode === 'visualText' ? 'bg-green-50 dark:bg-green-900/20 border-green-400 text-green-700 dark:text-green-200' : 'border-gray-200 dark:border-gray-700'}`}
           >
             Visual + text
@@ -260,7 +267,7 @@ export const AlertModalityActivity: React.FC = () => {
             ) : (
               <div className="p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
                 <div className="flex items-start gap-3">
-                  <span className="material-icons text-green-600">notifications</span>
+                  <span aria-hidden="true" className="material-icons text-green-600">notifications</span>
                   <div>
                     <p className="font-semibold text-text-light dark:text-text-dark">New assignment</p>
                     <p className="text-sm text-subtle-light dark:text-subtle-dark">Please complete the algebra quiz by Friday.</p>
@@ -300,6 +307,7 @@ export const PlainLanguageRewriteActivity: React.FC = () => {
             onClick={() => setPlain((v) => !v)}
             className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${plain ? 'bg-primary' : 'bg-gray-300'}`}
             aria-label="Toggle plain language"
+            aria-pressed={plain}
           >
             <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${plain ? 'translate-x-6' : 'translate-x-1'}`} />
           </button>
@@ -339,7 +347,7 @@ export const StepByStepTaskActivity: React.FC = () => {
       <div className="space-y-5">
         <div className="p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
           <p className="text-xs font-semibold text-gray-500 uppercase">Current step</p>
-          <p className="mt-2 text-lg font-bold text-text-light dark:text-text-dark">{steps[current]}</p>
+          <p role="status" aria-atomic="true" className="mt-2 text-lg font-bold text-text-light dark:text-text-dark">Step {current + 1} of {steps.length}: {steps[current]}</p>
           <div className="mt-4 w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
             <div className="h-full bg-primary transition-all" style={{ width: `${((current + 1) / steps.length) * 100}%` }} />
           </div>
@@ -393,6 +401,7 @@ export const HapticPatternDictionaryActivity: React.FC = () => {
             <button
               key={key}
               onClick={() => setSelected(key)}
+              aria-pressed={selected === key}
               className={`px-3 py-2 rounded-lg border text-sm font-semibold ${selected === key ? 'border-primary bg-primary/5 text-secondary' : 'border-gray-200 dark:border-gray-700'}`}
             >
               {patterns[key].label}
@@ -436,8 +445,8 @@ export const BrailleFirstNavigationActivity: React.FC = () => {
       <div className="space-y-5">
         <div className="p-5 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark">
           <p className="text-xs font-semibold text-gray-500 uppercase">Current location</p>
-          <p className="mt-2 text-lg font-bold text-text-light dark:text-text-dark">{flow[step].title}</p>
-          <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">{flow[step].desc}</p>
+          <div role="status" aria-atomic="true"><p className="mt-2 text-lg font-bold text-text-light dark:text-text-dark">{flow[step].title}</p>
+          <p className="text-sm text-subtle-light dark:text-subtle-dark mt-1">{flow[step].desc}</p></div>
 
           <div className="mt-4 w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
             <div className="h-full bg-primary transition-all" style={{ width: `${((step + 1) / flow.length) * 100}%` }} />

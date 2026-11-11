@@ -228,53 +228,53 @@ const VisualImpairmentPage: React.FC = () => {
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">1. Content & Perception</h4>
                 <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>All images include meaningful, instructional alt text</span>
+                    <span>All images include meaningful, instructional alt text</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Decorative images are ignored by screen readers</span>
+                    <span>Decorative images are ignored by screen readers</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>No essential information is embedded inside images</span>
+                    <span>No essential information is embedded inside images</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Charts and graphs include structured text summaries</span>
+                    <span>Charts and graphs include structured text summaries</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Complex visuals include long descriptions where needed</span>
+                    <span>Complex visuals include long descriptions where needed</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Color is not the sole method of conveying meaning</span>
+                    <span>Color is not the sole method of conveying meaning</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Minimum contrast ratio of 4.5:1 (7:1 preferred for key content)</span>
+                    <span>Minimum contrast ratio of 4.5:1 (7:1 preferred for key content)</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Text can be resized to at least 200–400% without layout breakage</span>
+                    <span>Text can be resized to at least 200–400% without layout breakage</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>The platform supports light and dark modes</span>
+                    <span>The platform supports light and dark modes</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>All videos include transcripts</span>
+                    <span>All videos include transcripts</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Audio descriptions provided where visuals carry critical meaning</span>
+                    <span>Audio descriptions provided where visuals carry critical meaning</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Playback controls are keyboard accessible</span>
+                    <span>Playback controls are keyboard accessible</span></label>
                   </li>
                 </ul>
               </div>
@@ -282,49 +282,49 @@ const VisualImpairmentPage: React.FC = () => {
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">2. Navigation & Structure</h4>
                 <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>All functions are operable without a mouse</span>
+                    <span>All functions are operable without a mouse</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Logical tab order across the platform</span>
+                    <span>Logical tab order across the platform</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Visible keyboard focus indicators</span>
+                    <span>Visible keyboard focus indicators</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>No keyboard traps</span>
+                    <span>No keyboard traps</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Proper semantic structure (headings, landmarks)</span>
+                    <span>Proper semantic structure (headings, landmarks)</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>ARIA labels used appropriately</span>
+                    <span>ARIA labels used appropriately</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>All form fields are properly labeled</span>
+                    <span>All form fields are properly labeled</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Error messages announced by screen readers</span>
+                    <span>Error messages announced by screen readers</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Pop-ups are detectable and dismissible</span>
+                    <span>Pop-ups are detectable and dismissible</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Consistent navigation layout</span>
+                    <span>Consistent navigation layout</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Skip-to-content option available</span>
+                    <span>Skip-to-content option available</span></label>
                   </li>
                 </ul>
               </div>
@@ -332,37 +332,37 @@ const VisualImpairmentPage: React.FC = () => {
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">3. Interaction & Participation</h4>
                 <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Drag-and-drop activities have accessible alternatives</span>
+                    <span>Drag-and-drop activities have accessible alternatives</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Timed tasks allow extensions</span>
+                    <span>Timed tasks allow extensions</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Animations can be paused or disabled</span>
+                    <span>Animations can be paused or disabled</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Interactive simulations include non-visual equivalents</span>
+                    <span>Interactive simulations include non-visual equivalents</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Collaborative tools compatible with assistive technology</span>
+                    <span>Collaborative tools compatible with assistive technology</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Notifications are available in both audio and visual formats</span>
+                    <span>Notifications are available in both audio and visual formats</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>No hover-only actions required</span>
+                    <span>No hover-only actions required</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Live instruction includes verbal description of visuals</span>
+                    <span>Live instruction includes verbal description of visuals</span></label>
                   </li>
                 </ul>
               </div>
@@ -370,41 +370,41 @@ const VisualImpairmentPage: React.FC = () => {
               <div className="bg-card-light dark:bg-card-dark rounded-lg p-4 border border-border-light dark:border-border-dark">
                 <h4 className="font-semibold text-text-light dark:text-text-dark">4. Assessment</h4>
                 <ul className="mt-2 space-y-2 text-subtle-light dark:text-subtle-dark">
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>No assessment relies solely on image-based prompts</span>
+                    <span>No assessment relies solely on image-based prompts</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Mathematical notation rendered accessibly (e.g., MathML)</span>
+                    <span>Mathematical notation rendered accessibly (e.g., MathML)</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Diagrams accompanied by text alternatives</span>
+                    <span>Diagrams accompanied by text alternatives</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Extended time available when required</span>
+                    <span>Extended time available when required</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Alternative response formats permitted</span>
+                    <span>Alternative response formats permitted</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Quiz navigation keyboard accessible</span>
+                    <span>Quiz navigation keyboard accessible</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Feedback accessible in text format</span>
+                    <span>Feedback accessible in text format</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Performance disparities monitored</span>
+                    <span>Performance disparities monitored</span></label>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-2"><label className="flex items-start gap-2">
                     <input type="checkbox" className="mt-1 h-4 w-4 text-secondary border-gray-300 rounded focus:ring-secondary dark:bg-gray-700 dark:border-gray-600" />
-                    <span>Assessment measures knowledge, not visual speed</span>
+                    <span>Assessment measures knowledge, not visual speed</span></label>
                   </li>
                 </ul>
               </div>

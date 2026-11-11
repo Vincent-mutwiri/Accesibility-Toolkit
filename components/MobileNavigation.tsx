@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useId, useRef } from 'react';
+import { focusSection } from '../accessibility/navigation';
 
 interface NavigationItem {
   label: string;
@@ -12,11 +13,21 @@ interface MobileNavigationProps {
 
 const MobileNavigation: React.FC<MobileNavigationProps> = ({ items, currentSection }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const panelId = useId();
+  const trigger = useRef<HTMLButtonElement>(null);
+  useEffect(function dismissDisclosure() {
+    if (!isOpen) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setIsOpen(false); trigger.current?.focus(); }
+    };
+    document.addEventListener('keydown', close);
+    return () => document.removeEventListener('keydown', close);
+  }, [isOpen]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: document.documentElement.classList.contains('reduced-motion') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      focusSection(element);
       setIsOpen(false);
     }
   };
@@ -24,17 +35,20 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ items, currentSecti
   return (
     <div className="lg:hidden fixed bottom-4 right-4 z-50">
       <button
+        ref={trigger}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
         onClick={() => setIsOpen(!isOpen)}
         className="bg-brand-ink text-white p-3 rounded-full shadow-lg hover:bg-brand-ink/80 transition-colors"
         aria-label="Toggle navigation menu"
       >
-        <span className="material-icons">
+        <span aria-hidden="true" className="material-icons">
           {isOpen ? 'close' : 'menu'}
         </span>
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-16 right-0 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 min-w-[200px] max-h-[60vh] overflow-y-auto">
+        <div id={panelId} className="absolute bottom-16 right-0 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 min-w-[200px] max-h-[60vh] overflow-y-auto">
           <div className="p-2">
             <h3 className="text-sm font-semibold text-slate-900 dark:text-white px-3 py-2 border-b border-slate-200 dark:border-slate-700">
               Quick Navigation

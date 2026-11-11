@@ -76,24 +76,25 @@ const usabilityOptions = ['Excellent', 'Good', 'Fair', 'Poor', 'Very Poor'];
 
 const FeedbackPage: React.FC = () => {
   const navigate = useNavigate();
-  const [form, setForm] = React.useState<FeedbackForm>(defaultForm);
+  const [form, setForm] = React.useState<FeedbackForm>(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      const value = { ...defaultForm };
+      for (const key of Object.keys(defaultForm) as (keyof FeedbackForm)[]) {
+        if (key === 'categories') value.categories = Array.isArray(saved?.categories) ? saved.categories.filter((item: unknown) => typeof item === 'string' && categoryOptions.includes(item)) : [];
+        else if (typeof saved?.[key] === 'string') value[key] = saved[key];
+      }
+      return value;
+    } catch { return defaultForm; }
+  });
   const [submitting, setSubmitting] = React.useState(false);
   const [error, setError] = React.useState('');
-
-  React.useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        setForm({ ...defaultForm, ...parsed });
-      } catch {
-        // ignore parse errors
-      }
-    }
-  }, []);
-
-  React.useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(form));
+  const [errorAttempt, setErrorAttempt] = React.useState(0);
+  const errorRef = React.useRef<HTMLParagraphElement>(null);
+  React.useEffect(function focusFeedbackError() { if (error) errorRef.current?.focus(); }, [error, errorAttempt]);
+  const reportError = (message: string) => { setError(message); setErrorAttempt(attempt => attempt + 1); };
+  React.useEffect(function saveDraft() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(form)); } catch { /* Optional draft storage. */ }
   }, [form]);
 
   const updateField = (key: keyof FeedbackForm, value: string | string[]) => {
@@ -114,12 +115,12 @@ const FeedbackPage: React.FC = () => {
     setError('');
 
     if (!form.role || !form.testingType || !form.testingFrequency || !form.experienceLevel || !form.usabilityRating) {
-      setError('Please complete all dropdown questions before submitting.');
+      reportError('Please complete all dropdown questions before submitting.');
       return;
     }
 
     if (form.categories.length === 0) {
-      setError('Please select at least one category.');
+      reportError('Please select at least one category.');
       return;
     }
 
@@ -129,16 +130,17 @@ const FeedbackPage: React.FC = () => {
 
     try {
       if (endpoint) {
-        await fetch(endpoint, {
+        const response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ data: form })
         });
+        if (!response.ok) throw new Error('Submission failed');
       }
-      localStorage.removeItem(STORAGE_KEY);
+      try { localStorage.removeItem(STORAGE_KEY); } catch { /* Optional draft storage. */ }
       navigate('/feedback/thank-you');
     } catch (err) {
-      setError('Something went wrong while submitting. Please try again.');
+      reportError('Something went wrong while submitting. Please try again.');
       setSubmitting(false);
     }
   };
@@ -162,11 +164,12 @@ const FeedbackPage: React.FC = () => {
               Select the options that best describe your role and usage.
             </p>
 
-            <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
+            <form noValidate className="mt-6 space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">What is your primary role?</label>
-                <select
+                <label htmlFor="feedback-role" className="text-sm font-medium text-text-light dark:text-text-dark">What is your primary role?</label>
+                <select id="feedback-role"
                   className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  aria-required="true" aria-invalid={!!error && !form.role} aria-describedby={error && !form.role ? 'feedback-error' : undefined}
                   value={form.role}
                   onChange={event => updateField('role', event.target.value)}
                 >
@@ -178,8 +181,8 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <p className="text-sm font-medium text-text-light dark:text-text-dark">What is your category? (multiple selections allowed)</p>
-                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <p id="feedback-categories-label" className="text-sm font-medium text-text-light dark:text-text-dark">What is your category? (select at least one)</p>
+                <div role="group" aria-labelledby="feedback-categories-label" aria-describedby={error && !form.categories.length ? 'feedback-error' : undefined} className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {categoryOptions.map(option => (
                     <label key={option} className="flex items-start gap-2 text-sm text-subtle-light dark:text-subtle-dark">
                       <input
@@ -195,9 +198,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">What type of accessibility testing do you primarily need?</label>
-                <select
+                <label htmlFor="feedback-testingType" className="text-sm font-medium text-text-light dark:text-text-dark">What type of accessibility testing do you primarily need?</label>
+                <select id="feedback-testingType"
                   className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  aria-required="true" aria-invalid={!!error && !form.testingType} aria-describedby={error && !form.testingType ? 'feedback-error' : undefined}
                   value={form.testingType}
                   onChange={event => updateField('testingType', event.target.value)}
                 >
@@ -209,9 +213,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">How often do you perform accessibility testing?</label>
-                <select
+                <label htmlFor="feedback-testingFrequency" className="text-sm font-medium text-text-light dark:text-text-dark">How often do you perform accessibility testing?</label>
+                <select id="feedback-testingFrequency"
                   className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  aria-required="true" aria-invalid={!!error && !form.testingFrequency} aria-describedby={error && !form.testingFrequency ? 'feedback-error' : undefined}
                   value={form.testingFrequency}
                   onChange={event => updateField('testingFrequency', event.target.value)}
                 >
@@ -223,9 +228,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">What is your experience level with accessibility?</label>
-                <select
+                <label htmlFor="feedback-experienceLevel" className="text-sm font-medium text-text-light dark:text-text-dark">What is your experience level with accessibility?</label>
+                <select id="feedback-experienceLevel"
                   className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  aria-required="true" aria-invalid={!!error && !form.experienceLevel} aria-describedby={error && !form.experienceLevel ? 'feedback-error' : undefined}
                   value={form.experienceLevel}
                   onChange={event => updateField('experienceLevel', event.target.value)}
                 >
@@ -237,9 +243,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">How would you rate the overall usability of this toolkit?</label>
-                <select
+                <label htmlFor="feedback-usabilityRating" className="text-sm font-medium text-text-light dark:text-text-dark">How would you rate the overall usability of this toolkit?</label>
+                <select id="feedback-usabilityRating"
                   className="mt-2 w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
+                  aria-required="true" aria-invalid={!!error && !form.usabilityRating} aria-describedby={error && !form.usabilityRating ? 'feedback-error' : undefined}
                   value={form.usabilityRating}
                   onChange={event => updateField('usabilityRating', event.target.value)}
                 >
@@ -258,10 +265,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                <label htmlFor="feedback-missingTools" className="text-sm font-medium text-text-light dark:text-text-dark">
                   What specific accessibility features or tools are you missing that would make this toolkit more valuable for your work?
                 </label>
-                <textarea
+                <textarea id="feedback-missingTools"
                   className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
                   value={form.missingTools}
                   onChange={event => updateField('missingTools', event.target.value)}
@@ -269,10 +276,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                <label htmlFor="feedback-challenges" className="text-sm font-medium text-text-light dark:text-text-dark">
                   Describe any challenges or difficulties you encountered while using the toolkit. What could be improved?
                 </label>
-                <textarea
+                <textarea id="feedback-challenges"
                   className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
                   value={form.challenges}
                   onChange={event => updateField('challenges', event.target.value)}
@@ -280,10 +287,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                <label htmlFor="feedback-standards" className="text-sm font-medium text-text-light dark:text-text-dark">
                   What accessibility standards or guidelines do you most commonly work with, and how well does this toolkit support them?
                 </label>
-                <textarea
+                <textarea id="feedback-standards"
                   className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
                   value={form.standards}
                   onChange={event => updateField('standards', event.target.value)}
@@ -291,10 +298,10 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                <label htmlFor="feedback-newFeature" className="text-sm font-medium text-text-light dark:text-text-dark">
                   If you could add one new feature to this toolkit, what would it be and why?
                 </label>
-                <textarea
+                <textarea id="feedback-newFeature"
                   className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
                   value={form.newFeature}
                   onChange={event => updateField('newFeature', event.target.value)}
@@ -302,18 +309,19 @@ const FeedbackPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-text-light dark:text-text-dark">
+                <label htmlFor="feedback-comparison" className="text-sm font-medium text-text-light dark:text-text-dark">
                   How does this toolkit compare to other accessibility tools you've used? What makes it better or worse?
                 </label>
-                <textarea
+                <textarea id="feedback-comparison"
                   className="mt-2 w-full min-h-[120px] rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-900 px-3 py-2 text-sm text-text-light dark:text-text-dark"
                   value={form.comparison}
                   onChange={event => updateField('comparison', event.target.value)}
                 />
               </div>
 
+              <p role="status">{submitting ? 'Submitting feedback…' : ''}</p>
               {error && (
-                <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+                <p ref={errorRef} id="feedback-error" tabIndex={-1} role="alert" className="text-sm text-red-600 dark:text-red-400">{error}</p>
               )}
 
               <button
