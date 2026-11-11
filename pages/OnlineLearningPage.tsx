@@ -1,6 +1,5 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { MultilingualToggleActivity, BandwidthSimulator } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import OnlineLearningMobileNav from '../components/OnlineLearningMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -73,9 +72,6 @@ const OnlineLearningPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Invite learners to share personal experiences to enrich content.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm mb-4">Aim for culturally relevant and bias-free learning design. UDL emphasizes engaging learners through content that connects to their identity and interests. Embedding cultural responsiveness creates a sense of belonging, which is critical for sustained participation and equitable learning outcomes.</p>
-                  <div className="mt-4">
-                    <MultilingualToggleActivity />
-                  </div>
                 </div>
 
                 <div id="equitable-access" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
@@ -86,9 +82,6 @@ const OnlineLearningPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure core features are usable on low-cost devices.</li>
                   </ul>
                   <p className="text-slate-700 dark:text-slate-200 text-sm">Design for the broadest range of devices, connectivity levels, and economic realities. The benchmark should be that no learner should be excluded due to technical or economic barriers. When access is equitable, learners can focus on the content rather than struggling with infrastructure challenges, closing the digital divide.</p>
-                  <div className="mt-4">
-                    <BandwidthSimulator />
-                  </div>
                 </div>
 
                 <div id="inclusive-interaction" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">

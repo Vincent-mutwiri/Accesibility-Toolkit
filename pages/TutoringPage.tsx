@@ -1,6 +1,5 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { AssessmentSelectorActivity, FeedbackScenario } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import TutoringMobileNav from '../components/TutoringMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -72,9 +71,6 @@ const TutoringPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Revision Materials:</strong> Materials should be scaffolded, gradually increasing in complexity, with clear learning objectives and summaries</span></li>
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Progress Tracking:</strong> Provide visible and encouraging progress indicators (e.g., "You have completed 70% of this topic!")</span></li>
                   </ul>
-                  <div className="mt-4">
-                    <AssessmentSelectorActivity />
-                  </div>
                 </div>
 
                 <div className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
@@ -117,9 +113,6 @@ const TutoringPage: React.FC = () => {
                       <span className="material-icons text-secondary text-sm mr-2 mt-1">forum</span>
                       <div className="w-full">
                         <strong>Inclusive Communication and Feedback:</strong> Offer feedback in multiple languages and styles. Use culturally sensitive encouragement strategies to boost learner confidence.
-                        <div className="mt-4">
-                          <FeedbackScenario />
-                        </div>
                       </div>
                     </div>
                     <div className="flex items-start">

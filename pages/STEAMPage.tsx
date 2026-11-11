@@ -1,6 +1,5 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { BiasSpottingActivity, ProjectAdaptationChallenge } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import STEAMMobileNav from '../components/STEAMMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -85,9 +84,6 @@ const STEAMPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Keep interfaces clean and intuitive with minimal clutter and clear tooltips.</li>
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Adjust challenge levels adaptively based on learner progress.</li>
                   </ul>
-                  <div className="mt-4">
-                    <BiasSpottingActivity />
-                  </div>
                 </div>
 
                 <div id="offline-access" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
@@ -102,9 +98,6 @@ const STEAMPage: React.FC = () => {
                   </ul>
                   <div className="bg-slate-50 dark:bg-slate-700 p-3 rounded-lg text-sm">
                     <strong>Evidence-in-Practice:</strong> Kolibri and LabXchange offer offline access and syncing capabilities.
-                  </div>
-                  <div className="mt-4">
-                    <ProjectAdaptationChallenge />
                   </div>
                 </div>
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { UDLPreviewActivity, ScreenReaderSimulator } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import DigitalLearningMobileNav from '../components/DigitalLearningMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -86,9 +85,6 @@ const DigitalLearningPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Create structured, accessible files (e.g., properly tagged PDFs, semantic HTML). Headings, lists, and tables should follow logical reading order.</li>
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure interactivity (e.g., quizzes, simulations) is keyboard navigable and works with assistive technologies.</li>
                   </ul>
-                  <div className="mt-4">
-                    <ScreenReaderSimulator />
-                  </div>
                 </div>
 
                 <div id="representation" className="p-4 sm:p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
@@ -126,9 +122,6 @@ const DigitalLearningPage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Design assessments with multiple means of expression (e.g., allow learners to submit text, audio, or visual responses).</li>
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Encourage self-pacing by enabling learners to pause, replay, or skip content as needed.</li>
                   </ul>
-                  <div className="mt-4">
-                    <UDLPreviewActivity />
-                  </div>
                 </div>
               </div>
             </div>

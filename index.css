@@ -111,7 +111,7 @@
   .hero-audience { display: flex; align-items: center; gap: .7rem; font-size: .8rem; color: var(--muted); }
   .hero-audience .material-icons { font-size: 1.25rem; }
   .hero-art { min-height: 29rem; position: relative; background: #242423; border-radius: 1rem 1rem 5rem 1rem; overflow: hidden; display: flex; align-items: flex-end; }
-  .hero-pattern { position: absolute; inset: 0 0 30%; background: url('/brand/ihub-pattern.png') center / cover no-repeat; }
+  .hero-pattern { position: absolute; inset: 0 0 30%; background: url('/brand/ihub-flower-pattern-top.png') center top / cover no-repeat; }
   .hero-note { position: relative; background: #BAD531; color: #242423; margin: 2rem; padding: 1.8rem; width: calc(100% - 4rem); border-radius: .5rem .5rem 2.5rem .5rem; }
   .hero-note > .material-icons { font-size: 2rem; margin-bottom: 1rem; }
   .hero-note h2 { font-size: 1.9rem; line-height: 1.15; font-weight: 700; letter-spacing: -.04em; }

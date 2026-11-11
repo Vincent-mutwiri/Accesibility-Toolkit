@@ -1,6 +1,5 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { AuthChoiceActivity, SkillMappingTool } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import WorkforceMobileNav from '../components/WorkforceMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -55,9 +54,6 @@ const WorkforcePage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Accessible onboarding content</strong> - Offer instructions in simple text, audio, and video with captions and sign language. This ensures learners with disabilities or low literacy can understand the process.</span></li>
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Family/shared-device support</strong> - Enable easy sign-outs, guest access, or family accounts. In many contexts, multiple learners share one device, so clear user flows prevent mix-ups.</span></li>
                   </ul>
-                  <div className="not-prose">
-                    <AuthChoiceActivity />
-                  </div>
                 </div>
 
                 <div id="learning-content" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">
@@ -95,9 +91,6 @@ const WorkforcePage: React.FC = () => {
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Multi-format career guidance</strong> - Offer coaching and guides in text, video, and audio. Learners without strong literacy still need career support.</span></li>
                     <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span><span><strong>Employer engagement</strong> - Partner with employers to raise awareness about alternative credentials. If employers respect digital badges, learners get hired faster.</span></li>
                   </ul>
-                  <div className="mt-4">
-                    <SkillMappingTool />
-                  </div>
                 </div>
 
                 <div id="mentorship" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors">

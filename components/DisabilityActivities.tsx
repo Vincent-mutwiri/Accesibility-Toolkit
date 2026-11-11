@@ -1,7 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 
 // Dedicated interactive demos for the "Designing for Specific Disabilities" pages.
-// Kept separate from Activities.tsx to avoid mixing category activities with disability-focused ones.
 
 interface WrapperProps {
   title: string;

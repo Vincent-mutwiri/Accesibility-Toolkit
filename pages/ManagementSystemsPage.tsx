@@ -1,6 +1,5 @@
 import React from 'react';
 import Checklist from '../components/Checklist';
-import { ColorContrastActivity, PrivacyConfigurator } from '../components/Activities';
 import PageHeader from '../components/PageHeader';
 import ManagementMobileNav from '../components/ManagementMobileNav';
 import FloatingBackButton from '../components/FloatingBackButton';
@@ -79,9 +78,6 @@ const ManagementSystemsPage: React.FC = () => {
                     </ul>
                   </div>
 
-                  <div className="mt-4">
-                    <ColorContrastActivity />
-                  </div>
                 </div>
 
                 <div id="access-authentication" className="p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary/50 transition-colors scroll-mt-24">
@@ -231,9 +227,6 @@ const ManagementSystemsPage: React.FC = () => {
                       <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Provide clear explanations of data usage in multiple languages and cultural contexts</li>
                       <li className="flex items-start"><span className="material-icons text-secondary text-sm mr-2 mt-1">check</span>Ensure compliance with international privacy regulations (GDPR, COPPA, etc.)</li>
                     </ul>
-                  </div>
-                  <div className="mt-4">
-                    <PrivacyConfigurator />
                   </div>
                 </div>
               </div>
