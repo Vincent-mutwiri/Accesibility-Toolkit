@@ -22,9 +22,11 @@ const LandingPage: React.FC = () => <>
       <div className="hero-audience"><span className="material-icons" aria-hidden="true">groups</span><span>For educators, designers, and EdTech product teams.</span></div>
     </div><div className="hero-art"><div className="hero-pattern" aria-hidden="true" /><div className="hero-note"><span className="material-icons" aria-hidden="true">diversity_3</span><h2>Different learners.<br />Shared possibilities.</h2><p>Make room for more ways to learn.</p></div></div>
   </section>
-  <section className="foundations-section site-container" aria-labelledby="foundations-title">
-    <div className="foundations-intro"><h2 id="foundations-title">Good design considers everyone.</h2><p>Innovation alone does not remove barriers. Limited connectivity, low-resource settings, and inaccessible interfaces can prevent learners from taking part.</p><p>This toolkit connects inclusion principles to product design, development, and evaluation, so your team can make more informed decisions.</p><Link to="/resources" className="text-link">Explore supporting resources <span className="material-icons" aria-hidden="true">arrow_forward</span></Link></div>
+  <section className="foundations-section" aria-labelledby="foundations-title">
+    <div className="site-container foundations-inner">
+    <div className="foundations-intro"><h2 id="foundations-title">Good design considers everyone.</h2><p>Innovation alone does not remove barriers. Limited connectivity, low-resource settings, and inaccessible interfaces can prevent learners from taking part.</p><p>This toolkit connects inclusion principles to product design, development, and evaluation, so your team can make more informed decisions.</p></div>
     <div className="foundation-definitions"><article><h3>Equity</h3><p>Recognise different starting points. Give each learner the support, resources, and opportunities they need, rather than assuming one approach fits all.</p></article><article><h3>Inclusion</h3><p>Create experiences where every learner feels valued, represented, and supported, across abilities, backgrounds, identities, and cultures.</p></article></div>
+    </div>
   </section>
   <section id="product-guides" className="product-section site-container" aria-labelledby="products-title">
     <div className="section-heading"><div><h2 id="products-title">What are you building?</h2><p>Choose your product type to find guidance you can put to work.</p></div><span className="section-count">6 product guides</span></div>

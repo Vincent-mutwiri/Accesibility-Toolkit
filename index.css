@@ -144,11 +144,11 @@
   .learner-action { display: flex; align-items: center; justify-content: space-between; color: #BAD531; font-size: .8rem; font-weight: 600; }
   .learner-action .material-icons { font-size: 1.15rem; }
   .learner-card:hover h3 { text-decoration: underline; text-underline-offset: .2em; }
-  .foundations-section { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; padding-block: 5.5rem; }
+  .foundations-section { padding-block: 5.5rem; }
+  .foundations-inner { display: flex; flex-direction: column; gap: 3.5rem; }
   .foundations-intro > p { margin-top: 1.3rem; color: var(--muted); }
-  .foundations-intro .text-link { margin-top: 1.5rem; }
+  .foundation-definitions { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
   .foundation-definitions article { padding: 1.8rem 0 1.8rem 1.6rem; border-left: 3px solid #BAD531; }
-  .foundation-definitions article + article { margin-top: 1.4rem; }
   .foundation-definitions h3 { font-size: 1.6rem; font-weight: 700; }
   .foundation-definitions p { color: var(--muted); margin-top: .7rem; }
   .audience-section { padding-block: 2.5rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
@@ -201,7 +201,8 @@
   .hero-note { margin: 1.4rem; width: calc(100% - 2.8rem); padding: 1.4rem; }
   .hero-note h2 { font-size: 1.6rem; }
   .learner-layout { gap: 3rem; }
-  .foundations-section, .audience-section { gap: 3rem; }
+  .foundations-inner { gap: 3rem; }
+  .audience-section { gap: 3rem; }
 }
 @media (max-width: 760px) {
   .site-container { width: min(100% - 2rem, 76rem); }
@@ -230,7 +231,10 @@
   .learner-intro h2 { max-width: none; }
   .learner-intro p { max-width: 55ch; }
   .learner-mark { margin-bottom: 1rem; }
-  .foundations-section, .audience-section { grid-template-columns: 1fr; gap: 2rem; padding-block: 3rem; }
+  .foundations-section { padding-block: 3rem; }
+  .foundations-inner { gap: 2rem; }
+  .audience-section { gap: 2rem; padding-block: 3rem; }
+  .foundation-definitions { grid-template-columns: 1fr; gap: 1.4rem; }
   .feedback-band-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   .footer-main { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .footer-main > div:first-child { grid-column: 1 / -1; }
