@@ -54,6 +54,7 @@ const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist",
             {items.map((item, index) => (
               <label
                 key={index}
+                data-pdf-keep-together
                 className={`flex items-start gap-4 p-3 rounded-lg transition-all cursor-pointer ${
                   checkedItems[index]
                     ? 'bg-primary/10 dark:bg-primary/20'

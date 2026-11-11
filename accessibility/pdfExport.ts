@@ -8,6 +8,8 @@
 // jsPDF and html2canvas are loaded dynamically so they only ship to users who
 // actually trigger an export — keeping the landing page bundle small.
 
+import { planPageSlices, type VerticalRange } from './pdfPagination';
+
 const A4_WIDTH_MM = 210;
 const A4_HEIGHT_MM = 297;
 const MARGIN_MM = 10;
@@ -47,8 +49,40 @@ async function withHiddenChrome<T>(action: () => Promise<T>): Promise<T> {
   }
 }
 
-async function captureToCanvas(element: HTMLElement, html2canvas: typeof import('html2canvas-pro')['default']): Promise<HTMLCanvasElement> {
-  return html2canvas(element, {
+interface Capture { canvas: HTMLCanvasElement; protectedRanges: VerticalRange[]; }
+
+// Measure actual text lines, controls and checklist rows while the same
+// expanded/PDF-only layout is visible to html2canvas. Colours and the amount
+// of whitespace surrounding a word do not affect these boundaries.
+function collectProtectedRanges(element: HTMLElement): { height: number; ranges: VerticalRange[] } {
+  const origin = element.getBoundingClientRect();
+  const ranges: VerticalRange[] = [];
+  const add = (rect: DOMRect) => {
+    if (!rect.width || !rect.height) return;
+    ranges.push({ start: rect.top - origin.top - 2, end: rect.bottom - origin.top + 2 });
+  };
+  const ignored = '.pdf-ignore, .guide-export, .reading-tools, [hidden], [aria-hidden="true"]';
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  let node: Node | null;
+  while ((node = walker.nextNode())) {
+    const parent = node.parentElement;
+    if (!node.textContent?.trim() || !parent || parent.closest(ignored)) continue;
+    const style = getComputedStyle(parent);
+    if (style.visibility === 'hidden' || style.display === 'none') continue;
+    const textRange = document.createRange();
+    textRange.selectNodeContents(node);
+    for (const rect of textRange.getClientRects()) add(rect);
+  }
+  for (const item of element.querySelectorAll<HTMLElement>('label, li:has(input[type="checkbox"]), h1, h2, h3, h4, h5, h6, img, input, [data-pdf-keep-together]')) {
+    if (!item.closest(ignored)) add(item.getBoundingClientRect());
+  }
+  return { height: origin.height, ranges };
+}
+
+async function captureToCanvas(element: HTMLElement, html2canvas: typeof import('html2canvas-pro')['default']): Promise<Capture> {
+  await document.fonts.ready;
+  const measured = collectProtectedRanges(element);
+  const canvas = await html2canvas(element, {
     scale: 2,
     useCORS: true,
     backgroundColor: getComputedStyle(document.body).backgroundColor || '#ffffff',
@@ -57,82 +91,20 @@ async function captureToCanvas(element: HTMLElement, html2canvas: typeof import(
     ignoreElements: el =>
       el.closest('.pdf-ignore, .reading-tools, .floating-back-button, .floating-nav-button, [data-floating-nav]') !== null,
   });
+  const scale = canvas.height / measured.height;
+  return { canvas, protectedRanges: measured.ranges.map(range => ({ start: range.start * scale, end: range.end * scale })) };
 }
 
-// Find a Y near targetY where the canvas row is mostly background, so page
-// breaks land in whitespace rather than slicing through text. The background
-// color is sampled from the bottom edge of the canvas (below all content),
-// which html2canvas fills with the configured backgroundColor. We search a
-// window both above and below the target and pick the closest uniform row.
-function findSafeBreakY(canvas: HTMLCanvasElement, targetY: number, maxSearchPx: number): number {
-  if (targetY <= 0 || targetY >= canvas.height) return targetY;
-  const ctx = canvas.getContext('2d')!;
-  // Sample the background color from the very bottom row (pure fill, no content).
-  const bg = ctx.getImageData(0, Math.max(0, canvas.height - 1), canvas.width, 1).data;
-  const bgR = bg[0], bgG = bg[1], bgB = bg[2];
-  const tolerance = 14;
-  const sampleStep = 4; // sample every 4th pixel for speed
-  const minBgFraction = 0.92;
-
-  const startY = Math.max(0, targetY - maxSearchPx);
-  const endY = Math.min(canvas.height, targetY + maxSearchPx);
-  const imageData = ctx.getImageData(0, startY, canvas.width, endY - startY);
-  const data = imageData.data;
-  const width = canvas.width;
-
-  let bestY = targetY;
-  let bestDistance = Infinity;
-  for (let y = 0; y < endY - startY; y += 1) {
-    let bgCount = 0;
-    let totalCount = 0;
-    for (let x = 0; x < width; x += sampleStep) {
-      const idx = (y * width + x) * 4;
-      totalCount += 1;
-      if (
-        Math.abs(data[idx] - bgR) <= tolerance &&
-        Math.abs(data[idx + 1] - bgG) <= tolerance &&
-        Math.abs(data[idx + 2] - bgB) <= tolerance
-      ) {
-        bgCount += 1;
-      }
-    }
-    if (totalCount > 0 && bgCount / totalCount >= minBgFraction) {
-      const distance = Math.abs(startY + y - targetY);
-      if (distance < bestDistance) {
-        bestDistance = distance;
-        bestY = startY + y;
-      }
-    }
-  }
-  return bestY;
-}
-
-function addCanvasToPdf(doc: import('jspdf').jsPDF, canvas: HTMLCanvasElement, isFirstPage: boolean): void {
+function addCanvasToPdf(doc: import('jspdf').jsPDF, capture: Capture, isFirstPage: boolean): void {
+  const { canvas, protectedRanges } = capture;
   const pageWidth = A4_WIDTH_MM - MARGIN_MM * 2;
   const pageHeight = A4_HEIGHT_MM - MARGIN_MM * 2;
 
   const pxPerMm = canvas.width / pageWidth;
-  // Reserve a ~8mm bottom margin by targeting slightly less than the full
-  // page height; the whitespace-aware break then lands just above a gap,
-  // giving each page a natural bottom margin so words are never clipped.
-  const targetPageHeightPx = Math.floor((pageHeight - 8) * pxPerMm);
-  // Search ±18% of the target height for a safe (whitespace) break row.
-  const searchWindow = Math.floor(targetPageHeightPx * 0.18);
-
-  let cursorY = 0;
-  let pageIndex = 0;
-  while (cursorY < canvas.height) {
-    const needsNewPage = !(isFirstPage && pageIndex === 0);
-    if (needsNewPage) doc.addPage();
-
-    const idealEnd = cursorY + targetPageHeightPx;
-    let endY = Math.min(idealEnd, canvas.height);
-    // For interior breaks, snap to the nearest whitespace row.
-    if (endY < canvas.height) {
-      const safe = findSafeBreakY(canvas, idealEnd, searchWindow);
-      // Guard against zero-progress loops: never break above the cursor.
-      if (safe > cursorY) endY = safe;
-    }
+  const maxPageHeightPx = Math.floor((pageHeight - 8) * pxPerMm);
+  const slices = planPageSlices(canvas.height, maxPageHeightPx, protectedRanges);
+  for (const [pageIndex, { start: cursorY, end: endY }] of slices.entries()) {
+    if (!(isFirstPage && pageIndex === 0)) doc.addPage();
 
     const sliceHeight = endY - cursorY;
     const slice = document.createElement('canvas');
@@ -150,8 +122,6 @@ function addCanvasToPdf(doc: import('jspdf').jsPDF, canvas: HTMLCanvasElement, i
     const renderedSliceHeightMm = sliceHeight / pxPerMm;
     doc.addImage(dataUrl, 'PNG', MARGIN_MM, MARGIN_MM, pageWidth, renderedSliceHeightMm);
 
-    cursorY = endY;
-    pageIndex += 1;
   }
 }
 
