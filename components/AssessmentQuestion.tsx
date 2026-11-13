@@ -10,16 +10,18 @@ export function ToolkitResource({ source }: { source: Question['source'] }) {
   return <Link className="text-link" to={to}>Toolkit: {source.label}</Link>;
 }
 
-export default function AssessmentQuestion({ question, response, update, showErrors }: {
+export default function AssessmentQuestion({ question, response, update, showErrors, errors: providedErrors, moduleLabels = [] }: {
   question: Question;
   response: Response;
   update: (patch: Partial<Response>) => void;
   showErrors: boolean;
+  errors?: string[];
+  moduleLabels?: string[];
 }) {
   const { id } = question;
-  const errors = responseErrors(question, response);
+  const errors = providedErrors ?? responseErrors(question, response);
   const otherError = showErrors && response.answer === 'yes' && response.options.includes('other') && !response.other.trim();
-  const reasonError = showErrors && response.answer === 'na' && !response.naReason.trim();
+  const reasonError = showErrors && response.answer === 'na' && errors.length > 0;
   const answers: { value: Answer; label: string }[] = [
     { value: 'yes', label: 'Yes' },
     { value: 'no', label: 'No / Not yet fully' },
@@ -28,6 +30,9 @@ export default function AssessmentQuestion({ question, response, update, showErr
   ];
   return <fieldset className="assessment-question" id={`question-${id}`}>
     <legend tabIndex={-1} id={`heading-${id}`}><span className="assessment-question-number">{id.replace('Q', '')}</span>{question.text}</legend>
+    {moduleLabels.length > 0 && <p className="assessment-small">Applies to: {moduleLabels.join(' · ')}{moduleLabels.length > 1 ? '. Answer once for the full declared scope.' : ''}</p>}
+    {question.relatedCore?.length > 0 && <p className="assessment-small">Related core checks: {question.relatedCore.join(', ')}. This specialist question checks a separate capability; it does not change those answers.</p>}
+    {question.naCondition && <p className="assessment-small">Not applicable only when: {question.naCondition} Missing safeguards are No / Not yet fully, not Not applicable.</p>}
     <div className="assessment-answers">
       {answers.map(answer => <label key={answer.value} className={response.answer === answer.value ? 'is-selected' : ''}>
         <input type="radio" name={`answer-${id}`} value={answer.value} checked={response.answer === answer.value} onChange={() => update({ answer: answer.value })} />
@@ -35,7 +40,7 @@ export default function AssessmentQuestion({ question, response, update, showErr
       </label>)}
     </div>
     <p className="assessment-feedback" role="status" aria-atomic="true">
-      {response.answer === 'no' ? `Suggested improvement: ${question.guidance}` : response.answer === 'unsure' ? `How to check: ${question.verify}` : response.answer === 'yes' ? 'Record how you have implemented this below. These details are self-reported, not independently verified.' : response.answer === 'na' ? 'Explain why this content type is absent from your assessment scope.' : ''}
+      {response.answer === 'no' ? `Suggested improvement: ${question.guidance}` : response.answer === 'unsure' ? `How to check: ${question.verify}` : response.answer === 'yes' ? 'Record how you have implemented this below. These details are self-reported, not independently verified.' : response.answer === 'na' ? `Explain why this content type or feature is absent from your assessment scope.${question.naCondition ? ` ${question.naCondition}` : ''}` : ''}
     </p>
     {response.answer === 'yes' && <div className="assessment-followup">
       {question.openPrompt ? <div className="assessment-field">
@@ -65,7 +70,7 @@ export default function AssessmentQuestion({ question, response, update, showErr
       <textarea id={`context-${id}`} maxLength={4000} rows={3} value={response.context} onChange={event => update({ context: event.target.value })} />
     </div>}
     {response.answer === 'na' && <div className="assessment-field">
-      <label htmlFor={`reason-${id}`}>Why is this content type not applicable? (required)</label>
+      <label htmlFor={`reason-${id}`}>Why is this content type or feature not applicable? (required)</label>
       <textarea id={`reason-${id}`} maxLength={4000} rows={3} value={response.naReason} aria-required="true" aria-invalid={reasonError} aria-describedby={reasonError ? `errors-${id}` : undefined} onChange={event => update({ naReason: event.target.value })} />
     </div>}
     {showErrors && errors.length > 0 && <ul id={`errors-${id}`} className="assessment-errors">{errors.map(error => <li key={error}>{error}</li>)}</ul>}

@@ -22,6 +22,7 @@ const LMSPage: React.FC = () => {
             <p className="text-lg text-subtle-light dark:text-subtle-dark">
               A comprehensive guide to understanding LMS and its role in creating accessible learning environments.
             </p>
+            <p className="mt-4"><Link className="text-link" to="/self-assessment?module=management-systems">Assess this category — Management Systems</Link></p>
           </div>
 
           <div className="prose prose-lg max-w-none prose-indigo dark:prose-invert">

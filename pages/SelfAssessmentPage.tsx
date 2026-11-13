@@ -2,8 +2,10 @@ import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import PageHeader from '../components/PageHeader';
 import AssessmentQuestion from '../components/AssessmentQuestion';
 import AssessmentResults from '../components/AssessmentResults';
-import { questions, sections } from '../assessment/questions';
-import { buildReport, clearDraft, emptyDraft, emptyResponse, readDraft, responseErrors, saveDraft, type Draft, type Response } from '../assessment/model';
+import AssessmentModules from '../components/AssessmentModules';
+import { useLocation } from 'react-router-dom';
+import { getActiveQuestions, getActiveSections, modulesForQuestion } from '../assessment/catalog';
+import { buildReport, clearDraft, emptyDraft, emptyResponse, readDraft, draftResponseErrors, saveDraft, type Draft, type Response } from '../assessment/model';
 import '../assessment/assessment.css';
 
 // Preserve session-only answers across same-tab toolkit navigation. This is
@@ -11,9 +13,13 @@ import '../assessment/assessment.css';
 let sessionDraft: Draft | null = null;
 
 export default function SelfAssessmentPage() {
+  const location = useLocation();
+  const suggested = new URLSearchParams(location.search).get('module') || undefined;
   const [initial] = useState(() => sessionDraft ? { draft: sessionDraft, status: 'session' as const } : readDraft());
   const [draft, setDraft] = useState(initial.draft);
   const [view, setView] = useState(-1);
+  const [moduleChanges, setModuleChanges] = useState(false);
+  const [pickerRevision, setPickerRevision] = useState(0);
   const [storageMessage, setStorageMessage] = useState(() => initial.status === 'session' ? 'Session-only draft restored. Keep this tab open; answers will be lost on reload if storage remains unavailable.' : initial.status === 'restored' ? 'A saved draft is ready to resume on this browser.' : initial.status === 'unavailable' ? 'Browser storage is unavailable. You can continue, but your draft will not be saved.' : initial.status === 'invalid' ? 'The saved draft could not be read. It has not been overwritten. Clear it to start a new assessment.' : initial.status === 'incompatible' ? 'The saved draft uses a different question set. It has not been overwritten. Clear it to start with the current questions.' : 'Your draft will be saved on this browser as you answer.');
   const [blocked, setBlocked] = useState(initial.status === 'invalid' || initial.status === 'incompatible');
   const [confirmClear, setConfirmClear] = useState(false);
@@ -29,6 +35,8 @@ export default function SelfAssessmentPage() {
   const moveFocus = useRef(false);
   const exportingRef = useRef(false);
   const report = useMemo(() => buildReport(draft), [draft]);
+  const questions = useMemo(() => getActiveQuestions(draft.selectedModules), [draft.selectedModules]);
+  const sections = useMemo(() => getActiveSections(draft.selectedModules), [draft.selectedModules]);
   const currentQuestions = questions.filter(question => question.sectionId === sections[view]?.id);
 
   useLayoutEffect(() => {
@@ -53,7 +61,7 @@ export default function SelfAssessmentPage() {
     persist({ ...draft, responses: { ...draft.responses, [id]: { ...(draft.responses[id] || emptyResponse()), ...patch } } });
   }
   function navigate(next: number, questionId?: string) {
-    if (exportingRef.current) return;
+    if (exportingRef.current || moduleChanges) return;
     setAnnouncement('');
     setShowErrors(false);
     if (next === view && questionId) {
@@ -66,7 +74,7 @@ export default function SelfAssessmentPage() {
     setView(next);
   }
   function continueSection() {
-    const invalid = currentQuestions.filter(question => responseErrors(question, draft.responses[question.id] || emptyResponse()).length > 0);
+    const invalid = currentQuestions.filter(question => draftResponseErrors(question, draft.responses[question.id] || emptyResponse(), draft).length > 0);
     if (invalid.length) {
       setShowErrors(true);
       setAnnouncement('Complete the required follow-up details, or choose Review findings to create a partial report.');
@@ -83,12 +91,14 @@ export default function SelfAssessmentPage() {
     const fresh = emptyDraft();
     sessionDraft = cleared ? null : fresh;
     setDraft(fresh);
+    setModuleChanges(false);
+    setPickerRevision(value => value + 1);
     setBlocked(false);
     setConfirmClear(false);
     setExportMessage('');
     setStorageMessage(cleared ? 'Assessment cleared. A new draft will be saved when you enter answers.' : 'Current answers cleared. Browser storage could not be cleared; a previous draft may remain on this device.');
     if (view === -1) contentHeading.current?.focus();
-    else navigate(-1);
+    else { moveFocus.current = true; setView(-1); }
   }
   async function exportPdf() {
     if (exportingRef.current) return;
@@ -117,10 +127,11 @@ export default function SelfAssessmentPage() {
         <p className="assessment-progress-label"><strong>{report.answered} of {report.total}</strong> questions answered</p>
         <progress value={report.answered} max={report.total} aria-label="Questions answered" />
         {report.pending > 0 && <p className="assessment-small">{report.pending} {report.pending === 1 ? 'answer needs' : 'answers need'} required details.</p>}
+        {report.modules.length > 0 && <div className="assessment-module-progress"><p><strong>Shared core:</strong> {report.core.answered}/{report.core.total} answered{report.core.pending ? `; ${report.core.pending} need details` : ''}</p>{report.modules.map(module => <p key={module.id}><strong>{module.title}:</strong> {module.answered}/{module.total} answered{module.pending ? `; ${module.pending} need details` : ''}</p>)}<p className="assessment-small">Module totals may overlap. Overall progress counts each shared question once.</p></div>}
         <nav aria-label="Assessment sections"><ol>
           <li><button type="button" aria-current={view === -1 ? 'step' : undefined} onClick={() => navigate(-1)} disabled={exporting}>Before you begin</button></li>
-          {sections.map((section, index) => <li key={section.id}><button type="button" disabled={blocked || exporting} aria-current={view === index ? 'step' : undefined} onClick={() => navigate(index)}><span>{index + 1}. {section.title}</span><span className="assessment-section-count">{questions.filter(question => question.sectionId === section.id && draft.responses[question.id]?.answer).length}/{questions.filter(question => question.sectionId === section.id).length} answered</span></button></li>)}
-          <li><button type="button" disabled={blocked || exporting} aria-current={view === sections.length ? 'step' : undefined} onClick={() => navigate(sections.length)}>Review findings</button></li>
+          {sections.map((section, index) => <li key={section.id}><button type="button" disabled={blocked || exporting || moduleChanges} aria-current={view === index ? 'step' : undefined} onClick={() => navigate(index)}><span>{index + 1}. {section.title}</span><span className="assessment-section-count">{questions.filter(question => question.sectionId === section.id && draft.responses[question.id]?.answer).length}/{questions.filter(question => question.sectionId === section.id).length} answered</span></button></li>)}
+          <li><button type="button" disabled={blocked || exporting || moduleChanges} aria-current={view === sections.length ? 'step' : undefined} onClick={() => navigate(sections.length)}>Review findings</button></li>
         </ol></nav>
         <p className="assessment-small" role="status" aria-atomic="true">{storageMessage}</p>
         <button ref={clearButton} type="button" disabled={exporting} className="assessment-text-button" onClick={() => setConfirmClear(true)}>Clear assessment</button>
@@ -133,13 +144,19 @@ export default function SelfAssessmentPage() {
         <h2 ref={contentHeading} tabIndex={-1}>{title}</h2>
         <p role="status" className="assessment-errors" aria-atomic="true">{announcement}</p>
         {view === -1 ? <div className="assessment-intro">
-          <p>Assess a product, course, platform, or learning experience—not your personal abilities. These 22 questions bring together the toolkit’s existing guidance for learning engineers, instructional designers, developers, product managers, educators, and curriculum specialists.</p>
+          <p>Assess a product, course, platform, or learning experience—not your personal abilities. Start with the shared 22-question core and choose optional category modules for a deeper review. All selected questions contribute to one improvement report.</p>
+          {initial.status === 'migrated' && draft.updatedAt === initial.draft.updatedAt && <p className="assessment-notice">Your previous 22-question draft has been carried forward in memory with no modules selected. The original saved record stays unchanged until you save a change.</p>}
           <div className="assessment-notice"><strong>A reflection tool, not a certification.</strong><p>Your answers are self-reported. The report does not prove conformance or replace testing with learners and assistive technology.</p></div>
           <ul className="assessment-instructions"><li>Choose <strong>No / Not yet fully</strong> for gaps or partial implementation to see immediate guidance.</li><li>Choose <strong>Yes</strong> to record implementation examples or an explanation.</li><li>Choose <strong>Not sure</strong> for a practical way to check.</li><li>Skip questions if needed. You can download a clearly marked partial assessment.</li></ul>
           <p className="assessment-small">Answers stay in this browser; this feature does not submit them to a server. Other people using the same browser profile may see your saved draft. Do not include names, diagnoses, passwords, or other sensitive learner information. Clear the assessment when using a shared device. Written responses are limited to 4,000 characters.</p>
           <div className="assessment-field"><label htmlFor="assessment-project">Project or product name <span className="assessment-optional">(optional)</span></label><input id="assessment-project" maxLength={160} value={draft.project} disabled={blocked} onChange={event => persist({ ...draft, project: event.target.value })} /></div>
           <div className="assessment-field"><label htmlFor="assessment-scope">What are you assessing? <span className="assessment-optional">(optional)</span></label><p id="scope-help" className="assessment-small">For example, a course, a release, or the learner journey from enrolment to lesson completion.</p><textarea id="assessment-scope" maxLength={1000} rows={3} aria-describedby="scope-help" value={draft.scope} disabled={blocked} onChange={event => persist({ ...draft, scope: event.target.value })} /></div>
-          {blocked ? <p className="assessment-notice">Use Clear assessment to remove the unreadable or incompatible draft before starting. Your stored draft has not been changed.</p> : <button type="button" className="brand-button" onClick={() => navigate(0)}>{report.answered ? 'Resume assessment' : 'Start assessment'}<span className="material-icons" aria-hidden="true">arrow_forward</span></button>}
+          <AssessmentModules key={`${pickerRevision}:${draft.selectedModules.join(',')}`} selected={draft.selectedModules} suggested={suggested} disabled={blocked || exporting} pendingChange={setModuleChanges} apply={ids => {
+            persist({ ...draft, selectedModules: ids });
+            setAnnouncement('Module selection applied. Existing answers were retained; only selected-scope questions appear in your report.');
+            requestAnimationFrame(() => document.getElementById('module-picker-title')?.focus());
+          }} />
+          {blocked ? <p className="assessment-notice">Use Clear assessment to remove the unreadable or incompatible draft before starting. Your stored draft has not been changed.</p> : <button type="button" className="brand-button" disabled={moduleChanges} onClick={() => navigate(0)}>{report.answered ? 'Resume assessment' : 'Start assessment'}<span className="material-icons" aria-hidden="true">arrow_forward</span></button>}
         </div> : view === sections.length ? <>
           <div className="assessment-actions"><button type="button" className="brand-button" disabled={exporting} onClick={exportPdf}>{exporting ? 'Preparing PDF…' : 'Download PDF report'}</button><button type="button" className="assessment-secondary" disabled={exporting} onClick={() => navigate(-1)}>Edit project details</button></div>
           <p role={exportFailed ? 'alert' : 'status'} className={exportFailed ? 'assessment-errors' : 'assessment-small'}>{exportMessage}</p>
@@ -149,7 +166,7 @@ export default function SelfAssessmentPage() {
         </> : <>
           <p className="assessment-section-description">{sections[view].description}</p>
           <p className="assessment-small">No answer is selected by default. Implementation details are optional, except when you select Other. Keep examples free of personal information.</p>
-          {currentQuestions.map(question => <AssessmentQuestion key={question.id} question={question} response={draft.responses[question.id] || emptyResponse()} update={patch => updateResponse(question.id, patch)} showErrors={showErrors} />)}
+          {currentQuestions.map(question => <AssessmentQuestion key={question.id} question={question} response={draft.responses[question.id] || emptyResponse()} update={patch => updateResponse(question.id, patch)} showErrors={showErrors} errors={draftResponseErrors(question, draft.responses[question.id] || emptyResponse(), draft)} moduleLabels={modulesForQuestion(question.id, draft.selectedModules).map(module => module.title)} />)}
           <div className="assessment-section-actions"><button type="button" className="assessment-secondary" onClick={() => navigate(view - 1)}>Back</button><button type="button" className="brand-button" onClick={continueSection}>{view === sections.length - 1 ? 'Review findings' : 'Continue'}<span className="material-icons" aria-hidden="true">arrow_forward</span></button></div>
           <button type="button" className="assessment-text-button" onClick={() => navigate(sections.length)}>Review findings, including incomplete answers</button>
         </>}

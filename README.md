@@ -114,14 +114,30 @@ The toolkit covers six main EdTech product categories:
 Open `/#/self-assessment`, or use **Self-assessment** in the navigation or the
 landing-page assessment link. Existing guide checklists remain separate.
 
-- Answer Yes, No / Not yet fully, or Not sure. Not applicable is limited to
-  questions about absent image, prerecorded video, audio/video, or document content.
+- The 22-question shared core is always included. Before starting, optionally
+  select any of six product categories and four accessibility-focus modules,
+  then choose **Apply module changes**. All ten modules add 30 unique specialist
+  questions (52 with the core). Shared specialist questions appear once.
+- Product modules cover Management Systems (including LMS), Online Learning,
+  Digital Learning, Tutoring & Revision, STEAM, and Workforce & Skills.
+  Accessibility modules cover visual, hearing, cognitive/IDD, and dual sensory access.
+- Answer Yes, No / Not yet fully, or Not sure. Core Not applicable rules are
+  unchanged; specialist questions state their individual feature-absence rule.
+  A missing safeguard is No, not Not applicable. Missing captions cannot excuse
+  caption-control gaps when a related active caption check reports No.
 - Yes reveals implementation examples plus Other, or an open-ended prompt.
   Other descriptions and Not applicable explanations are required; incomplete
   answers remain exportable as a clearly marked partial assessment.
 - No reveals immediate improvement guidance. Not sure explains how to check.
 - Review findings to edit answers and download the report. Findings are
   self-reported, not an accessibility score, audit, or certification.
+- Module selection changes retain inactive answers in the draft, but exclude
+  them from current progress, validation, findings, and PDFs. Re-adding a
+  compatible module restores them. Confirmed clearing removes all answers.
+- One combined report includes core/module completion, versions, finding labels,
+  and unselected modules labelled **Not assessed in depth**. Module totals may
+  overlap; the overall count includes each question once. Complete means complete
+  for the selected scope, not comprehensive accessibility coverage.
 - Drafts use the dedicated `ihub-accessibility-self-assessment:v1` local-storage
   record. Answers are not submitted to the feedback service or another server.
   Do not enter sensitive learner details; clear drafts on shared devices.
@@ -129,9 +145,19 @@ landing-page assessment link. Existing guide checklists remain separate.
   is blocked, the assessment continues in memory with a visible warning. This
   session-only draft survives same-tab toolkit navigation, but not a page reload
   or closing the tab.
+- Compatible schema-1 core-only drafts migrate in memory without changing their
+  original saved record until a successful save. Schema-2 drafts validate all
+  module versions and retained inactive responses. Unknown module IDs, duplicate
+  selections, or incompatible versions do not silently reset answers.
+- **Assess this category** links on guides suggest a module. They do not change
+  existing selections until the user adds the suggestion and applies changes.
 
 Question content and verification prompts live in `assessment/questions.ts`.
 Update the question-set version when wording/options/applicability changes.
+Specialist content, module membership, applicability notes, and the shared
+selection functions live in `assessment/catalog.ts`. Update relevant module
+versions whenever specialist wording/options/applicability or membership changes.
+Shared-question edits require updating every referencing module's version.
 `assessment/model.ts` validates drafts and derives the shared HTML/PDF report.
 Toolkit links use a `section` query parameter inside the HashRouter route.
 
@@ -152,13 +178,17 @@ pnpm build
 pnpm dev
 # In another terminal, while the server is running:
 python3 tests/check_self_assessment.py --url http://localhost:3000
+python3 tests/check_assessment_modules.py --url http://localhost:3000 --axe /tmp/ihub-axe.min.js
 python3 tests/check_accessibility.py --url http://localhost:3000 --axe /tmp/ihub-axe.min.js
 python3 tests/check_pdf_export.py
 ```
 
 The optional local axe bundle is not a project dependency. The assessment suite
 covers branching, active-only report details, drafts, errors, PDF extraction,
-keyboard focus, and mobile layouts. Real screen-reader/device checks and PDF
+keyboard focus, and mobile layouts. The module suite also checks all 1,024
+module selections, schema-1 migration without restoration writes, retained
+inactive responses, shared-question deduplication, and combined report coverage.
+Real screen-reader/device checks and PDF
 accessibility review remain necessary before making conformance claims.
 
 ## 🤝 Contributing

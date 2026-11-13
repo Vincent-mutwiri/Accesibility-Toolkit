@@ -25,6 +25,10 @@ export interface Question {
   verify: string;
   source: Source;
   allowNA: boolean;
+  /** Feature-absence condition for specialist questions that permit Not applicable. */
+  naCondition?: string;
+  /** Related core checks, not replacements for those checks. */
+  relatedCore?: string[];
 }
 
 export const sections: Section[] = [

@@ -144,6 +144,18 @@ export async function downloadAssessmentPdf(report: Report): Promise<void> {
   paragraph(`Answered questions with missing required details: ${report.pending}`);
   paragraph('This is a self-reported improvement plan, not an accessibility audit, compliance score or certification. A Yes answer records a reported strength, not independently verified evidence.');
   paragraph('This PDF contains selectable text but is not a tagged accessible PDF. Use the on-screen HTML report for a semantic, accessible reading alternative.', { color: MUTED, gap: 5 });
+  paragraph('Assessment coverage', { size: 15, color: ACCENT });
+  paragraph('Completion applies only to the selected scope, not comprehensive accessibility coverage. Overall totals count each question once. Module totals may overlap because shared questions contribute to each relevant module.', { color: MUTED });
+  paragraph(`Shared core: ${report.core.answered} of ${report.core.total} answered | ${report.core.complete ? 'Complete' : 'Partial'} | Version ${report.questionVersion} | ${report.core.pending} need required details`);
+  paragraph('Selected modules', { size: 12, color: ACCENT });
+  if (!report.modules.length) paragraph('None selected. This is a core-only assessment.');
+  for (const module of report.modules) {
+    paragraph(`${module.title} | ${module.family === 'product' ? 'Product category' : 'Accessibility focus'} | Version ${module.version}`);
+    paragraph(`${module.answered} of ${module.total} answered | ${module.complete ? 'Complete' : 'Partial'} | ${module.pending} need required details`, { color: MUTED });
+  }
+  paragraph('Not assessed in depth', { size: 12, color: ACCENT });
+  paragraph(report.notAssessed.length ? report.notAssessed.join(' | ') : 'None — all category modules are included.');
+  paragraph('Unselected modules have not been passed or declared Not applicable. Retained inactive answers are excluded from this report.', { color: MUTED, gap: 5 });
   paragraph('Response counts', { size: 14, color: ACCENT });
   paragraph(`Yes: ${report.counts.yes} | No / Not yet fully: ${report.counts.no} | Not sure: ${report.counts.unsure}`);
   paragraph(`Not applicable: ${report.counts.na} | Unanswered: ${report.counts.unanswered}`, { gap: 6 });
@@ -167,6 +179,7 @@ export async function downloadAssessmentPdf(report: Report): Promise<void> {
     for (const item of items) {
       ensureRoom(26);
       paragraph(`${item.id} | Section: ${item.sectionId}`, { size: 9, color: MUTED, gap: 1 });
+      paragraph(item.modules.length ? `Modules: ${item.modules.join(' | ')}` : 'Shared core', { size: 9, color: MUTED, gap: 1 });
       paragraph(item.question, { size: 12 });
       paragraph(`Answer: ${item.label}`);
       if (item.details.length) {
