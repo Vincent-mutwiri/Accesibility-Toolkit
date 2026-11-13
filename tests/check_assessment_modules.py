@@ -254,7 +254,9 @@ def main():
             expect(q(page, 'TUT01').locator('#other-TUT01')).to_have_value('Saved exclusive tutor method')
             nav(page, '^Before you begin$')
             check_module(page, 'hearing-access', False)
-            page.get_by_role('button', name='Discard selection changes', exact=True).click()
+            page.get_by_role('button', name='Discard selection changes', exact=True).focus()
+            page.keyboard.press('Enter')
+            expect(page.locator('#module-picker-title')).to_be_focused()
             expect(page.locator('progress')).to_have_attribute('max', '32')
             page.reload(wait_until='networkidle')
             expect(page.locator('progress')).to_have_attribute('max', '32')
@@ -450,7 +452,13 @@ def main():
         run('maximum-escaped-draft-round-trip', max_storage)
         if args.production_url:
             args.url = args.production_url
+            args.output = args.output / 'production'
+            args.output.mkdir(parents=True, exist_ok=True)
             run('production-all52-and-inactive-pdfs', all_modules_pdf)
+        # Keep one authoritative combined result even when production artifacts
+        # live separately. Never overwrite development PDFs with preview output.
+        output = args.output.parent if args.production_url else args.output
+        (output / 'results.json').write_text(json.dumps({'scenarios': results, 'axe': audits, 'pageerrors': errors}, indent=2))
         browser.close()
 
     failed = [r['scenario'] for r in results if not r['passed']]

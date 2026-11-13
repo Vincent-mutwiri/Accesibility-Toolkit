@@ -170,6 +170,13 @@ The export can be retried after a font/network failure.
 
 ### Verification
 
+For the complete recovery gate with fresh servers and revision-bound evidence,
+run `python3 tests/verify_assessment.py --help`, then
+`python3 tests/verify_assessment.py --axe /tmp/ihub-axe.min.js`.
+It requires the existing Python/browser tools below, records each check's exit
+status, and fails if source changes during validation. See `TEAMMATE_RECOVERY.md`
+for failed-run reconciliation and runtime limitations.
+
 With the existing local Python Playwright, pypdf, and Brave installation:
 
 ```sh

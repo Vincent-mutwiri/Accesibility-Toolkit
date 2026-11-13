@@ -3,17 +3,23 @@
 Requires Python Playwright and pypdf. PDFs/artifacts are saved under /tmp.
 """
 from pathlib import Path
+import argparse
 import json
 from playwright.sync_api import sync_playwright, expect
 from pypdf import PdfReader
 from pypdf.generic import ContentStream
 
-OUTPUT = Path('/tmp/ihub-pdf-qa')
-OUTPUT.mkdir(exist_ok=True)
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--url', default='http://localhost:3000')
+parser.add_argument('--browser', default='/opt/brave.com/brave/brave')
+parser.add_argument('--output', type=Path, default=Path('/tmp/ihub-pdf-qa'))
+args = parser.parse_args()
+OUTPUT = args.output
+OUTPUT.mkdir(parents=True, exist_ok=True)
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True, executable_path='/opt/brave.com/brave/brave')
+    browser = p.chromium.launch(headless=True, executable_path=args.browser)
     page = browser.new_page(viewport={'width': 1280, 'height': 900})
-    page.goto('http://localhost:3000/#/online-learning')
+    page.goto(args.url.rstrip('/') + '/#/online-learning')
     page.wait_for_load_state('networkidle')
     page.evaluate('document.fonts.ready')
     # Pure pagination cases catch the old forward-search clipping bug and
@@ -87,9 +93,9 @@ with sync_playwright() as p:
     for route,size,width in [('management-systems','combined',1280),('online-learning','standard',1280),('management-systems','standard',1280),('management-systems','large',960)]:
         page.set_viewport_size({'width':width,'height':900})
         if size == 'large':
-            page.goto('http://localhost:3000/#/settings')
+            page.goto(args.url.rstrip('/') + '/#/settings')
             page.get_by_role('button',name='Extra Large',exact=True).click()
-        page.goto('http://localhost:3000/#/'+route)
+        page.goto(args.url.rstrip('/') + '/#/' + route)
         page.wait_for_load_state('networkidle')
         if size == 'combined':
             page.get_by_role('button',name='Click here for the checklist',exact=False).click()

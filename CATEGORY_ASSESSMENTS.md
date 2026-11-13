@@ -76,6 +76,11 @@ PDF accessibility review remain necessary.
 
 ## Verification
 
+For fresh, revision-bound validation and failed-teammate reconciliation, see
+`TEAMMATE_RECOVERY.md`. The comprehensive gate is
+`python3 tests/verify_assessment.py`; it builds and starts its own isolated
+development/production servers and records commands, exit codes and source hashes.
+
 Use the repository's existing TypeScript/build commands, then run both the core
 assessment regression and `tests/check_assessment_modules.py` against the local
 Vite server. The module suite checks catalog combinations, draft compatibility,

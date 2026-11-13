@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { getActiveQuestions, modules } from '../assessment/catalog';
 
 export default function AssessmentModules({ selected, disabled, suggested, apply, pendingChange }: {
@@ -9,6 +9,7 @@ export default function AssessmentModules({ selected, disabled, suggested, apply
   pendingChange: (changed: boolean) => void;
 }) {
   const [pending, setPending] = useState(selected);
+  const heading = useRef<HTMLHeadingElement>(null);
   const changed = pending.length !== selected.length || pending.some(id => !selected.includes(id));
   const suggestedModule = modules.find(module => module.id === suggested);
   const preview = getActiveQuestions(pending);
@@ -18,7 +19,7 @@ export default function AssessmentModules({ selected, disabled, suggested, apply
     pendingChange(ids.length !== selected.length || ids.some(id => !selected.includes(id)));
   }
   return <section className="assessment-module-picker" aria-labelledby="module-picker-title">
-    <h3 id="module-picker-title" tabIndex={-1}>Choose category modules</h3>
+    <h3 ref={heading} id="module-picker-title" tabIndex={-1}>Choose category modules</h3>
     <p>The 22-question shared core is always included. Select any relevant product and accessibility-focus modules, or leave all unchecked for a core-only assessment.</p>
     <p className="assessment-small">These assess barriers in your product, not learners’ diagnoses. Unselected modules are not assessed in depth; they are not passed or declared irrelevant.</p>
     {suggestedModule && !pending.includes(suggestedModule.id) && <p className="assessment-notice">The guide suggested {suggestedModule.title}. <button type="button" className="assessment-text-button" disabled={disabled} onClick={() => choose([...pending, suggestedModule.id])}>Add suggested module</button></p>}
@@ -38,7 +39,10 @@ export default function AssessmentModules({ selected, disabled, suggested, apply
         pendingChange(false);
         setPending(ordered);
       }}>Apply module changes</button>
-      {changed && <button type="button" className="assessment-text-button" disabled={disabled} onClick={() => choose(selected)}>Discard selection changes</button>}
+      {changed && <button type="button" className="assessment-text-button" disabled={disabled} onClick={() => {
+        choose(selected);
+        heading.current?.focus();
+      }}>Discard selection changes</button>}
     </div>
     {changed && <p className="assessment-small">Apply these changes before starting, or discard them to keep the current assessment scope.</p>}
   </section>;
