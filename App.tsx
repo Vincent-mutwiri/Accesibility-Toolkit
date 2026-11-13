@@ -11,6 +11,7 @@ const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ResourcesPage = React.lazy(() => import('./pages/ResourcesPage'));
 const ReferencesPage = React.lazy(() => import('./pages/ReferencesPage'));
 const SettingsPage = React.lazy(() => import('./pages/SettingsPage'));
+const SelfAssessmentPage = React.lazy(() => import('./pages/SelfAssessmentPage'));
 const LMSPage = React.lazy(() => import('./pages/LMSPage'));
 const FeedbackPage = React.lazy(() => import('./pages/FeedbackPage'));
 const FeedbackThankYouPage = React.lazy(() => import('./pages/FeedbackThankYouPage'));
@@ -27,7 +28,7 @@ import Guide from './accessibility/Guide';
 
 // Inside Suspense: run only after the new route's content has committed.
 function RouteAccessibility({ children }: { children: React.ReactNode }) {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const { preferences } = useAccessibility();
   // RouteView remounts this boundary for each new page. Changing the switch
   // should leave focus on the switch until the user chooses another page.
@@ -41,11 +42,21 @@ function RouteAccessibility({ children }: { children: React.ReactNode }) {
       const heading = main.querySelector<HTMLElement>('h1');
       if (!heading?.getClientRects().length) return;
       document.title = `${heading.textContent?.trim()} | iHUB Inclusion Toolkit`;
-      if (focusOnEntry) {
+      // Assessment resource links use a query parameter because HashRouter
+      // owns the URL fragment. Only focus existing content in this page.
+      const sectionId = new URLSearchParams(search).get('section');
+      const section = sectionId ? document.getElementById(sectionId) : null;
+      const target = section && main.contains(section) ? section : null;
+      if (target) {
+        const sectionHeading = target.matches('h1,h2,h3,h4,h5,h6') ? target : target.querySelector<HTMLElement>('h1,h2,h3,h4,h5,h6') || target;
+        sectionHeading.tabIndex = -1;
+        sectionHeading.focus({ preventScroll: true });
+        target.scrollIntoView({ block: 'start', behavior: 'instant' });
+      } else if (focusOnEntry) {
         heading.tabIndex = -1;
         heading.focus({ preventScroll: true });
       }
-      window.scrollTo(0, 0);
+      if (!target) window.scrollTo(0, 0);
       observer.disconnect();
     };
     const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(focus); };
@@ -53,7 +64,7 @@ function RouteAccessibility({ children }: { children: React.ReactNode }) {
     observer.observe(main, { childList: true, subtree: true });
     schedule();
     return () => { cancelAnimationFrame(frame); observer.disconnect(); };
-  }, [pathname, focusOnEntry]);
+  }, [pathname, search, focusOnEntry]);
   return <>{children}</>;
 }
 
@@ -86,6 +97,7 @@ const App: React.FC = () => {
             <Route path="/workforce" element={<Guide key="WorkforcePage"><WorkforcePage /></Guide>} />
             <Route path="/lms" element={<Guide key="LMSPage"><LMSPage /></Guide>} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/self-assessment" element={<SelfAssessmentPage />} />
             <Route path="/feedback" element={<FeedbackPage />} />
             <Route path="/feedback/thank-you" element={<FeedbackThankYouPage />} />
             <Route path="/visual-impairment" element={<Guide key="VisualImpairmentPage"><VisualImpairmentPage /></Guide>} />

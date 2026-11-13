@@ -17,7 +17,7 @@ parser.add_argument('--browser', default='/opt/brave.com/brave/brave')
 parser.add_argument('--output', type=Path, default=Path('/tmp/ihub-accessibility-qa'))
 args = parser.parse_args()
 args.output.mkdir(parents=True, exist_ok=True)
-routes = ['', 'about', 'resources', 'references', 'management-systems', 'online-learning', 'digital-learning', 'tutoring', 'steam', 'workforce', 'lms', 'settings', 'feedback', 'feedback/thank-you', 'visual-impairment', 'intellectual-developmental-disabilities', 'hearing-impairment', 'dual-sensory-loss']
+routes = ['', 'about', 'resources', 'references', 'management-systems', 'online-learning', 'digital-learning', 'tutoring', 'steam', 'workforce', 'lms', 'settings', 'self-assessment', 'feedback', 'feedback/thank-you', 'visual-impairment', 'intellectual-developmental-disabilities', 'hearing-impairment', 'dual-sensory-loss']
 guide_routes = {'management-systems', 'online-learning', 'digital-learning', 'tutoring', 'steam', 'workforce', 'lms', 'visual-impairment', 'intellectual-developmental-disabilities', 'hearing-impairment', 'dual-sensory-loss'}
 results = []
 errors = []
@@ -35,6 +35,10 @@ speech_stub = """(() => {
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True, executable_path=args.browser)
     context = browser.new_context(viewport={'width': 1440, 'height': 1000}, color_scheme='light')
+    # Existing analytics must not introduce network/CSP timing noise into local QA.
+    context.route(re.compile(r'https?://([^/]*\.)?(googletagmanager\.com|google-analytics\.com)/'), lambda route: route.abort())
+    socket_url = args.url.rstrip('/').replace('https://', 'wss://').replace('http://', 'ws://')
+    context.route_web_socket(re.compile('^' + re.escape(socket_url) + '/'), lambda socket: None)
     page = context.new_page()
     page.on('pageerror', lambda error: errors.append(str(error)))
     def go(route):
@@ -122,7 +126,7 @@ with sync_playwright() as p:
     # SPA navigation must wait for the actual lazy page to commit.
     go('')
     page.route('**/pages/ResourcesPage.tsx*', lambda route: route.continue_())
-    page.get_by_role('navigation', name='Main navigation', exact=True).get_by_role('link', name='Resources', exact=True).click()
+    page.get_by_role('contentinfo').get_by_role('link', name='Global resources', exact=True).click()
     expect(page).to_have_title(re.compile('Keep building your understanding'))
     expect(page.locator('main h1')).to_be_focused()
     page.go_back()
@@ -226,6 +230,8 @@ with sync_playwright() as p:
 
     # Deterministic speech lifecycle (real audio needs manual listening).
     speech_context = browser.new_context()
+    speech_context.route(re.compile(r'https?://([^/]*\.)?(googletagmanager\.com|google-analytics\.com)/'), lambda route: route.abort())
+    speech_context.route_web_socket(re.compile('^' + re.escape(socket_url) + '/'), lambda socket: None)
     speech_context.add_init_script(speech_stub)
     speech_context.add_init_script("localStorage.setItem('ihub-accessibility-v1', JSON.stringify({readAloudControls:true}))")
     speech = speech_context.new_page()
@@ -251,6 +257,9 @@ with sync_playwright() as p:
     speech.evaluate('lastUtterance.onend()')
     assert speech.evaluate('speechCalls.length') == before + 1
     speech.get_by_role('link', name='Reading preferences', exact=True).click()
+    # Wait for lazy navigation/unmount cancellation before measuring stale events.
+    expect(speech.get_by_role('button', name='Reset to defaults', exact=True)).to_be_visible()
+    expect(speech.get_by_role('region', name='Guide reading tools')).to_have_count(0)
     cancelled = speech.evaluate('cancelCalls')
     speech.evaluate('lastUtterance.onend()')
     assert speech.evaluate('cancelCalls') == cancelled

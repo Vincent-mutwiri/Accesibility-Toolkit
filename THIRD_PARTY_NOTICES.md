@@ -16,3 +16,12 @@ status reporting and startup timeout; expanded exclusions for app controls and
 icons; React-rendered ruler with pointer, touch, keyboard and focus support,
 without the original dimming overlays. No AI provider, telemetry, external
 service or global adapter registration is included.
+
+## Self-assessment PDF font
+
+The self-assessment report embeds the locally hosted
+`public/fonts/DejaVuSans.ttf`. DejaVu fonts are based on Bitstream Vera and
+include public-domain DejaVu changes. The complete font copyright, permission,
+and redistribution conditions are reproduced in
+`public/fonts/DejaVu-LICENSE.txt`. The font is loaded only when generating a
+self-assessment PDF; no report text is sent to an external font service.

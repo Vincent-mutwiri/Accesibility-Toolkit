@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom';
+import '../assessment/assessment.css';
 const ToolkitDownloadButton = React.lazy(() => import('../accessibility/ToolkitPdfExport'));
 const categories = [
   { title: 'Online learning', path: '/online-learning', icon: 'laptop_chromebook', desc: 'Make internet-based lessons, virtual classrooms, and courses accessible to more learners.' },
@@ -23,6 +24,7 @@ const LandingPage: React.FC = () => <>
       <div className="hero-audience"><span className="material-icons" aria-hidden="true">groups</span><span>For educators, designers, and EdTech product teams.</span></div>
     </div><div className="hero-art"><div className="hero-pattern" aria-hidden="true" /><div className="hero-note"><span className="material-icons" aria-hidden="true">diversity_3</span><h2>Different learners.<br />Shared possibilities.</h2><p>Make room for more ways to learn.</p></div></div>
   </section>
+  <section className="assessment-entry site-container" aria-labelledby="assessment-entry-title"><div><h2 id="assessment-entry-title">Where can your learning experience improve?</h2><p>Work through 22 questions, get guidance as you answer, and download your own accessibility and inclusion improvement report.</p></div><Link to="/self-assessment" className="brand-button">Start a self-assessment<span className="material-icons" aria-hidden="true">arrow_forward</span></Link></section>
   <section className="foundations-section" aria-labelledby="foundations-title">
     <div className="site-container foundations-inner">
     <div className="foundations-intro"><h2 id="foundations-title">Good design considers everyone.</h2><p>Innovation alone does not remove barriers. Limited connectivity, low-resource settings, and inaccessible interfaces can prevent learners from taking part.</p><p>This toolkit connects inclusion principles to product design, development, and evaluation, so your team can make more informed decisions.</p></div>

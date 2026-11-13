@@ -1,4 +1,5 @@
-import React, { useState, useId } from 'react';
+import React, { useState, useId, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { usePdfCapturing } from '../accessibility/pdfCapture';
 
 interface ChecklistItem {
@@ -13,6 +14,10 @@ interface ChecklistProps {
 const Checklist: React.FC<ChecklistProps> = ({ title = "Downloadable Checklist", items }) => {
   const [checkedItems, setCheckedItems] = useState<Record<number, boolean>>({});
   const [userOpened, setUserOpened] = useState(false);
+  const { search } = useLocation();
+  useEffect(() => {
+    if (new URLSearchParams(search).get('section') === 'checklist') setUserOpened(true);
+  }, [search]);
   // Force the checklist fully expanded while a PDF is being captured so the
   // exported document shows every item, not just the collapsed toggle.
   const capturing = usePdfCapturing();

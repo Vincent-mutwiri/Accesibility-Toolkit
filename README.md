@@ -100,6 +100,7 @@ The toolkit covers six main EdTech product categories:
 - **Resources Page**: Additional tools and references
 - **Feedback Page**: User feedback collection with auto-save
 - **Settings Page**: User preferences and customization
+- **Self-Assessment Page**: A 22-question reflection with instant guidance, implementation details, browser drafts, and a text-based PDF improvement report
 
 ### Features
 - **Responsive Navigation**: Desktop and mobile-friendly navigation
@@ -107,6 +108,58 @@ The toolkit covers six main EdTech product categories:
 - **Form Persistence**: Auto-save functionality prevents data loss
 - **Google Sheets Integration**: Feedback data automatically stored
 - **Accessibility Compliant**: WCAG guidelines implemented throughout
+
+## Self-assessment
+
+Open `/#/self-assessment`, or use **Self-assessment** in the navigation or the
+landing-page assessment link. Existing guide checklists remain separate.
+
+- Answer Yes, No / Not yet fully, or Not sure. Not applicable is limited to
+  questions about absent image, prerecorded video, audio/video, or document content.
+- Yes reveals implementation examples plus Other, or an open-ended prompt.
+  Other descriptions and Not applicable explanations are required; incomplete
+  answers remain exportable as a clearly marked partial assessment.
+- No reveals immediate improvement guidance. Not sure explains how to check.
+- Review findings to edit answers and download the report. Findings are
+  self-reported, not an accessibility score, audit, or certification.
+- Drafts use the dedicated `ihub-accessibility-self-assessment:v1` local-storage
+  record. Answers are not submitted to the feedback service or another server.
+  Do not enter sensitive learner details; clear drafts on shared devices.
+- Invalid or incompatible drafts are not automatically overwritten. If storage
+  is blocked, the assessment continues in memory with a visible warning. This
+  session-only draft survives same-tab toolkit navigation, but not a page reload
+  or closing the tab.
+
+Question content and verification prompts live in `assessment/questions.ts`.
+Update the question-set version when wording/options/applicability changes.
+`assessment/model.ts` validates drafts and derives the shared HTML/PDF report.
+Toolkit links use a `section` query parameter inside the HashRouter route.
+
+PDF generation dynamically loads the installed jsPDF dependency and the local,
+licensed DejaVu font. The PDF contains selectable text and page numbers, but is
+**not a tagged accessible PDF**. The full report remains available as structured
+HTML. Unsupported characters or writing systems produce an explicit export
+error rather than silently changing user text; use the HTML report in that case.
+The export can be retried after a font/network failure.
+
+### Verification
+
+With the existing local Python Playwright, pypdf, and Brave installation:
+
+```sh
+pnpm exec tsc --noEmit
+pnpm build
+pnpm dev
+# In another terminal, while the server is running:
+python3 tests/check_self_assessment.py --url http://localhost:3000
+python3 tests/check_accessibility.py --url http://localhost:3000 --axe /tmp/ihub-axe.min.js
+python3 tests/check_pdf_export.py
+```
+
+The optional local axe bundle is not a project dependency. The assessment suite
+covers branching, active-only report details, drafts, errors, PDF extraction,
+keyboard focus, and mobile layouts. Real screen-reader/device checks and PDF
+accessibility review remain necessary before making conformance claims.
 
 ## 🤝 Contributing
 
