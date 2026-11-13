@@ -136,6 +136,60 @@ with sync_playwright() as p:
     page.keyboard.press('Enter')
     expect(page.locator('#main-content')).to_be_focused()
 
+    # Credits preserve the supplied names/order and are reachable by keyboard
+    # from any footer, including same-route navigation on the About page.
+    acknowledgement_link = page.get_by_role('contentinfo').get_by_role('link', name='Acknowledgements', exact=True)
+    expect(acknowledgement_link).to_have_attribute('href', '#/about?section=acknowledgements')
+    acknowledgement_link.focus()
+    page.keyboard.press('Enter')
+    acknowledgements = page.get_by_role('region', name='Acknowledgements', exact=True)
+    heading = acknowledgements.get_by_role('heading', name='Acknowledgements', level=2, exact=True)
+    expect(heading).to_be_focused()
+    expect(acknowledgements.locator('h3')).to_have_text([
+        'Core Project Team & Contributors', 'Institutional Validation & Partner Organizations', 'Ecosystem Support',
+    ])
+    credits = [
+        ('Nissi', 'For strategic alignment, leadership, and review of overall project quality.'),
+        ('Lucy', 'For subject-matter expertise in inclusive design and instructional accessibility.'),
+        ('Famous', 'For contributions to framework design and technical delivery.'),
+        ('Ayotunde', 'For foundational research, document structure, and content architecture.'),
+        ('Pauline', 'For program coordination, analytics tracking, and stakeholder communication.'),
+        ('Vincent', 'For platform engineering, front-end deployment, and technical implementation.'),
+        ('Longarves', 'For concept formulation, session architecture, and program execution.'),
+        ('Nelius', 'For operational support, feedback synthesis, and quality checks.'),
+        ('Kip', 'For user interface design, accessibility standards alignment, and technical review.'),
+        ('Kenya Institute of Special Education (KISE)', "For expert validation, field insight, and grounding the toolkit's guidelines in special education standards and lived experience."),
+        ('Carnegie Mellon University (CMU)', 'For learning science deep-dives, academic alignment, and evidence-based validation.'),
+        ('iHUB & CcHUB', 'For institutional backing, platform infrastructure, and driving ecosystem socialization during EdTech Impact Week.'),
+        ('Mastercard Foundation EdTech Fellowship', 'For strategic partnership and support in scaling inclusive EdTech solutions across the region.'),
+    ]
+    expect(acknowledgements.locator('ul')).to_have_count(3)
+    expect(acknowledgements.locator('li')).to_have_text([f'{name} – {contribution}' for name, contribution in credits])
+    expect(acknowledgements).not_to_contain_text('Google Doc')
+    # The documentation and site use the same names and contribution text.
+    readme = (Path(__file__).resolve().parents[1] / 'README.md').read_text()
+    for name, contribution in credits:
+        assert f'**{name}** – {contribution}' in readme
+    page.reload(wait_until='networkidle')
+    expect(heading).to_be_focused()
+    go('about')
+    acknowledgement_link.focus()
+    page.keyboard.press('Enter')
+    expect(heading).to_be_focused()
+    page.go_back()
+    expect(page).to_have_url(re.compile(r'/#/about$'))
+    expect(page.locator('main h1')).to_be_focused()
+    page.go_forward()
+    expect(heading).to_be_focused()
+    page.screenshot(path=str(args.output / 'acknowledgements-desktop.png'), full_page=True)
+    # Deep links should work even without the optional screen-reader preference.
+    go('settings')
+    page.get_by_role('switch', name='Screen reader support', exact=True).click()
+    go('about?section=acknowledgements')
+    expect(heading).to_be_focused()
+    go('settings')
+    page.get_by_role('switch', name='Screen reader support', exact=True).click()
+
     # Settings, ruler input paths, persistence and reset.
     go('settings')
     page.get_by_role('button', name='Dark Mode', exact=True).click()
@@ -212,7 +266,10 @@ with sync_playwright() as p:
                     page.screenshot(path=str(args.output / 'overflow.png'), full_page=True)
                     offenders = page.evaluate("[...document.querySelectorAll('main *')].filter(el=>el.getBoundingClientRect().right>innerWidth+1).slice(0,8).map(el=>({tag:el.tagName,cls:el.className,text:el.innerText?.slice(0,80),right:el.getBoundingClientRect().right}))")
                     raise AssertionError(f'overflow: {route}, {width}, enhanced={enhanced}: {offenders}')
-                if enhanced and width == 320 and args.axe and route in ['online-learning', 'settings', 'feedback']:
+                if route == 'about':
+                    expect(page.locator('#acknowledgements li')).to_have_count(13)
+                    page.screenshot(path=str(args.output / f'acknowledgements-{width}-enhanced-{enhanced}.png'), full_page=True)
+                if enhanced and width == 320 and args.axe and route in ['online-learning', 'settings', 'feedback', 'about']:
                     page.add_script_tag(path=str(args.axe))
                     audit = page.evaluate("async () => await axe.run(document, {runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}})")
                     results.append({'route': route + ' (large text, spacing, high contrast, large controls)', 'violations': [{'id': v['id'], 'nodes': [n['target'] for n in v['nodes']]} for v in audit['violations']]})
@@ -220,7 +277,7 @@ with sync_playwright() as p:
 
     go('settings')
     page.get_by_role('button', name='Dark Mode', exact=True).click()
-    for route in ['online-learning', 'settings', 'feedback']:
+    for route in ['online-learning', 'settings', 'feedback', 'about']:
         go(route)
         if args.axe:
             page.add_script_tag(path=str(args.axe))

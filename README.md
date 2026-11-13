@@ -220,11 +220,35 @@ This toolkit is developed by CcHUB (Co-creation Hub), a leading technology innov
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgements
 
-- All contributors who have helped shape this toolkit
-- The global accessibility community for their ongoing advocacy
-- EdTech professionals who provided valuable feedback and insights
+The development and validation of the **iHUB Equity & Accessibility Toolkit** reflect the collective dedication, research, and technical leadership of a multi-disciplinary team committed to advancing inclusive education across digital learning ecosystems.
+
+### Core Project Team & Contributors
+
+Sincere appreciation goes to the primary project leads, researchers, learning engineers, and developers whose technical contributions and structural guidance shaped this toolkit:
+
+- **Nissi** – For strategic alignment, leadership, and review of overall project quality.
+- **Lucy** – For subject-matter expertise in inclusive design and instructional accessibility.
+- **Famous** – For contributions to framework design and technical delivery.
+- **Ayotunde** – For foundational research, document structure, and content architecture.
+- **Pauline** – For program coordination, analytics tracking, and stakeholder communication.
+- **Vincent** – For platform engineering, front-end deployment, and technical implementation.
+- **Longarves** – For concept formulation, session architecture, and program execution.
+- **Nelius** – For operational support, feedback synthesis, and quality checks.
+- **Kip** – For user interface design, accessibility standards alignment, and technical review.
+
+### Institutional Validation & Partner Organizations
+
+We extend our gratitude to our core validating institutions for ensuring the toolkit is grounded in rigorous pedagogical standards and real-world accessibility requirements:
+
+- **Kenya Institute of Special Education (KISE)** – For expert validation, field insight, and grounding the toolkit's guidelines in special education standards and lived experience.
+- **Carnegie Mellon University (CMU)** – For learning science deep-dives, academic alignment, and evidence-based validation.
+
+### Ecosystem Support
+
+- **iHUB & CcHUB** – For institutional backing, platform infrastructure, and driving ecosystem socialization during EdTech Impact Week.
+- **Mastercard Foundation EdTech Fellowship** – For strategic partnership and support in scaling inclusive EdTech solutions across the region.
 
 ---
 
